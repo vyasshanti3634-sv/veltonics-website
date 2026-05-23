@@ -3,453 +3,974 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veltonics — Premium Industrial Automation & Vision Systems | India</title>
+<meta name="description" content="Veltonics is a trusted supplier and integrator of world-class machine vision systems, smart sensors, and control components. Optimize your automation today.">
+<title>Veltonics — Industrial Automation, Sensors & Vision Systems | India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Premium Color Palette */
-    --v-blue: #0B4A8F;
-    --v-blue-dark: #051F3D;
-    --v-blue-accent: #1A6BBE;
-    --v-saffron: #E8620A;
-    --v-saffron-hover: #D15506;
+    /* Enterprise Color Palette */
+    --v-blue: #004A99;
+    --v-blue-dark: #0A192F;
+    --v-accent: #E63946;
     --v-white: #FFFFFF;
-    --v-gray-50: #F8FAFC;
-    --v-gray-100: #F1F5F9;
-    --v-gray-200: #E2E8F0;
-    --v-text-main: #0F172A;
-    --v-text-muted: #475569;
-    --font-body: 'DM Sans', sans-serif;
+    --v-gray-50: #F8F9FA;
+    --v-gray-100: #F1F3F5;
+    --v-gray-200: #E9ECEF;
+    --v-gray-border: #DEE2E6;
+    --v-text-main: #212529;
+    --v-text-muted: #495057;
+    --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
   
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--v-white); color: var(--v-text-main); line-height: 1.6; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
+  a { text-decoration: none; color: inherit; cursor: pointer; }
   img { max-width: 100%; height: auto; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
   
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-  .section { padding: 110px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; border-bottom: 1px solid var(--v-gray-border); }
   .section-bg { background: var(--v-gray-50); }
   
-  /* ANIMATIONS (Scroll Reveal) */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .delay-1 { transition-delay: 0.1s; }
-  .delay-2 { transition-delay: 0.2s; }
-  .delay-3 { transition-delay: 0.3s; }
-  .delay-4 { transition-delay: 0.4s; }
+  /* ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; }
 
-  /* NAV - Glassmorphism */
-  nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.5); z-index: 1000; transition: all 0.3s ease; }
-  nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-  .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-  .logo { font-size: 26px; font-weight: 700; color: var(--v-blue-dark); letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;}
-  .logo span { color: var(--v-saffron); }
-  .nav-links { display: flex; gap: 36px; }
-  .nav-links a { font-size: 15px; font-weight: 500; color: var(--v-text-muted); transition: color 0.3s; position: relative; }
-  .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--v-blue); transition: width 0.3s; }
+  /* TOP BAR */
+  .top-bar { background: var(--v-blue-dark); color: var(--v-gray-200); font-family: var(--font-mono); font-size: 12px; padding: 6px 0; }
+  .top-bar-inner { display: flex; justify-content: space-between; align-items: center; }
+  .top-bar-links span { margin-left: 20px; color: var(--v-white); font-weight: 500; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; width: 100%; background: var(--v-white); border-bottom: 1px solid var(--v-gray-border); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 90px; }
+  .logo { font-size: 32px; font-weight: 800; color: var(--v-blue-dark); letter-spacing: -0.5px; }
+  .logo span { color: var(--v-accent); }
+  .nav-links { display: flex; gap: 50px; height: 100%; align-items: center; margin-right: 30px; }
+  .nav-links a { font-size: 14px; font-weight: 600; color: var(--v-blue-dark); text-transform: uppercase; letter-spacing: 0.5px; position: relative; padding: 25px 0; }
   .nav-links a:hover { color: var(--v-blue); }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: var(--v-accent); transition: 0.3s; }
   .nav-links a:hover::after { width: 100%; }
-  
+
   /* BUTTONS */
-  .btn-primary { background: var(--v-blue); color: var(--v-white); padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; }
-  .btn-primary:hover { background: var(--v-blue-accent); box-shadow: 0 8px 20px rgba(11, 74, 143, 0.2); transform: translateY(-2px); }
-  .btn-secondary { border: 1px solid rgba(255,255,255,0.3); color: var(--v-white); background: rgba(255,255,255,0.05); backdrop-filter: blur(5px); padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-  .btn-secondary:hover { background: var(--v-white); color: var(--v-blue-dark); }
-  .btn-icon { transition: transform 0.3s; }
-  .btn-primary:hover .btn-icon, .btn-secondary:hover .btn-icon { transform: translateX(4px); }
+  .btn-primary { background: var(--v-blue); color: var(--v-white); padding: 12px 24px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border-radius: 4px; transition: 0.3s; }
+  .btn-primary:hover { background: var(--v-blue-dark); }
+  .btn-accent { background: var(--v-accent); color: var(--v-white); padding: 12px 24px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; border-radius: 4px; transition: 0.3s; }
+  .btn-accent:hover { background: #c1121f; }
+  
+  /* HERO */
+  .hero { background: linear-gradient(90deg, var(--v-blue-dark) 0%, #112A46 100%); color: var(--v-white); padding: 100px 0; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; right: 0; top: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200') center/cover; opacity: 0.4; mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black); }
+  .hero-content { position: relative; z-index: 2; max-width: 650px; }
+  .hero-tag { font-family: var(--font-mono); font-size: 13px; color: var(--v-accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; display: block; }
+  .hero h1 { font-size: 56px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; letter-spacing: -1px; }
+  .hero p { font-size: 18px; color: var(--v-gray-200); margin-bottom: 40px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 16px; }
 
-  /* HERO (Premium Dark Gradient) */
-  .hero { background: linear-gradient(135deg, var(--v-blue-dark) 0%, var(--v-blue) 100%); color: var(--v-white); padding: 180px 0 120px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%); pointer-events: none; }
-  .hero-tag { display: inline-block; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--v-white); padding: 8px 20px; border-radius: 30px; font-family: var(--font-mono); font-size: 13px; font-weight: 600; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 1.5px; }
-  .hero-tag span { color: var(--v-saffron); margin-right: 8px; }
-  .hero h1 { font-size: 72px; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -1.5px; }
-  .hero h1 span { color: var(--v-saffron); }
-  .hero p { font-size: 20px; color: rgba(255,255,255,0.8); max-width: 750px; margin: 0 auto 48px; font-weight: 300; line-height: 1.7; }
-  .hero-btns { display: flex; justify-content: center; gap: 20px; }
+  /* SECTION HEADERS */
+  .section-header { margin-bottom: 48px; border-left: 5px solid var(--v-accent); padding-left: 16px; }
+  .section-header h2 { font-size: 32px; color: var(--v-blue-dark); font-weight: 700; line-height: 1.2; }
+  .section-header p { color: var(--v-text-muted); font-size: 16px; margin-top: 8px; font-family: var(--font-mono); }
 
-  /* BRANDS BAR */
-  .brands-container { background: rgba(0,0,0,0.15); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 30px 0; margin-top: 80px; }
-  .brands-bar { display: flex; justify-content: center; align-items: center; gap: 64px; flex-wrap: wrap; opacity: 0.7; }
-  .brand-item { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--v-white); letter-spacing: 1px; }
+  /* CATALOG GRID */
+  .catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .catalog-card { border: 1px solid var(--v-gray-border); background: var(--v-white); padding: 24px; transition: all 0.2s; position: relative; cursor: pointer; }
+  .catalog-card:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-4px); z-index: 2; }
+  .catalog-icon { width: 50px; height: 50px; background: var(--v-gray-50); border: 1px solid var(--v-gray-border); display: flex; align-items: center; justify-content: center; border-radius: 4px; margin-bottom: 16px; }
+  .catalog-icon svg { width: 24px; height: 24px; stroke: var(--v-blue); stroke-width: 1.5; fill: none; }
+  .catalog-card h3 { font-size: 16px; color: var(--v-blue-dark); margin-bottom: 8px; font-weight: 700; }
+  .catalog-card p { font-size: 13px; color: var(--v-text-muted); margin-bottom: 16px; line-height: 1.5; }
+  .catalog-link { font-family: var(--font-mono); font-size: 12px; color: var(--v-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+  .catalog-card:hover .catalog-link { color: var(--v-accent); }
 
-  /* SECTION TITLES */
-  .section-title { text-align: center; margin-bottom: 72px; }
-  .section-tag { color: var(--v-saffron); font-family: var(--font-mono); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: block; }
-  .section-title h2 { font-size: 46px; color: var(--v-blue-dark); margin-bottom: 20px; letter-spacing: -1px; line-height: 1.2; }
-  .section-title p { color: var(--v-text-muted); font-size: 18px; max-width: 650px; margin: 0 auto; }
+  /* NEW INDUSTRY DIRECTORY GRID (Keyence Style) */
+  .industry-directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .ind-dir-card { background: var(--v-white); border: 1px solid var(--v-gray-border); padding: 32px 24px; text-align: center; border-radius: 4px; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; }
+  .ind-dir-card:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.06); transform: translateY(-4px); }
+  .ind-dir-icon { width: 64px; height: 64px; margin-bottom: 20px; color: var(--v-blue); }
+  .ind-dir-card h3 { font-size: 18px; color: var(--v-blue-dark); margin-bottom: 16px; font-weight: 700; }
+  .ind-dir-list { list-style: none; text-align: left; width: 100%; margin-bottom: 24px; flex-grow: 1; padding-left: 10px; }
+  .ind-dir-list li { font-size: 13px; color: var(--v-text-muted); margin-bottom: 8px; padding-left: 20px; position: relative; }
+  .ind-dir-list li::before { content: '■'; position: absolute; left: 0; color: var(--v-accent); font-size: 10px; top: 3px; }
+  .ind-dir-link { font-family: var(--font-mono); font-size: 13px; color: var(--v-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .ind-dir-card:hover .ind-dir-link { color: var(--v-accent); }
+  
+  /* MODAL SOLUTION ITEMS */
+  .sol-item { display: flex; gap: 24px; padding: 24px; border: 1px solid var(--v-gray-border); background: var(--v-gray-50); margin-bottom: 16px; border-radius: 4px; align-items: flex-start; }
+  .sol-icon-wrapper { width: 80px; height: 80px; background: var(--v-white); border: 1px solid var(--v-gray-200); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--v-blue); border-radius: 4px; }
+  .sol-icon-wrapper svg { width: 40px; height: 40px; stroke-width: 1.2; }
+  .sol-content h4 { font-size: 16px; color: var(--v-blue-dark); margin-bottom: 8px; }
+  .sol-content p { font-size: 13px; color: var(--v-text-muted); margin-bottom: 12px; }
+  .sol-tech { font-family: var(--font-mono); font-size: 12px; color: var(--v-blue); background: rgba(0, 74, 153, 0.05); padding: 6px 12px; border-radius: 2px; display: inline-block; border: 1px solid rgba(0, 74, 153, 0.1); margin-right: 8px; margin-bottom: 8px; }
 
-  /* TURNKEY SOLUTIONS (New Section) */
-  .turnkey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-  .turnkey-card { padding: 40px 30px; background: var(--v-white); border-radius: 12px; text-align: center; border: 1px solid var(--v-gray-200); transition: all 0.4s ease; position: relative; overflow: hidden; }
-  .turnkey-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--v-blue); transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
-  .turnkey-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-  .turnkey-card:hover::before { transform: scaleX(1); }
-  .turnkey-step { width: 50px; height: 50px; background: var(--v-gray-50); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; color: var(--v-blue); margin: 0 auto 24px; font-size: 18px; border: 1px solid var(--v-gray-200); }
-  .turnkey-card:hover .turnkey-step { background: var(--v-blue); color: var(--v-white); border-color: var(--v-blue); }
-  .turnkey-card h3 { font-size: 20px; color: var(--v-blue-dark); margin-bottom: 12px; }
-  .turnkey-card p { font-size: 15px; color: var(--v-text-muted); }
+  /* TURNKEY SOLUTIONS */
+  .turnkey-wrapper { display: flex; gap: 24px; }
+  .turnkey-step { flex: 1; border-top: 3px solid var(--v-gray-200); padding-top: 24px; position: relative; cursor: pointer; transition: 0.3s; }
+  .turnkey-step:hover { border-color: var(--v-accent); }
+  .turnkey-step:hover .tk-num { color: var(--v-accent); }
+  .tk-num { font-family: var(--font-mono); font-size: 24px; font-weight: 700; color: var(--v-gray-border); margin-bottom: 12px; transition: 0.3s; }
+  .turnkey-step h3 { font-size: 18px; color: var(--v-blue-dark); margin-bottom: 8px; }
+  .turnkey-step p { font-size: 14px; color: var(--v-text-muted); }
 
-  /* PROJECTS / CASE STUDIES (New Section) */
-  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .project-card { position: relative; border-radius: 12px; overflow: hidden; height: 400px; cursor: pointer; group; }
-  .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
-  .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 31, 61, 0.9) 0%, rgba(5, 31, 61, 0.2) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 32px; transition: all 0.4s ease; }
-  .project-card:hover .project-img { transform: scale(1.08); }
-  .project-card:hover .project-overlay { background: linear-gradient(to top, rgba(5, 31, 61, 0.95) 0%, rgba(5, 31, 61, 0.6) 100%); }
-  .project-cat { color: var(--v-saffron); font-family: var(--font-mono); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
-  .project-title { color: var(--v-white); font-size: 24px; font-weight: 700; margin-bottom: 12px; transform: translateY(20px); transition: all 0.4s ease 0.1s; }
-  .project-link { color: var(--v-white); font-size: 15px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; transform: translateY(20px); opacity: 0; transition: all 0.4s ease 0.2s; }
-  .project-card:hover .project-cat, .project-card:hover .project-title, .project-card:hover .project-link { transform: translateY(0); opacity: 1; }
-
-  /* PRODUCTS GRID (Upgraded) */
-  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-  .product-card { background: var(--v-white); border: 1px solid var(--v-gray-200); border-radius: 12px; padding: 40px; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-  .product-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -12px rgba(11, 74, 143, 0.15); border-color: var(--v-blue-accent); }
-  .product-icon { font-size: 48px; margin-bottom: 24px; display: inline-block; padding: 16px; background: var(--v-gray-50); border-radius: 12px; color: var(--v-blue); }
-  .product-brand { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--v-saffron); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .product-title { font-size: 22px; font-weight: 700; color: var(--v-blue-dark); margin-bottom: 16px; }
-  .product-desc { color: var(--v-text-muted); font-size: 16px; line-height: 1.6; }
-
-  /* ABOUT / HUMAN ELEMENT */
-  .human-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .human-content h3 { font-size: 40px; color: var(--v-blue-dark); margin-bottom: 24px; line-height: 1.2; letter-spacing: -1px; }
-  .human-content p { font-size: 18px; color: var(--v-text-muted); margin-bottom: 32px; }
-  .feature-list { list-style: none; margin-bottom: 40px; }
-  .feature-list li { display: flex; align-items: center; gap: 16px; font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--v-text-main); }
-  .feature-list li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(232, 98, 10, 0.1); color: var(--v-saffron); border-radius: 50%; font-size: 14px; }
-  .human-img-wrapper { position: relative; }
-  .human-img { width: 100%; height: 500px; object-fit: cover; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-  .experience-badge { position: absolute; bottom: -24px; left: -24px; background: var(--v-saffron); color: var(--v-white); padding: 32px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(232, 98, 10, 0.3); }
-  .experience-badge h4 { font-size: 36px; font-weight: 700; margin-bottom: 4px; }
-  .experience-badge span { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  /* INQUIRY FORM */
+  .inquiry-section { background: var(--v-blue-dark); color: var(--v-white); }
+  .inquiry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .inquiry-text h2 { font-size: 36px; margin-bottom: 16px; }
+  .inquiry-text p { color: var(--v-gray-200); margin-bottom: 32px; }
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono); }
+  .contact-method { display: flex; align-items: center; gap: 16px; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+  .contact-method svg { stroke: var(--v-accent); width: 24px; height: 24px; }
+  
+  .inquiry-form { background: var(--v-white); padding: 40px; border-radius: 4px; color: var(--v-text-main); }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--v-blue-dark); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--v-gray-border); border-radius: 4px; font-family: var(--font-body); font-size: 14px; background: var(--v-gray-50); }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--v-blue); background: var(--v-white); }
+  .btn-submit { width: 100%; background: #25D366; color: white; padding: 16px; font-weight: 700; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; }
+  .btn-submit:hover { background: #1ebe57; }
 
   /* FOOTER */
-  footer { background: var(--v-blue-dark); color: var(--v-white); padding: 100px 0 40px; border-top: 4px solid var(--v-saffron); }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 80px; }
-  .footer-col h4 { font-size: 16px; margin-bottom: 24px; color: var(--v-white); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 1px; }
-  .footer-logo { font-size: 32px; font-weight: 700; color: var(--v-white); margin-bottom: 24px; display: inline-block; letter-spacing: 0.5px; }
-  .footer-logo span { color: var(--v-saffron); }
-  .footer-text { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 32px; max-width: 320px; line-height: 1.8; }
+  footer { background: #050d1a; color: var(--v-gray-200); padding: 60px 0 30px; font-size: 14px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
+  .footer-logo { font-size: 24px; font-weight: 800; color: var(--v-white); margin-bottom: 16px; display: inline-block; }
+  .footer-logo span { color: var(--v-accent); }
+  .footer-col h4 { color: var(--v-white); font-size: 15px; margin-bottom: 20px; font-family: var(--font-mono); text-transform: uppercase; }
   .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 16px; }
-  .footer-links a { color: rgba(255,255,255,0.7); font-size: 15px; transition: color 0.3s; }
-  .footer-links a:hover { color: var(--v-saffron); }
-  .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;}
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a:hover { color: var(--v-accent); }
+  .footer-bottom { text-align: center; font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  /* MODAL SYSTEM */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(4px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s; }
+  .modal-overlay.active { display: flex; opacity: 1; }
+  .modal-content { background: var(--v-white); width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(20px); transition: 0.3s; }
+  .modal-overlay.active .modal-content { transform: translateY(0); }
+  .modal-header { padding: 24px 32px; border-bottom: 1px solid var(--v-gray-border); display: flex; justify-content: space-between; align-items: center; background: var(--v-gray-50); position: sticky; top: 0; z-index: 10; }
+  .modal-header h2 { font-size: 20px; color: var(--v-blue-dark); }
+  .modal-close { font-size: 28px; color: var(--v-text-muted); cursor: pointer; line-height: 1; }
+  .modal-close:hover { color: var(--v-accent); }
+  .modal-body { padding: 32px; }
+  .modal-body h3 { font-size: 18px; color: var(--v-blue); margin-top: 24px; margin-bottom: 12px; font-family: var(--font-mono); }
+  .modal-body p { margin-bottom: 16px; color: var(--v-text-muted); }
+  .modal-body ul { margin-left: 20px; margin-bottom: 24px; color: var(--v-text-muted); }
+  .modal-body li { margin-bottom: 8px; }
+  
+  .corp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .corp-card { padding: 20px; border: 1px solid var(--v-gray-border); border-radius: 4px; background: var(--v-gray-50); }
+  .corp-card h4 { color: var(--v-blue-dark); margin-bottom: 8px; font-size: 15px; }
 
   @media (max-width: 1024px) {
-    .turnkey-grid { grid-template-columns: repeat(2, 1fr); }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    .human-grid { grid-template-columns: 1fr; gap: 40px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .industry-directory-grid { grid-template-columns: repeat(2, 1fr); }
+    .inquiry-grid { grid-template-columns: 1fr; gap: 40px; }
+    .corp-grid { grid-template-columns: 1fr; }
   }
-
   @media (max-width: 768px) {
-    .nav-links, .nav-action { display: none; } /* Add hamburger menu logic if needed */
-    .hero { padding: 140px 0 80px; }
-    .hero h1 { font-size: 48px; }
-    .hero-btns { flex-direction: column; }
-    .btn-secondary { justify-content: center; }
-    .turnkey-grid, .projects-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-    .experience-badge { left: 50%; transform: translateX(-50%); bottom: -20px; width: 80%; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+    .nav-links, .top-bar { display: none; }
+    .hero h1 { font-size: 40px; }
+    .catalog-grid, .industry-directory-grid { grid-template-columns: 1fr; }
+    .sol-item { flex-direction: column; }
+    .turnkey-wrapper { flex-direction: column; }
+    .turnkey-step { border-top: none; border-left: 3px solid var(--v-gray-200); padding-top: 0; padding-left: 24px; margin-bottom: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-  <nav id="navbar">
+  <!-- Top Technical Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>B2B Industrial Automation & Turnkey SPM Integrator</div>
+      <div class="top-bar-links">
+        Support: <span>+91 9724648038</span>
+        Email: <span>sales@veltonics.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
     <div class="container nav-inner">
       <a href="#" class="logo">VELTONICS<span>.</span></a>
       <div class="nav-links">
-        <a href="#turnkey">Turnkey Solutions</a>
-        <a href="#projects">Projects</a>
-        <a href="#products">Components</a>
-        <a href="#about">Why Us</a>
+        <a onclick="openModal('modal-catalog')">Products</a>
+        <a onclick="openModal('modal-turnkey')">Turnkey & SPMs</a>
+        <a href="#applications">Industry Apps</a>
+        <a onclick="openModal('modal-corporate')">Company Profile</a>
       </div>
-      <div class="nav-action">
-        <a href="mailto:sales@veltonics.com" class="btn-primary">
-          Contact Sales <span class="btn-icon">→</span>
-        </a>
+      <div>
+        <a href="#inquiry" class="btn-accent">Request Quote</a>
       </div>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <header class="hero">
-    <div class="container reveal">
-      <div class="hero-tag"><span>●</span> System Integrator & Industrial Product Supplier</div>
-      <h1>Intelligent Automation <br><span>Engineered for India.</span></h1>
-      <p>From component supply to complete turnkey robotics. We deliver world-class machine vision, smart sensors, and automated assembly solutions with pure engineering honesty.</p>
-      <div class="hero-btns">
-        <a href="#turnkey" class="btn-primary">
-          Explore Solutions <span class="btn-icon">→</span>
-        </a>
-        <a href="#products" class="btn-secondary">
-          View Component Catalog
-        </a>
-      </div>
-    </div>
-    
-    <div class="brands-container reveal delay-2">
-      <div class="container brands-bar">
-        <div class="brand-item"></div>
-        <div class="brand-item"></div>
-        <div class="brand-item"></div>
-        <div class="brand-item"></div>
-        <div class="brand-item"></div>
+    <div class="container">
+      <div class="hero-content reveal active">
+        <span class="hero-tag">Total Automation Ecosystem</span>
+        <h1>Engineering the Future of Manufacturing.</h1>
+        <p>Your single-window partner for premium industrial sensors, machine vision systems, custom Special Purpose Machines (SPM), and Annual Maintenance Contracts.</p>
+        <div class="hero-btns">
+          <button onclick="openModal('modal-catalog')" class="btn-primary">Explore Products</button>
+          <button onclick="openModal('modal-corporate')" style="background: transparent; border: 1px solid white; color: white;" class="btn-primary">Company Profile</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- NEW: TURNKEY SOLUTIONS SECTION -->
-  <section id="turnkey" class="section">
+  <!-- Products Matrix -->
+  <section id="products" class="section section-bg">
     <div class="container">
-      <div class="section-title reveal">
-        <span class="section-tag">End-To-End Execution</span>
-        <h2>Turnkey Automation Solutions</h2>
-        <p>We don't just sell parts. We design, build, and deploy custom special purpose machines (SPM) and robotic cells tailored exactly to your production line.</p>
+      <div class="section-header reveal">
+        <h2>Hardware Product Categories</h2>
+        <p>ELECTRICAL • AUTOMATION • VISION • SAFETY</p>
       </div>
-      
-      <div class="turnkey-grid">
-        <div class="turnkey-card reveal delay-1">
-          <div class="turnkey-step">01</div>
-          <h3>Concept & Design</h3>
-          <p>3D CAD modeling, cycle time analysis, and proof-of-concept testing to ensure feasibility before investment.</p>
+
+      <div class="catalog-grid">
+        <div class="catalog-card reveal delay-1" onclick="openModal('modal-sensors')">
+          <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Industrial Sensors</h3>
+          <p>Photoelectric, Proximity, Laser Measurement, and Fiber Optic sensors.</p>
+          <span class="catalog-link">View Specifications →</span>
         </div>
-        <div class="turnkey-card reveal delay-2">
-          <div class="turnkey-step">02</div>
-          <h3>Electrical & PLC</h3>
-          <p>Custom control panel design, advanced PLC programming, and seamless SCADA/HMI integration.</p>
+        <div class="catalog-card reveal delay-2" onclick="openModal('modal-vision')">
+          <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21h10"/></svg></div>
+          <h3>Machine Vision</h3>
+          <p>Smart Cameras, 3D Profilers, lenses, and industrial DC LED lighting.</p>
+          <span class="catalog-link">View Specifications →</span>
         </div>
-        <div class="turnkey-card reveal delay-3">
-          <div class="turnkey-step">03</div>
-          <h3>Robot & Vision</h3>
-          <p>Integration of 6-axis cobots, high-speed delta robots, and AI-driven machine vision inspection systems.</p>
+        <div class="catalog-card reveal delay-1" onclick="openModal('modal-plc')">
+          <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3>Controllers & HMI</h3>
+          <p>Micro/Modular PLCs, Touch Panel Displays, and motion controllers.</p>
+          <span class="catalog-link">View Specifications →</span>
         </div>
-        <div class="turnkey-card reveal delay-4">
-          <div class="turnkey-step">04</div>
-          <h3>Commissioning</h3>
-          <p>On-site installation, rigorous SAT (Site Acceptance Testing), and comprehensive operator training.</p>
+        <div class="catalog-card reveal delay-2" onclick="openModal('modal-panel')">
+          <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>Panel Components</h3>
+          <p>DIN-rail SMPS, Solid State Relays, Contactors, and Ethernet switches.</p>
+          <span class="catalog-link">View Specifications →</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NEW: PROJECTS / CASE STUDIES SECTION -->
-  <section id="projects" class="section section-bg">
+  <!-- UPGRADED: Keyence-Style Industry Directory -->
+  <section id="applications" class="section section-bg">
     <div class="container">
-      <div class="section-title reveal">
-        <span class="section-tag">Proven Track Record</span>
-        <h2>Featured Projects</h2>
-        <p>Explore how we've helped manufacturing plants across Gujarat and India increase throughput, eliminate defects, and reduce downtime.</p>
+      <div class="section-header reveal" style="text-align: center; border-left: none; display: flex; flex-direction: column; align-items: center;">
+        <h2 style="position: relative; padding-bottom: 16px;">Application Solutions by Industry
+          <span style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--v-accent);"></span>
+        </h2>
+        <p style="margin-top: 16px; max-width: 600px;">Select your industry sector to explore standard automation, measurement, and inspection deployments.</p>
       </div>
 
-      <div class="projects-grid">
-        <div class="project-card reveal delay-1">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Vision Inspection" class="project-img">
-          <div class="project-overlay">
-            <span class="project-cat">Machine Vision</span>
-            <h3 class="project-title">High-Speed PCB Defect Inspection</h3>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal delay-2">
-          <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&q=80&w=800" alt="Robotic Palletizing" class="project-img">
-          <div class="project-overlay">
-            <span class="project-cat">Robotics</span>
-            <h3 class="project-title">End-of-Line Pharma Palletizing Cell</h3>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal delay-3">
-          <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80&w=800" alt="Assembly Line" class="project-img">
-          <div class="project-overlay">
-            <span class="project-cat">Turnkey SPM</span>
-            <h3 class="project-title">Automated Automotive Part Assembly</h3>
-            <span class="project-link">View Case Study →</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UPGRADED: PRODUCTS GRID -->
-  <section id="products" class="section">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-tag">Premium Hardware</span>
-        <h2>Component Catalog</h2>
-        <p>Sourcing the world's best industrial components with deep local inventory and expert application support across India.</p>
-      </div>
-      
-      <div class="product-grid">
-        <div class="product-card reveal delay-1">
-          <div class="product-icon">📷</div>
-          <div class="product-brand">Machine Vision</div>
-          <h3 class="product-title">Smart Vision Cameras</h3>
-          <p class="product-desc">Integrated 1MP–12MP smart cameras tailored for high-speed defect detection, OCR, barcode reading, and precise dimensional measurement.</p>
-        </div>
-        
-        <div class="product-card reveal delay-2">
-          <div class="product-icon">🎯</div>
-          <div class="product-brand">3D Vision</div>
-          <h3 class="product-title">3D Profile Sensors</h3>
-          <p class="product-desc">High-precision structured light cameras for reliable bin picking, robotic guidance, and highly accurate volumetric measurement.</p>
-        </div>
-        
-        <div class="product-card reveal delay-3">
-          <div class="product-icon">💡</div>
-          <div class="product-brand">Illumination</div>
-          <h3 class="product-title">Industrial DC Lighting</h3>
-          <p class="product-desc">Ring, bar, dome, and backlights engineered specifically for high-contrast machine vision. 24V DC driven and IP67 rated for harsh environments.</p>
-        </div>
-
-        <div class="product-card reveal delay-1">
-          <div class="product-icon">📡</div>
-          <div class="product-brand">Smart Sensors</div>
-          <h3 class="product-title">Photoelectric Sensors</h3>
-          <p class="product-desc">Through-beam, retroreflective, and diffuse sensors equipped with IO-Link support for Industry 4.0 data logging. Detection up to 60m.</p>
-        </div>
-        
-        <div class="product-card reveal delay-2">
-          <div class="product-icon">🔌</div>
-          <div class="product-brand">Power Supplies</div>
-          <h3 class="product-title">Industrial SMPS</h3>
-          <p class="product-desc">Ultra-reliable DIN-rail power supplies. Available in 24VDC & 48VDC outputs from 10W to 960W. Built for panel and machine builders.</p>
-        </div>
-        
-        <div class="product-card reveal delay-3">
-          <div class="product-icon">🔧</div>
-          <div class="product-brand">Panel Products</div>
-          <h3 class="product-title">DIN Rail Components</h3>
-          <p class="product-desc">A complete portfolio of terminal blocks, heavy-duty contactors, solid-state relays, and unmanaged networking switches for control panels.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UPGRADED: ABOUT SECTION -->
-  <section id="about" class="section section-bg">
-    <div class="container">
-      <div class="human-grid">
-        <div class="human-content reveal">
-          <span class="section-tag">Why Choose Us</span>
-          <h3>The Veltonics Engineering Difference</h3>
-          <p>We believe trust in automation is built on transparency and the human element. We don't just ship boxes; our team deploys directly to your shop floor to ensure the technology practically solves your production bottleneck.</p>
-          <ul class="feature-list">
-            <li><strong>Unbiased OEM Selection:</strong> We recommend the best brand for the job, not just what's in stock.</li>
-            <li><strong>Proof of Concept:</strong> Rigorous on-site application testing before you commit to a purchase.</li>
-            <li><strong>Deep Local Support:</strong> Gujarat-based engineering team ready to troubleshoot on your floor.</li>
-            <li><strong>Ready Inventory:</strong> Massive local stocking to minimize your machine downtime.</li>
+      <div class="industry-directory-grid reveal delay-1">
+        <!-- Auto -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-auto')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          <h3>Automotive & Mobility</h3>
+          <ul class="ind-dir-list">
+            <li>Engine Block Machining Inspection</li>
+            <li>Robotic Welding Cell Safeguarding</li>
+            <li>O-Ring & Assembly Verification</li>
           </ul>
-          <a href="mailto:sales@veltonics.com" class="btn-primary">
-            Talk to an Engineer <span class="btn-icon">→</span>
-          </a>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
         </div>
-        <div class="human-img-wrapper reveal delay-2">
-          <!-- Using a premium Unsplash industrial image -->
-          <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=800" alt="Industrial Engineering Team" class="human-img">
-          <div class="experience-badge">
-            <h4>4+</h4>
-            <span>Years of Industry Experience</span>
-          </div>
+        
+        <!-- Pharma -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-pharma')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M8 9v6"/><path d="M16 9v6"/><path d="M12 9v6"/></svg>
+          <h3>Pharma & Food Packaging</h3>
+          <ul class="ind-dir-list">
+            <li>Blister Pack Pill OCR & Counting</li>
+            <li>Bottle Liquid Level & Cap Inspection</li>
+            <li>Cartoner Machine Safety Interlocks</li>
+          </ul>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
+        </div>
+        
+        <!-- Plastics -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-plastics')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <h3>Plastics & Molding</h3>
+          <ul class="ind-dir-list">
+            <li>Injection Mold Part Protection</li>
+            <li>Hopper Material Level Monitoring</li>
+            <li>High-Speed Part Ejection Check</li>
+          </ul>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
+        </div>
+        
+        <!-- Electronics -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-elec')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          <h3>Electronics Assembly</h3>
+          <ul class="ind-dir-list">
+            <li>PCB Solder Paste Inspection</li>
+            <li>Electrostatic Discharge Control</li>
+            <li>Micro-Component Pick & Place</li>
+          </ul>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
+        </div>
+        
+        <!-- Metal -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-metal')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 7V3"/><path d="M18 7V3"/><path d="M6 21v-4"/><path d="M18 21v-4"/><circle cx="12" cy="12" r="2"/></svg>
+          <h3>Metal Stamping & Fabrication</h3>
+          <ul class="ind-dir-list">
+            <li>Press Machine Area Scanning</li>
+            <li>Sheet Metal Double-Feed Detection</li>
+            <li>Stamped Part Dimensional Gauging</li>
+          </ul>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
+        </div>
+        
+        <!-- Logistics -->
+        <div class="ind-dir-card" onclick="openModal('modal-app-logistics')">
+          <svg class="ind-dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <h3>Warehousing & Logistics</h3>
+          <ul class="ind-dir-list">
+            <li>High-Speed Barcode Routing</li>
+            <li>Pallet Volume Dimensioning</li>
+            <li>Automated Conveyor Tracking</li>
+          </ul>
+          <span class="ind-dir-link">View Solutions &rarr;</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Turnkey Solutions Process -->
+  <section class="section section-bg">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Turnkey Integration & SPMs</h2>
+        <p>END-TO-END AUTOMATION DEPLOYMENT</p>
+      </div>
+      <div class="turnkey-wrapper reveal delay-1">
+        <div class="turnkey-step" onclick="openModal('modal-turnkey')">
+          <div class="tk-num">01.</div>
+          <h3>System Design</h3>
+          <p>3D CAD modeling, cycle time analysis, and proof-of-concept testing.</p>
+        </div>
+        <div class="turnkey-step" onclick="openModal('modal-turnkey')">
+          <div class="tk-num">02.</div>
+          <h3>Control Engineering</h3>
+          <p>Custom panel building, PLC programming, and SCADA architecture.</p>
+        </div>
+        <div class="turnkey-step" onclick="openModal('modal-turnkey')">
+          <div class="tk-num">03.</div>
+          <h3>Robotics & Vision</h3>
+          <p>Integration of multi-axis robots and AI-driven defect inspection.</p>
+        </div>
+        <div class="turnkey-step" onclick="openModal('modal-turnkey')">
+          <div class="tk-num">04.</div>
+          <h3>AMC & Support</h3>
+          <p>Ongoing Annual Maintenance Contracts to guarantee machine uptime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM (WhatsApp Integrated) -->
+  <section id="inquiry" class="section inquiry-section">
+    <div class="container">
+      <div class="inquiry-grid reveal">
+        <div class="inquiry-text">
+          <span class="hero-tag" style="color: var(--v-white);">Request Quotation</span>
+          <h2>Talk to an Applications Engineer</h2>
+          <p>Submit your component requirements, AMC inquiries, or SPM automation challenges. Our engineers will review your application and recommend the optimal solution.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <div style="font-size: 12px; color: var(--v-gray-200);">Direct WhatsApp / Call</div>
+                <div style="font-size: 18px; font-weight: 700;">+91 9724648038</div>
+              </div>
+            </div>
+            <div class="contact-method">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <div style="font-size: 12px; color: var(--v-gray-200);">Corporate Sales</div>
+                <div style="font-size: 18px; font-weight: 700;">sales@veltonics.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inquiry-form">
+          <h3 style="margin-bottom: 24px; color: var(--v-blue-dark);">Hardware Inquiry Form</h3>
+          <form onsubmit="sendToWhatsApp(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="wa-name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" id="wa-company" required placeholder="Enter company name">
+            </div>
+            <div class="form-group">
+              <label>Product / Service Interest</label>
+              <select id="wa-product">
+                <option value="Component Supply">Component Supply (Sensors/Vision/PLC)</option>
+                <option value="Turnkey SPM Project">Turnkey / SPM Automation Project</option>
+                <option value="AMC Services">Annual Maintenance Contract (AMC)</option>
+                <option value="Panel Building">Control Panel Building</option>
+                <option value="Other">Other Requirement</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Application Details / Requirements</label>
+              <textarea id="wa-details" rows="4" required placeholder="Describe your application or list part numbers..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              Send via WhatsApp
+            </button>
+            <p style="font-size: 11px; text-align: center; margin-top: 12px; color: var(--v-text-muted);">This will redirect you to WhatsApp to send your inquiry directly to our engineering team.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col reveal">
-          <a href="#" class="footer-logo">VELTONICS<span>.</span></a>
-          <p class="footer-text">Precision Engineered. India Delivered. Providing world-class automation components and unbiased turnkey integration consulting.</p>
-          <div style="color:var(--v-white); font-weight: 600; font-family: var(--font-mono);">
-            <p>sales@veltonics.com</p>
-            <p>+91 9724648038</p>
-          </div>
+      <div class="footer-grid reveal">
+        <div class="footer-col">
+          <div class="footer-logo">VELTONICS<span>.</span></div>
+          <p style="font-size: 13px; line-height: 1.8; color: var(--v-text-muted); max-width: 300px;">Your single-window ecosystem for industrial automation components, custom SPMs, and comprehensive factory AMCs across India.</p>
         </div>
-        <div class="footer-col reveal delay-1">
+        <div class="footer-col">
           <h4>Capabilities</h4>
           <ul class="footer-links">
-            <li><a href="#turnkey">Turnkey SPM Design</a></li>
-            <li><a href="#turnkey">Robotic Integration</a></li>
-            <li><a href="#turnkey">PLC & SCADA Programming</a></li>
-            <li><a href="#turnkey">Panel Building</a></li>
+            <li><a onclick="openModal('modal-catalog')">Hardware Supply</a></li>
+            <li><a onclick="openModal('modal-turnkey')">Turnkey Integration</a></li>
+            <li><a onclick="openModal('modal-turnkey')">Special Purpose Machines</a></li>
+            <li><a onclick="openModal('modal-corporate')">Annual Maintenance (AMC)</a></li>
           </ul>
         </div>
-        <div class="footer-col reveal delay-2">
-          <h4>Components</h4>
+        <div class="footer-col">
+          <h4>Solutions</h4>
           <ul class="footer-links">
-            <li><a href="#products">Machine Vision</a></li>
-            <li><a href="#products">Industrial Lighting</a></li>
-            <li><a href="#products">Smart Sensors</a></li>
-            <li><a href="#products">Power Supplies</a></li>
+            <li><a href="#applications">Automotive</a></li>
+            <li><a href="#applications">Pharmaceuticals</a></li>
+            <li><a href="#applications">Plastics & Molding</a></li>
+            <li><a href="#applications">Electronics Assembly</a></li>
           </ul>
         </div>
-        <div class="footer-col reveal delay-3">
-          <h4>Company</h4>
+        <div class="footer-col">
+          <h4>Corporate</h4>
           <ul class="footer-links">
-            <li><a href="#projects">Case Studies</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact Support</a></li>
+            <li><a onclick="openModal('modal-corporate')">Company Profile</a></li>
+            <li><a onclick="openModal('modal-corporate')">Vision & Mission</a></li>
+            <li><a href="#inquiry">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom reveal delay-4">
-        <div>&copy; 2026 Veltonics India Pvt. Ltd. All rights reserved.</div>
-        <div>Office: Ahmedabad, Gujarat, India</div>
+      <div class="footer-bottom">
+        &copy; 2026 Veltonics India Pvt. Ltd. | Ahmedabad, Gujarat | All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <!-- SCROLL ANIMATION SCRIPT -->
+  <!-- ========================================== -->
+  <!-- MODALS (Deep Pages Simulation)             -->
+  <!-- ========================================== -->
+
+  <!-- UPGRADED: Corporate / About Modal -->
+  <div class="modal-overlay" id="modal-corporate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Corporate Profile</h2>
+        <span class="modal-close" onclick="closeModal('modal-corporate')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <h3 style="margin-top: 0;">The Single-Window Automation Ecosystem</h3>
+        <p>Veltonics is a premier engineering firm dedicated to optimizing India's manufacturing sector. We recognize that modern factories require more than just a parts supplier—they require a dedicated technology partner. We bridge the gap between global hardware manufacturers and local production floors by offering a complete, end-to-end automation ecosystem.</p>
+        
+        <div class="corp-grid">
+          <div class="corp-card">
+            <h4>1. Component Distribution</h4>
+            <p style="font-size: 13px; margin-bottom: 0;">Deep local inventory of premium sensors, vision systems, PLCs, and safety devices. We offer unbiased, brand-agnostic hardware selection based on your exact application needs.</p>
+          </div>
+          <div class="corp-card">
+            <h4>2. Turnkey Integration & SPMs</h4>
+            <p style="font-size: 13px; margin-bottom: 0;">From concept to commissioning. We design and build custom Special Purpose Machines (SPMs) and robotic cells tailored perfectly to your production bottlenecks.</p>
+          </div>
+          <div class="corp-card">
+            <h4>3. Control Panel Engineering</h4>
+            <p style="font-size: 13px; margin-bottom: 0;">In-house design and assembly of robust electrical control panels, including advanced PLC programming and seamless SCADA/HMI architecture.</p>
+          </div>
+          <div class="corp-card">
+            <h4>4. Annual Maintenance (AMC)</h4>
+            <p style="font-size: 13px; margin-bottom: 0;">Protecting your investment. We offer comprehensive AMCs for automation lines, providing preventive maintenance and emergency troubleshooting to guarantee uptime.</p>
+          </div>
+        </div>
+
+        <h3>Vision</h3>
+        <p>To become India's most trusted, technically proficient partner for industrial automation, enabling local manufacturers to achieve zero-defect production through advanced technology and reliable engineering support.</p>
+        
+        <h3>Mission</h3>
+        <p>To reduce machine downtime and eliminate production bottlenecks by acting as a single, accountable source for hardware procurement, custom machine building (SPM), and lifecycle maintenance (AMC).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision Products Modal -->
+  <div class="modal-overlay" id="modal-vision">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Machine Vision & Identification</h2>
+        <span class="modal-close" onclick="closeModal('modal-vision')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Comprehensive imaging solutions for automated inspection, measurement, and tracking.</p>
+        
+        <table class="spec-table">
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Common Applications</th>
+          </tr>
+          <tr>
+            <td>Smart Cameras (1MP - 12MP)</td>
+            <td>All-in-one vision systems with integrated lighting and analysis tools.</td>
+            <td>Presence/Absence, OCR, Barcode Reading.</td>
+          </tr>
+          <tr>
+            <td>3D Laser Profilers</td>
+            <td>High-precision structured light sensors for topographical mapping.</td>
+            <td>Volume measurement, flatness check, robotic bin picking.</td>
+          </tr>
+          <tr>
+            <td>Industrial Illumination</td>
+            <td>24V DC LED Ring, Bar, Dome, and Backlights (IP67).</td>
+            <td>Creating high contrast for reflective or metallic surfaces.</td>
+          </tr>
+        </table>
+        <button onclick="closeModal('modal-vision'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Vision Consultation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sensors Modal -->
+  <div class="modal-overlay" id="modal-sensors">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Industrial Sensors</h2>
+        <span class="modal-close" onclick="closeModal('modal-sensors')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>High-reliability detection sensors designed for harsh manufacturing environments.</p>
+        
+        <table class="spec-table">
+          <tr>
+            <th>Category</th>
+            <th>Sensing Range</th>
+            <th>Common Applications</th>
+          </tr>
+          <tr>
+            <td>Photoelectric (Through-Beam/Diffuse)</td>
+            <td>Up to 50m</td>
+            <td>Part counting, conveyor jam detection, presence verification.</td>
+          </tr>
+          <tr>
+            <td>Laser Measurement Sensors</td>
+            <td>10mm - 1000mm</td>
+            <td>Micrometer-level distance measurement, thickness profiling.</td>
+          </tr>
+          <tr>
+            <td>Inductive Proximity</td>
+            <td>1mm - 50mm</td>
+            <td>Non-contact metal detection, machine homing, gear tooth counting.</td>
+          </tr>
+        </table>
+        <button onclick="closeModal('modal-sensors'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Sensor Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel Components Modal -->
+  <div class="modal-overlay" id="modal-panel">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Panel Building Components</h2>
+        <span class="modal-close" onclick="closeModal('modal-panel')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Essential DIN-rail mountable hardware for robust control panels.</p>
+        
+        <table class="spec-table">
+          <tr>
+            <th>Category</th>
+            <th>Specifications</th>
+          </tr>
+          <tr>
+            <td>Switch Mode Power Supplies (SMPS)</td>
+            <td>24VDC/48VDC, 15W to 960W, DIN-rail mount, UL/CE Certified.</td>
+          </tr>
+          <tr>
+            <td>Industrial Relays & Contactors</td>
+            <td>Solid State Relays (SSR), Electromechanical relays, Heavy-duty motor contactors.</td>
+          </tr>
+          <tr>
+            <td>Terminal Blocks</td>
+            <td>Screw and push-in type terminal blocks, fused blocks, ground terminals.</td>
+          </tr>
+        </table>
+        <button onclick="closeModal('modal-panel'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Panel Hardware</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLC Modal -->
+  <div class="modal-overlay" id="modal-plc">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Controllers & HMI</h2>
+        <span class="modal-close" onclick="closeModal('modal-plc')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>The brains of automation. Robust logic controllers and operator interfaces.</p>
+        
+        <table class="spec-table">
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>Micro & Modular PLCs</td>
+            <td>Scalable logic controllers with integrated Ethernet/IP, EtherCAT, Modbus.</td>
+          </tr>
+          <tr>
+            <td>Human Machine Interfaces (HMI)</td>
+            <td>4-inch to 15-inch Touch Panels. High-resolution, multi-protocol support.</td>
+          </tr>
+          <tr>
+            <td>Motion Controllers</td>
+            <td>High-speed multi-axis synchronization for servo and stepper motors.</td>
+          </tr>
+        </table>
+        <button onclick="closeModal('modal-plc'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request PLC Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Turnkey Modal -->
+  <div class="modal-overlay" id="modal-turnkey">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Turnkey Integration & SPMs</h2>
+        <span class="modal-close" onclick="closeModal('modal-turnkey')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Veltonics provides complete, end-to-end engineering for Special Purpose Machines (SPM) and robotic cells. We take responsibility for the entire project lifecycle, ensuring a seamless deployment.</p>
+        
+        <h3>Our Capabilities</h3>
+        <ul>
+          <li><strong>Mechanical Design:</strong> 3D CAD modeling, stress analysis, and pneumatic routing.</li>
+          <li><strong>Electrical Design:</strong> EPLAN schematic creation, panel layout, and safe wiring practices.</li>
+          <li><strong>Software Engineering:</strong> PLC logic, HMI screen design, PC-based vision software (C#/Python), and SCADA data logging.</li>
+          <li><strong>Robotics:</strong> Integration of SCARA, 6-Axis, and Delta robots.</li>
+          <li><strong>Annual Maintenance (AMC):</strong> Ongoing support contracts to ensure long-term stability.</li>
+        </ul>
+        <br>
+        <button onclick="closeModal('modal-turnkey'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Discuss a Project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- General Catalog Fallback Modal -->
+  <div class="modal-overlay" id="modal-catalog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Full Product Catalog</h2>
+        <span class="modal-close" onclick="closeModal('modal-catalog')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Our complete catalog features thousands of industrial automation SKUs spanning Sensors, Vision, Safety, and Control. To get immediate pricing and availability, please specify your requirement using our inquiry form.</p>
+        <button onclick="closeModal('modal-catalog'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Go to Inquiry Form</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW: INDUSTRY APPLICATION MODALS -->
+  <!-- Automotive Modal -->
+  <div class="modal-overlay" id="modal-app-auto">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Automotive & Mobility Solutions</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-auto')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Standardized measurement, vision, and safety deployments for high-throughput automotive manufacturing.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg></div>
+          <div class="sol-content">
+            <h4>Engine Block Machining Inspection</h4>
+            <p>Micrometer-level scanning of machined surfaces for defects, flatness, and hole dimensions to prevent downstream assembly failure.</p>
+            <span class="sol-tech">3D Laser Profiler</span>
+            <span class="sol-tech">Inductive Proximity Sensor</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="sol-content">
+            <h4>Robotic Welding Cell Safeguarding</h4>
+            <p>Safeguarding operators from active 6-axis robotic arms and weld flash using advanced, non-intrusive perimeter control.</p>
+            <span class="sol-tech">Safety Light Curtains</span>
+            <span class="sol-tech">Safety Laser Scanner</span>
+          </div>
+        </div>
+
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <div class="sol-content">
+            <h4>O-Ring & Assembly Verification</h4>
+            <p>High-speed visual confirmation of correct component seating and orientation before final pressing or assembly.</p>
+            <span class="sol-tech">Smart Vision Camera</span>
+            <span class="sol-tech">Fiber Optic Sensor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pharma Modal -->
+  <div class="modal-overlay" id="modal-app-pharma">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Pharma & Food Packaging Solutions</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-pharma')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>FDA-compliant inspection and sensing hardware for high-speed packaging lines.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+          <div class="sol-content">
+            <h4>Blister Pack Pill OCR & Counting</h4>
+            <p>100% inline verification of pill presence, color matching, and batch/expiry code OCR to ensure strict compliance.</p>
+            <span class="sol-tech">High-Res Smart Camera</span>
+            <span class="sol-tech">Dome Illumination</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg></div>
+          <div class="sol-content">
+            <h4>Bottle Liquid Level & Cap Alignment</h4>
+            <p>Inspecting exact liquid fill heights and detecting misthreaded or missing caps on high-speed bottling lines.</p>
+            <span class="sol-tech">Backlight Panel</span>
+            <span class="sol-tech">Photoelectric Through-Beam</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plastics Modal -->
+  <div class="modal-overlay" id="modal-app-plastics">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Plastics & Molding Solutions</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-plastics')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Sensor integration designed to protect expensive tooling and monitor material flow.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 22 22 22"/></svg></div>
+          <div class="sol-content">
+            <h4>Injection Mold Part Protection</h4>
+            <p>Visual inspection inside the open mold to ensure no residual plastic remains before the heavy clamping cycle begins.</p>
+            <span class="sol-tech">Compact Vision System</span>
+            <span class="sol-tech">Spotlight LED</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="sol-content">
+            <h4>High-Speed Part Ejection Check</h4>
+            <p>Confirming small molded parts have successfully dropped from the mold into the collection bin without physical contact.</p>
+            <span class="sol-tech">Wide-Area Fiber Optic</span>
+            <span class="sol-tech">Laser Measurement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Electronics Modal -->
+  <div class="modal-overlay" id="modal-app-elec">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Electronics Assembly Solutions</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-elec')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Micro-precision detection and static elimination for sensitive components.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+          <div class="sol-content">
+            <h4>PCB Solder Paste & Component Inspection</h4>
+            <p>Verifying micro-components and analyzing solder paste volume before reflow ovens using coaxial illumination.</p>
+            <span class="sol-tech">High-Res Vision System</span>
+            <span class="sol-tech">Coaxial Lighting</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div class="sol-content">
+            <h4>Electrostatic Discharge (ESD) Control</h4>
+            <p>Eliminating static charge over conveyors to prevent catastrophic damage to sensitive microchips and wafers.</p>
+            <span class="sol-tech">Bar Ionizer</span>
+            <span class="sol-tech">Electrostatic Sensor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metal Modal -->
+  <div class="modal-overlay" id="modal-app-metal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Metal Stamping & Fabrication</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-metal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Heavy-duty sensing for extreme environments, heavy impacts, and oil.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 14h16v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/><path d="M4 10h16"/><path d="M10 2v8"/><path d="M14 2v8"/></svg></div>
+          <div class="sol-content">
+            <h4>Press Machine Area Scanning</h4>
+            <p>Creating safe zones around heavy stamping presses, immediately halting the machine if a perimeter is breached.</p>
+            <span class="sol-tech">Safety Laser Scanner</span>
+            <span class="sol-tech">Safety Relay</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg></div>
+          <div class="sol-content">
+            <h4>Sheet Metal Double-Feed Detection</h4>
+            <p>Preventing die damage by ensuring only a single sheet of metal is fed into the stamping press at a time.</p>
+            <span class="sol-tech">Double Sheet Detector</span>
+            <span class="sol-tech">Inductive Sensor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logistics Modal -->
+  <div class="modal-overlay" id="modal-app-logistics">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Warehousing & Logistics Solutions</h2>
+        <span class="modal-close" onclick="closeModal('modal-app-logistics')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Data capture and routing solutions for high-speed fulfillment centers.</p>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 5v14M12 5v14M21 5v14M7 5v14M16 5v14"/></svg></div>
+          <div class="sol-content">
+            <h4>High-Speed Barcode Routing</h4>
+            <p>Image-based barcode readers decoding damaged or omnidirectional 1D/2D codes on fast-moving conveyors.</p>
+            <span class="sol-tech">Logistics Barcode Reader</span>
+            <span class="sol-tech">Retroreflective Sensor</span>
+          </div>
+        </div>
+        
+        <div class="sol-item">
+          <div class="sol-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="sol-content">
+            <h4>Pallet Volume Dimensioning</h4>
+            <p>Instant 3D profiling to capture the height, width, and depth of packages and pallets for automated freight calculation.</p>
+            <span class="sol-tech">3D Time-of-Flight Camera</span>
+            <span class="sol-tech">Measurement Sensor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1. Scroll Reveal Logic
-      const revealElements = document.querySelectorAll('.reveal');
-      
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Stop observing once revealed
-          }
-        });
-      }, {
-        root: null,
-        threshold: 0.15, // Trigger when 15% of element is visible
-        rootMargin: "0px 0px -50px 0px"
-      });
-
-      revealElements.forEach(el => revealObserver.observe(el));
-
-      // 2. Navbar Scroll Effect (Glassmorphism shadow)
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         }
       });
-    });
+    }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Tab Switching Logic for Industry Section
+    function switchTab(event, tabId) {
+      // Remove active from all tabs
+      document.querySelectorAll('.ind-tab').forEach(tab => tab.classList.remove('active'));
+      // Remove active from all content panes
+      document.querySelectorAll('.industry-content-pane').forEach(pane => pane.classList.remove('active'));
+      
+      // Add active to clicked tab and corresponding pane
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Modal Logic
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal-overlay')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // WhatsApp Form Submission Logic
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('wa-name').value;
+      const company = document.getElementById('wa-company').value;
+      const product = document.getElementById('wa-product').value;
+      const details = document.getElementById('wa-details').value;
+      
+      const message = `*NEW WEB INQUIRY*%0A%0A*Name:* ${name}%0A*Company:* ${company}%0A*Interested In:* ${product}%0A%0A*Requirements:*%0A${details}`;
+      window.open(`https://wa.me/919724648038?text=${message}`, '_blank');
+    }
   </script>
 </body>
 </html>
