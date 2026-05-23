@@ -78,17 +78,20 @@
   .section-header p { color: var(--v-text-muted); font-size: 16px; margin-top: 8px; font-family: var(--font-mono); }
 
   /* CATALOG GRID */
-  .catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .catalog-card { border: 1px solid var(--v-gray-border); background: var(--v-white); padding: 24px; transition: all 0.2s; position: relative; cursor: pointer; }
-  .catalog-card:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-4px); z-index: 2; }
-  .catalog-icon { width: 50px; height: 50px; background: var(--v-gray-50); border: 1px solid var(--v-gray-border); display: flex; align-items: center; justify-content: center; border-radius: 4px; margin-bottom: 16px; }
-  .catalog-icon svg { width: 24px; height: 24px; stroke: var(--v-blue); stroke-width: 1.5; fill: none; }
-  .catalog-card h3 { font-size: 16px; color: var(--v-blue-dark); margin-bottom: 8px; font-weight: 700; }
-  .catalog-card p { font-size: 13px; color: var(--v-text-muted); margin-bottom: 16px; line-height: 1.5; }
-  .catalog-link { font-family: var(--font-mono); font-size: 12px; color: var(--v-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+  .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .catalog-card { border: 1px solid var(--v-gray-border); background: var(--v-white); border-radius: 4px; transition: all 0.3s; position: relative; cursor: pointer; display: flex; flex-direction: column; overflow: hidden; }
+  .catalog-card:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-4px); z-index: 2; }
+  .catalog-card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--v-gray-border); }
+  .catalog-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+  .catalog-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .catalog-icon { width: 40px; height: 40px; background: var(--v-gray-50); border: 1px solid var(--v-gray-border); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: var(--v-blue); flex-shrink: 0; }
+  .catalog-icon svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+  .catalog-card h3 { font-size: 18px; color: var(--v-blue-dark); font-weight: 700; margin: 0; }
+  .catalog-card p { font-size: 13px; color: var(--v-text-muted); margin-bottom: 20px; line-height: 1.6; }
+  .catalog-link { font-family: var(--font-mono); font-size: 12px; color: var(--v-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
   .catalog-card:hover .catalog-link { color: var(--v-accent); }
 
-  /* NEW INDUSTRY DIRECTORY GRID (Keyence Style) */
+  /* INDUSTRY DIRECTORY GRID */
   .industry-directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
   .ind-dir-card { background: var(--v-white); border: 1px solid var(--v-gray-border); padding: 32px 24px; text-align: center; border-radius: 4px; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; }
   .ind-dir-card:hover { border-color: var(--v-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.06); transform: translateY(-4px); }
@@ -107,6 +110,24 @@
   .sol-content h4 { font-size: 16px; color: var(--v-blue-dark); margin-bottom: 8px; }
   .sol-content p { font-size: 13px; color: var(--v-text-muted); margin-bottom: 12px; }
   .sol-tech { font-family: var(--font-mono); font-size: 12px; color: var(--v-blue); background: rgba(0, 74, 153, 0.05); padding: 6px 12px; border-radius: 2px; display: inline-block; border: 1px solid rgba(0, 74, 153, 0.1); margin-right: 8px; margin-bottom: 8px; }
+
+  /* FULL CATALOG MODAL CARDS */
+  .full-catalog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
+  .fc-card { border: 1px solid var(--v-gray-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; background: var(--v-white); }
+  .fc-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--v-gray-border); }
+  .fc-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; }
+  .fc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .fc-icon { width: 32px; height: 32px; color: var(--v-blue); }
+  .fc-title { font-size: 18px; color: var(--v-blue-dark); font-weight: 700; }
+  .fc-desc { font-size: 13px; color: var(--v-text-muted); margin-bottom: 16px; line-height: 1.5; }
+  .fc-uses { margin-bottom: 16px; flex-grow: 1; }
+  .fc-uses-title { font-size: 12px; font-weight: 700; color: var(--v-text-main); margin-bottom: 8px; text-transform: uppercase; font-family: var(--font-mono); }
+  .fc-uses-list { list-style: none; padding: 0; margin: 0; }
+  .fc-uses-list li { font-size: 12px; color: var(--v-text-muted); padding-left: 16px; position: relative; margin-bottom: 6px; }
+  .fc-uses-list li::before { content: '→'; position: absolute; left: 0; color: var(--v-accent); font-weight: bold; }
+  .fc-action { margin-top: auto; border-top: 1px solid var(--v-gray-200); padding-top: 16px; }
+  .btn-fc { width: 100%; background: var(--v-gray-50); color: var(--v-blue); border: 1px solid var(--v-blue); padding: 12px; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.3s; border-radius: 4px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+  .btn-fc:hover { background: var(--v-blue); color: var(--v-white); }
 
   /* TURNKEY SOLUTIONS */
   .turnkey-wrapper { display: flex; gap: 24px; }
@@ -148,13 +169,14 @@
   /* MODAL SYSTEM */
   .modal-overlay { position: fixed; inset: 0; background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(4px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s; }
   .modal-overlay.active { display: flex; opacity: 1; }
-  .modal-content { background: var(--v-white); width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(20px); transition: 0.3s; }
+  /* Increased max-width for the full catalog modal */
+  .modal-content { background: var(--v-white); width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); transform: translateY(20px); transition: 0.3s; }
   .modal-overlay.active .modal-content { transform: translateY(0); }
   .modal-header { padding: 24px 32px; border-bottom: 1px solid var(--v-gray-border); display: flex; justify-content: space-between; align-items: center; background: var(--v-gray-50); position: sticky; top: 0; z-index: 10; }
   .modal-header h2 { font-size: 20px; color: var(--v-blue-dark); }
   .modal-close { font-size: 28px; color: var(--v-text-muted); cursor: pointer; line-height: 1; }
   .modal-close:hover { color: var(--v-accent); }
-  .modal-body { padding: 32px; }
+  .modal-body { padding: 32px; background: var(--v-gray-50); }
   .modal-body h3 { font-size: 18px; color: var(--v-blue); margin-top: 24px; margin-bottom: 12px; font-family: var(--font-mono); }
   .modal-body p { margin-bottom: 16px; color: var(--v-text-muted); }
   .modal-body ul { margin-left: 20px; margin-bottom: 24px; color: var(--v-text-muted); }
@@ -173,7 +195,7 @@
   @media (max-width: 768px) {
     .nav-links, .top-bar { display: none; }
     .hero h1 { font-size: 40px; }
-    .catalog-grid, .industry-directory-grid { grid-template-columns: 1fr; }
+    .catalog-grid, .industry-directory-grid, .full-catalog-grid { grid-template-columns: 1fr; }
     .sol-item { flex-direction: column; }
     .turnkey-wrapper { flex-direction: column; }
     .turnkey-step { border-top: none; border-left: 3px solid var(--v-gray-200); padding-top: 0; padding-left: 24px; margin-bottom: 24px; }
@@ -234,36 +256,83 @@
       </div>
 
       <div class="catalog-grid">
-        <div class="catalog-card reveal delay-1" onclick="openModal('modal-sensors')">
-          <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <h3>Industrial Sensors</h3>
-          <p>Photoelectric, Proximity, Laser Measurement, and Fiber Optic sensors.</p>
-          <span class="catalog-link">View Specifications →</span>
+        <div class="catalog-card reveal delay-1" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" alt="Industrial Sensors" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="10" height="8" rx="2"/><path d="M13 12h8M18 9l3 3-3 3"/></svg></div>
+              <h3>Industrial Sensors</h3>
+            </div>
+            <p>Photoelectric, Proximity, Laser Measurement, and Fiber Optic sensors for precision automation.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
         </div>
-        <div class="catalog-card reveal delay-2" onclick="openModal('modal-vision')">
-          <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21h10"/></svg></div>
-          <h3>Machine Vision</h3>
-          <p>Smart Cameras, 3D Profilers, lenses, and industrial DC LED lighting.</p>
-          <span class="catalog-link">View Specifications →</span>
+
+        <div class="catalog-card reveal delay-2" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=80&w=600" alt="Machine Vision" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21h10"/></svg></div>
+              <h3>Machine Vision</h3>
+            </div>
+            <p>Smart Cameras, 3D Profilers, telecentric lenses, and high-speed defect inspection systems.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
         </div>
-        <div class="catalog-card reveal delay-1" onclick="openModal('modal-plc')">
-          <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h3>Controllers & HMI</h3>
-          <p>Micro/Modular PLCs, Touch Panel Displays, and motion controllers.</p>
-          <span class="catalog-link">View Specifications →</span>
+
+        <div class="catalog-card reveal delay-1" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4bf261162cd?auto=format&fit=crop&q=80&w=600" alt="Industrial Safety" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <h3>Industrial Safety</h3>
+            </div>
+            <p>Safety Light Curtains, Laser Scanners, interlocks, and controllers to protect machine operators.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
         </div>
-        <div class="catalog-card reveal delay-2" onclick="openModal('modal-panel')">
-          <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>Panel Components</h3>
-          <p>DIN-rail SMPS, Solid State Relays, Contactors, and Ethernet switches.</p>
-          <span class="catalog-link">View Specifications →</span>
+
+        <div class="catalog-card reveal delay-2" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600" alt="Panel Components" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+              <h3>Relays & Panel Parts</h3>
+            </div>
+            <p>Solid State Relays (SSR), contactors, terminal blocks, and unmanaged Ethernet switches.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
+        </div>
+
+        <div class="catalog-card reveal delay-1" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600" alt="Power Supplies" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+              <h3>SMPS Power Supplies</h3>
+            </div>
+            <p>High-efficiency DIN-rail 24VDC and 48VDC switch-mode power supplies for control cabinets.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
+        </div>
+
+        <div class="catalog-card reveal delay-2" onclick="openModal('modal-catalog')">
+          <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80&w=600" alt="Industrial Lighting" class="catalog-card-img">
+          <div class="catalog-card-body">
+            <div class="catalog-header">
+              <div class="catalog-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+              <h3>Industrial Lighting</h3>
+            </div>
+            <p>DC-driven LED Ring, Bar, and Backlights for high-contrast vision, plus multi-color Tower Lights.</p>
+            <span class="catalog-link">View Catalog &rarr;</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- UPGRADED: Keyence-Style Industry Directory -->
-  <section id="applications" class="section section-bg">
+  <!-- Keyence-Style Industry Directory -->
+  <section id="applications" class="section">
     <div class="container">
       <div class="section-header reveal" style="text-align: center; border-left: none; display: flex; flex-direction: column; align-items: center;">
         <h2 style="position: relative; padding-bottom: 16px;">Application Solutions by Industry
@@ -421,10 +490,14 @@
             <div class="form-group">
               <label>Product / Service Interest</label>
               <select id="wa-product">
-                <option value="Component Supply">Component Supply (Sensors/Vision/PLC)</option>
+                <option value="Industrial Sensors">Industrial Sensors</option>
+                <option value="Machine Vision & Lighting">Machine Vision & Lighting</option>
+                <option value="Industrial Safety">Industrial Safety Systems</option>
+                <option value="Panel Components & Relays">Panel Components & Relays</option>
+                <option value="Power Supplies (SMPS)">Power Supplies (SMPS)</option>
+                <option value="Controllers (PLC & HMI)">Controllers (PLC & HMI)</option>
                 <option value="Turnkey SPM Project">Turnkey / SPM Automation Project</option>
                 <option value="AMC Services">Annual Maintenance Contract (AMC)</option>
-                <option value="Panel Building">Control Panel Building</option>
                 <option value="Other">Other Requirement</option>
               </select>
             </div>
@@ -489,14 +562,14 @@
   <!-- MODALS (Deep Pages Simulation)             -->
   <!-- ========================================== -->
 
-  <!-- UPGRADED: Corporate / About Modal -->
+  <!-- Corporate / About Modal -->
   <div class="modal-overlay" id="modal-corporate">
     <div class="modal-content">
       <div class="modal-header">
         <h2>Corporate Profile</h2>
         <span class="modal-close" onclick="closeModal('modal-corporate')">&times;</span>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="background: var(--v-white);">
         <h3 style="margin-top: 0;">The Single-Window Automation Ecosystem</h3>
         <p>Veltonics is a premier engineering firm dedicated to optimizing India's manufacturing sector. We recognize that modern factories require more than just a parts supplier—they require a dedicated technology partner. We bridge the gap between global hardware manufacturers and local production floors by offering a complete, end-to-end automation ecosystem.</p>
         
@@ -528,146 +601,6 @@
     </div>
   </div>
 
-  <!-- Vision Products Modal -->
-  <div class="modal-overlay" id="modal-vision">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Machine Vision & Identification</h2>
-        <span class="modal-close" onclick="closeModal('modal-vision')">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p>Comprehensive imaging solutions for automated inspection, measurement, and tracking.</p>
-        
-        <table class="spec-table">
-          <tr>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Common Applications</th>
-          </tr>
-          <tr>
-            <td>Smart Cameras (1MP - 12MP)</td>
-            <td>All-in-one vision systems with integrated lighting and analysis tools.</td>
-            <td>Presence/Absence, OCR, Barcode Reading.</td>
-          </tr>
-          <tr>
-            <td>3D Laser Profilers</td>
-            <td>High-precision structured light sensors for topographical mapping.</td>
-            <td>Volume measurement, flatness check, robotic bin picking.</td>
-          </tr>
-          <tr>
-            <td>Industrial Illumination</td>
-            <td>24V DC LED Ring, Bar, Dome, and Backlights (IP67).</td>
-            <td>Creating high contrast for reflective or metallic surfaces.</td>
-          </tr>
-        </table>
-        <button onclick="closeModal('modal-vision'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Vision Consultation</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sensors Modal -->
-  <div class="modal-overlay" id="modal-sensors">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Industrial Sensors</h2>
-        <span class="modal-close" onclick="closeModal('modal-sensors')">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p>High-reliability detection sensors designed for harsh manufacturing environments.</p>
-        
-        <table class="spec-table">
-          <tr>
-            <th>Category</th>
-            <th>Sensing Range</th>
-            <th>Common Applications</th>
-          </tr>
-          <tr>
-            <td>Photoelectric (Through-Beam/Diffuse)</td>
-            <td>Up to 50m</td>
-            <td>Part counting, conveyor jam detection, presence verification.</td>
-          </tr>
-          <tr>
-            <td>Laser Measurement Sensors</td>
-            <td>10mm - 1000mm</td>
-            <td>Micrometer-level distance measurement, thickness profiling.</td>
-          </tr>
-          <tr>
-            <td>Inductive Proximity</td>
-            <td>1mm - 50mm</td>
-            <td>Non-contact metal detection, machine homing, gear tooth counting.</td>
-          </tr>
-        </table>
-        <button onclick="closeModal('modal-sensors'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Sensor Quote</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Panel Components Modal -->
-  <div class="modal-overlay" id="modal-panel">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Panel Building Components</h2>
-        <span class="modal-close" onclick="closeModal('modal-panel')">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p>Essential DIN-rail mountable hardware for robust control panels.</p>
-        
-        <table class="spec-table">
-          <tr>
-            <th>Category</th>
-            <th>Specifications</th>
-          </tr>
-          <tr>
-            <td>Switch Mode Power Supplies (SMPS)</td>
-            <td>24VDC/48VDC, 15W to 960W, DIN-rail mount, UL/CE Certified.</td>
-          </tr>
-          <tr>
-            <td>Industrial Relays & Contactors</td>
-            <td>Solid State Relays (SSR), Electromechanical relays, Heavy-duty motor contactors.</td>
-          </tr>
-          <tr>
-            <td>Terminal Blocks</td>
-            <td>Screw and push-in type terminal blocks, fused blocks, ground terminals.</td>
-          </tr>
-        </table>
-        <button onclick="closeModal('modal-panel'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request Panel Hardware</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- PLC Modal -->
-  <div class="modal-overlay" id="modal-plc">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Controllers & HMI</h2>
-        <span class="modal-close" onclick="closeModal('modal-plc')">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p>The brains of automation. Robust logic controllers and operator interfaces.</p>
-        
-        <table class="spec-table">
-          <tr>
-            <th>Category</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td>Micro & Modular PLCs</td>
-            <td>Scalable logic controllers with integrated Ethernet/IP, EtherCAT, Modbus.</td>
-          </tr>
-          <tr>
-            <td>Human Machine Interfaces (HMI)</td>
-            <td>4-inch to 15-inch Touch Panels. High-resolution, multi-protocol support.</td>
-          </tr>
-          <tr>
-            <td>Motion Controllers</td>
-            <td>High-speed multi-axis synchronization for servo and stepper motors.</td>
-          </tr>
-        </table>
-        <button onclick="closeModal('modal-plc'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Request PLC Quote</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Turnkey Modal -->
   <div class="modal-overlay" id="modal-turnkey">
     <div class="modal-content">
@@ -675,7 +608,7 @@
         <h2>Turnkey Integration & SPMs</h2>
         <span class="modal-close" onclick="closeModal('modal-turnkey')">&times;</span>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="background: var(--v-white);">
         <p>Veltonics provides complete, end-to-end engineering for Special Purpose Machines (SPM) and robotic cells. We take responsibility for the entire project lifecycle, ensuring a seamless deployment.</p>
         
         <h3>Our Capabilities</h3>
@@ -687,26 +620,174 @@
           <li><strong>Annual Maintenance (AMC):</strong> Ongoing support contracts to ensure long-term stability.</li>
         </ul>
         <br>
-        <button onclick="closeModal('modal-turnkey'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Discuss a Project</button>
+        <button onclick="selectProductAndInquire('Turnkey SPM Project')" class="btn-primary">Discuss a Project</button>
       </div>
     </div>
   </div>
 
-  <!-- General Catalog Fallback Modal -->
+  <!-- NEW UPGRADED: Comprehensive Full Catalog Modal -->
   <div class="modal-overlay" id="modal-catalog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Full Product Catalog</h2>
+        <h2>Comprehensive Product Catalog</h2>
         <span class="modal-close" onclick="closeModal('modal-catalog')">&times;</span>
       </div>
       <div class="modal-body">
-        <p>Our complete catalog features thousands of industrial automation SKUs spanning Sensors, Vision, Safety, and Control. To get immediate pricing and availability, please specify your requirement using our inquiry form.</p>
-        <button onclick="closeModal('modal-catalog'); document.getElementById('inquiry').scrollIntoView();" class="btn-primary">Go to Inquiry Form</button>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 24px; font-size: 15px;">Browse our extensive range of industrial automation hardware. Select a category below to instantly populate an inquiry for our engineering team.</p>
+        
+        <div class="full-catalog-grid">
+          
+          <!-- Sensors Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" alt="Industrial Sensors" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="10" height="8" rx="2"/><path d="M13 12h8M18 9l3 3-3 3"/></svg>
+                <div class="fc-title">Industrial Sensors</div>
+              </div>
+              <p class="fc-desc">High-reliability detection and measurement devices designed to withstand harsh manufacturing environments.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Photoelectric:</strong> Part counting & conveyor triggers.</li>
+                  <li><strong>Laser Measurement:</strong> Micrometer thickness profiling.</li>
+                  <li><strong>Proximity:</strong> Non-contact metal detection.</li>
+                  <li><strong>Fiber Optic:</strong> Sensing in tight/hot spaces.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Industrial Sensors')" class="btn-fc">Inquire about Sensors &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=80&w=600" alt="Machine Vision" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21h10"/></svg>
+                <div class="fc-title">Machine Vision & Imaging</div>
+              </div>
+              <p class="fc-desc">Comprehensive imaging solutions for automated high-speed inspection, measurement, and traceability.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Smart Cameras (1MP-12MP):</strong> Defect detection.</li>
+                  <li><strong>3D Laser Profilers:</strong> Volume & flatness mapping.</li>
+                  <li><strong>Auto-ID Readers:</strong> 1D/2D Barcode & OCR reading.</li>
+                  <li><strong>Telecentric Lenses:</strong> Zero-distortion gauging.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Machine Vision & Lighting')" class="btn-fc">Inquire about Vision &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Safety Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4bf261162cd?auto=format&fit=crop&q=80&w=600" alt="Industrial Safety" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="fc-title">Industrial Safety Systems</div>
+              </div>
+              <p class="fc-desc">Reliable safeguarding technology to protect operators from hazardous machinery and robotic cells.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Safety Light Curtains:</strong> Press machine finger protection.</li>
+                  <li><strong>Laser Scanners:</strong> Dynamic robotic cell area guarding.</li>
+                  <li><strong>Safety Interlocks:</strong> Guard door monitoring (RFID).</li>
+                  <li><strong>Safety Controllers:</strong> Centralized safety logic processing.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Industrial Safety')" class="btn-fc">Inquire about Safety &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Relays & Panels Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600" alt="Panel Components" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <div class="fc-title">Panel Components & Relays</div>
+              </div>
+              <p class="fc-desc">Essential, rugged DIN-rail mountable hardware for building robust electrical control panels.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Solid State Relays (SSR):</strong> High-frequency heater switching.</li>
+                  <li><strong>Contactors:</strong> Heavy-duty electric motor starting.</li>
+                  <li><strong>Terminal Blocks:</strong> Push-in control wire termination.</li>
+                  <li><strong>Ethernet Switches:</strong> Unmanaged factory networking.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Panel Components & Relays')" class="btn-fc">Inquire about Panel Parts &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controllers Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600" alt="Controllers" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <div class="fc-title">Controllers (PLC) & Power</div>
+              </div>
+              <p class="fc-desc">The computational brains and reliable power sources driving modern automation networks.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Micro/Modular PLCs:</strong> Logic sequencing (EtherCAT/Modbus).</li>
+                  <li><strong>HMI Touch Panels:</strong> Graphical operator interfaces.</li>
+                  <li><strong>Motion Controllers:</strong> Multi-axis servo synchronization.</li>
+                  <li><strong>SMPS Power Supplies:</strong> DIN-rail 24VDC/48VDC conversion.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Controllers (PLC & HMI)')" class="btn-fc">Inquire about Controllers &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Illumination Card -->
+          <div class="fc-card">
+            <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80&w=600" alt="Industrial Lighting" class="fc-img">
+            <div class="fc-body">
+              <div class="fc-header">
+                <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <div class="fc-title">Industrial Illumination</div>
+              </div>
+              <p class="fc-desc">High-intensity 24V DC lighting engineered for high-contrast vision systems and machine signaling.</p>
+              <div class="fc-uses">
+                <div class="fc-uses-title">Common Applications:</div>
+                <ul class="fc-uses-list">
+                  <li><strong>Ring & Bar Lights:</strong> Direct illumination for vision cameras.</li>
+                  <li><strong>Dome & Coaxial Lights:</strong> Inspecting highly reflective metal.</li>
+                  <li><strong>Backlights:</strong> Creating silhouettes for edge dimensioning.</li>
+                  <li><strong>LED Tower Lights:</strong> Multi-color machine status indicators.</li>
+                </ul>
+              </div>
+              <div class="fc-action">
+                <button onclick="selectProductAndInquire('Machine Vision & Lighting')" class="btn-fc">Inquire about Lighting &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End Full Catalog Grid -->
+
       </div>
     </div>
   </div>
 
-  <!-- NEW: INDUSTRY APPLICATION MODALS -->
+  <!-- INDUSTRY APPLICATION MODALS -->
   <!-- Automotive Modal -->
   <div class="modal-overlay" id="modal-app-auto">
     <div class="modal-content">
@@ -929,18 +1010,6 @@
     }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Tab Switching Logic for Industry Section
-    function switchTab(event, tabId) {
-      // Remove active from all tabs
-      document.querySelectorAll('.ind-tab').forEach(tab => tab.classList.remove('active'));
-      // Remove active from all content panes
-      document.querySelectorAll('.industry-content-pane').forEach(pane => pane.classList.remove('active'));
-      
-      // Add active to clicked tab and corresponding pane
-      event.currentTarget.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
-
     // Modal Logic
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -957,6 +1026,35 @@
         event.target.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
+    }
+
+    // Product Selection & Scroll to Inquiry Function
+    function selectProductAndInquire(productValue) {
+      // Close the catalog modal
+      closeModal('modal-catalog');
+      closeModal('modal-turnkey');
+      
+      // Scroll smoothly to the inquiry section
+      document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
+      
+      // Automatically select the correct dropdown option
+      const selectEl = document.getElementById('wa-product');
+      let found = false;
+      for (let i = 0; i < selectEl.options.length; i++) {
+        if (selectEl.options[i].value === productValue) {
+          selectEl.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+      
+      // If no exact match, fallback to the generic component supply option
+      if (!found) selectEl.value = 'Component Supply (Sensors/Vision/PLC)';
+      
+      // Briefly highlight the text area to prompt user input
+      setTimeout(() => {
+        document.getElementById('wa-details').focus();
+      }, 800);
     }
 
     // WhatsApp Form Submission Logic
