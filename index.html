@@ -35,23 +35,27 @@
                 </div>
             </a>
 
-            <nav class="hidden lg:flex space-x-2 items-center">
-                <a href="#offers" class="px-4 py-2 text-sm font-bold text-[#F97316] hover:bg-[#eaeff7] rounded-lg transition-colors flex items-center gap-1"><i data-lucide="tags" class="w-4 h-4"></i> Best Prices & Offers</a>
-                <a href="#products" class="px-4 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">Product Catalog</a>
-                <a href="#contact" class="px-4 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">Contact Sales</a>
+            <nav class="hidden lg:flex space-x-1 xl:space-x-2 items-center">
+                <a href="#about" class="px-3 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">About Us</a>
+                <a href="#solutions" class="px-3 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">Solutions</a>
+                <a href="#products" class="px-3 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">Products</a>
+                <a href="#offers" class="px-3 py-2 text-sm font-bold text-[#F97316] hover:bg-[#eaeff7] rounded-lg transition-colors flex items-center gap-1"><i data-lucide="tags" class="w-4 h-4"></i> Offers</a>
+                <a href="#contact" class="px-3 py-2 text-sm font-bold text-[#4a5e78] hover:text-[#001233] hover:bg-[#eaeff7] rounded-lg transition-colors">Contact</a>
             </nav>
 
             <div class="flex items-center gap-3">
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-[#001233]">
                     <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
                 </button>
-                <a href="#products" class="bg-[#001233] hover:bg-[#0052cc] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:-translate-y-0.5">Explore Products</a>
+                <a href="#products" class="hidden sm:inline-block bg-[#001233] hover:bg-[#0052cc] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:-translate-y-0.5">Explore Products</a>
             </div>
         </div>
 
         <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-b border-[#d4dbe8] shadow-2xl p-4 flex flex-col gap-2">
-            <a href="#offers" class="mobile-link px-4 py-3 text-base font-bold text-[#F97316] bg-[#f4f6f9] rounded-lg flex items-center gap-2"><i data-lucide="tags" class="w-[18px] h-[18px]"></i> Best Prices</a>
+            <a href="#about" class="mobile-link px-4 py-3 text-base font-bold text-[#001233] bg-[#f4f6f9] rounded-lg">About Us</a>
+            <a href="#solutions" class="mobile-link px-4 py-3 text-base font-bold text-[#001233] bg-[#f4f6f9] rounded-lg">Project Solutions</a>
             <a href="#products" class="mobile-link px-4 py-3 text-base font-bold text-[#001233] bg-[#f4f6f9] rounded-lg">Products</a>
+            <a href="#offers" class="mobile-link px-4 py-3 text-base font-bold text-[#F97316] bg-[#f4f6f9] rounded-lg flex items-center gap-2"><i data-lucide="tags" class="w-[18px] h-[18px]"></i> Best Prices</a>
             <a href="#contact" class="mobile-link px-4 py-3 text-base font-bold text-[#001233] bg-[#f4f6f9] rounded-lg">Contact Us</a>
         </div>
     </header>
@@ -69,7 +73,7 @@
                 From high-speed sensors and vision cameras to turnkey SPM systems. We provide tailored specifications, exact fitment, and the best prices across India.
             </p>
             <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <a href="#offers" class="bg-[#F97316] hover:bg-[#e66005] text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2">View Special Offers <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i></a>
+                <a href="#solutions" class="bg-[#F97316] hover:bg-[#e66005] text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2">View Solutions <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i></a>
                 <a href="#products" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-full font-bold transition-all">Browse Catalog</a>
             </div>
             
@@ -82,7 +86,50 @@
         </div>
     </section>
 
-    <section id="offers" class="py-20 bg-white">
+    <!-- NEW ABOUT US SECTION -->
+    <section id="about" class="py-20 bg-[#f4f6f9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3">
+                    <i data-lucide="layers" class="w-4 h-4"></i> Complete Ecosystem
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif text-[#001233] mb-4">All Your Automation Needs at One Step</h2>
+                <p class="text-[#4a5e78] max-w-2xl mx-auto text-lg">Veltonics serves as your comprehensive partner, bringing hardware, engineering, and lifetime maintenance under one reliable roof.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Industrial Products -->
+                <div class="bg-white rounded-3xl p-8 border border-[#d4dbe8] shadow-sm hover:shadow-xl hover:border-[#F97316] transition-all group">
+                    <div class="w-16 h-16 bg-[#eaeff7] rounded-2xl flex items-center justify-center mb-6 text-[#001233] group-hover:bg-[#001233] group-hover:text-white transition-colors">
+                        <i data-lucide="box" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#001233] mb-3">Industrial Products</h3>
+                    <p class="text-[#4a5e78] text-sm leading-relaxed">Extensive catalog of precision components including photoelectric sensors, safety modules, and smart vision cameras sourced from top-tier technology partners at unbeatable wholesale prices.</p>
+                </div>
+                
+                <!-- Automation Projects -->
+                <div class="bg-white rounded-3xl p-8 border border-[#d4dbe8] shadow-sm hover:shadow-xl hover:border-[#F97316] transition-all group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#F97316]/10 to-transparent rounded-bl-full"></div>
+                    <div class="w-16 h-16 bg-[#eaeff7] rounded-2xl flex items-center justify-center mb-6 text-[#001233] group-hover:bg-[#001233] group-hover:text-white transition-colors relative z-10">
+                        <i data-lucide="cpu" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#001233] mb-3 relative z-10">Automation Projects</h3>
+                    <p class="text-[#4a5e78] text-sm leading-relaxed relative z-10">From conceptual design to final commissioning. We build custom Special Purpose Machines (SPM), integrate complex control panels, and engineer production line upgrades.</p>
+                </div>
+
+                <!-- AMC -->
+                <div class="bg-white rounded-3xl p-8 border border-[#d4dbe8] shadow-sm hover:shadow-xl hover:border-[#F97316] transition-all group">
+                    <div class="w-16 h-16 bg-[#eaeff7] rounded-2xl flex items-center justify-center mb-6 text-[#001233] group-hover:bg-[#001233] group-hover:text-white transition-colors">
+                        <i data-lucide="wrench" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#001233] mb-3">AMC & Support</h3>
+                    <p class="text-[#4a5e78] text-sm leading-relaxed">Ensure zero downtime with our Annual Maintenance Contracts (AMC). Our rapid-response engineering team provides preventive maintenance, rapid troubleshooting, and system recalibrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="py-20 bg-white border-t border-[#d4dbe8]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center">
                 <div class="inline-flex items-center justify-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3">
@@ -148,12 +195,59 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-[#001233] text-white">
+    <!-- NEW PROJECT SOLUTIONS SECTION -->
+    <section id="solutions" class="py-24 bg-white border-t border-[#d4dbe8]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 md:text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center md:justify-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3">
+                    <i data-lucide="lightbulb" class="w-4 h-4"></i> Engineering Excellence
+                </div>
+                <h2 class="text-3xl md:text-5xl font-serif text-[#001233] mb-6">Advanced Project Solutions</h2>
+                <p class="text-[#4a5e78] text-lg">Beyond standard components, Veltonics specializes in end-to-end engineered solutions tailored for high-speed manufacturing environments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Vision Integration -->
+                <div class="bg-[#001233] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#0052cc]/40 to-transparent rounded-bl-full transition-transform duration-700 group-hover:scale-110"></div>
+                    <i data-lucide="eye" class="w-12 h-12 text-[#F97316] mb-6 relative z-10"></i>
+                    <h3 class="text-3xl font-serif mb-4 relative z-10">Vision Integration</h3>
+                    <p class="text-[#9fbde8] mb-8 leading-relaxed relative z-10 text-lg">We deploy highly accurate Machine Vision solutions. From hardware selection (cameras, specific lenses, and tailored lighting) to software programming. We ensure flawless optical character recognition (OCR), defect detection, and precise dimensional gauging.</p>
+                    <ul class="space-y-3 mb-8 relative z-10">
+                        <li class="flex items-center text-sm"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#25D366] mr-3"></i> AI-Based Defect Detection</li>
+                        <li class="flex items-center text-sm"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#25D366] mr-3"></i> High-Speed Barcode & Traceability</li>
+                        <li class="flex items-center text-sm"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#25D366] mr-3"></i> Robotic Vision Guidance</li>
+                    </ul>
+                    <button onclick="getQuote('Project: Vision Integration')" class="bg-[#F97316] hover:bg-[#e66005] text-white px-6 py-3 rounded-lg font-bold transition-all text-sm relative z-10 inline-flex items-center">
+                        Discuss Vision Project <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Turnkey Solutions -->
+                <div class="bg-[#f8fafd] border border-[#d4dbe8] rounded-3xl p-8 md:p-12 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#F97316]/10 to-transparent rounded-bl-full transition-transform duration-700 group-hover:scale-110"></div>
+                    <i data-lucide="cog" class="w-12 h-12 text-[#001233] mb-6 relative z-10"></i>
+                    <h3 class="text-3xl font-serif text-[#001233] mb-4 relative z-10">Turnkey Solutions</h3>
+                    <p class="text-[#4a5e78] mb-8 leading-relaxed relative z-10 text-lg">End-to-end Special Purpose Machine (SPM) building and line automation. We handle mechanical design, electrical panel building, PLC/HMI programming, and physical installation. A complete, ready-to-run solution.</p>
+                    <ul class="space-y-3 mb-8 relative z-10">
+                        <li class="flex items-center text-sm text-[#001233]"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#F97316] mr-3"></i> PLC Logic & Panel Architecture</li>
+                        <li class="flex items-center text-sm text-[#001233]"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#F97316] mr-3"></i> Custom Special Purpose Machines (SPM)</li>
+                        <li class="flex items-center text-sm text-[#001233]"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#F97316] mr-3"></i> Legacy System Retrofitting</li>
+                    </ul>
+                    <button onclick="getQuote('Project: Turnkey Automation Solution')" class="bg-[#001233] hover:bg-[#0052cc] text-white px-6 py-3 rounded-lg font-bold transition-all text-sm relative z-10 inline-flex items-center">
+                        Consult Our Engineers <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-[#001233] text-white border-t-4 border-[#F97316]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
                 <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-4"><div class="w-6 h-0.5 bg-white rounded-full"></div> Contact Veltonics</div>
                 <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Get exact specs & pricing.</h2>
-                <p class="text-[#9fbde8] text-lg mb-10 max-w-md">We tailor every component to your machinery. Share your application details and get our recommendation and best price within hours.</p>
+                <p class="text-[#9fbde8] text-lg mb-10 max-w-md">We tailor every component and project to your machinery. Share your application details and get our recommendation and best price within hours.</p>
                 
                 <div class="space-y-4">
                     <div class="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5">
@@ -167,7 +261,7 @@
                 </div>
             </div>
 
-            <div class="bg-white text-[#0d1f3c] rounded-3xl p-8 md:p-10 shadow-2xl border-t-8 border-[#F97316]">
+            <div class="bg-white text-[#0d1f3c] rounded-3xl p-8 md:p-10 shadow-2xl">
                 <h3 class="text-2xl font-serif text-[#001233] mb-6">Send an Inquiry</h3>
                 <form id="contact-form" class="space-y-5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -191,20 +285,23 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Product Category</label>
+                        <label class="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Inquiry Type</label>
                         <select id="form-interest" class="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all">
-                            <option>Industrial Sensors</option><option>Machine Vision & Cameras</option>
-                            <option>Vision Lighting</option><option>Safety Systems</option>
-                            <option>PLC & HMI Controllers</option><option>Panel Components</option>
-                            <option>Turnkey SPM Project</option>
+                            <option>Industrial Sensors</option>
+                            <option>Machine Vision & Cameras</option>
+                            <option>Vision Integration Project</option>
+                            <option>Turnkey SPM / Automation Project</option>
+                            <option>Annual Maintenance Contract (AMC)</option>
+                            <option>Safety Systems & Lighting</option>
+                            <option>PLC & Panel Components</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Requirement Details *</label>
-                        <textarea id="form-details" required rows="4" class="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all resize-none" placeholder="Describe your needs so we can suggest the best configuration..."></textarea>
+                        <textarea id="form-details" required rows="4" class="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all resize-none" placeholder="Describe your needs, product specs, or project requirements..."></textarea>
                     </div>
                     <button type="submit" class="w-full bg-[#25D366] hover:bg-[#128c4a] text-white font-bold py-4 rounded-xl flex items-center justify-center transition-all shadow-lg text-lg">
-                        Send via WhatsApp
+                        Send via WhatsApp <i data-lucide="send" class="w-5 h-5 ml-2"></i>
                     </button>
                 </form>
             </div>
@@ -213,28 +310,60 @@
 
     <footer class="bg-[#000814] pt-16 pb-8 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+                <!-- Col 1 -->
                 <div>
                     <div class="flex items-center gap-2 mb-6 bg-white inline-block px-4 py-2 rounded-lg">
                         <div class="font-extrabold tracking-widest text-[#001233] flex items-center text-xl" style="font-family: Arial, sans-serif;">VELTONICS<span class="text-[#F97316]">.</span></div>
                     </div>
-                    <p class="text-[#5a7a9e] text-sm leading-relaxed mb-8">Industrial automation products designed for real factory conditions. No model numbers listed here — we provide the exact specification you need upon inquiry.</p>
+                    <p class="text-[#5a7a9e] text-sm leading-relaxed mb-8">Industrial automation products and turnkey projects designed for real factory conditions. Everything you need for line automation at one step.</p>
                 </div>
+                
+                <!-- Col 2: Company Profile (NEW) -->
                 <div>
-                    <h5 class="text-white text-xs font-black uppercase tracking-widest mb-6">Catalog Hub</h5>
+                    <h5 class="text-white text-xs font-black uppercase tracking-widest mb-6 border-b border-white/10 pb-3 inline-block">Company Profile</h5>
                     <ul class="space-y-3">
-                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors">All Sensors</a></li>
-                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors">Vision Systems</a></li>
-                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors">Safety Modules</a></li>
-                        <li><a href="#offers" class="text-[#F97316] hover:text-white font-bold text-sm transition-colors">Special Offers</a></li>
+                        <li><a href="#about" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> About Us</a></li>
+                        <li><a href="#solutions" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> Vision Integration</a></li>
+                        <li><a href="#solutions" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> Turnkey Solutions</a></li>
+                        <li><a href="#about" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> AMC Services</a></li>
+                        <li class="pt-2">
+                            <a href="#" class="text-[#F97316] hover:text-white font-bold text-sm transition-colors flex items-center gap-2 border border-[#F97316] hover:bg-[#F97316] rounded px-3 py-1.5 w-fit">
+                                <i data-lucide="download" class="w-4 h-4"></i> Download Catalogue
+                            </a>
+                        </li>
                     </ul>
                 </div>
+
+                <!-- Col 3: Catalog Hub -->
                 <div>
-                    <h5 class="text-white text-xs font-black uppercase tracking-widest mb-6">Contact</h5>
+                    <h5 class="text-white text-xs font-black uppercase tracking-widest mb-6 border-b border-white/10 pb-3 inline-block">Catalog Hub</h5>
                     <ul class="space-y-3">
-                        <li class="text-[#5a7a9e] text-sm">Ahmedabad, Gujarat, India</li>
-                        <li><a href="https://wa.me/919724648038" class="text-[#5a7a9e] hover:text-white text-sm transition-colors">+91 9724648038</a></li>
-                        <li><a href="mailto:sales@veltonics.com" class="text-[#5a7a9e] hover:text-white text-sm transition-colors">sales@veltonics.com</a></li>
+                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> All Sensors</a></li>
+                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> Vision Systems</a></li>
+                        <li><a href="#products" class="text-[#5a7a9e] hover:text-[#F97316] text-sm transition-colors flex items-center"><i data-lucide="chevron-right" class="w-3 h-3 mr-2"></i> Safety Modules</a></li>
+                        <li><a href="#offers" class="text-[#F97316] hover:text-white font-bold text-sm transition-colors flex items-center"><i data-lucide="tags" class="w-3 h-3 mr-2"></i> Special Offers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h5 class="text-white text-xs font-black uppercase tracking-widest mb-6 border-b border-white/10 pb-3 inline-block">Contact</h5>
+                    <ul class="space-y-4">
+                        <li class="text-[#5a7a9e] text-sm flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-3 mt-0.5 text-[#F97316] flex-shrink-0"></i> 
+                            Ahmedabad, Gujarat, India
+                        </li>
+                        <li>
+                            <a href="https://wa.me/919724648038" class="text-[#5a7a9e] hover:text-white text-sm transition-colors flex items-center">
+                                <i data-lucide="phone" class="w-4 h-4 mr-3 text-[#F97316]"></i> +91 9724648038
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:sales@veltonics.com" class="text-[#5a7a9e] hover:text-white text-sm transition-colors flex items-center">
+                                <i data-lucide="mail" class="w-4 h-4 mr-3 text-[#F97316]"></i> sales@veltonics.com
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -245,6 +374,7 @@
         </div>
     </footer>
 
+    <!-- Modals and Chat UI remain structurally identical but functional... -->
     <div id="product-modal" class="hidden fixed inset-0 bg-[#001233]/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row relative">
             <div class="md:w-2/5 bg-[#eaeff7] p-8 flex items-center justify-center relative border-r border-[#d4dbe8]">
@@ -288,14 +418,14 @@
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-[#f8fafd] space-y-4">
                 <div class="flex justify-start">
                     <div class="max-w-[85%] px-4 py-3 text-[13px] shadow-sm leading-relaxed bg-white border border-[#d4dbe8] text-[#0d1f3c] rounded-2xl rounded-bl-sm">
-                        👋 Hi! I'm Velton, Veltonics' AI assistant. Tell me about your application — what are you trying to detect, measure, or automate, and I will suggest the best fit.
+                        👋 Hi! I'm Velton, Veltonics' AI assistant. Tell me about your application — what are you trying to detect, automate, or integrate?
                     </div>
                 </div>
             </div>
             
             <div id="chat-suggestions" class="px-5 pb-3 bg-[#f8fafd] flex flex-wrap gap-2">
                 <button class="chat-sugg-btn bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#F97316] hover:text-[#F97316] transition-colors">Sensor for metal parts</button>
-                <button class="chat-sugg-btn bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#F97316] hover:text-[#F97316] transition-colors">Barcode camera</button>
+                <button class="chat-sugg-btn bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#F97316] hover:text-[#F97316] transition-colors">Vision Integration Project</button>
             </div>
 
             <div class="p-4 bg-white border-t border-[#d4dbe8]">
@@ -487,7 +617,7 @@
             const interest = document.getElementById('form-interest').value;
             const details = document.getElementById('form-details').value;
             
-            const msg = `*NEW VELTONICS INQUIRY*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Company:* ${encodeURIComponent(company)}%0A*Mobile:* ${encodeURIComponent(mobile)}%0A*City:* ${encodeURIComponent(city)}%0A*Interest:* ${encodeURIComponent(interest)}%0A%0A*Application Details:*%0A${encodeURIComponent(details)}`;
+            const msg = `*NEW VELTONICS INQUIRY*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Company:* ${encodeURIComponent(company)}%0A*Mobile:* ${encodeURIComponent(mobile)}%0A*City:* ${encodeURIComponent(city)}%0A*Interest:* ${encodeURIComponent(interest)}%0A%0A*Details / Specs Required:*%0A${encodeURIComponent(details)}`;
             window.open(`https://wa.me/919724648038?text=${msg}`, '_blank');
         };
 
@@ -572,7 +702,7 @@
             // Fake API Call Delay
             setTimeout(() => {
                 document.getElementById('typing-indicator').remove();
-                appendMessage("Based on that, I'd recommend our High-Speed Smart Vision Cameras or Inductive Proximity ranges. Let our engineers size the exact specification for you. Call us at +91 9724648038!", false);
+                appendMessage("Great! Whether it's a specific product, a Turnkey SPM, or a Vision Integration project, our engineers can help. Let's discuss your exact specs. Call us at +91 9724648038!", false);
                 isTyping = false;
                 updateChatBtnState();
             }, 1000);
@@ -586,7 +716,6 @@
         document.querySelectorAll('.chat-sugg-btn').forEach(btn => {
             btn.onclick = () => handleChatSubmit(btn.textContent);
         });
-
     </script>
 </body>
 </html>
