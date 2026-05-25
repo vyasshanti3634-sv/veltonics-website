@@ -3,34 +3,33 @@ import {
   Search, Menu, X, ChevronRight, MessageSquare, 
   MapPin, Phone, Mail, Globe, ArrowRight, CheckCircle2,
   Cpu, Activity, Filter, Send, Factory, Shield,
-  Box, Microchip, Truck, Settings, Zap, Lightbulb, ChevronDown, Check,
-  Layers, Maximize, ZoomIn
+  Box, Microchip, Truck, Settings, Zap, Lightbulb, ChevronDown, Check
 } from 'lucide-react';
 
-// --- DATA: PRODUCTS (WITH HIGH-QUALITY SPECIFIC IMAGES) ---
+// --- DATA: PRODUCTS ---
 const PRODUCTS = [
-  {id:1, cat:'Sensors', model:'PS-D100', name:'Diffuse Photoelectric Sensor', img:'https://images.unsplash.com/photo-1580983546522-86927d3b0704?auto=format&fit=crop&q=80&w=600', specs:['Range: 10–200mm','Output: NPN/PNP','IP67 rated'], tags:['diffuse','compact','IP67'], desc:'All-purpose diffuse mode sensor for detecting objects without a reflector. Ideal for presence detection in conveyor and machine feeding applications.'},
-  {id:2, cat:'Sensors', model:'PS-R200', name:'Retro-reflective Sensor', img:'https://images.unsplash.com/photo-1580983546522-86927d3b0704?auto=format&fit=crop&q=80&w=600', specs:['Range: up to 4m','Fast response <1ms','Built-in BGS'], tags:['retroreflective','long range'], desc:'High-range retro-reflective sensor with polarized light for reliable detection even with shiny or transparent objects.'},
-  {id:3, cat:'Sensors', model:'PX-I150', name:'Inductive Proximity Sensor', img:'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=600', specs:['Sn: 2–15mm','M12/M18/M30','Short-circuit proof'], tags:['inductive','metal detect','M18'], desc:'Reliable non-contact detection of ferrous and non-ferrous metals. Available in flush and non-flush mounting.'},
-  {id:4, cat:'Sensors', model:'FS-100', name:'Fiber Optic Amplifier + Fiber', img:'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=600', specs:['Spot Ø 0.5mm','High-speed mode','Digital display'], tags:['fiber optic','high speed','micro'], desc:'Separate amplifier and fiber unit for detection in tight spaces, high-temperature zones, and EMI-rich environments.'},
-  {id:5, cat:'Sensors', model:'LD-500', name:'Laser Displacement Sensor', img:'https://images.unsplash.com/photo-1580983546522-86927d3b0704?auto=format&fit=crop&q=80&w=600', specs:['Range: 30–300mm','±0.1% accuracy','Analog/RS-485'], tags:['displacement','analog','precision'], desc:'High-accuracy triangulation laser for gap measurement, height checks, vibration monitoring, and profile gauging.'},
-  {id:6, cat:'Sensors', model:'US-300', name:'Ultrasonic Sensor', img:'https://images.unsplash.com/photo-1580983546522-86927d3b0704?auto=format&fit=crop&q=80&w=600', specs:['Range: 30–1000mm','Transparent detection','Teach-in button'], tags:['ultrasonic','transparent','liquid'], desc:'Detects transparent, shiny, or irregular objects regardless of color or surface finish. Ideal for liquid level and film detection.'},
-  {id:7, cat:'Vision', model:'SC-400', name:'Smart Vision Camera', img:'https://images.unsplash.com/photo-1527334134460-f21a05ef9c60?auto=format&fit=crop&q=80&w=600', specs:['5MP CMOS sensor','Onboard processing','GigE / USB3'], tags:['smart camera','5MP','inspection'], desc:'All-in-one smart camera with built-in image processing for presence, measurement, OCR, and barcode reading without a separate PC.'},
-  {id:8, cat:'Vision', model:'BR-200', name:'Fixed-mount Barcode Reader', img:'https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&q=80&w=600', specs:['1D/2D/QR codes','IP65','RS-232/Ethernet'], tags:['barcode','QR','1D/2D'], desc:'Industrial fixed-mount barcode reader for conveyor tracking, traceability, and label verification at high line speeds.'},
-  {id:9, cat:'Vision', model:'OV-100', name:'OCR Vision Verifier', img:'https://images.unsplash.com/photo-1527334134460-f21a05ef9c60?auto=format&fit=crop&q=80&w=600', specs:['AI-trained OCR','Batch/expiry dates','Pass/fail output'], tags:['OCR','AI','pharma'], desc:'Dedicated OCR verifier for reading and verifying printed text, batch codes, and expiry dates on packaging lines.'},
-  {id:10, cat:'Vision', model:'LP-3D', name:'3D Laser Profiler', img:'https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&q=80&w=600', specs:['±5μm accuracy','Up to 1kHz','Full profile output'], tags:['3D','profile','height'], desc:'High-speed 3D line-scan profiler for volume measurement, warp detection, and dimensional gauging on production lines.'},
-  {id:11, cat:'Safety', model:'SL-200', name:'Safety Light Curtain', img:'https://images.unsplash.com/photo-1614064641913-a5105e46808e?auto=format&fit=crop&q=80&w=600', specs:['14/30/90mm MHO','PL e / SIL 3','Self-monitoring'], tags:['light curtain','PL e','press safety'], desc:'Type 4 safety light curtain for machine guarding and access point protection. Meets IEC 61496-1/-2 and ISO 13849.'},
-  {id:12, cat:'Safety', model:'SR-100', name:'Safety Relay Module', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600', specs:['Up to PL e','2-channel monitoring','DIN rail mount'], tags:['safety relay','PL e','module'], desc:'Universal safety relay for E-stop, gate switches, and light curtains. Integrated monitoring with forced-guided contacts.'},
-  {id:13, cat:'Safety', model:'LS-400', name:'Safety Laser Scanner', img:'https://images.unsplash.com/photo-1614064641913-a5105e46808e?auto=format&fit=crop&q=80&w=600', specs:['270° scan angle','Up to 8.25m range','2 safety fields'], tags:['laser scanner','AGV','area'], desc:'Configurable safety laser scanner for mobile equipment, collaborative robots, and area guarding with programmable zones.'},
-  {id:14, cat:'Controllers', model:'PL-M100', name:'Micro PLC', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600', specs:['8DI / 6DO / 4AI','IEC 61131-3','Modbus/Ethernet'], tags:['PLC','micro','IEC 61131'], desc:'Compact micro PLC for machine sequencing, sensor logic, and I/O control. Expandable with analog and communication modules.'},
-  {id:15, cat:'Controllers', model:'HM-7', name:'7" HMI Touch Panel', img:'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600', specs:['7" TFT 800×480','RS-232/485/Ethernet','IP65 front'], tags:['HMI','touch panel','7 inch'], desc:'Color touchscreen HMI for operator interaction, alarm display, recipe management, and trend visualization.'},
-  {id:16, cat:'Controllers', model:'SD-750', name:'AC Servo Drive', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600', specs:['0.1–7.5kW','MECHATROLINK-III','Auto-tuning'], tags:['servo','drive','motion'], desc:'High-performance AC servo drive with auto-tuning, vibration suppression, and position/speed/torque control modes.'},
-  {id:17, cat:'Panel', model:'SSR-40', name:'Solid State Relay 40A', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600', specs:['40A/480VAC','4–32VDC control','Zero-cross switching'], tags:['SSR','solid state','40A'], desc:'Heavy-duty SSR for heater control, motor switching, and PLC-controlled loads with zero-voltage switching for reduced EMI.'},
-  {id:18, cat:'Panel', model:'PS-24V', name:'DIN Rail Power Supply 24VDC', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600', specs:['100–240VAC input','5A / 10A / 20A','Short-circuit protect'], tags:['power supply','24VDC','SMPS'], desc:'Compact SMPS DIN rail power supply for PLC systems, sensor networks, and control panels with wide input range.'},
-  {id:19, cat:'Lighting', model:'RL-90', name:'Ring Light Ø90mm', img:'https://images.unsplash.com/photo-1598516709849-0ad91d90f230?auto=format&fit=crop&q=80&w=600', specs:['Ø90 / Ø120 / Ø170','White/Red/IR/UV','Strobe ready'], tags:['ring light','LED','vision'], desc:'Coaxial ring illumination for inspection cameras eliminating shadow. Available in white, red, IR, blue, and UV wavelengths.'},
-  {id:20, cat:'Lighting', model:'BL-200', name:'LED Bar Light 200mm', img:'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80&w=600', specs:['200/300/600mm','Adjustable angle','IP67'], tags:['bar light','directional','IP67'], desc:'Directional bar light for surface defect detection through low-angle grazing illumination. IP67 for harsh environments.'},
-  {id:21, cat:'Lighting', model:'TL-3', name:'3-Stack Tower Light', img:'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80&w=600', specs:['3-tier RGB LED','Buzzer optional','IP65'], tags:['tower light','signal','RGB'], desc:'Machine status signal tower with red/amber/green LED segments and optional buzzer for visual and audible machine state indication.'},
-  {id:22, cat:'Automation', model:'SPM-C1', name:'Turnkey SPM System', img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600', specs:['Custom engineering','Vision + PLC + HMI','Full commissioning'], tags:['SPM','turnkey','custom'], desc:'Complete special-purpose machine design, build, and commissioning around your production bottleneck — vision, sensing, pneumatics, and controls integrated.'},
+  {id:1, cat:'Sensors', model:'PS-D100', name:'Diffuse Photoelectric Sensor', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Range: 10–200mm','Output: NPN/PNP','IP67 rated'], tags:['diffuse','compact','IP67'], desc:'All-purpose diffuse mode sensor for detecting objects without a reflector. Ideal for presence detection in conveyor and machine feeding applications.'},
+  {id:2, cat:'Sensors', model:'PS-R200', name:'Retro-reflective Sensor', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Range: up to 4m','Fast response <1ms','Built-in BGS'], tags:['retroreflective','long range'], desc:'High-range retro-reflective sensor with polarized light for reliable detection even with shiny or transparent objects.'},
+  {id:3, cat:'Sensors', model:'PX-I150', name:'Inductive Proximity Sensor', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Sn: 2–15mm','M12/M18/M30','Short-circuit proof'], tags:['inductive','metal detect','M18'], desc:'Reliable non-contact detection of ferrous and non-ferrous metals. Available in flush and non-flush mounting.'},
+  {id:4, cat:'Sensors', model:'FS-100', name:'Fiber Optic Amplifier + Fiber', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Spot Ø 0.5mm','High-speed mode','Digital display'], tags:['fiber optic','high speed','micro'], desc:'Separate amplifier and fiber unit for detection in tight spaces, high-temperature zones, and EMI-rich environments.'},
+  {id:5, cat:'Sensors', model:'LD-500', name:'Laser Displacement Sensor', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Range: 30–300mm','±0.1% accuracy','Analog/RS-485'], tags:['displacement','analog','precision'], desc:'High-accuracy triangulation laser for gap measurement, height checks, vibration monitoring, and profile gauging.'},
+  {id:6, cat:'Sensors', model:'US-300', name:'Ultrasonic Sensor', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=70&w=600', specs:['Range: 30–1000mm','Transparent detection','Teach-in button'], tags:['ultrasonic','transparent','liquid'], desc:'Detects transparent, shiny, or irregular objects regardless of color or surface finish. Ideal for liquid level and film detection.'},
+  {id:7, cat:'Vision', model:'SC-400', name:'Smart Vision Camera', img:'https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=70&w=600', specs:['5MP CMOS sensor','Onboard processing','GigE / USB3'], tags:['smart camera','5MP','inspection'], desc:'All-in-one smart camera with built-in image processing for presence, measurement, OCR, and barcode reading without a separate PC.'},
+  {id:8, cat:'Vision', model:'BR-200', name:'Fixed-mount Barcode Reader', img:'https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=70&w=600', specs:['1D/2D/QR codes','IP65','RS-232/Ethernet'], tags:['barcode','QR','1D/2D'], desc:'Industrial fixed-mount barcode reader for conveyor tracking, traceability, and label verification at high line speeds.'},
+  {id:9, cat:'Vision', model:'OV-100', name:'OCR Vision Verifier', img:'https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=70&w=600', specs:['AI-trained OCR','Batch/expiry dates','Pass/fail output'], tags:['OCR','AI','pharma'], desc:'Dedicated OCR verifier for reading and verifying printed text, batch codes, and expiry dates on packaging lines.'},
+  {id:10, cat:'Vision', model:'LP-3D', name:'3D Laser Profiler', img:'https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?auto=format&fit=crop&q=70&w=600', specs:['±5μm accuracy','Up to 1kHz','Full profile output'], tags:['3D','profile','height'], desc:'High-speed 3D line-scan profiler for volume measurement, warp detection, and dimensional gauging on production lines.'},
+  {id:11, cat:'Safety', model:'SL-200', name:'Safety Light Curtain', img:'https://images.unsplash.com/photo-1504917595217-d4bf261162cd?auto=format&fit=crop&q=70&w=600', specs:['14/30/90mm MHO','PL e / SIL 3','Self-monitoring'], tags:['light curtain','PL e','press safety'], desc:'Type 4 safety light curtain for machine guarding and access point protection. Meets IEC 61496-1/-2 and ISO 13849.'},
+  {id:12, cat:'Safety', model:'SR-100', name:'Safety Relay Module', img:'https://images.unsplash.com/photo-1504917595217-d4bf261162cd?auto=format&fit=crop&q=70&w=600', specs:['Up to PL e','2-channel monitoring','DIN rail mount'], tags:['safety relay','PL e','module'], desc:'Universal safety relay for E-stop, gate switches, and light curtains. Integrated monitoring with forced-guided contacts.'},
+  {id:13, cat:'Safety', model:'LS-400', name:'Safety Laser Scanner', img:'https://images.unsplash.com/photo-1504917595217-d4bf261162cd?auto=format&fit=crop&q=70&w=600', specs:['270° scan angle','Up to 8.25m range','2 safety fields'], tags:['laser scanner','AGV','area'], desc:'Configurable safety laser scanner for mobile equipment, collaborative robots, and area guarding with programmable zones.'},
+  {id:14, cat:'Controllers', model:'PL-M100', name:'Micro PLC', img:'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=70&w=600', specs:['8DI / 6DO / 4AI','IEC 61131-3','Modbus/Ethernet'], tags:['PLC','micro','IEC 61131'], desc:'Compact micro PLC for machine sequencing, sensor logic, and I/O control. Expandable with analog and communication modules.'},
+  {id:15, cat:'Controllers', model:'HM-7', name:'7" HMI Touch Panel', img:'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=70&w=600', specs:['7" TFT 800×480','RS-232/485/Ethernet','IP65 front'], tags:['HMI','touch panel','7 inch'], desc:'Color touchscreen HMI for operator interaction, alarm display, recipe management, and trend visualization.'},
+  {id:16, cat:'Controllers', model:'SD-750', name:'AC Servo Drive', img:'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=70&w=600', specs:['0.1–7.5kW','MECHATROLINK-III','Auto-tuning'], tags:['servo','drive','motion'], desc:'High-performance AC servo drive with auto-tuning, vibration suppression, and position/speed/torque control modes.'},
+  {id:17, cat:'Panel', model:'SSR-40', name:'Solid State Relay 40A', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=70&w=600', specs:['40A/480VAC','4–32VDC control','Zero-cross switching'], tags:['SSR','solid state','40A'], desc:'Heavy-duty SSR for heater control, motor switching, and PLC-controlled loads with zero-voltage switching for reduced EMI.'},
+  {id:18, cat:'Panel', model:'PS-24V', name:'DIN Rail Power Supply 24VDC', img:'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=70&w=600', specs:['100–240VAC input','5A / 10A / 20A','Short-circuit protect'], tags:['power supply','24VDC','SMPS'], desc:'Compact SMPS DIN rail power supply for PLC systems, sensor networks, and control panels with wide input range.'},
+  {id:19, cat:'Lighting', model:'RL-90', name:'Ring Light Ø90mm', img:'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=70&w=600', specs:['Ø90 / Ø120 / Ø170','White/Red/IR/UV','Strobe ready'], tags:['ring light','LED','vision'], desc:'Coaxial ring illumination for inspection cameras eliminating shadow. Available in white, red, IR, blue, and UV wavelengths.'},
+  {id:20, cat:'Lighting', model:'BL-200', name:'LED Bar Light 200mm', img:'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=70&w=600', specs:['200/300/600mm','Adjustable angle','IP67'], tags:['bar light','directional','IP67'], desc:'Directional bar light for surface defect detection through low-angle grazing illumination. IP67 for harsh environments.'},
+  {id:21, cat:'Lighting', model:'TL-3', name:'3-Stack Tower Light', img:'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=70&w=600', specs:['3-tier RGB LED','Buzzer optional','IP65'], tags:['tower light','signal','RGB'], desc:'Machine status signal tower with red/amber/green LED segments and optional buzzer for visual and audible machine state indication.'},
+  {id:22, cat:'Automation', model:'SPM-C1', name:'Turnkey SPM System', img:'https://images.unsplash.com/photo-1518085250887-8bd9a2b12f8c?auto=format&fit=crop&q=70&w=600', specs:['Custom engineering','Vision + PLC + HMI','Full commissioning'], tags:['SPM','turnkey','custom'], desc:'Complete special-purpose machine design, build, and commissioning around your production bottleneck — vision, sensing, pneumatics, and controls integrated.'},
 ];
 
 // --- DATA: APPLICATIONS ---
@@ -44,8 +43,7 @@ const APPS = [
       { h: 'Body Panel Gap & Flush Measurement', p: 'Laser displacement sensors measure gap and step between adjacent body panels to ±0.05mm.', prod: 'LD-500 Laser Displacement Sensor' },
       { h: 'Fastener & Nut Presence Verification', p: 'Proximity and vision sensors confirm nut, bolt, and clip presence after assembly operations.', prod: 'PX-I150 Inductive Sensor + SC-400 Smart Camera' },
       { h: 'Torque Mark & Label Inspection', p: 'Smart cameras verify that torque marks are applied, correctly oriented, and that VIN/part labels are present and readable.', prod: 'SC-400 Smart Camera + OV-100 OCR Verifier' },
-    ],
-    architecture: "Automotive assembly lines require high-speed, robust networking. We deploy EtherCAT-enabled PLCs communicating directly with our Smart Cameras and 3D Profilers to provide real-time Go/No-Go decisions to the robotic cells without adding cycle time."
+    ]
   },
   {
     id: 'pharma', title: 'Pharma & Food Packaging', icon: <Box className="w-5 h-5"/>,
@@ -56,8 +54,7 @@ const APPS = [
       { h: 'Fill Level & Liquid Inspection', p: 'Laser sensors and backlight cameras measure fill level in glass and plastic containers, detecting underfill, overfill, and empty units.', prod: 'LD-500 Laser Sensor + BK-150 Backlight' },
       { h: 'Cap Presence & Orientation Check', p: 'Smart cameras and color sensors verify cap presence, color, and orientation after capping operations.', prod: 'CS-200 Color Sensor + SC-400 Smart Camera' },
       { h: 'Blister Pack Completeness', p: 'Backlit vision inspection confirms every cavity in a blister pack contains a tablet/capsule of the correct color.', prod: 'SC-400 Smart Camera + BK-150 Backlight' },
-    ],
-    architecture: "FDA and 21 CFR Part 11 compliance is built into our vision architectures. We deploy IP67-rated stainless steel sensors and cameras that withstand washdowns, integrated with secure data-logging HMIs for full batch traceability."
+    ]
   },
   {
     id: 'electronics', title: 'Electronics & PCB Assembly', icon: <Microchip className="w-5 h-5"/>,
@@ -68,8 +65,7 @@ const APPS = [
       { h: 'Connector Pin Inspection', p: 'Precision vision systems measure pin height, detect bent or missing pins, and verify correct connector insertion.', prod: 'LP-3D 3D Profiler + SC-400 Smart Camera' },
       { h: 'Solder Joint Quality Inspection', p: 'Inline AOI using structured lighting and smart cameras to detect solder bridges, insufficient solder, and tombstones.', prod: 'SC-400 Smart Camera + BL-200 Directional Bar Light' },
       { h: 'Label & Serial Number Verification', p: 'OCR and 2D barcode readers verify label content and position, feeding data to MES for full traceability.', prod: 'OV-100 OCR + BR-200 Barcode Reader' },
-    ],
-    architecture: "PCB manufacturing demands sub-micron accuracy. We utilize 3D laser profilers and telecentric lenses combined with multi-angle lighting (Dome + Coaxial) to eliminate solder reflections and guarantee true measurement."
+    ]
   },
   {
     id: 'metal', title: 'Metal Stamping & Fab', icon: <Settings className="w-5 h-5"/>,
@@ -80,8 +76,7 @@ const APPS = [
       { h: 'Double-Sheet & Mis-feed Detection', p: 'Ultrasonic double-sheet detectors on feeders prevent two sheets from entering the die simultaneously.', prod: 'US-300 Ultrasonic Sensor' },
       { h: 'Part Ejection Confirmation', p: 'Through-beam or diffuse photoelectric sensors confirm part ejection after each stroke, stopping the press if a part remains.', prod: 'PS-D100 Diffuse Sensor' },
       { h: 'Dimensional Gauging & Profile Check', p: 'Non-contact laser displacement sensors measure critical dimensions inline, replacing manual CMM sampling.', prod: 'LD-500 Laser Displacement + LP-3D 3D Profiler' },
-    ],
-    architecture: "Stamping environments are harsh, with heavy vibration and oil. We deploy ultra-rugged inductive sensors and IP67G (oil-resistant) light curtains wired directly to redundant Safety Relay modules to guarantee zero-fail operation."
+    ]
   },
   {
     id: 'plastics', title: 'Plastics & Molding', icon: <Factory className="w-5 h-5"/>,
@@ -92,8 +87,7 @@ const APPS = [
       { h: 'Gate Vestige & Flash Detection', p: 'Smart cameras capture molded part images and detect excess flash, gate vestige height, and burrs.', prod: 'SC-400 Smart Camera + RL-90 Ring Light' },
       { h: 'Part Color Verification', p: 'Multi-channel color sensors verify molded part color matches the approved shade, catching material mix-ups.', prod: 'CS-200 Color Sensor' },
       { h: 'Dimensional Measurement', p: 'Laser displacement and 3D profiling sensors measure sink marks, warpage, and critical dimensions on molded parts.', prod: 'LD-500 Laser Sensor + LP-3D Profiler' },
-    ],
-    architecture: "High temperatures and tight spaces require specialized hardware. We integrate heat-resistant fiber optic sensors directly into the mold tool, linked to high-speed external amplifiers for instantaneous ejection verification."
+    ]
   },
   {
     id: 'logistics', title: 'Warehousing & Logistics', icon: <Truck className="w-5 h-5"/>,
@@ -104,28 +98,16 @@ const APPS = [
       { h: 'Pallet & Carton Dimensioning', p: '3D laser profiling systems measure pallet or carton LxWxH at conveyor speed, feeding volumetric data to TMS.', prod: 'LP-3D 3D Laser Profiler' },
       { h: 'Conveyor Object Detection & Counting', p: 'Through-beam sensors detect every item passing a point, providing accurate counts and triggering diverters.', prod: 'PS-D100 Sensor' },
       { h: 'AGV Safety & Area Guarding', p: 'Safety laser scanners protect AGV/AMR movement zones, detecting pedestrians or obstacles and triggering stop.', prod: 'LS-400 Safety Laser Scanner' },
-    ],
-    architecture: "Logistics lines run at extreme speeds. Our architecture networks multi-camera barcode reading tunnels via Gigabit Ethernet directly to warehouse management systems (WMS), achieving 99.9% read rates even on damaged labels."
+    ]
   }
 ];
-
-// --- BRAND LOGO COMPONENT ---
-// Perfectly mimics the uploaded logo using precise CSS for flawless scaling
-const VeltonicsLogo = ({ className = "text-2xl" }) => (
-  <div className={`font-extrabold tracking-widest text-[#001233] flex items-center ${className}`} style={{ fontFamily: 'Arial, sans-serif' }}>
-    VELTONICS<span className="text-[#F97316]">.</span>
-  </div>
-);
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeApp, setActiveApp] = useState(APPS[0]);
   const [isScrolled, setIsScrolled] = useState(false);
-  
-  // Modals Depth State
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedAppDepth, setSelectedAppDepth] = useState(null);
   
   // Chatbot State
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -204,9 +186,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>B2B Industrial Automation · Sensors · Vision · AI Inspection · Turnkey SPM · India</div>
           <div className="flex items-center space-x-6">
-            <span className="flex items-center text-white"><Phone size={14} className="mr-1.5 text-[#F97316]" /> +91 9724648038</span>
-            <a href="mailto:sales@veltonics.com" className="hover:text-white flex items-center transition-colors text-white"><Mail size={14} className="mr-1.5 text-[#F97316]" /> sales@veltonics.com</a>
-            <span className="flex items-center text-white"><MapPin size={14} className="mr-1.5 text-[#F97316]" /> Ahmedabad, Gujarat</span>
+            <span className="flex items-center text-white"><Phone size={14} className="mr-1.5 text-[#0052cc]" /> +91 9724648038</span>
+            <a href="mailto:sales@veltonics.com" className="hover:text-white flex items-center transition-colors text-white"><Mail size={14} className="mr-1.5 text-[#0052cc]" /> sales@veltonics.com</a>
+            <span className="flex items-center text-white"><MapPin size={14} className="mr-1.5 text-[#0052cc]" /> Ahmedabad, Gujarat</span>
           </div>
         </div>
       </div>
@@ -214,8 +196,11 @@ export default function App() {
       {/* Navigation */}
       <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#d4dbe8] transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2">
-            <VeltonicsLogo className="text-2xl md:text-3xl" />
+          <a href="#" className="flex items-center gap-3 text-[#001233] text-xl font-bold tracking-wider">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#001233] to-[#0066ff] flex items-center justify-center text-white shadow-lg">
+              <span className="font-extrabold text-xl">V</span>
+            </div>
+            VELTONICS
           </a>
 
           <nav className="hidden lg:flex space-x-2 items-center">
@@ -230,7 +215,7 @@ export default function App() {
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
             <a href="https://wa.me/919724648038" target="_blank" rel="noreferrer" className="hidden sm:flex bg-[#25D366] hover:bg-[#128c4a] text-white px-4 py-2 rounded-full text-sm font-bold transition-all shadow-md">WhatsApp ↗</a>
-            <a href="#contact" className="bg-[#001233] hover:bg-[#0052cc] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:-translate-y-0.5">Request Quote</a>
+            <a href="#contact" className="bg-[#0052cc] hover:bg-[#001233] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md hover:-translate-y-0.5">Request Quote</a>
           </div>
         </div>
 
@@ -252,7 +237,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse"></span> India's Precision Automation Partner
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> India's Precision Automation Partner
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 font-serif">
               Build smarter factories with <em className="not-italic text-[#7ab8ff]">vision, sensing & AI.</em>
@@ -261,7 +246,7 @@ export default function App() {
               Veltonics delivers industrial sensors, machine vision, safety systems, AI inspection, and turnkey automation — with responsive support for manufacturers across India.
             </p>
             <div className="flex flex-wrap gap-4 mb-12">
-              <a href="#products" className="bg-[#F97316] hover:bg-[#e66005] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-xl">Explore Products</a>
+              <a href="#products" className="bg-[#0052cc] hover:bg-[#001233] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-xl">Explore Products</a>
               <a href="#applications" className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-3.5 rounded-full font-bold transition-all">Industry Applications</a>
             </div>
             
@@ -277,17 +262,28 @@ export default function App() {
               <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1400" alt="Factory Floor" className="w-full h-[500px] object-cover" />
             </div>
             <div className="absolute -left-6 bottom-12 bg-white text-[#001233] rounded-xl p-5 shadow-2xl max-w-xs border border-slate-100">
-              <div className="text-xs font-black uppercase tracking-widest text-[#F97316] mb-2">AI Vision Ready</div>
+              <div className="text-xs font-black uppercase tracking-widest text-[#0052cc] mb-2">AI Vision Ready</div>
               <p className="text-sm font-bold">Defect detection, OCR, traceability and smart rejection on your production line.</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Strip */}
+      <div className="bg-white border-b border-[#d4dbe8] py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50"><div className="w-10 h-10 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#0052cc]"><Shield size={20}/></div><div><b className="block text-sm text-[#001233]">Genuine Products</b><span className="text-xs text-[#4a5e78]">Authorized channels</span></div></div>
+          <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50"><div className="w-10 h-10 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#0052cc]"><Truck size={20}/></div><div><b className="block text-sm text-[#001233]">Fast Delivery</b><span className="text-xs text-[#4a5e78]">Pan-India shipping</span></div></div>
+          <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50"><div className="w-10 h-10 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#0052cc]"><Box size={20}/></div><div><b className="block text-sm text-[#001233]">Application Expert</b><span className="text-xs text-[#4a5e78]">Right product first</span></div></div>
+          <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50"><div className="w-10 h-10 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#0052cc]"><Phone size={20}/></div><div><b className="block text-sm text-[#001233]">Quick Response</b><span className="text-xs text-[#4a5e78]">Tech + sales support</span></div></div>
+          <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50"><div className="w-10 h-10 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#0052cc]"><Settings size={20}/></div><div><b className="block text-sm text-[#001233]">End-to-end Projects</b><span className="text-xs text-[#4a5e78]">Concept to commission</span></div></div>
+        </div>
+      </div>
+
       {/* Catalog (Misumi Style) */}
       <section id="products" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3"><div className="w-6 h-0.5 bg-[#001233] rounded-full"></div> Product Catalog</div>
+          <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#0052cc] mb-3"><div className="w-6 h-0.5 bg-[#c8102e] rounded-full"></div> Product Catalog</div>
           <h2 className="text-3xl md:text-4xl font-serif text-[#001233] mb-4">Industrial products for every application</h2>
           <p className="text-[#4a5e78] max-w-2xl text-lg">Browse by category — each product is selected for real factory conditions across detection, measurement, control, and safety needs.</p>
         </div>
@@ -297,7 +293,7 @@ export default function App() {
             <button 
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border-2 ${activeCategory === cat ? 'bg-[#001233] text-white border-[#001233]' : 'bg-white text-[#4a5e78] border-[#d4dbe8] hover:border-[#001233] hover:text-[#001233]'}`}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all border-2 ${activeCategory === cat ? 'bg-[#0052cc] text-white border-[#0052cc]' : 'bg-white text-[#4a5e78] border-[#d4dbe8] hover:border-[#0052cc] hover:text-[#0052cc]'}`}
             >
               {cat}
             </button>
@@ -306,26 +302,23 @@ export default function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProducts.map(p => (
-            <div key={p.id} onClick={() => setSelectedProduct(p)} className="bg-white border border-[#d4dbe8] rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#F97316] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col">
+            <div key={p.id} onClick={() => setSelectedProduct(p)} className="bg-white border border-[#d4dbe8] rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#b8cce8] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col">
               <div className="h-48 bg-[#eaeff7] relative overflow-hidden flex items-center justify-center p-4">
                 <span className="absolute top-3 left-3 bg-[#001233] text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider z-10">{p.cat}</span>
-                <img src={p.img} alt={p.name} className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500 rounded-lg shadow-sm" />
-                <div className="absolute inset-0 bg-[#001233]/0 group-hover:bg-[#001233]/10 transition-colors flex items-center justify-center">
-                   <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md w-10 h-10" />
-                </div>
+                <img src={p.img} alt={p.name} className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="p-5 flex-1 flex flex-col">
-                <div className="text-[11px] font-bold text-[#F97316] uppercase tracking-widest mb-1">{p.model}</div>
-                <h3 className="font-bold text-[#001233] text-lg leading-tight mb-4 group-hover:text-[#F97316] transition-colors">{p.name}</h3>
+                <div className="text-[11px] font-bold text-[#4a5e78] uppercase tracking-widest mb-1">{p.model}</div>
+                <h3 className="font-bold text-[#001233] text-lg leading-tight mb-4">{p.name}</h3>
                 <ul className="mb-4 space-y-1.5 flex-1">
-                  {p.specs.map((s, i) => <li key={i} className="text-xs text-[#4a5e78] flex items-center border-b border-slate-50 pb-1.5"><ChevronRight size={12} className="text-[#F97316] mr-1 flex-shrink-0"/> {s}</li>)}
+                  {p.specs.map((s, i) => <li key={i} className="text-xs text-[#4a5e78] flex items-center border-b border-slate-50 pb-1.5"><ChevronRight size={12} className="text-[#0052cc] mr-1 flex-shrink-0"/> {s}</li>)}
                 </ul>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {p.tags.map(t => <span key={t} className="bg-[#eef3ff] text-[#1a56a0] text-[10px] font-bold px-2 py-1 rounded-full">{t}</span>)}
                 </div>
                 <div className="flex gap-2 mt-auto">
-                  <button className="flex-1 bg-white border border-[#d4dbe8] text-[#001233] text-xs font-bold py-2 rounded-lg hover:border-[#001233] hover:bg-[#f4f6f9] transition-colors" onClick={(e) => { e.stopPropagation(); getQuote(p.name); }}>Get Quote</button>
-                  <button className="flex-1 bg-[#001233] text-white text-xs font-bold py-2 rounded-lg hover:bg-[#F97316] transition-colors">Depth Specs</button>
+                  <button className="flex-1 bg-white border border-[#d4dbe8] text-[#001233] text-xs font-bold py-2 rounded-lg hover:border-[#0052cc] hover:text-[#0052cc] transition-colors" onClick={(e) => { e.stopPropagation(); getQuote(p.name); }}>Get Quote</button>
+                  <button className="flex-1 bg-[#0052cc] text-white text-xs font-bold py-2 rounded-lg hover:bg-[#001233] transition-colors">Details</button>
                 </div>
               </div>
             </div>
@@ -333,11 +326,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* Applications (Keyence Style with Depth) */}
+      {/* Applications (Keyence Style) */}
       <section id="applications" className="py-24 bg-gradient-to-b from-white to-[#f0f4fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3"><div className="w-6 h-0.5 bg-[#001233] rounded-full"></div> Industry Applications</div>
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#0052cc] mb-3"><div className="w-6 h-0.5 bg-[#c8102e] rounded-full"></div> Industry Applications</div>
             <h2 className="text-3xl md:text-4xl font-serif text-[#001233] mb-4">Precision solutions for every manufacturing challenge</h2>
             <p className="text-[#4a5e78] max-w-2xl text-lg">Industry-specific measurement, inspection, and automation guidance — with the exact sensing solution for each challenge.</p>
           </div>
@@ -347,7 +340,7 @@ export default function App() {
               <button 
                 key={app.id} 
                 onClick={() => setActiveApp(app)}
-                className={`flex items-center px-6 py-3 font-bold text-sm transition-all border-b-4 -mb-[2px] ${activeApp.id === app.id ? 'border-[#F97316] text-[#001233]' : 'border-transparent text-[#4a5e78] hover:text-[#001233]'}`}
+                className={`flex items-center px-6 py-3 font-bold text-sm transition-all border-b-4 -mb-[2px] ${activeApp.id === app.id ? 'border-[#c8102e] text-[#001233]' : 'border-transparent text-[#4a5e78] hover:text-[#001233]'}`}
               >
                 <span className="mr-2 opacity-70">{app.icon}</span> {app.title}
               </button>
@@ -355,28 +348,19 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="rounded-3xl overflow-hidden shadow-2xl border border-white order-2 lg:order-1 relative group cursor-pointer" onClick={() => setSelectedAppDepth(activeApp)}>
-              <img src={activeApp.img} alt={activeApp.title} className="w-full h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-[#001233]/20 group-hover:bg-[#001233]/40 transition-colors flex items-center justify-center">
-                 <button className="bg-white/90 backdrop-blur text-[#001233] font-bold px-6 py-3 rounded-full flex items-center gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all shadow-xl">
-                   <Layers size={18} className="text-[#F97316]" /> Explore Architecture in Depth
-                 </button>
-              </div>
+            <div className="rounded-3xl overflow-hidden shadow-2xl border border-white order-2 lg:order-1">
+              <img src={activeApp.img} alt={activeApp.title} className="w-full h-[500px] object-cover" />
             </div>
             <div className="order-1 lg:order-2">
               <h3 className="text-3xl font-serif text-[#001233] mb-4">{activeApp.title}</h3>
-              <p className="text-[#4a5e78] text-lg leading-relaxed mb-6">{activeApp.intro}</p>
+              <p className="text-[#4a5e78] text-lg leading-relaxed mb-8">{activeApp.intro}</p>
               
-              <button onClick={() => setSelectedAppDepth(activeApp)} className="bg-[#001233] hover:bg-[#F97316] text-white px-6 py-3 rounded-lg text-sm font-bold flex items-center gap-2 mb-8 transition-colors shadow-lg">
-                <Layers size={16} /> Explore Case Study & Architecture Depth <ArrowRight size={16}/>
-              </button>
-
               <div className="space-y-4">
                 {activeApp.cases.map((c, i) => (
-                  <div key={i} className="bg-white border border-[#d4dbe8] rounded-xl p-5 border-l-4 border-l-[#F97316] shadow-sm hover:shadow-md transition-shadow">
+                  <div key={i} className="bg-white border border-[#d4dbe8] rounded-xl p-5 border-l-4 border-l-[#0052cc] shadow-sm">
                     <h4 className="font-bold text-[#001233] mb-2">{c.h}</h4>
                     <p className="text-sm text-[#4a5e78] mb-3">{c.p}</p>
-                    <div className="flex items-center text-xs font-bold text-[#001233]"><span className="text-[#F97316] mr-1.5">↳</span> Recommended: {c.prod}</div>
+                    <div className="flex items-center text-xs font-bold text-[#0052cc]"><span className="text-[#c8102e] mr-1.5">↳</span> Recommended: {c.prod}</div>
                   </div>
                 ))}
               </div>
@@ -389,33 +373,33 @@ export default function App() {
       <section id="ai" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3"><div className="w-6 h-0.5 bg-[#001233] rounded-full"></div> AI & Machine Vision</div>
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#0052cc] mb-3"><div className="w-6 h-0.5 bg-[#c8102e] rounded-full"></div> AI & Machine Vision</div>
             <h2 className="text-3xl md:text-4xl font-serif text-[#001233] mb-6">Factory AI that solves real quality problems</h2>
             <p className="text-[#4a5e78] text-lg mb-10 leading-relaxed">Not buzzwords — practical AI inspection systems for defect detection, counting, OCR verification, and process monitoring deployed on actual production lines.</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md hover:border-[#F97316] transition-all">
-                <div className="w-10 h-10 bg-[#eef3ff] rounded-lg flex items-center justify-center text-[#001233] mb-3"><Activity size={20}/></div>
+              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#eef3ff] to-[#d0e2ff] rounded-lg flex items-center justify-center text-[#0052cc] mb-3"><Activity size={20}/></div>
                 <h4 className="font-bold text-[#001233] mb-2 text-sm">Visual Defect Detection</h4>
                 <p className="text-xs text-[#4a5e78]">Identify scratches, dents, missing parts, and surface anomalies at line speed.</p>
               </div>
-              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md hover:border-[#F97316] transition-all">
-                <div className="w-10 h-10 bg-[#eef3ff] rounded-lg flex items-center justify-center text-[#001233] mb-3"><Box size={20}/></div>
+              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#eef3ff] to-[#d0e2ff] rounded-lg flex items-center justify-center text-[#0052cc] mb-3"><Box size={20}/></div>
                 <h4 className="font-bold text-[#001233] mb-2 text-sm">OCR & Traceability</h4>
                 <p className="text-xs text-[#4a5e78]">Read batch codes, expiry dates, and QR codes — even on curved surfaces.</p>
               </div>
-              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md hover:border-[#F97316] transition-all">
-                <div className="w-10 h-10 bg-[#eef3ff] rounded-lg flex items-center justify-center text-[#001233] mb-3"><Settings size={20}/></div>
+              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#eef3ff] to-[#d0e2ff] rounded-lg flex items-center justify-center text-[#0052cc] mb-3"><Settings size={20}/></div>
                 <h4 className="font-bold text-[#001233] mb-2 text-sm">Dimensional Gauging</h4>
                 <p className="text-xs text-[#4a5e78]">Non-contact measurement of gap, step, height, and profile at sub-millimeter accuracy.</p>
               </div>
-              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md hover:border-[#F97316] transition-all">
-                <div className="w-10 h-10 bg-[#eef3ff] rounded-lg flex items-center justify-center text-[#001233] mb-3"><Shield size={20}/></div>
+              <div className="bg-white border border-[#d4dbe8] rounded-2xl p-5 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#eef3ff] to-[#d0e2ff] rounded-lg flex items-center justify-center text-[#0052cc] mb-3"><Shield size={20}/></div>
                 <h4 className="font-bold text-[#001233] mb-2 text-sm">Smart Rejection & Alarms</h4>
                 <p className="text-xs text-[#4a5e78]">Auto-reject NG parts, trigger PLC outputs, and send real-time notifications.</p>
               </div>
             </div>
-            <a href="#contact" className="inline-flex bg-[#001233] hover:bg-[#F97316] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg">Discuss AI Project</a>
+            <a href="#contact" className="inline-flex bg-[#0052cc] hover:bg-[#001233] text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-lg">Discuss AI Project</a>
           </div>
           
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
@@ -428,40 +412,40 @@ export default function App() {
       <section id="support" className="py-24 bg-[#f0f4fa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-3"><div className="w-6 h-0.5 bg-[#001233] rounded-full"></div> Support & Service</div>
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#0052cc] mb-3"><div className="w-6 h-0.5 bg-[#c8102e] rounded-full"></div> Support & Service</div>
             <h2 className="text-3xl md:text-4xl font-serif text-[#001233] mb-4">From first inquiry to long-term uptime</h2>
             <p className="text-[#4a5e78] text-lg">We stay with you at every stage — pre-sales guidance, on-site installation, and ongoing maintenance contracts.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#F97316] transition-all relative overflow-hidden group">
+            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#b8cce8] transition-all relative overflow-hidden group">
               <div className="absolute -right-6 -top-6 text-[#f0f4fa] text-9xl font-serif group-hover:text-[#e8f0ff] transition-colors">01</div>
-              <div className="w-14 h-14 bg-[#eef3ff] rounded-xl flex items-center justify-center text-[#001233] mb-6 relative z-10"><Lightbulb size={24}/></div>
+              <div className="w-14 h-14 bg-gradient-to-br from-[#eef3ff] to-[#c8ddff] rounded-xl flex items-center justify-center text-[#0052cc] mb-6 relative z-10"><Lightbulb size={24}/></div>
               <h3 className="text-xl font-bold text-[#001233] mb-3 relative z-10">Pre-sales Application Help</h3>
               <p className="text-[#4a5e78] text-sm leading-relaxed mb-6 relative z-10">Tell us your part, environment, line speed, and target defects — we'll recommend the right sensor, camera, and controller.</p>
               <ul className="space-y-2 mb-8 relative z-10">
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> Product selection guidance</li>
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> Sensing feasibility checks</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> Product selection guidance</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> Sensing feasibility checks</li>
               </ul>
             </div>
-            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#F97316] transition-all relative overflow-hidden group">
+            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#b8cce8] transition-all relative overflow-hidden group">
               <div className="absolute -right-6 -top-6 text-[#f0f4fa] text-9xl font-serif group-hover:text-[#e8f0ff] transition-colors">02</div>
-              <div className="w-14 h-14 bg-[#eef3ff] rounded-xl flex items-center justify-center text-[#001233] mb-6 relative z-10"><Settings size={24}/></div>
+              <div className="w-14 h-14 bg-gradient-to-br from-[#eef3ff] to-[#c8ddff] rounded-xl flex items-center justify-center text-[#0052cc] mb-6 relative z-10"><Settings size={24}/></div>
               <h3 className="text-xl font-bold text-[#001233] mb-3 relative z-10">Installation & Commissioning</h3>
               <p className="text-[#4a5e78] text-sm leading-relaxed mb-6 relative z-10">Our engineers mount, wire, configure, and validate every system on site — with proper handover and operator training.</p>
               <ul className="space-y-2 mb-8 relative z-10">
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> On-site installation & wiring</li>
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> System validation & training</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> On-site installation & wiring</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> System validation & training</li>
               </ul>
             </div>
-            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#F97316] transition-all relative overflow-hidden group">
+            <div className="bg-white border border-[#d4dbe8] rounded-3xl p-8 hover:shadow-2xl hover:border-[#b8cce8] transition-all relative overflow-hidden group">
               <div className="absolute -right-6 -top-6 text-[#f0f4fa] text-9xl font-serif group-hover:text-[#e8f0ff] transition-colors">03</div>
-              <div className="w-14 h-14 bg-[#eef3ff] rounded-xl flex items-center justify-center text-[#001233] mb-6 relative z-10"><Shield size={24}/></div>
+              <div className="w-14 h-14 bg-gradient-to-br from-[#eef3ff] to-[#c8ddff] rounded-xl flex items-center justify-center text-[#0052cc] mb-6 relative z-10"><Shield size={24}/></div>
               <h3 className="text-xl font-bold text-[#001233] mb-3 relative z-10">AMC & Maintenance</h3>
               <p className="text-[#4a5e78] text-sm leading-relaxed mb-6 relative z-10">Annual maintenance contracts keep critical automation systems healthy with priority response and spare parts availability.</p>
               <ul className="space-y-2 mb-8 relative z-10">
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> Scheduled preventive visits</li>
-                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#F97316] mr-2"/> Priority breakdown response</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> Scheduled preventive visits</li>
+                <li className="text-sm text-[#4a5e78] flex items-center"><Check size={16} className="text-[#0052cc] mr-2"/> Priority breakdown response</li>
               </ul>
             </div>
           </div>
@@ -472,52 +456,52 @@ export default function App() {
       <section id="contact" className="py-24 bg-gradient-to-br from-[#000d1e] via-[#001840] to-[#003070] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#F97316] mb-4"><div className="w-6 h-0.5 bg-white rounded-full"></div> Contact Veltonics</div>
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#7ab8ff] mb-4"><div className="w-6 h-0.5 bg-[#c8102e] rounded-full"></div> Contact Veltonics</div>
             <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">Talk to an applications engineer.</h2>
             <p className="text-[#9fbde8] text-lg mb-10 max-w-md">We respond fast. Share your application details and get a recommendation within the same business day.</p>
             
             <div className="space-y-4">
               <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-[#F97316]"><Phone size={20}/></div>
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white"><Phone size={20}/></div>
                 <div><div className="text-xs text-[#7898c0] mb-1 font-bold tracking-wider uppercase">WhatsApp / Call</div><div className="text-xl font-bold">+91 9724648038</div></div>
               </div>
               <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-[#F97316]"><Mail size={20}/></div>
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white"><Mail size={20}/></div>
                 <div><div className="text-xs text-[#7898c0] mb-1 font-bold tracking-wider uppercase">Email Us</div><div className="text-xl font-bold">sales@veltonics.com</div></div>
               </div>
               <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-[#F97316]"><MapPin size={20}/></div>
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white"><MapPin size={20}/></div>
                 <div><div className="text-xs text-[#7898c0] mb-1 font-bold tracking-wider uppercase">Corporate Office</div><div className="text-lg font-bold">Ahmedabad, Gujarat, India</div></div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white text-[#0d1f3c] rounded-3xl p-8 md:p-10 shadow-2xl border-t-8 border-[#F97316]">
+          <div className="bg-white text-[#0d1f3c] rounded-3xl p-8 md:p-10 shadow-2xl">
             <h3 className="text-2xl font-serif text-[#001233] mb-6">Send an Inquiry</h3>
             <form onSubmit={handleFormSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Full Name *</label>
-                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all" placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all" placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Company *</label>
-                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all" placeholder="Acme Corp" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
+                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all" placeholder="Acme Corp" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Mobile *</label>
-                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all" placeholder="+91 XXXXX XXXXX" value={formData.mobile} onChange={e => setFormData({...formData, mobile: e.target.value})} />
+                  <input required type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all" placeholder="+91 XXXXX XXXXX" value={formData.mobile} onChange={e => setFormData({...formData, mobile: e.target.value})} />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">City</label>
-                  <input type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all" placeholder="Sanand, Gujarat" value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} />
+                  <input type="text" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all" placeholder="Sanand, Gujarat" value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} />
                 </div>
               </div>
               <div>
                 <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Product / Solution Interest</label>
-                <select className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all" value={formData.interest} onChange={e => setFormData({...formData, interest: e.target.value})}>
+                <select className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all" value={formData.interest} onChange={e => setFormData({...formData, interest: e.target.value})}>
                   <option>Industrial Sensors</option><option>Machine Vision & Cameras</option>
                   <option>Vision Lighting</option><option>Safety Systems</option>
                   <option>PLC & HMI Controllers</option><option>Panel Components</option>
@@ -527,7 +511,7 @@ export default function App() {
               </div>
               <div>
                 <label className="block text-xs font-bold text-[#001233] uppercase tracking-wider mb-2">Application Details *</label>
-                <textarea required rows="4" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all resize-none" placeholder="Describe your application: part type, line speed, what needs to be detected..." value={formData.details} onChange={e => setFormData({...formData, details: e.target.value})}></textarea>
+                <textarea required rows="4" className="w-full bg-[#f4f6f9] border border-[#d4dbe8] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all resize-none" placeholder="Describe your application: part type, line speed, what needs to be detected..." value={formData.details} onChange={e => setFormData({...formData, details: e.target.value})}></textarea>
               </div>
               <button type="submit" className="w-full bg-[#25D366] hover:bg-[#128c4a] text-white font-bold py-4 rounded-xl flex items-center justify-center transition-all shadow-lg text-lg">
                 Send via WhatsApp
@@ -542,13 +526,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-              <div className="flex items-center gap-2 mb-6 bg-white inline-block px-4 py-2 rounded-lg">
-                {/* Logo implementation in Footer */}
-                <VeltonicsLogo className="text-xl" />
+              <div className="flex items-center gap-3 text-white text-xl font-bold tracking-wider mb-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052cc] to-[#0066ff] flex items-center justify-center text-white shadow-lg"><span className="font-extrabold text-xl">V</span></div> VELTONICS
               </div>
               <p className="text-[#5a7a9e] text-sm leading-relaxed mb-8">Industrial automation, machine vision, AI inspection, and turnkey SPM solutions for modern manufacturers across India.</p>
               <div className="flex gap-3">
-                <a href="https://wa.me/919724648038" target="_blank" rel="noreferrer" className="bg-[#F97316] hover:bg-white hover:text-[#001233] text-white text-xs font-bold px-5 py-2.5 rounded-lg transition-colors">WhatsApp</a>
+                <a href="https://wa.me/919724648038" target="_blank" rel="noreferrer" className="bg-[#0052cc] hover:bg-white hover:text-[#001233] text-white text-xs font-bold px-5 py-2.5 rounded-lg transition-colors">WhatsApp</a>
                 <a href="mailto:sales@veltonics.com" className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition-colors">Email Us</a>
               </div>
             </div>
@@ -584,24 +567,22 @@ export default function App() {
           </div>
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[#5a7a9e] text-xs">
             <p>© {new Date().getFullYear()} Veltonics India Pvt. Ltd. · Ahmedabad, Gujarat · All Rights Reserved</p>
-            <p className="mt-4 md:mt-0 font-bold text-white">Made for Indian manufacturers 🇮🇳</p>
+            <p className="mt-4 md:mt-0 font-bold">Made for Indian manufacturers 🇮🇳</p>
           </div>
         </div>
       </footer>
 
-      {/* --- MODALS (DEPTH) --- */}
-      
-      {/* 1. Product Detail Modal Overlay */}
+      {/* Product Modal Overlay */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-[#001233]/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4" onClick={(e) => {if(e.target === e.currentTarget) setSelectedProduct(null)}}>
+        <div className="fixed inset-0 bg-[#001233]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row animate-in fade-in zoom-in duration-200">
-            <div className="md:w-1/2 bg-[#eaeff7] p-8 flex items-center justify-center relative border-r border-[#d4dbe8]">
+            <div className="md:w-1/2 bg-[#f4f6f9] p-8 flex items-center justify-center relative border-r border-[#d4dbe8]">
               <span className="absolute top-4 left-4 bg-[#001233] text-white text-[10px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wider">{selectedProduct.cat}</span>
-              <img src={selectedProduct.img} alt={selectedProduct.name} className="max-w-full h-auto rounded-lg shadow-md" />
+              <img src={selectedProduct.img} alt={selectedProduct.name} className="max-w-full h-auto mix-blend-multiply" />
             </div>
             <div className="md:w-1/2 p-8 relative">
-              <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 w-10 h-10 bg-[#f4f6f9] rounded-xl flex items-center justify-center text-[#4a5e78] hover:bg-[#eef3ff] hover:text-[#c8102e] transition-colors"><X size={20}/></button>
-              <div className="text-xs font-black uppercase tracking-widest text-[#F97316] mb-2">{selectedProduct.model}</div>
+              <button onClick={() => setSelectedProduct(null)} className="absolute top-4 right-4 w-10 h-10 bg-[#f4f6f9] rounded-xl flex items-center justify-center text-[#4a5e78] hover:bg-[#eef3ff] hover:text-[#0052cc] transition-colors"><X size={20}/></button>
+              <div className="text-xs font-black uppercase tracking-widest text-[#0052cc] mb-2">{selectedProduct.model}</div>
               <h3 className="text-3xl font-serif text-[#001233] mb-4">{selectedProduct.name}</h3>
               <p className="text-[#4a5e78] text-sm leading-relaxed mb-6">{selectedProduct.desc}</p>
               
@@ -618,59 +599,10 @@ export default function App() {
               </div>
               
               <div className="flex gap-3">
-                <button className="flex-1 bg-[#001233] hover:bg-[#F97316] text-white font-bold py-3.5 rounded-xl transition-colors" onClick={() => getQuote(selectedProduct.name)}>Request Quote</button>
-                <button className="flex-1 bg-[#25D366] hover:bg-[#128c4a] text-white font-bold py-3.5 rounded-xl transition-colors flex items-center justify-center" onClick={() => getQuote(selectedProduct.name)}>WhatsApp <ArrowRight size={16} className="ml-2"/></button>
+                <button className="flex-1 bg-[#0052cc] hover:bg-[#001233] text-white font-bold py-3.5 rounded-xl transition-colors" onClick={() => getQuote(selectedProduct.name)}>Request Quote</button>
+                <button className="flex-1 bg-[#25D366] hover:bg-[#128c4a] text-white font-bold py-3.5 rounded-xl transition-colors" onClick={() => getQuote(selectedProduct.name)}>WhatsApp</button>
               </div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* 2. Application Architecture Modal Overlay */}
-      {selectedAppDepth && (
-        <div className="fixed inset-0 bg-[#001233]/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4 overflow-y-auto py-10" onClick={(e) => {if(e.target === e.currentTarget) setSelectedAppDepth(null)}}>
-          <div className="bg-white rounded-3xl w-full max-w-5xl shadow-2xl animate-in fade-in zoom-in duration-300 relative my-auto">
-             <button onClick={() => setSelectedAppDepth(null)} className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#001233] hover:bg-[#F97316] hover:text-white transition-colors shadow-lg z-20"><X size={24}/></button>
-             
-             <div className="h-64 md:h-80 relative rounded-t-3xl overflow-hidden">
-               <img src={selectedAppDepth.img} alt={selectedAppDepth.title} className="w-full h-full object-cover" />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#001233] to-transparent"></div>
-               <div className="absolute bottom-6 left-8 right-8">
-                 <div className="text-[#F97316] font-bold tracking-widest uppercase text-xs mb-2">Application Engineering Architecture</div>
-                 <h2 className="text-4xl font-serif text-white">{selectedAppDepth.title} Depth Analysis</h2>
-               </div>
-             </div>
-
-             <div className="p-8 md:p-12">
-                <div className="bg-[#f0f4fa] border-l-4 border-[#001233] p-6 rounded-r-xl mb-10">
-                  <h4 className="text-xl font-bold text-[#001233] mb-3 flex items-center"><Layers className="mr-2 text-[#F97316]" /> Systems Architecture Breakdown</h4>
-                  <p className="text-[#4a5e78] leading-relaxed text-lg">{selectedAppDepth.architecture}</p>
-                </div>
-
-                <h4 className="text-2xl font-serif text-[#001233] mb-6">Key Integration Points</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                   {selectedAppDepth.cases.map((c, i) => (
-                      <div key={i} className="border border-[#d4dbe8] p-5 rounded-xl hover:shadow-lg transition-shadow bg-white">
-                        <div className="flex items-start">
-                          <CheckCircle2 className="text-[#F97316] mt-1 mr-3 flex-shrink-0" />
-                          <div>
-                            <h5 className="font-bold text-[#001233] text-lg mb-2">{c.h}</h5>
-                            <p className="text-[#4a5e78] text-sm mb-4">{c.p}</p>
-                            <div className="bg-[#eaeff7] inline-block px-3 py-1.5 rounded text-xs font-bold text-[#001233] border border-[#d4dbe8]">
-                              Hardware: <span className="text-[#0052cc]">{c.prod}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                   ))}
-                </div>
-
-                <div className="flex justify-center border-t border-[#d4dbe8] pt-8">
-                   <button onClick={() => { setSelectedAppDepth(null); getQuote(`${selectedAppDepth.title} System Architecture`); }} className="bg-[#001233] hover:bg-[#F97316] text-white px-10 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg flex items-center gap-3">
-                     Consult Veltonics Engineers for this Architecture <ArrowRight />
-                   </button>
-                </div>
-             </div>
           </div>
         </div>
       )}
@@ -682,9 +614,7 @@ export default function App() {
           {/* Header */}
           <div className="bg-gradient-to-r from-[#001233] to-[#0052cc] text-white p-5 flex justify-between items-center shadow-md">
             <div className="flex items-center space-x-3">
-              <div className="bg-white px-2 py-1 rounded">
-                <VeltonicsLogo className="text-sm" />
-              </div>
+              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center font-black text-xl">V</div>
               <div>
                 <h3 className="font-bold text-base leading-tight">Velton AI</h3>
                 <p className="text-[11px] text-[#9fbde8]">Industrial Automation Assistant</p>
@@ -697,7 +627,7 @@ export default function App() {
           <div className="flex-1 p-5 overflow-y-auto bg-[#f8fafd] space-y-4">
             {chatMessages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-4 py-3 text-[13px] shadow-sm leading-relaxed ${msg.role === 'user' ? 'bg-[#001233] text-white rounded-2xl rounded-br-sm' : 'bg-white border border-[#d4dbe8] text-[#0d1f3c] rounded-2xl rounded-bl-sm'}`}>
+                <div className={`max-w-[85%] px-4 py-3 text-[13px] shadow-sm leading-relaxed ${msg.role === 'user' ? 'bg-[#0052cc] text-white rounded-2xl rounded-br-sm' : 'bg-white border border-[#d4dbe8] text-[#0d1f3c] rounded-2xl rounded-bl-sm'}`}>
                   {msg.parts[0].text}
                 </div>
               </div>
@@ -717,8 +647,8 @@ export default function App() {
           {/* Quick Suggestions (Only when no user messages yet) */}
           {chatMessages.length === 1 && (
             <div className="px-5 pb-3 bg-[#f8fafd] flex flex-wrap gap-2">
-              <button onClick={() => setChatInput('Sensor for metal parts')} className="bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#F97316] hover:text-[#F97316] transition-colors">Sensor for metal parts</button>
-              <button onClick={() => setChatInput('Camera for OCR')} className="bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#F97316] hover:text-[#F97316] transition-colors">Camera for OCR</button>
+              <button onClick={() => setChatInput('Sensor for metal parts')} className="bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#0052cc] hover:text-[#0052cc] transition-colors">Sensor for metal parts</button>
+              <button onClick={() => setChatInput('Camera for OCR')} className="bg-white border border-[#d4dbe8] text-[#4a5e78] text-[11px] px-3 py-1.5 rounded-full hover:border-[#0052cc] hover:text-[#0052cc] transition-colors">Camera for OCR</button>
             </div>
           )}
 
@@ -728,9 +658,9 @@ export default function App() {
               <input 
                 type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)}
                 placeholder="Ask about products or applications..." 
-                className="flex-1 bg-[#f4f6f9] border border-[#d4dbe8] rounded-full px-5 py-2.5 text-sm focus:outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] transition-all"
+                className="flex-1 bg-[#f4f6f9] border border-[#d4dbe8] rounded-full px-5 py-2.5 text-sm focus:outline-none focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc] transition-all"
               />
-              <button type="submit" disabled={!chatInput.trim() || isTyping} className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${chatInput.trim() && !isTyping ? 'bg-[#F97316] text-white hover:bg-[#001233]' : 'bg-[#eef3ff] text-[#9fbde8]'}`}>
+              <button type="submit" disabled={!chatInput.trim() || isTyping} className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${chatInput.trim() && !isTyping ? 'bg-[#0052cc] text-white hover:bg-[#001233]' : 'bg-[#eef3ff] text-[#9fbde8]'}`}>
                 <Send size={16} className="ml-1" />
               </button>
             </form>
@@ -738,7 +668,7 @@ export default function App() {
         </div>
 
         {/* FAB */}
-        <button onClick={() => setIsChatOpen(!isChatOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 ${isChatOpen ? 'bg-[#001233] text-white rotate-90' : 'bg-[#F97316] text-white'}`}>
+        <button onClick={() => setIsChatOpen(!isChatOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 ${isChatOpen ? 'bg-[#001233] text-white rotate-90' : 'bg-gradient-to-br from-[#0052cc] to-[#0066ff] text-white'}`}>
           {isChatOpen ? <X size={28} /> : <MessageSquare size={28} />}
         </button>
       </div>
