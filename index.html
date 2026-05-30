@@ -246,9 +246,9 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 <nav id="main-nav">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <svg class="brand-logo" viewBox="0 0 460 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo">
+      <svg class="brand-logo" viewBox="0 0 480 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo">
         <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#0a1945" letter-spacing="1">VELTONICS</text>
-        <circle cx="440" cy="65" r="14" fill="#f97316"/>
+        <circle cx="460" cy="65" r="14" fill="#f97316"/>
       </svg>
     </a>
     <ul class="nav-links">
@@ -597,9 +597,9 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   <div class="container footer-grid">
     <div>
       <a href="#" class="logo">
-        <svg class="brand-logo" viewBox="0 0 460 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="filter: brightness(0) invert(1);">
+        <svg class="brand-logo" viewBox="0 0 480 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="filter: brightness(0) invert(1);">
           <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#0a1945" letter-spacing="1">VELTONICS</text>
-          <circle cx="440" cy="65" r="14" fill="#f97316"/>
+          <circle cx="460" cy="65" r="14" fill="#f97316"/>
         </svg>
       </a>
       <p style="color:#94a3b8; font-size:0.9rem; line-height:1.7; margin: 1.5rem 0; max-width:280px">Your single-source partner for premium industrial sensors, vision integration, and uncompromising safety.</p>
@@ -648,9 +648,9 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 
 <div id="chatbot" class="hidden">
   <div class="chat-header">
-    <svg viewBox="0 0 460 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="height: 20px; width: auto; object-fit: contain;">
+    <svg viewBox="0 0 480 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="height: 20px; width: auto; object-fit: contain;">
       <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#ffffff" letter-spacing="1">VELTONICS</text>
-      <circle cx="440" cy="65" r="14" fill="#f97316"/>
+      <circle cx="460" cy="65" r="14" fill="#f97316"/>
     </svg>
     <div class="chat-head-info">
       <div class="chat-name">Veltonics AI</div>
@@ -672,13 +672,27 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 if (window.matchMedia("(pointer: fine)").matches) {
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
+    
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
       ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
     });
-    document.querySelectorAll('a, button, .prod-card, .ind-card').forEach(el => {
-      el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'var(--accent)'; cursor.style.background = 'var(--accent)'; });
-      el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'var(--primary)'; cursor.style.background = 'var(--primary)';});
+    
+    // Updated cursor logic to intelligently change colors based on underlying sections
+    document.addEventListener('mouseover', (e) => {
+      // Determine if we are hovering over a dark section to make the cursor visible
+      const isDarkSection = e.target.closest('#contact, .proj-card, .offers-wrapper');
+      const baseColor = isDarkSection ? '#ffffff' : 'var(--primary)';
+      
+      if (e.target.closest('a, button, .prod-card, .ind-card')) {
+        ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; 
+        ring.style.borderColor = 'var(--accent)'; 
+        cursor.style.background = 'var(--accent)';
+      } else {
+        ring.style.transform = 'translate(-50%,-50%) scale(1)'; 
+        ring.style.borderColor = baseColor; 
+        cursor.style.background = baseColor;
+      }
     });
 }
 
