@@ -1,597 +1,1391 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veltonics India · Premium Industrial Automation & Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
 <style>
+/* ============================================
+   VELTONICS ULTRA-PREMIUM CSS
+   ============================================ */
 :root {
-  /* LIGHT THEME COLORS */
-  --bg-main: #ffffff;
-  --bg-alt: #f8fafc;
-  --bg-card: #ffffff;
-  --text-dark: #0f172a;
-  --text-body: #475569;
-  --text-light: #94a3b8;
-  
-  --primary: #0a1945; /* Dark Blue from Logo */
-  --primary-hover: #152c70;
-  --primary-light: rgba(10, 25, 69, 0.1);
-  
-  --accent: #f97316; /* Orange from Logo dot */
-  --accent-hover: #ea580c;
-  --accent-light: rgba(249, 115, 22, 0.1);
-  
-  --border: #e2e8f0;
-  --border-hover: #cbd5e1;
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 40px rgba(10, 25, 69, 0.12);
+  --ink:       #070c1a;
+  --ink-80:    rgba(7,12,26,0.8);
+  --ink-30:    rgba(7,12,26,0.3);
+  --navy:      #0a1945;
+  --navy-60:   rgba(10,25,69,0.6);
+  --navy-20:   rgba(10,25,69,0.12);
+  --fire:      #f97316;
+  --fire-80:   rgba(249,115,22,0.8);
+  --fire-20:   rgba(249,115,22,0.15);
+  --fire-10:   rgba(249,115,22,0.07);
+  --snow:      #ffffff;
+  --fog:       #f4f6fb;
+  --mist:      #e8ecf5;
+  --slate:     #94a3b8;
+  --steel:     #475569;
+  --green-wa:  #25D366;
+  --shadow-sm: 0 2px 12px rgba(7,12,26,0.06);
+  --shadow-md: 0 8px 32px rgba(7,12,26,0.10);
+  --shadow-lg: 0 20px 60px rgba(10,25,69,0.16);
+  --shadow-xl: 0 40px 80px rgba(10,25,69,0.22);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --ease-out:  cubic-bezier(0.22,1,0.36,1);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg-main); color: var(--text-body); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; cursor: auto; -webkit-font-smoothing: antialiased; }
-
-/* CUSTOM CURSOR - ONLY FOR DESKTOP */
-@media (min-width: 1024px) {
-    body { cursor: none; }
-    #cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; will-change: transform; }
-    #cursor-ring { position: fixed; width: 34px; height: 34px; border: 1.5px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; opacity: 0.5; will-change: transform, border-color; }
-    body:hover #cursor { transform: translate(-50%, -50%) scale(1); }
-    /* NOISE OVERLAY - ONLY DESKTOP TO PREVENT MOBILE LAG */
-    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+ 
+/* ---- RESET ---- */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--snow);
+  color: var(--steel);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: auto;
 }
-
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-alt); }
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-
-/* TYPOGRAPHY & UTILS */
-h1, h2, h3, h4, .font-display { font-family: 'Rajdhani', sans-serif; color: var(--text-dark); }
-.container { max-width: 1320px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; }
-.section-pad { padding: 6rem 0; }
-.bg-alt { background: var(--bg-alt); }
-.text-accent { color: var(--accent); }
-.text-primary { color: var(--primary); }
-
-.tag { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; background: var(--primary-light); padding: 0.4rem 1rem; border-radius: 50px; }
-.title { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-.subtitle { font-size: 1.1rem; line-height: 1.7; color: var(--text-body); max-width: 600px; margin-bottom: 2.5rem; }
-
-/* BUTTONS */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; will-change: transform, box-shadow; }
-.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 15px var(--primary-light); }
-.btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.btn-accent { background: var(--accent); color: #fff; }
-.btn-accent:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-light); }
-.btn-outline { background: transparent; color: var(--text-dark); border: 1.5px solid var(--border); }
-.btn-outline:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
-
-/* TOPBAR & NAV */
-#topbar { background: var(--primary); color: #e2e8f0; font-size: 0.75rem; font-weight: 500; padding: 0.5rem 0; }
-.topbar-inner { display: flex; justify-content: space-between; align-items: center; }
-.topbar-right { display: flex; gap: 1.5rem; }
-.topbar-right a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
-.topbar-right a:hover { color: var(--accent); }
-
-nav { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); transition: all 0.3s ease; transform: translateZ(0); }
-nav.scrolled { box-shadow: var(--shadow-sm); }
-.nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-.brand-logo { height: 45px; width: auto; object-fit: contain; }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
-.nav-links a:hover { color: var(--accent); }
-
-/* HERO */
-#hero { position: relative; min-height: 90vh; display: flex; align-items: center; padding: 4rem 0; overflow: hidden; }
-#hero-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.6; pointer-events: none; }
-.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
-.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
-.stat-box .num { font-size: 2.5rem; font-weight: 700; color: var(--primary); font-family: 'Rajdhani'; line-height: 1; }
-.stat-box .lbl { font-size: 0.75rem; color: var(--text-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
-
-/* HERO AUTOMATION VISUAL */
-.hero-visual { position: relative; height: 500px; background: radial-gradient(circle at center, var(--accent-light), transparent 70%); display: flex; align-items: center; justify-content: center; }
-.pulse-ring { position: absolute; border: 1px dashed var(--accent); border-radius: 50%; animation: spin 20s linear infinite; width: 350px; height: 350px; will-change: transform; transform: translateZ(0); }
-.pulse-ring-2 { position: absolute; border: 1px solid var(--primary); border-radius: 50%; animation: spin 15s linear infinite reverse; width: 250px; height: 250px; opacity: 0.3; will-change: transform; transform: translateZ(0); }
-@keyframes spin { 100% { transform: rotate(360deg); } }
-.hero-main-img { position: relative; z-index: 2; width: 280px; height: 280px; background: var(--bg-main); border-radius: 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; }
-.gear-icon { animation: spin 8s linear infinite; color: var(--primary); will-change: transform; transform: translateZ(0); }
-
-/* VISION & MISSION PROFILE */
-.profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.profile-card { background: var(--bg-card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; will-change: transform, box-shadow; }
-.profile-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-md); }
-.profile-icon { width: 50px; height: 50px; background: var(--primary-light); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-
-/* PRODUCTS SECTION (TABBED) */
-.product-tabs { display: flex; gap: 1rem; overflow-x: auto; margin-bottom: 3rem; padding-bottom: 0.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-.product-tabs::-webkit-scrollbar { display: none; }
-.tab-btn { background: var(--bg-card); border: 1px solid var(--border); padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; color: var(--text-body); cursor: pointer; white-space: nowrap; transition: all 0.3s; }
-.tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px var(--primary-light); }
-.tab-content { display: none; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; animation: fadeIn 0.4s ease forwards; opacity: 0; }
-.tab-content.active { display: grid; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-.prod-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; will-change: transform, box-shadow; }
-.prod-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.prod-card::after { content: '→'; position: absolute; bottom: 1.5rem; right: 1.5rem; font-size: 1.2rem; color: var(--accent); opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
-.prod-card:hover::after { opacity: 1; transform: translateX(0); }
-.prod-icon { width: 48px; height: 48px; background: var(--bg-alt); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--primary); }
-.prod-name { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
-.prod-desc { font-size: 0.85rem; color: var(--text-body); line-height: 1.6; }
-
-/* INQUIRY FORM (WHATSAPP WEB LEAD) */
-.inquiry-wrapper { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-md); max-width: 800px; margin: 0 auto; position: relative; z-index: 5; }
-.inquiry-wrapper h2 { margin-bottom: 0.5rem; }
-.inquiry-wrapper p { color: var(--text-body); margin-bottom: 2rem; font-size: 0.95rem; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-.form-group.full-width { grid-column: 1 / -1; }
-.form-control { width: 100%; padding: 1rem 1.2rem; border: 1.5px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 0.95rem; outline: none; transition: all 0.3s; background: var(--bg-alt); color: var(--text-dark); }
-.form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); background: var(--bg-main); }
-.wa-submit-btn { background: #25D366; color: #fff; border: none; padding: 1.2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.8rem; transition: all 0.3s ease; width: 100%; margin-top: 1rem; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); will-change: transform; }
-.wa-submit-btn:hover { background: #1ebc59; transform: translateY(-2px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); }
-
-/* MODAL / POPUP */
-.modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-.modal-overlay.active { display: flex; opacity: 1; }
-.modal-box { background: var(--bg-main); width: 90%; max-width: 600px; border-radius: 20px; padding: 2.5rem; position: relative; transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); max-height: 90vh; overflow-y: auto; will-change: transform; }
-.modal-overlay.active .modal-box { transform: scale(1); }
-.modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--bg-alt); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-.modal-close:hover { background: #ffe4e6; color: #e11d48; }
-.modal-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-alt); border-radius: 12px; }
-.spec-item { display: flex; flex-direction: column; gap: 0.2rem; }
-.spec-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); }
-.spec-val { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); }
-.modal-actions { display: flex; gap: 1rem; margin-top: 2rem; }
-
-/* PROJECTS & INTEGRATION */
-.proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-.proj-card { background: var(--text-dark); color: #fff; border-radius: 16px; padding: 3rem; position: relative; overflow: hidden; display: block; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; will-change: transform; }
-.proj-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.proj-card h3 { color: #fff; font-size: 2rem; margin-bottom: 1rem; position: relative; z-index: 2; font-family: 'Rajdhani'; }
-.proj-card p { color: #94a3b8; position: relative; z-index: 2; font-size: 0.95rem; line-height: 1.6; max-width: 80%; }
-.proj-card::before { content: ''; position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, var(--accent-light), transparent 70%); transform: translate(30%, -30%); pointer-events: none; }
-
-/* OFFERS SECTION */
-.offers-wrapper { background: linear-gradient(135deg, var(--primary), var(--text-dark)); border-radius: 20px; padding: 4rem; color: #fff; text-align: center; position: relative; overflow: hidden; }
-.offers-wrapper h2 { color: #fff; margin-bottom: 1rem; }
-.offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
-.offer-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 16px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-.offer-card h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: 0.5rem; font-family: 'Rajdhani'; }
-
-/* INDUSTRIES */
-.ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.ind-card { border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; transition: all 0.3s ease; background: var(--bg-card); will-change: transform; }
-.ind-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); transform: translateY(-3px); }
-.ind-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.ind-card p { font-size: 0.8rem; color: var(--text-light); }
-
-/* FOOTER & FLOATING */
-footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px solid var(--border); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-.footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-.footer-links a:hover { color: var(--accent); }
-.floating-btns { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 1rem; z-index: 150; align-items: flex-end; }
-
-/* AI CHATBOT */
-#chatbot { position: fixed; bottom: 6rem; right: 2rem; width: 350px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); z-index: 200; display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); will-change: transform, opacity; }
-#chatbot.hidden { transform: scale(0); opacity: 0; pointer-events: none; }
-.chat-header { background: var(--primary); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid var(--border); }
-.chat-header img { height: 20px; object-fit: contain; } 
-.chat-head-info { margin-left: auto; margin-right: auto; }
-.chat-head-info .chat-name { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; text-align: center;}
-.chat-head-info .chat-status { font-size: 0.68rem; color: #4ade80; display: flex; align-items: center; justify-content: center; gap: 0.3rem; }
-.chat-status-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.chat-close { background: none; border: none; cursor: pointer; color: #cbd5e1; font-size: 1.2rem; transition: color 0.2s; }
-.chat-close:hover { color: #fff; }
-#chat-messages { height: 280px; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
-.msg { max-width: 85%; padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.85rem; line-height: 1.5; animation: msgIn 0.25s ease forwards; opacity: 0; }
-@keyframes msgIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-.msg.bot { background: var(--bg-alt); border: 1px solid var(--border); color: var(--text-dark); align-self: flex-start; border-radius: 4px 10px 10px 10px; }
-.msg.user { background: var(--accent); color: #fff; align-self: flex-end; border-radius: 10px 4px 10px 10px; }
-.chat-input-row { display: flex; gap: 0.5rem; padding: 0.8rem 1rem; border-top: 1px solid var(--border); background: var(--bg-alt); }
-#chat-input { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.85rem; padding: 0.6rem 0.8rem; outline: none; transition: border-color 0.2s; }
-#chat-input:focus { border-color: var(--accent); }
-#chat-send { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 0 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-#chat-send:hover { background: var(--accent); }
-.chat-toggle { width: 55px; height: 55px; background: var(--primary); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(10,25,69,0.3); transition: all 0.25s ease; will-change: transform; }
-.chat-toggle:hover { background: var(--accent); transform: scale(1.08); }
-
-/* MOBILE RESPONSIVE OPTIMIZATIONS */
-@media(max-width: 992px) {
-  .hero-grid, .profile-grid, .proj-grid, .offers-grid { grid-template-columns: 1fr; }
-  .ind-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-visual { height: 350px; margin-top: 1rem; transform: scale(0.9); }
-  .form-grid { grid-template-columns: 1fr; }
-  .inquiry-wrapper { padding: 2rem; }
+img, svg { display: block; max-width: 100%; }
+a { text-decoration: none; }
+button { font-family: inherit; }
+ 
+/* ---- CUSTOM CURSOR (desktop only) ---- */
+@media (pointer: fine) {
+  body { cursor: none; }
+  #csr { position:fixed; width:8px; height:8px; background:var(--fire); border-radius:50%; pointer-events:none; z-index:9999; top:0; left:0; will-change:transform; mix-blend-mode:multiply; }
+  #csr-r { position:fixed; width:36px; height:36px; border:1.5px solid var(--navy); border-radius:50%; pointer-events:none; z-index:9998; top:0; left:0; will-change:transform; transition:width .25s var(--ease-out), height .25s var(--ease-out), border-color .25s; }
+  body.cursor-hover #csr-r { width:56px; height:56px; border-color:var(--fire); }
 }
-
-@media(max-width: 768px) {
-  .nav-links { display: none; }
-  .modal-box { padding: 1.5rem; }
-  .modal-specs { grid-template-columns: 1fr; }
-  .modal-actions { flex-direction: column; }
-  #chatbot { width: calc(100vw - 2rem); right: 1rem; bottom: 5.5rem; }
-  .topbar-right a:first-child { display:none; } /* Hide phone on very small screens to save space */
-  .title { font-size: 2.2rem; }
-  .section-pad { padding: 3.5rem 0; }
-  .floating-btns { bottom: 1.5rem; right: 1.5rem; }
-  .floating-btns .btn-accent span { display: none; } /* Show only icon for floating button on mobile */
-  .floating-btns .btn-accent { padding: 1rem; border-radius: 50%; width: 55px; height: 55px; justify-content: center; }
-  .pulse-ring, .pulse-ring-2, .gear-icon { animation: none; } /* Pause animations to save battery and stop lag */
-  #hero-canvas { display: none; } /* Remove heavy canvas rendering on mobile */
-  .container { padding: 0 1.25rem; }
-  .hero-stats { gap: 1.5rem; }
-  .proj-card { padding: 2rem; }
-  .offers-wrapper { padding: 2.5rem 1.5rem; }
+ 
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--fog); }
+::-webkit-scrollbar-thumb { background:var(--navy); border-radius:10px; }
+ 
+/* ---- TYPOGRAPHY ---- */
+h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); letter-spacing:0.02em; line-height:1; }
+.mono { font-family:'DM Mono',monospace; }
+ 
+/* ---- UTILITIES ---- */
+.container { max-width:1320px; margin:0 auto; padding:0 2rem; position:relative; z-index:2; }
+.section-pad { padding:7rem 0; }
+.bg-fog { background:var(--fog); }
+.text-fire { color:var(--fire); }
+.text-navy { color:var(--navy); }
+ 
+/* ---- TAG / LABEL ---- */
+.tag {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--fire); border:1px solid var(--fire-20);
+  background:var(--fire-10); padding:.35rem 1rem; border-radius:50px;
+  margin-bottom:1.2rem;
+}
+ 
+/* ---- SECTION TITLES ---- */
+.stitle { font-size:clamp(3rem,6vw,6rem); line-height:1; margin-bottom:1.5rem; }
+.sdesc { font-size:1.05rem; line-height:1.75; color:var(--steel); max-width:560px; }
+ 
+/* ============================================
+   TOPBAR
+   ============================================ */
+#topbar {
+  background:var(--navy);
+  color:#a0aec0;
+  font-size:.72rem;
+  font-family:'DM Mono',monospace;
+  letter-spacing:.04em;
+  padding:.55rem 0;
+  position:relative;
+  z-index:200;
+}
+.topbar-inner { display:flex; justify-content:space-between; align-items:center; }
+.topbar-left { display:flex; align-items:center; gap:.6rem; }
+.topbar-left .dot { width:6px; height:6px; background:var(--fire); border-radius:50%; animation:pulseGlow 2s infinite; }
+.topbar-right { display:flex; gap:2rem; }
+.topbar-right a {
+  color:#94a3b8; display:flex; align-items:center; gap:.5rem;
+  transition:color .2s; font-size:.72rem;
+}
+.topbar-right a:hover { color:var(--fire); }
+@keyframes pulseGlow {
+  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(249,115,22,.5); }
+  50% { opacity:.7; box-shadow:0 0 0 5px rgba(249,115,22,0); }
+}
+ 
+/* ============================================
+   NAV
+   ============================================ */
+#main-nav {
+  position:sticky; top:0; z-index:150;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--mist);
+  transition:box-shadow .3s;
+}
+#main-nav.scrolled { box-shadow:0 4px 30px rgba(7,12,26,.08); }
+.nav-inner {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem 0; gap:2rem;
+}
+ 
+/* LOGO — fixed to one step (no extra space) */
+.brand-logo-wrap {
+  display:flex; align-items:center; gap:0; flex-shrink:0;
+}
+.brand-logo-text {
+  font-family:'Bebas Neue',sans-serif; font-size:2.2rem;
+  letter-spacing:.04em; color:var(--navy); line-height:1;
+  user-select:none;
+}
+.brand-logo-dot {
+  width:12px; height:12px;
+  background:var(--fire); border-radius:50%;
+  margin-left:2px; flex-shrink:0;
+  margin-bottom:2px; /* optical alignment with text baseline */
+  animation:dotPop 3s ease-in-out infinite;
+}
+@keyframes dotPop {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.25); }
+}
+ 
+.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links a {
+  color:var(--ink); font-size:.9rem; font-weight:500;
+  position:relative; padding:.2rem 0;
+  transition:color .2s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px;
+  background:var(--fire); border-radius:2px; transition:width .3s var(--ease-out);
+}
+.nav-links a:hover { color:var(--fire); }
+.nav-links a:hover::after { width:100%; }
+ 
+.nav-cta {
+  background:var(--navy); color:#fff!important; border-radius:var(--radius-sm);
+  padding:.55rem 1.3rem!important; font-weight:600!important;
+  transition:background .2s, transform .2s!important;
+}
+.nav-cta::after { display:none!important; }
+.nav-cta:hover { background:var(--fire)!important; color:#fff!important; transform:translateY(-1px); }
+ 
+/* hamburger */
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:24px; height:2px; background:var(--ink); border-radius:2px; transition:.3s; }
+.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+ 
+/* mobile drawer */
+.mobile-menu {
+  position:fixed; top:0; left:0; width:100%; height:100vh;
+  background:var(--snow); z-index:140; padding:6rem 2rem 2rem;
+  transform:translateX(100%); transition:transform .4s var(--ease-out);
+  display:flex; flex-direction:column; gap:2rem;
+}
+.mobile-menu.open { transform:translateX(0); }
+.mobile-menu a {
+  font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--navy);
+  border-bottom:1px solid var(--mist); padding-bottom:1rem; line-height:1;
+}
+.mobile-menu a:hover { color:var(--fire); }
+ 
+/* ============================================
+   HERO
+   ============================================ */
+#hero {
+  position:relative; min-height:92vh;
+  display:flex; align-items:center;
+  overflow:hidden;
+  padding:5rem 0 3rem;
+}
+ 
+/* animated gradient mesh background */
+#hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(10,25,69,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(249,115,22,.06) 0%, transparent 60%);
+  z-index:1;
+}
+ 
+/* fine grid lines */
+#hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(10,25,69,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,25,69,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:1;
+  mask-image:linear-gradient(180deg, transparent, rgba(0,0,0,.5) 30%, rgba(0,0,0,.5) 70%, transparent);
+}
+ 
+#hero-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; }
+ 
+.hero-grid {
+  display:grid; grid-template-columns:1.1fr 1fr;
+  gap:4rem; align-items:center;
+  position:relative; z-index:5;
+}
+ 
+/* eyebrow line */
+.hero-eyebrow {
+  display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
+  opacity:0; animation:fadeUp .8s var(--ease-out) .1s forwards;
+}
+.eyebrow-line { width:40px; height:2px; background:var(--fire); border-radius:2px; }
+.eyebrow-text {
+  font-family:'DM Mono',monospace; font-size:.72rem;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--fire);
+}
+ 
+.hero-title {
+  font-size:clamp(3.8rem,7vw,8rem); line-height:.95;
+  margin-bottom:2rem;
+  opacity:0; animation:fadeUp .9s var(--ease-out) .2s forwards;
+}
+.hero-title em { font-style:normal; color:var(--fire); }
+ 
+.hero-desc {
+  font-size:1.05rem; line-height:1.75; color:var(--steel);
+  max-width:480px; margin-bottom:2.5rem;
+  opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
+}
+ 
+.hero-btns {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s var(--ease-out) .4s forwards;
+}
+ 
+/* STATS BAR */
+.hero-stats {
+  display:flex; gap:3rem; margin-top:3.5rem;
+  padding-top:2.5rem; border-top:1px solid var(--mist);
+  flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s var(--ease-out) .5s forwards;
+}
+.stat-num {
+  font-family:'Bebas Neue',sans-serif; font-size:3rem;
+  color:var(--navy); line-height:1;
+}
+.stat-lbl {
+  font-family:'DM Mono',monospace; font-size:.68rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--slate); margin-top:.4rem;
+}
+ 
+/* ---- HERO VISUAL (right side) ---- */
+.hero-visual {
+  position:relative; height:520px;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
+}
+ 
+/* central orb */
+.orb-center {
+  position:relative; z-index:10;
+  width:220px; height:220px;
+  background:linear-gradient(135deg, var(--navy), #1e3a8a);
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(249,115,22,.2), 0 20px 60px rgba(10,25,69,.4), inset 0 1px 0 rgba(255,255,255,.15);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  gap:.8rem; animation:orbFloat 6s ease-in-out infinite;
+}
+@keyframes orbFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-12px); }
+}
+.orb-label { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.12em; color:rgba(255,255,255,.6); text-transform:uppercase; }
+.orb-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:.05em; }
+ 
+/* orbital rings */
+.ring {
+  position:absolute; border-radius:50%; border:1px solid;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  will-change:transform; transform-origin:center;
+}
+.ring-1 { width:300px; height:300px; border-color:rgba(10,25,69,.12); animation:ringRotate 20s linear infinite; }
+.ring-2 { width:380px; height:380px; border-color:rgba(249,115,22,.1); border-style:dashed; animation:ringRotate 30s linear infinite reverse; }
+.ring-3 { width:460px; height:460px; border-color:rgba(10,25,69,.06); animation:ringRotate 45s linear infinite; }
+ 
+@keyframes ringRotate {
+  0% { transform:translate(-50%,-50%) rotate(0deg); }
+  100% { transform:translate(-50%,-50%) rotate(360deg); }
+}
+ 
+/* orbital nodes */
+.orbit-node {
+  position:absolute; width:44px; height:44px;
+  background:var(--snow); border:1px solid var(--mist);
+  border-radius:10px; box-shadow:var(--shadow-md);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--navy); font-size:18px;
+  animation:orbFloat 6s ease-in-out infinite;
+  transition:box-shadow .3s;
+}
+.orbit-node:hover { box-shadow:var(--shadow-lg); }
+.orbit-node.n1 { top:10%; left:55%; animation-delay:-.5s; }
+.orbit-node.n2 { top:50%; right:5%; animation-delay:-1.5s; }
+.orbit-node.n3 { bottom:15%; left:55%; animation-delay:-2.5s; }
+.orbit-node.n4 { bottom:30%; left:8%; animation-delay:-3.5s; }
+.orbit-node.n5 { top:20%; left:12%; animation-delay:-4.5s; }
+ 
+/* floating tags */
+.float-badge {
+  position:absolute; background:var(--snow); border:1px solid var(--mist);
+  padding:.5rem 1rem; border-radius:50px; box-shadow:var(--shadow-md);
+  font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.08em;
+  color:var(--navy); white-space:nowrap; z-index:15;
+  animation:orbFloat 5s ease-in-out infinite;
+}
+.fb1 { top:5%; left:5%; animation-delay:-1s; }
+.fb2 { bottom:5%; right:5%; animation-delay:-3s; }
+ 
+/* data lines connecting nodes to center */
+.connector-line {
+  position:absolute; top:50%; left:50%;
+  width:0; height:1px; background:linear-gradient(90deg, transparent, rgba(249,115,22,.3));
+  transform-origin:0 0; pointer-events:none; z-index:5;
+}
+ 
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.6rem; padding:.9rem 2rem; border-radius:var(--radius-sm);
+  font-weight:600; font-size:.9rem; cursor:pointer; border:none;
+  transition:all .3s var(--ease-out); position:relative; overflow:hidden;
+}
+.btn::before {
+  content:''; position:absolute; inset:0;
+  background:rgba(255,255,255,.15); transform:translateY(100%);
+  transition:transform .3s var(--ease-out);
+}
+.btn:hover::before { transform:translateY(0); }
+ 
+.btn-primary { background:var(--navy); color:#fff; box-shadow:0 4px 20px var(--navy-20); }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--navy-20); background:var(--navy); color:#fff; }
+ 
+.btn-fire { background:var(--fire); color:#fff; box-shadow:0 4px 20px var(--fire-20); }
+.btn-fire:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--fire-20); }
+ 
+.btn-outline {
+  background:transparent; color:var(--ink);
+  border:1.5px solid var(--mist); box-shadow:none;
+}
+.btn-outline:hover { border-color:var(--navy); color:var(--navy); background:var(--navy-20); transform:translateY(-2px); }
+.btn-outline::before { display:none; }
+ 
+.btn-wa { background:var(--green-wa); color:#fff; box-shadow:0 4px 20px rgba(37,211,102,.2); }
+.btn-wa:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,.3); }
+ 
+/* ============================================
+   MARQUEE / TICKER
+   ============================================ */
+.marquee-wrap {
+  background:var(--navy); overflow:hidden;
+  padding:1rem 0; border-top:1px solid rgba(255,255,255,.05);
+}
+.marquee-track { display:flex; gap:3rem; width:max-content; animation:marquee 25s linear infinite; }
+.marquee-track:hover { animation-play-state:paused; }
+.marquee-item {
+  display:flex; align-items:center; gap:.8rem;
+  font-family:'Bebas Neue',sans-serif; font-size:1.1rem;
+  letter-spacing:.1em; color:rgba(255,255,255,.5); white-space:nowrap;
+}
+.marquee-item .sep { color:var(--fire); }
+@keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+ 
+/* ============================================
+   ABOUT / PROFILE SECTION
+   ============================================ */
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.about-visual { position:relative; }
+.about-graphic {
+  position:relative; width:100%; aspect-ratio:1;
+  max-width:420px; margin:0 auto;
+}
+.about-card-main {
+  background:var(--navy); border-radius:var(--radius-lg);
+  padding:3rem; color:#fff; position:relative; overflow:hidden;
+  box-shadow:var(--shadow-xl);
+}
+.about-card-main::before {
+  content:''; position:absolute; top:-50%; right:-30%;
+  width:300px; height:300px;
+  background:radial-gradient(circle, rgba(249,115,22,.2), transparent 70%);
+  pointer-events:none;
+}
+.about-card-main h3 { color:#fff; font-size:3rem; margin-bottom:.5rem; }
+.about-card-main p { color:rgba(255,255,255,.7); font-size:.95rem; line-height:1.7; }
+.about-bubble {
+  position:absolute; background:var(--snow);
+  border-radius:var(--radius-md); padding:1.2rem 1.5rem;
+  box-shadow:var(--shadow-lg); border:1px solid var(--mist);
+}
+.ab1 { bottom:-30px; right:-20px; }
+.ab2 { top:-20px; right:-20px; }
+.ab-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--fire); }
+.ab-txt { font-size:.75rem; color:var(--slate); font-family:'DM Mono',monospace; letter-spacing:.06em; }
+ 
+.profile-cards { display:flex; flex-direction:column; gap:1.5rem; }
+.p-card {
+  background:var(--snow); border:1px solid var(--mist); border-radius:var(--radius-md);
+  padding:2rem; box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
+  position:relative; overflow:hidden;
+}
+.p-card::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:var(--fire); border-radius:2px 0 0 2px;
+  transform:scaleY(0); transition:transform .4s var(--ease-out);
+  transform-origin:bottom;
+}
+.p-card:hover { transform:translateX(6px); box-shadow:var(--shadow-md); border-color:var(--fire-20); }
+.p-card:hover::before { transform:scaleY(1); }
+.p-icon {
+  width:44px; height:44px; background:var(--fire-10); border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--fire); margin-bottom:1.2rem;
+}
+.p-card h3 { font-size:1.8rem; margin-bottom:.6rem; }
+.p-card p { font-size:.9rem; line-height:1.7; }
+ 
+/* ============================================
+   PRODUCTS SECTION
+   ============================================ */
+.product-tabs {
+  display:flex; gap:.8rem; overflow-x:auto; margin-bottom:3rem;
+  padding-bottom:.5rem; scrollbar-width:none;
+  -webkit-overflow-scrolling:touch; position:relative; z-index:5;
+}
+.product-tabs::-webkit-scrollbar { display:none; }
+ 
+.tab-btn {
+  background:var(--snow); border:1px solid var(--mist);
+  padding:.7rem 1.5rem; border-radius:50px;
+  font-weight:600; font-size:.85rem; color:var(--steel);
+  cursor:pointer; white-space:nowrap;
+  transition:all .3s; font-family:'DM Sans',sans-serif;
+  position:relative; overflow:hidden;
+}
+.tab-btn::before {
+  content:''; position:absolute; inset:0;
+  background:var(--navy); transform:translateY(100%);
+  transition:transform .3s var(--ease-out); border-radius:50px;
+}
+.tab-btn span { position:relative; z-index:1; }
+.tab-btn.active { color:#fff; border-color:var(--navy); }
+.tab-btn.active::before { transform:translateY(0); }
+.tab-btn:not(.active):hover { border-color:var(--navy-20); color:var(--navy); }
+ 
+.tab-content { display:none; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.5rem; }
+.tab-content.active { display:grid; animation:tabFadeIn .5s var(--ease-out) forwards; }
+@keyframes tabFadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+ 
+.prod-card {
+  background:var(--snow); border:1px solid var(--mist);
+  border-radius:var(--radius-md); padding:2rem; cursor:pointer;
+  position:relative; overflow:hidden;
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
+  group:true;
+}
+/* shimmer on hover */
+.prod-card::before {
+  content:''; position:absolute; top:-100%; left:-100%;
+  width:60%; height:200%; background:linear-gradient(105deg, transparent 20%, rgba(249,115,22,.06) 50%, transparent 80%);
+  transform:skewX(-20deg); transition:left .6s var(--ease-out);
+}
+.prod-card:hover::before { left:200%; }
+.prod-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(249,115,22,.2); }
+ 
+/* corner accent */
+.prod-card::after {
+  content:'→'; position:absolute; bottom:1.5rem; right:1.5rem;
+  font-size:1.1rem; color:var(--fire); opacity:0;
+  transform:translate(-8px, 8px); transition:all .35s var(--ease-out);
+}
+.prod-card:hover::after { opacity:1; transform:translate(0,0); }
+ 
+.prod-icon {
+  width:48px; height:48px; background:var(--fog);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  color:var(--navy); margin-bottom:1.5rem;
+  transition:background .3s, color .3s;
+}
+.prod-card:hover .prod-icon { background:var(--fire-10); color:var(--fire); }
+.prod-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--ink); margin-bottom:.5rem; }
+.prod-desc { font-size:.85rem; line-height:1.65; }
+ 
+/* ============================================
+   PROJECTS
+   ============================================ */
+.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+.proj-card {
+  background:var(--ink); color:#fff; border-radius:var(--radius-lg);
+  padding:3.5rem; position:relative; overflow:hidden;
+  transition:transform .4s var(--ease-out), box-shadow .4s;
+  display:block;
+}
+.proj-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-xl); }
+ 
+/* animated gradient blob */
+.proj-card .blob {
+  position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none;
+  transition:transform .6s var(--ease-out), opacity .4s;
+  opacity:.5;
+}
+.proj-card:hover .blob { transform:scale(1.4); opacity:.7; }
+.blob-orange { width:280px; height:280px; background:rgba(249,115,22,.25); top:-60px; right:-60px; }
+.blob-blue { width:260px; height:260px; background:rgba(10,25,69,.5); bottom:-80px; left:-80px; }
+ 
+.proj-card .proj-tag {
+  font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--fire); margin-bottom:1.5rem; display:block;
+}
+.proj-card h3 { color:#fff; font-size:3rem; margin-bottom:1rem; line-height:1; position:relative; z-index:2; }
+.proj-card p { color:#94a3b8; font-size:.95rem; line-height:1.7; max-width:85%; position:relative; z-index:2; }
+.proj-cta {
+  display:inline-flex; align-items:center; gap:.6rem; margin-top:2.5rem;
+  color:#fff; font-weight:600; font-size:.9rem;
+  padding:.7rem 1.5rem; border:1px solid rgba(255,255,255,.2);
+  border-radius:var(--radius-sm); backdrop-filter:blur(10px);
+  position:relative; z-index:2; transition:all .3s;
+}
+.proj-cta:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.4); color:#fff; }
+.proj-cta svg { transition:transform .3s; }
+.proj-cta:hover svg { transform:translateX(4px); }
+ 
+/* ============================================
+   OFFERS / AMC
+   ============================================ */
+.offers-mega {
+  background:linear-gradient(135deg, var(--navy) 0%, #0d1f54 50%, #071030 100%);
+  border-radius:var(--radius-xl); padding:5rem; overflow:hidden; position:relative;
+}
+.offers-mega::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.offers-mega::after {
+  content:''; position:absolute;
+  width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,.12), transparent 70%);
+  top:-200px; right:-200px; pointer-events:none;
+}
+.offers-top { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4rem; position:relative; z-index:2; }
+.offers-top .stitle { color:#fff; }
+.offers-top .sdesc { color:rgba(255,255,255,.6); margin-bottom:0; }
+.offers-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; position:relative; z-index:2; }
+.offer-card {
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-md); padding:2.5rem;
+  backdrop-filter:blur(10px); position:relative; overflow:hidden;
+  transition:transform .4s var(--ease-out), background .3s, border-color .3s;
+}
+.offer-card:hover { transform:translateY(-4px); background:rgba(255,255,255,.08); border-color:rgba(249,115,22,.3); }
+.offer-icon { color:var(--fire); margin-bottom:1.5rem; }
+.offer-card h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#fff; margin-bottom:.8rem; }
+.offer-card p { font-size:.9rem; color:rgba(255,255,255,.65); line-height:1.7; }
+ 
+/* ============================================
+   INDUSTRIES
+   ============================================ */
+.ind-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
+.ind-card {
+  background:var(--snow); border:1px solid var(--mist); border-radius:var(--radius-md);
+  padding:1.8rem; transition:all .35s var(--ease-out);
+  position:relative; overflow:hidden;
+}
+.ind-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--fire), var(--navy));
+  transform:scaleX(0); transition:transform .35s var(--ease-out);
+}
+.ind-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--fire-20); }
+.ind-card:hover::after { transform:scaleX(1); }
+.ind-emoji { font-size:2rem; margin-bottom:1rem; }
+.ind-card h4 { font-size:1.4rem; margin-bottom:.5rem; }
+.ind-card p { font-size:.8rem; color:var(--slate); line-height:1.6; }
+ 
+/* ============================================
+   QUOTE FORM
+   ============================================ */
+.quote-section {
+  background:linear-gradient(180deg, var(--fog) 0%, #dde5f4 100%);
+  position:relative; overflow:hidden;
+}
+.quote-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 0%, rgba(10,25,69,.07), transparent 70%);
+}
+.quote-card {
+  background:var(--snow); border:1px solid var(--mist);
+  border-radius:var(--radius-xl); padding:4rem;
+  box-shadow:var(--shadow-xl); max-width:820px; margin:0 auto;
+  position:relative; z-index:5;
+}
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.form-group { display:flex; flex-direction:column; gap:.5rem; }
+.form-group.full { grid-column:1/-1; }
+.form-label { font-size:.8rem; font-weight:600; color:var(--ink); font-family:'DM Mono',monospace; letter-spacing:.06em; text-transform:uppercase; }
+.form-control {
+  padding:1rem 1.2rem; border:1.5px solid var(--mist); border-radius:var(--radius-sm);
+  font-family:'DM Sans',sans-serif; font-size:.95rem; outline:none;
+  background:var(--fog); color:var(--ink);
+  transition:border-color .3s, box-shadow .3s, background .3s;
+  -webkit-appearance:none;
+}
+.form-control:focus {
+  border-color:var(--fire); background:var(--snow);
+  box-shadow:0 0 0 4px var(--fire-10);
+}
+.wa-btn {
+  background:var(--green-wa); color:#fff; border:none;
+  padding:1.2rem; border-radius:var(--radius-sm);
+  font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  gap:.8rem; width:100%; margin-top:1rem;
+  box-shadow:0 8px 30px rgba(37,211,102,.25);
+  transition:all .3s var(--ease-out); position:relative; overflow:hidden;
+}
+.wa-btn::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.15), transparent);
+  opacity:0; transition:opacity .3s;
+}
+.wa-btn:hover::before { opacity:1; }
+.wa-btn:hover { transform:translateY(-2px); box-shadow:0 16px 40px rgba(37,211,102,.35); }
+ 
+/* ============================================
+   MODAL
+   ============================================ */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(7,12,26,.65);
+  backdrop-filter:blur(8px); z-index:1000;
+  display:none; align-items:center; justify-content:center;
+  padding:1rem; opacity:0; transition:opacity .3s;
+}
+.modal-overlay.active { display:flex; opacity:1; }
+.modal-box {
+  background:var(--snow); width:90%; max-width:580px;
+  border-radius:var(--radius-xl); padding:3rem; position:relative;
+  transform:translateY(20px) scale(.97);
+  transition:transform .4s var(--ease-spring);
+  box-shadow:var(--shadow-xl); max-height:90vh; overflow-y:auto;
+}
+.modal-overlay.active .modal-box { transform:translateY(0) scale(1); }
+.modal-close {
+  position:absolute; top:1.5rem; right:1.5rem;
+  background:var(--fog); border:1px solid var(--mist); border-radius:50%;
+  width:34px; height:34px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s, color .2s; color:var(--steel);
+}
+.modal-close:hover { background:#ffe4e6; color:#e11d48; }
+.modal-title { font-size:3rem; margin:1rem 0 .5rem; }
+.modal-desc { font-size:.95rem; line-height:1.7; margin-bottom:1.5rem; }
+.modal-specs {
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+  background:var(--fog); border-radius:var(--radius-md);
+  padding:1.5rem; margin-bottom:2rem;
+}
+.spec-item { display:flex; flex-direction:column; gap:.3rem; }
+.spec-lbl { font-family:'DM Mono',monospace; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:var(--slate); }
+.spec-val { font-size:.9rem; font-weight:600; color:var(--ink); }
+.modal-actions { display:flex; gap:1rem; }
+ 
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background:var(--ink); padding:6rem 0 2rem;
+}
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:4rem; margin-bottom:5rem; }
+.footer-brand p { color:#64748b; font-size:.9rem; line-height:1.75; margin:1.5rem 0; max-width:280px; }
+.footer-col h5 {
+  font-family:'DM Mono',monospace; font-size:.72rem; letter-spacing:.15em;
+  text-transform:uppercase; color:#94a3b8; margin-bottom:1.5rem;
+}
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:.9rem; }
+.footer-links a { color:#64748b; font-size:.9rem; transition:color .2s; display:flex; align-items:center; gap:.5rem; }
+.footer-links a::before { content:''; width:0; height:1px; background:var(--fire); transition:width .3s; }
+.footer-links a:hover { color:var(--fire); }
+.footer-links a:hover::before { width:12px; }
+.footer-divider { border:none; border-top:1px solid rgba(255,255,255,.06); margin:0 0 2rem; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+.footer-bottom p { color:#334155; font-size:.8rem; }
+.footer-badge { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:.4rem 1rem; border-radius:50px; }
+.footer-badge span { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; color:#475569; text-transform:uppercase; }
+ 
+/* ============================================
+   FLOATING BUTTONS
+   ============================================ */
+.floating-btns {
+  position:fixed; bottom:2rem; right:2rem;
+  display:flex; flex-direction:column; gap:.8rem;
+  align-items:flex-end; z-index:130;
+}
+.float-wa {
+  display:flex; align-items:center; gap:.7rem;
+  background:var(--green-wa); color:#fff;
+  padding:.9rem 1.5rem; border-radius:50px;
+  font-weight:600; font-size:.9rem;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:all .3s var(--ease-out);
+}
+.float-wa:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 12px 35px rgba(37,211,102,.45); color:#fff; }
+.chat-toggle-btn {
+  width:52px; height:52px; background:var(--navy); border-radius:50%;
+  border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  color:#fff; box-shadow:0 4px 20px rgba(10,25,69,.35);
+  transition:all .3s var(--ease-out);
+}
+.chat-toggle-btn:hover { background:var(--fire); transform:scale(1.08) rotate(-10deg); }
+ 
+/* ============================================
+   CHATBOT
+   ============================================ */
+#chatbot {
+  position:fixed; bottom:7.5rem; right:2rem;
+  width:340px; background:var(--snow); border:1px solid var(--mist);
+  border-radius:var(--radius-lg); box-shadow:var(--shadow-xl); z-index:200;
+  display:flex; flex-direction:column; overflow:hidden;
+  transform-origin:bottom right;
+  transition:transform .4s var(--ease-spring), opacity .3s;
+  will-change:transform,opacity;
+}
+#chatbot.hidden { transform:scale(0); opacity:0; pointer-events:none; }
+.chat-header {
+  background:var(--navy); padding:1.1rem 1.3rem;
+  display:flex; align-items:center; gap:.9rem;
+}
+.chat-avatar {
+  width:34px; height:34px; background:var(--fire); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:.9rem; font-weight:700; flex-shrink:0;
+}
+.chat-name { font-family:'DM Mono',monospace; font-size:.8rem; color:#fff; letter-spacing:.04em; }
+.chat-status { font-size:.65rem; color:#4ade80; display:flex; align-items:center; gap:.3rem; }
+.status-dot { width:5px; height:5px; background:#4ade80; border-radius:50%; animation:pulseGlow 2s infinite; }
+.chat-close-btn { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1.1rem; transition:color .2s; }
+.chat-close-btn:hover { color:#fff; }
+#chat-msgs { height:260px; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.8rem; scrollbar-width:thin; }
+.msg { max-width:85%; padding:.7rem 1rem; border-radius:10px; font-size:.84rem; line-height:1.55; animation:msgIn .25s var(--ease-out) forwards; opacity:0; }
+@keyframes msgIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+.msg.bot { background:var(--fog); border:1px solid var(--mist); color:var(--ink); align-self:flex-start; border-radius:4px 10px 10px 10px; }
+.msg.user { background:var(--fire); color:#fff; align-self:flex-end; border-radius:10px 4px 10px 10px; }
+.msg.typing::after { content:'●●●'; animation:blink 1s infinite; font-size:.7rem; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.chat-input-row {
+  display:flex; gap:.5rem; padding:.8rem 1rem;
+  border-top:1px solid var(--mist); background:var(--fog);
+}
+#chat-input {
+  flex:1; background:var(--snow); border:1.5px solid var(--mist);
+  border-radius:var(--radius-sm); font-family:'DM Sans',sans-serif;
+  font-size:.84rem; padding:.55rem .8rem; outline:none; transition:border-color .2s;
+}
+#chat-input:focus { border-color:var(--fire); }
+#chat-send {
+  background:var(--navy); color:#fff; border:none;
+  border-radius:var(--radius-sm); padding:0 1rem;
+  font-weight:600; cursor:pointer; transition:background .2s, transform .15s;
+}
+#chat-send:hover { background:var(--fire); transform:scale(1.05); }
+ 
+/* ============================================
+   REVEAL ANIMATIONS
+   ============================================ */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal.in { opacity:1; transform:translateY(0); }
+.reveal-left { opacity:0; transform:translateX(-30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-left.in { opacity:1; transform:translateX(0); }
+.reveal-right { opacity:0; transform:translateX(30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-right.in { opacity:1; transform:translateX(0); }
+ 
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+ 
+/* ============================================
+   COUNT-UP
+   ============================================ */
+.count { display:inline; }
+ 
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media(max-width:1024px) {
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .about-grid { grid-template-columns:1fr; }
+  .about-visual { order:-1; max-width:420px; margin:0 auto; }
+  .ind-grid { grid-template-columns:repeat(2,1fr); }
+}
+ 
+@media(max-width:768px) {
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .hero-grid { grid-template-columns:1fr; gap:2rem; }
+  .hero-visual { height:280px; }
+  .orb-center { width:140px; height:140px; }
+  .ring-1 { width:200px; height:200px; }
+  .ring-2 { width:250px; height:250px; }
+  .ring-3 { width:300px; height:300px; }
+  .orbit-node { width:34px; height:34px; font-size:14px; }
+  .orbit-node.n4, .orbit-node.n5 { display:none; }
+  .float-badge { display:none; }
+  .proj-grid { grid-template-columns:1fr; }
+  .offers-mega { padding:2.5rem 1.5rem; }
+  .offers-top { flex-direction:column; gap:1.5rem; align-items:flex-start; }
+  .offers-grid { grid-template-columns:1fr; }
+  .form-grid { grid-template-columns:1fr; }
+  .quote-card { padding:2rem 1.5rem; }
+  .footer-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .footer-bottom { flex-direction:column; gap:1rem; text-align:center; }
+  .float-wa span { display:none; }
+  .float-wa { padding:.9rem; border-radius:50%; width:52px; height:52px; justify-content:center; }
+  #chatbot { width:calc(100vw - 2rem); right:1rem; bottom:7rem; }
+  .section-pad { padding:4rem 0; }
+  .container { padding:0 1.25rem; }
+  .modal-specs { grid-template-columns:1fr; }
+  .modal-actions { flex-direction:column; }
+  .hero-title { font-size:3.5rem; }
+  .marquee-wrap { display:none; }
+  /* Pause heavy animations on mobile for performance */
+  .ring-1, .ring-2, .ring-3 { animation:none; }
+  #hero-canvas { display:none; }
+}
+ 
+@media(max-width:480px) {
+  .ind-grid { grid-template-columns:1fr; }
+  .hero-stats { gap:1.5rem; }
+  .proj-card { padding:2rem; }
+}
+ 
+/* ============================================
+   PROGRESS BAR (page loading feel)
+   ============================================ */
+#progress-bar {
+  position:fixed; top:0; left:0; height:2px;
+  background:linear-gradient(90deg, var(--fire), #fb923c);
+  z-index:9999; width:0; transition:width .2s linear;
+  box-shadow:0 0 8px var(--fire-80);
 }
 </style>
 </head>
 <body>
-
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
+ 
+<!-- CURSOR -->
+<div id="csr"></div>
+<div id="csr-r"></div>
+ 
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+ 
+<!-- TOPBAR -->
 <div id="topbar">
   <div class="container topbar-inner">
-    <span>ISO Certified · Premium Industrial Automation & Safety Provider</span>
+    <div class="topbar-left">
+      <div class="dot"></div>
+      <span>ISO Certified · Premium Industrial Automation & Safety Provider</span>
+    </div>
     <div class="topbar-right">
-      <a href="tel:+919724648038"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +91 97246 48038</a>
-      <a href="mailto:info@veltonics.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@veltonics.com</a>
+      <a href="tel:+919724648038">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 97246 48038
+      </a>
+      <a href="mailto:info@veltonics.com">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@veltonics.com
+      </a>
     </div>
   </div>
 </div>
-
+ 
+<!-- NAV -->
 <nav id="main-nav">
   <div class="container nav-inner">
-    <a href="#" class="logo">
-      <svg class="brand-logo" viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo">
-        <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#0a1945" letter-spacing="1">VELTONICS</text>
-        <circle cx="495" cy="65" r="14" fill="#f97316"/>
-      </svg>
+    <a href="#" class="brand-logo-wrap" aria-label="Veltonics India">
+      <span class="brand-logo-text">VELTONICS</span><span class="brand-logo-dot"></span>
     </a>
+ 
     <ul class="nav-links">
-      <li><a href="#about">About Us</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#projects">Turnkey Projects</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#offers">AMC & Offers</a></li>
-      <li><a href="#quote" class="btn btn-primary" style="padding: 0.5rem 1.2rem; color: #fff;">Get Quote</a></li>
+      <li><a href="#quote" class="nav-cta">Get Quote</a></li>
     </ul>
+ 
+    <button class="hamburger" id="ham-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
+ 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#products" onclick="closeMobile()">Products</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#offers" onclick="closeMobile()">AMC & Offers</a>
+  <a href="#quote" onclick="closeMobile()">Get Quote →</a>
+</div>
+ 
+<!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
+ 
   <div class="container hero-grid">
-    <div class="reveal">
-      <div class="tag">One-Stop Solution Provider</div>
-      <h1 class="title">Next-Gen Industrial<br><span class="text-primary">Automation & Safety</span></h1>
-      <p class="subtitle">Elevating Indian manufacturing with ultra-premium sensors, vision systems, safety controllers, and end-to-end turnkey integration. Exact specs, uncompromising precision.</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="#quote" class="btn btn-primary">Request Free Quote</a>
+    <!-- LEFT CONTENT -->
+    <div>
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">One-Stop Industrial Solution Provider</span>
+      </div>
+ 
+      <h1 class="hero-title display">
+        Next‑Gen<br>
+        <em>Industrial</em><br>
+        Automation
+      </h1>
+ 
+      <p class="hero-desc">
+        Elevating Indian manufacturing with ultra‑premium sensors, vision systems, safety controllers, and end‑to‑end turnkey integration. Exact specs, uncompromising precision.
+      </p>
+ 
+      <div class="hero-btns">
+        <a href="#quote" class="btn btn-primary">
+          Request Free Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
         <a href="#products" class="btn btn-outline">View Catalogue</a>
       </div>
+ 
       <div class="hero-stats">
-        <div class="stat-box"><div class="num">25+</div><div class="lbl">Turnkey Projects</div></div>
-        <div class="stat-box"><div class="num">500+</div><div class="lbl">Products Catalog</div></div>
-        <div class="stat-box"><div class="num">100%</div><div class="lbl">Compliance</div></div>
+        <div>
+          <div class="stat-num"><span class="count" data-target="25">0</span>+</div>
+          <div class="stat-lbl">Turnkey Projects</div>
+        </div>
+        <div>
+          <div class="stat-num"><span class="count" data-target="500">0</span>+</div>
+          <div class="stat-lbl">Products Catalog</div>
+        </div>
+        <div>
+          <div class="stat-num"><span class="count" data-target="100">0</span>%</div>
+          <div class="stat-lbl">Compliance</div>
+        </div>
       </div>
     </div>
-    <div class="hero-visual reveal">
-      <div class="pulse-ring"></div>
-      <div class="pulse-ring-2"></div>
-      <div class="hero-main-img">
-        <svg class="gear-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+ 
+    <!-- RIGHT VISUAL -->
+    <div class="hero-visual">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+ 
+      <!-- Orbit nodes -->
+      <div class="orbit-node n1">⚙️</div>
+      <div class="orbit-node n2">🔬</div>
+      <div class="orbit-node n3">🛡️</div>
+      <div class="orbit-node n4">📡</div>
+      <div class="orbit-node n5">🔧</div>
+ 
+      <!-- Central orb -->
+      <div class="orb-center">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(249,115,22,.8)" stroke-width="1.5">
           <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
         </svg>
-        <div style="text-align:center">
-          <h3 class="font-display">Automation at One Step</h3>
-          <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.3rem">Smart Integration · Precision Engineering</p>
+        <div class="orb-label">Automation</div>
+        <div class="orb-title">ONE STEP</div>
+      </div>
+ 
+      <!-- Float badges -->
+      <div class="float-badge fb1">SIL3 · PLe · IP69K</div>
+      <div class="float-badge fb2">ISO Certified · Ahmedabad</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Industrial Sensors <span class="sep">✦</span></div>
+    <div class="marquee-item">Vision Systems <span class="sep">✦</span></div>
+    <div class="marquee-item">Machine Safety <span class="sep">✦</span></div>
+    <div class="marquee-item">PLC Controllers <span class="sep">✦</span></div>
+    <div class="marquee-item">Turnkey Projects <span class="sep">✦</span></div>
+    <div class="marquee-item">AMC Contracts <span class="sep">✦</span></div>
+    <div class="marquee-item">PPE & Safety Gear <span class="sep">✦</span></div>
+    <div class="marquee-item">ISO Certified <span class="sep">✦</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">Industrial Sensors <span class="sep">✦</span></div>
+    <div class="marquee-item">Vision Systems <span class="sep">✦</span></div>
+    <div class="marquee-item">Machine Safety <span class="sep">✦</span></div>
+    <div class="marquee-item">PLC Controllers <span class="sep">✦</span></div>
+    <div class="marquee-item">Turnkey Projects <span class="sep">✦</span></div>
+    <div class="marquee-item">AMC Contracts <span class="sep">✦</span></div>
+    <div class="marquee-item">PPE & Safety Gear <span class="sep">✦</span></div>
+    <div class="marquee-item">ISO Certified <span class="sep">✦</span></div>
+  </div>
+</div>
+ 
+<!-- ABOUT -->
+<section id="about" class="section-pad bg-fog">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Visual -->
+      <div class="about-visual reveal-left">
+        <div class="about-card-main">
+          <h3>One-Stop Solution</h3>
+          <p>Products, Projects, and AMC under one roof. We eliminate the hassle of multiple vendors with turnkey integration alongside a vast catalogue.</p>
+          <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <div style="background:rgba(249,115,22,.15); border:1px solid rgba(249,115,22,.3); border-radius:8px; padding:.6rem 1.2rem;">
+              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--fire);">Sensors</span>
+            </div>
+            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
+              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">Vision</span>
+            </div>
+            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
+              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">Safety</span>
+            </div>
+            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
+              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">PLC</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-bubble ab2">
+          <div class="ab-num">25+</div>
+          <div class="ab-txt">Turnkey Projects</div>
+        </div>
+        <div class="about-bubble ab1">
+          <div class="ab-num" style="color:var(--navy);">500+</div>
+          <div class="ab-txt">Products Catalogue</div>
+        </div>
+      </div>
+ 
+      <!-- Cards -->
+      <div class="profile-cards">
+        <div class="tag reveal">Company Profile</div>
+        <h2 class="stitle reveal" style="font-size:3.5rem; margin-bottom:2rem;">Serving all<br>industrial needs.</h2>
+ 
+        <div class="p-card reveal">
+          <div class="p-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>India's most trusted single-source partner for intelligent automation and uncompromising safety—empowering factories to achieve zero-accident, high-efficiency operations.</p>
+        </div>
+ 
+        <div class="p-card reveal" style="transition-delay:.12s">
+          <div class="p-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>Delivering premium components—from simple photo sensors to complex vision integration—backed by expert consultation, immediate support, and comprehensive AMC services.</p>
+        </div>
+ 
+        <div class="p-card reveal" style="transition-delay:.24s">
+          <div class="p-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>One-Stop Solution</h3>
+          <p>Projects, Products, and AMC under one roof. We eliminate the hassle of multiple vendors by providing turnkey integration alongside our vast product catalogue.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<section id="about" class="section-pad bg-alt">
-  <div class="container">
-    <div class="tag reveal">Company Profile</div>
-    <h2 class="title reveal" style="font-size: 2.5rem; margin-bottom: 3rem;">Serving all industrial needs<br>at one stop.</h2>
-    <div class="profile-grid">
-      <div class="profile-card reveal">
-        <div class="profile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 class="font-display" style="font-size: 1.4rem; margin-bottom: 1rem;">Our Vision</h3>
-        <p style="font-size: 0.95rem;">To be India's most trusted, single-source partner for intelligent automation and uncompromising safety, empowering factories to achieve zero-accident, high-efficiency operations.</p>
-      </div>
-      <div class="profile-card reveal" style="transition-delay: 0.1s;">
-        <div class="profile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3 class="font-display" style="font-size: 1.4rem; margin-bottom: 1rem;">Our Mission</h3>
-        <p style="font-size: 0.95rem;">Delivering premium quality components—from simple photo sensors to complex vision integration—backed by expert consultation, immediate support, and comprehensive AMC services.</p>
-      </div>
-      <div class="profile-card reveal" style="transition-delay: 0.2s;">
-        <div class="profile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <h3 class="font-display" style="font-size: 1.4rem; margin-bottom: 1rem;">One-Stop Solution</h3>
-        <p style="font-size: 0.95rem;">Projects, Products, and AMC under one roof. We eliminate the hassle of dealing with multiple vendors by providing turnkey integration alongside our vast product catalogue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+ 
+<!-- PRODUCTS -->
 <section id="products" class="section-pad">
   <div class="container">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 2rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.5rem; flex-wrap:wrap; gap:1.5rem;">
       <div>
         <div class="tag reveal">Product Catalogue</div>
-        <h2 class="title reveal">Comprehensive<br>Industrial Range</h2>
+        <h2 class="stitle reveal">Comprehensive<br>Industrial Range</h2>
       </div>
     </div>
-    
+ 
     <div class="product-tabs reveal">
-      <button class="tab-btn active" onclick="switchTab('sensors')">Industrial Sensors</button>
-      <button class="tab-btn" onclick="switchTab('vision')">Vision Systems</button>
-      <button class="tab-btn" onclick="switchTab('safety')">Machine Safety</button>
-      <button class="tab-btn" onclick="switchTab('plc')">PLC & Controllers</button>
-      <button class="tab-btn" onclick="switchTab('plant')">Plant & PPE</button>
+      <button class="tab-btn active" onclick="switchTab('sensors',this)"><span>Industrial Sensors</span></button>
+      <button class="tab-btn" onclick="switchTab('vision',this)"><span>Vision Systems</span></button>
+      <button class="tab-btn" onclick="switchTab('safety',this)"><span>Machine Safety</span></button>
+      <button class="tab-btn" onclick="switchTab('plc',this)"><span>PLC & Controllers</span></button>
+      <button class="tab-btn" onclick="switchTab('plant',this)"><span>Plant & PPE</span></button>
     </div>
-
+ 
+    <!-- SENSORS -->
     <div id="tab-sensors" class="tab-content active">
-      <div class="prod-card" onclick="openModal('Photoelectric Sensor', 'High-speed object detection for packaging and conveyor lines. Reliable sensing regardless of target color or material.', 'IP67', 'NPN/PNP Configurable', 'Up to 20m', '1ms Response')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
-        <h3 class="prod-name">Photo Sensor</h3>
+      <div class="prod-card" onclick="openModal('Photo Sensor','High-speed object detection for packaging and conveyor lines. Reliable sensing regardless of target color or material. Through-beam, retro-reflective, and diffuse models available.','IP67','NPN/PNP Configurable','Up to 20m','1ms Response')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+        <div class="prod-name">Photo Sensor</div>
         <p class="prod-desc">Through-beam, retro-reflective, and diffuse models for versatile industrial detection.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Proximity Sensor', 'Inductive and capacitive sensors for non-contact detection of metallic and non-metallic objects.', 'IP68', 'M8, M12, M18, M30', '1mm to 40mm Range', 'Flush/Non-Flush')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="6" rx="2"/><path d="M12 9V2M12 22v-7"/></svg></div>
-        <h3 class="prod-name">Proxy Sensor</h3>
+      <div class="prod-card" onclick="openModal('Proximity Sensor','Inductive and capacitive sensors for non-contact detection of metallic and non-metallic objects. Rugged construction built for harsh machine tooling environments.','IP68','M8 / M12 / M18 / M30','1mm to 40mm Range','Flush / Non-Flush')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="6" rx="2"/><path d="M12 9V2M12 22v-7"/></svg></div>
+        <div class="prod-name">Proxy Sensor</div>
         <p class="prod-desc">Rugged inductive sensors built for harsh machine tooling environments.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Laser Sensor', 'Ultra-precise laser measurement and detection for micron-level accuracy in automotive and electronics manufacturing.', 'IP67', 'Class 1 / Class 2 Laser', 'Micron Accuracy', 'Analog/Digital Out')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="19" r="1"/></svg></div>
-        <h3 class="prod-name">Laser Sensor</h3>
+      <div class="prod-card" onclick="openModal('Laser Sensor','Ultra-precise laser measurement and detection for micron-level accuracy in automotive and electronics manufacturing. Analog and digital output options.','IP67','Class 1 / Class 2','Micron Accuracy','Analog / Digital Out')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="19" r="1"/></svg></div>
+        <div class="prod-name">Laser Sensor</div>
         <p class="prod-desc">High-precision distance and positioning sensing using laser technology.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Measurement Sensor', 'Advanced distance, thickness, and profile measurement sensors for continuous process monitoring.', 'IP65', 'Ethernet/IP, PROFINET', '0.01mm Resolution', 'Aluminium Housing')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/></svg></div>
-        <h3 class="prod-name">Measurement Sensor</h3>
+      <div class="prod-card" onclick="openModal('Measurement Sensor','Advanced distance, thickness, and profile measurement sensors for continuous process monitoring. Ethernet/IP and PROFINET compatible.','IP65','Ethernet/IP, PROFINET','0.01mm Resolution','Aluminium Housing')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/></svg></div>
+        <div class="prod-name">Measurement Sensor</div>
         <p class="prod-desc">Linear displacement and ultrasonic sensors for precise continuous tracking.</p>
       </div>
     </div>
-
+ 
+    <!-- VISION -->
     <div id="tab-vision" class="tab-content">
-      <div class="prod-card" onclick="openModal('Vision Inspection System', 'Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading.', 'IP67 Camera', 'GigE Vision', 'Up to 21 Megapixels', 'AI Deep Learning')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg></div>
-        <h3 class="prod-name">Vision Inspection</h3>
-        <p class="prod-desc">Complete systems for high-speed automated quality assurance.</p>
+      <div class="prod-card" onclick="openModal('Vision Inspection System','Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading. AI deep learning included.','IP67 Camera','GigE Vision','Up to 21 Megapixels','AI Deep Learning')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="prod-name">Vision Inspection</div>
+        <p class="prod-desc">Complete systems for high-speed automated quality assurance and defect detection.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Smart Camera Series', 'All-in-one smart cameras with integrated processing, lighting, and IOs. Ideal for barcode reading and alignment.', 'IP67', 'Integrated LED Ring', 'C-Mount/M12 Lenses', 'Web GUI Setup')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <h3 class="prod-name">Smart Camera Series</h3>
-        <p class="prod-desc">Compact, standalone vision processing units for tight spaces.</p>
+      <div class="prod-card" onclick="openModal('Smart Camera Series','All-in-one smart cameras with integrated processing, lighting, and IOs. Ideal for barcode reading, alignment, and web-based GUI setup.','IP67','Integrated LED Ring','C-Mount / M12 Lenses','Web GUI Setup')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <div class="prod-name">Smart Camera Series</div>
+        <p class="prod-desc">Compact, standalone vision processing units for tight installation spaces.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Code Reader', 'Industrial 1D/2D barcode and QR code readers for logistics, track & trace, and pharma serialization.', 'IP65', 'RS-232, USB, Ethernet', 'Omnidirectional Reading', 'Autofocus')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14M23 5v14"/></svg></div>
-        <h3 class="prod-name">Code Reader</h3>
-        <p class="prod-desc">High-speed industrial scanners for robust traceability.</p>
+      <div class="prod-card" onclick="openModal('Code Reader','Industrial 1D/2D barcode and QR code readers for logistics, track & trace, and pharma serialization. Omnidirectional reading with autofocus.','IP65','RS-232 / USB / Ethernet','Omnidirectional Reading','Autofocus')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14M23 5v14"/></svg></div>
+        <div class="prod-name">Code Reader</div>
+        <p class="prod-desc">High-speed industrial scanners for robust traceability and serialization.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Machine Vision Lighting', 'Precision DC lights including ring lights, dome lights, and bar lights to ensure perfect contrast for vision systems.', 'IP67 Rated options', '24V DC', 'Strobe Controller Sync', 'Red/White/Blue/IR')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
-        <h3 class="prod-name">DC Lights / Illumination</h3>
+      <div class="prod-card" onclick="openModal('DC Lights / Illumination','Precision DC lights including ring lights, dome lights, and bar lights to ensure perfect contrast for vision systems. Strobe controller sync available.','IP67 Rated Options','24V DC','Strobe Controller Sync','Red / White / Blue / IR')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+        <div class="prod-name">DC Lights / Illumination</div>
         <p class="prod-desc">Optimized illumination to guarantee zero false rejects in vision tasks.</p>
       </div>
     </div>
-
+ 
+    <!-- SAFETY -->
     <div id="tab-safety" class="tab-content">
-      <div class="prod-card" onclick="openModal('Safety Light Curtain', 'Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 compliance.', 'Type 4, PLe, SIL3', '14mm/30mm Res.', 'Up to 20m Range', 'Aluminum Extrusion')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="21" y1="3" x2="21" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
-        <h3 class="prod-name">Safety Light Curtain</h3>
+      <div class="prod-card" onclick="openModal('Safety Light Curtain','Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 PLe SIL3 compliance with aluminum extrusion housing.','Type 4, PLe, SIL3','14mm / 30mm Resolution','Up to 20m Range','Aluminum Extrusion')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="21" y1="3" x2="21" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+        <div class="prod-name">Safety Light Curtain</div>
         <p class="prod-desc">Electro-sensitive protective devices for press and robotic cell guarding.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Area Scanner', 'Laser-based 2D area monitoring for machine guarding and perimeter protection with configurable warning/safety zones.', 'Type 3, PLd, SIL2', '275° Scan Angle', '9m Safety Zone', 'Multi-zone setup')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
-        <h3 class="prod-name">Safety Area Scanner</h3>
-        <p class="prod-desc">Dynamic floor scanning for AGVs and open robot cells.</p>
+      <div class="prod-card" onclick="openModal('Safety Area Scanner','Laser-based 2D area monitoring for machine guarding and perimeter protection with configurable warning and safety zones.','Type 3, PLd, SIL2','275° Scan Angle','9m Safety Zone','Multi-zone Setup')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+        <div class="prod-name">Safety Area Scanner</div>
+        <p class="prod-desc">Dynamic floor scanning for AGVs and open robot cells with multi-zone setup.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Door Lock', 'Solenoid-controlled guard locking interlock switches for safe access to hazardous machinery. RFID coded options.', 'Cat.4, PLe', '1300N Holding Force', 'IP67/IP69K', 'RFID Tamper-proof')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        <h3 class="prod-name">Safety Door Lock</h3>
+      <div class="prod-card" onclick="openModal('Safety Door Lock','Solenoid-controlled guard locking interlock switches for safe access to hazardous machinery. RFID coded tamper-proof options available.','Cat.4, PLe','1300N Holding Force','IP67 / IP69K','RFID Tamper-proof')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <div class="prod-name">Safety Door Lock</div>
         <p class="prod-desc">Prevents gate opening until machine hazards have completely ceased.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Relay / Controller', 'Evaluates safety signals from E-stops, light curtains, and door switches to ensure safe machine state.', 'SIL3 / PLe', '24V DC', 'DIN Rail Mount', 'Dual Channel Monitor')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-        <h3 class="prod-name">Safety Relay Module</h3>
-        <p class="prod-desc">The brain of your local safety circuit, ensuring fail-safe logic.</p>
+      <div class="prod-card" onclick="openModal('Safety Relay Module','Evaluates safety signals from E-stops, light curtains, and door switches to ensure safe machine state. Dual channel monitoring.','SIL3 / PLe','24V DC','DIN Rail Mount','Dual Channel Monitor')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div class="prod-name">Safety Relay Module</div>
+        <p class="prod-desc">The brain of your safety circuit, ensuring fail-safe logic evaluation.</p>
       </div>
     </div>
-
+ 
+    <!-- PLC -->
     <div id="tab-plc" class="tab-content">
-      <div class="prod-card" onclick="openModal('Programmable Logic Controller (PLC)', 'Modular and compact PLCs for high-speed industrial process control and machine automation.', 'Standard IP20', 'Ladder, ST, FBD', 'Expandable I/O', 'Modbus, EtherCAT')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg></div>
-        <h3 class="prod-name">Industrial PLC</h3>
-        <p class="prod-desc">Robust logic controllers driving complete automation processes.</p>
+      <div class="prod-card" onclick="openModal('Industrial PLC','Modular and compact PLCs for high-speed industrial process control and machine automation. Supports Ladder, ST, and FBD programming with expandable I/O.','Standard IP20','Ladder / ST / FBD','Expandable I/O','Modbus / EtherCAT')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg></div>
+        <div class="prod-name">Industrial PLC</div>
+        <p class="prod-desc">Robust logic controllers driving complete automation processes end-to-end.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Controller', 'Programmable safety controllers allowing complex, software-driven safety logic for large installations.', 'SIL3 / PLe', 'GUI Configuration', 'Networkable Safety', 'Replacing >4 Relays')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
-        <h3 class="prod-name">Safety Controller</h3>
-        <p class="prod-desc">Software-defined safety logic replacing hardwired relay boards.</p>
+      <div class="prod-card" onclick="openModal('Safety Controller','Programmable safety controllers allowing complex software-driven safety logic for large installations. GUI configuration, replaces 4+ relay modules.','SIL3 / PLe','GUI Configuration','Networkable Safety','Replacing 4+ Relays')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+        <div class="prod-name">Safety Controller</div>
+        <p class="prod-desc">Software-defined safety logic replacing complex hardwired relay boards.</p>
       </div>
-      <div class="prod-card" onclick="openModal('HMI Interface', 'High-resolution Human Machine Interfaces for local machine operation and parameter monitoring.', 'IP65 Front', '7 to 15 inch LCD', 'Capacitive Touch', 'IoT Ready')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 20v4M8 24h8"/></svg></div>
-        <h3 class="prod-name">HMI Touch Panels</h3>
+      <div class="prod-card" onclick="openModal('HMI Touch Panels','High-resolution Human Machine Interfaces for local machine operation and parameter monitoring. Capacitive touch, IoT ready.','IP65 Front Panel','7 to 15 inch LCD','Capacitive Touch','IoT Ready')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 20v4M8 24h8"/></svg></div>
+        <div class="prod-name">HMI Touch Panels</div>
         <p class="prod-desc">Intuitive touch displays for seamless operator-machine interaction.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Drives & Motion Control', 'Servo drives and Variable Frequency Drives (VFD) for precise motor speed and positioning control.', 'IP20', '0.4kW to 110kW', 'Safe Torque Off (STO)', 'EtherCAT/Profinet')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3 class="prod-name">Servo & VFD</h3>
-        <p class="prod-desc">Intelligent motor control modules featuring built-in safety (STO).</p>
+      <div class="prod-card" onclick="openModal('Servo & VFD','Servo drives and Variable Frequency Drives for precise motor speed and positioning control. Built-in Safe Torque Off (STO) function.','IP20','0.4kW to 110kW','Safe Torque Off (STO)','EtherCAT / Profinet')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="prod-name">Servo & VFD</div>
+        <p class="prod-desc">Intelligent motor control modules featuring built-in safety (STO) functionality.</p>
       </div>
     </div>
-
+ 
+    <!-- PLANT & PPE -->
     <div id="tab-plant" class="tab-content">
-      <div class="prod-card" onclick="openModal('Industrial Safety Helmet', 'High-impact ABS construction helmets for floor operators. Features adjustable ratchet suspension and chin strap.', 'IS 2925 Certified', 'High Impact ABS', '4-Point Suspension', 'Multiple Colors')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12h20c0-5.52-4.48-10-10-10z"/></svg></div>
-        <h3 class="prod-name">Safety Helmet</h3>
-        <p class="prod-desc">Essential head protection gear for rigorous plant environments.</p>
+      <div class="prod-card" onclick="openModal('Safety Helmet','High-impact ABS construction helmets for floor operators. Features adjustable ratchet suspension and chin strap. IS 2925 Certified.','IS 2925 Certified','High Impact ABS','4-Point Suspension','Multiple Colors')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12h20c0-5.52-4.48-10-10-10z"/></svg></div>
+        <div class="prod-name">Safety Helmet</div>
+        <p class="prod-desc">Essential head protection gear for rigorous plant and shop floor environments.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Shoes', 'Steel-toe and composite-toe safety footwear offering electrical hazard protection, anti-slip soles, and puncture resistance.', 'IS 15298 Certified', 'Steel/Composite Toe', 'Anti-Skid PU Sole', 'Acid/Oil Resistant')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16v-4c0-2.21-1.79-4-4-4h-2.58l-3.05-3.05c-.38-.38-.89-.59-1.42-.59H5c-1.1 0-2 .9-2 2v7.64z"/></svg></div>
-        <h3 class="prod-name">Safety Shoes</h3>
-        <p class="prod-desc">Ergonomic, heavy-duty foot protection for shop floor staff.</p>
+      <div class="prod-card" onclick="openModal('Safety Shoes','Steel-toe and composite-toe safety footwear offering electrical hazard protection, anti-slip soles, and puncture resistance. IS 15298 Certified.','IS 15298 Certified','Steel / Composite Toe','Anti-Skid PU Sole','Acid / Oil Resistant')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16v-4c0-2.21-1.79-4-4-4h-2.58l-3.05-3.05c-.38-.38-.89-.59-1.42-.59H5c-1.1 0-2 .9-2 2v7.64z"/></svg></div>
+        <div class="prod-name">Safety Shoes</div>
+        <p class="prod-desc">Ergonomic, heavy-duty foot protection for shop floor and maintenance staff.</p>
       </div>
-      <div class="prod-card" onclick="openModal('Industrial Stationery', 'Heavy-duty markers, tagout labels, floor marking tapes, and cleanroom stationery for organized factory operations.', 'Various', 'Chemical Resistant', 'High Visibility', 'Custom Print Available')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3 class="prod-name">Plant Stationery</h3>
-        <p class="prod-desc">Consumables and marking systems essential for 5S compliance.</p>
+      <div class="prod-card" onclick="openModal('Plant Stationery','Heavy-duty markers, tagout labels, floor marking tapes, and cleanroom stationery for organized 5S-compliant factory operations.','Various Standards','Chemical Resistant','High Visibility','Custom Print Available')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <div class="prod-name">Plant Stationery</div>
+        <p class="prod-desc">Consumables and marking systems essential for 5S compliance and organization.</p>
       </div>
-      <div class="prod-card" onclick="openModal('LOTO Equipment', 'Lockout/Tagout kits including padlocks, hasps, and valve lockouts to ensure zero energy state during maintenance.', 'OSHA Compliant', 'Nylon/Steel Hasps', 'Key Retaining', 'Standardized Kits')">
-        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
-        <h3 class="prod-name">Lockout / Tagout (LOTO)</h3>
-        <p class="prod-desc">Critical isolation equipment for safe machine maintenance.</p>
+      <div class="prod-card" onclick="openModal('Lockout / Tagout (LOTO)','Lockout/Tagout kits including padlocks, hasps, and valve lockouts to ensure zero energy state during machine maintenance. OSHA compliant standardized kits.','OSHA Compliant','Nylon / Steel Hasps','Key Retaining','Standardized Kits')">
+        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <div class="prod-name">Lockout / Tagout (LOTO)</div>
+        <p class="prod-desc">Critical isolation equipment for safe machine maintenance and energy control.</p>
       </div>
     </div>
   </div>
 </section>
-
-<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <div class="tag">Product Details</div>
-    <h2 class="title" id="m-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Product Name</h2>
-    <p id="m-desc" style="color: var(--text-body); line-height: 1.6;">Description goes here.</p>
-    
-    <div class="modal-specs">
-      <div class="spec-item"><span class="spec-lbl">Protection Rating</span><span class="spec-val" id="m-s1">IP67</span></div>
-      <div class="spec-item"><span class="spec-lbl">Size / Type</span><span class="spec-val" id="m-s2">M18</span></div>
-      <div class="spec-item"><span class="spec-lbl">Range / Capacity</span><span class="spec-val" id="m-s3">20m</span></div>
-      <div class="spec-item"><span class="spec-lbl">Key Feature</span><span class="spec-val" id="m-s4">High Speed</span></div>
-    </div>
-
-    <div class="modal-actions">
-      <button onclick="downloadGeneratedCatalogue()" class="btn btn-outline" style="flex:1;" id="m-pdf">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download PDF
-      </button>
-      <a href="#" target="_blank" class="btn btn-accent" style="flex:1; background:#25D366" id="m-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Inquire via WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
-<section id="projects" class="section-pad bg-alt">
+ 
+<!-- PROJECTS -->
+<section id="projects" class="section-pad bg-fog">
   <div class="container">
     <div class="tag reveal">Our Expertise</div>
-    <h2 class="title reveal">Turnkey Solutions & <br>System Integration</h2>
-    <div class="proj-grid reveal" style="margin-top: 3rem;">
+    <h2 class="stitle reveal">Turnkey Solutions &<br>System Integration</h2>
+    <div class="proj-grid reveal" style="margin-top:3rem;">
       <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Vision%20Integration%20Projects" target="_blank" class="proj-card">
+        <div class="blob blob-orange"></div>
+        <div class="blob blob-blue"></div>
+        <span class="proj-tag">Vision Integration</span>
         <h3>Vision Integration Projects</h3>
-        <p>End-to-end design, programming, and installation of complex smart camera networks for inline quality inspection. Achieved zero-defect outcomes for leading automotive and pharma clients.</p>
-        <span class="btn" style="background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.3); color:#fff; margin-top:2rem">View Case Studies →</span>
+        <p>End-to-end design, programming, and installation of complex smart camera networks for inline quality inspection. Zero-defect outcomes for automotive and pharma clients.</p>
+        <div class="proj-cta">
+          View Case Studies
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
       </a>
-      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Machine%20Safety%20Turnkey%20Solutions" target="_blank" class="proj-card" style="background: var(--primary);">
+      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Machine%20Safety%20Turnkey%20Solutions" target="_blank" class="proj-card" style="background:var(--navy);">
+        <div class="blob blob-orange"></div>
+        <span class="proj-tag">Safety Retrofitting</span>
         <h3>Machine Safety Retrofitting</h3>
-        <p>Complete safety audits followed by turnkey implementation. We upgrade legacy machineries to current PLe / SIL3 standards with PLCs, light curtains, and physical guarding.</p>
-        <span class="btn" style="background: rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; margin-top:2rem">Get Safety Audit →</span>
+        <p>Complete safety audits followed by turnkey implementation. We upgrade legacy machinery to current PLe / SIL3 standards with PLCs, light curtains, and physical guarding.</p>
+        <div class="proj-cta">
+          Get Safety Audit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
       </a>
     </div>
   </div>
 </section>
-
+ 
+<!-- OFFERS / AMC -->
 <section id="offers" class="section-pad">
   <div class="container">
-    <div class="offers-wrapper reveal">
-      <div class="tag" style="background:rgba(255,255,255,0.2); color:#fff; border:1px solid rgba(255,255,255,0.4)">Exclusive Benefits</div>
-      <h2 class="title">Partnership Value additions</h2>
-      <p style="color:#cbd5e1; max-width: 600px; margin:0 auto">Beyond products, we offer long-term peace of mind through structured contracts and scalable pricing.</p>
-      
+    <div class="offers-mega reveal">
+      <div class="offers-top">
+        <div>
+          <div class="tag" style="background:rgba(249,115,22,.15); border-color:rgba(249,115,22,.3);">Exclusive Benefits</div>
+          <h2 class="stitle" style="color:#fff; margin-bottom:0;">Partnership<br>Value Additions</h2>
+        </div>
+        <p class="sdesc" style="color:rgba(255,255,255,.6); margin-bottom:0; max-width:380px; text-align:right;">Beyond products, we offer long-term peace of mind through structured contracts and scalable pricing.</p>
+      </div>
+ 
       <div class="offers-grid">
         <div class="offer-card">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="margin-bottom:1rem"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="offer-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <h3>Annual Maintenance (AMC)</h3>
-          <p style="font-size:0.9rem; color:#e2e8f0; line-height:1.6">Comprehensive 24/7 technical support, quarterly preventative maintenance visits, and free software updates for all integrated vision and PLC systems.</p>
+          <p>Comprehensive 24/7 technical support, quarterly preventative maintenance visits, and free software updates for all integrated vision and PLC systems.</p>
         </div>
         <div class="offer-card">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="margin-bottom:1rem"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <div class="offer-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
           <h3>Bulk Purchase Volume Pricing</h3>
-          <p style="font-size:0.9rem; color:#e2e8f0; line-height:1.6">Setting up a new line? Avail immediate price reductions and dedicated inventory buffering when ordering sensors, safety gear, or PPE in bulk.</p>
+          <p>Setting up a new line? Avail immediate price reductions and dedicated inventory buffering when ordering sensors, safety gear, or PPE in bulk quantities.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<section id="industries" class="section-pad bg-alt">
+ 
+<!-- INDUSTRIES -->
+<section id="industries" class="section-pad bg-fog">
   <div class="container">
     <div class="tag reveal">Cross-Domain Expertise</div>
-    <h2 class="title reveal">Industries we empower</h2>
-    <div class="ind-grid reveal" style="margin-top: 3rem;">
+    <h2 class="stitle reveal">Industries We<br>Empower</h2>
+    <div class="ind-grid reveal" style="margin-top:3rem;">
       <div class="ind-card">
-        <h4>🏭 Automotive</h4>
-        <p>Vision sensors for part-alignment & gap inspection; Laser sensors for robotic welding.</p>
+        <div class="ind-emoji">🏭</div>
+        <h4>Automotive</h4>
+        <p>Vision sensors for part-alignment & gap inspection; Laser sensors for robotic welding paths.</p>
       </div>
       <div class="ind-card">
-        <h4>💊 Pharmaceutical</h4>
-        <p>Code readers for track & trace serialization; Vision for blister pack defect detection.</p>
+        <div class="ind-emoji">💊</div>
+        <h4>Pharmaceutical</h4>
+        <p>Code readers for track & trace serialization; Vision systems for blister pack defect detection.</p>
       </div>
       <div class="ind-card">
-        <h4>🍽️ Food & Beverage</h4>
-        <p>Washdown (IP69K) safety door locks; Proxy sensors for high-speed bottling lines.</p>
+        <div class="ind-emoji">🍽️</div>
+        <h4>Food & Beverage</h4>
+        <p>Washdown (IP69K) safety door locks; Proximity sensors for high-speed bottling lines.</p>
       </div>
       <div class="ind-card">
-        <h4>📦 Packaging</h4>
-        <p>High-speed photo sensors for counting; Safety curtains for palletizer guarding.</p>
+        <div class="ind-emoji">📦</div>
+        <h4>Packaging</h4>
+        <p>High-speed photo sensors for counting; Safety light curtains for palletizer guarding.</p>
       </div>
     </div>
   </div>
 </section>
-
-<section id="quote" class="section-pad" style="background: linear-gradient(to bottom, var(--bg-alt), #e2e8f0);">
+ 
+<!-- QUOTE FORM -->
+<section id="quote" class="section-pad quote-section">
   <div class="container">
-    <div class="inquiry-wrapper reveal">
-      <div style="text-align: center;">
+    <div class="quote-card reveal">
+      <div style="text-align:center; margin-bottom:3rem;">
         <div class="tag">Instant Quote</div>
-        <h2 class="title" style="font-size: 2.2rem;">Ready to upgrade your plant?</h2>
-        <p>Fill out the details below to directly message our sales engineers via WhatsApp for pricing, catalogues, or custom project queries.</p>
+        <h2 class="stitle" style="font-size:3rem;">Ready to upgrade<br>your plant?</h2>
+        <p style="color:var(--steel); line-height:1.7; max-width:500px; margin:0 auto;">Fill out the details below to directly message our sales engineers via WhatsApp for pricing, catalogues, or custom project queries.</p>
       </div>
-      
+ 
       <div class="form-grid">
         <div class="form-group">
-          <label style="font-size: 0.85rem; font-weight: 600;">Full Name *</label>
-          <input type="text" id="lead-name" class="form-control" placeholder="E.g., Rahul Desai" required>
+          <label class="form-label">Full Name *</label>
+          <input type="text" id="lead-name" class="form-control" placeholder="E.g., Rahul Desai">
         </div>
         <div class="form-group">
-          <label style="font-size: 0.85rem; font-weight: 600;">Company Name *</label>
-          <input type="text" id="lead-company" class="form-control" placeholder="E.g., Tata Motors" required>
+          <label class="form-label">Company Name *</label>
+          <input type="text" id="lead-company" class="form-control" placeholder="E.g., Tata Motors">
         </div>
         <div class="form-group">
-          <label style="font-size: 0.85rem; font-weight: 600;">City / Location *</label>
-          <input type="text" id="lead-city" class="form-control" placeholder="E.g., Ahmedabad" required>
+          <label class="form-label">City / Location *</label>
+          <input type="text" id="lead-city" class="form-control" placeholder="E.g., Ahmedabad">
         </div>
         <div class="form-group">
-          <label style="font-size: 0.85rem; font-weight: 600;">Product of Interest *</label>
-          <select id="lead-product" class="form-control" required>
+          <label class="form-label">Product of Interest *</label>
+          <select id="lead-product" class="form-control">
             <option value="" disabled selected>-- Select an Option --</option>
             <option value="Industrial Sensors">Industrial Sensors</option>
-            <option value="Vision & Cameras">Vision Systems & Cameras</option>
-            <option value="Machine Safety">Machine Safety & Light Curtains</option>
-            <option value="PLC & Controllers">PLC, Drives & HMI</option>
-            <option value="Plant PPE">Plant Consumables & PPE</option>
-            <option value="Turnkey Integration">Turnkey Automation Project</option>
-            <option value="AMC / Bulk Query">AMC Contract / Bulk Query</option>
+            <option value="Vision Systems & Cameras">Vision Systems & Cameras</option>
+            <option value="Machine Safety & Light Curtains">Machine Safety & Light Curtains</option>
+            <option value="PLC, Drives & HMI">PLC, Drives & HMI</option>
+            <option value="Plant Consumables & PPE">Plant Consumables & PPE</option>
+            <option value="Turnkey Automation Project">Turnkey Automation Project</option>
+            <option value="AMC Contract / Bulk Query">AMC Contract / Bulk Query</option>
           </select>
         </div>
-        <div class="form-group full-width">
-          <button onclick="submitWhatsAppLead()" class="wa-submit-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="form-group full">
+          <button onclick="submitLead()" class="wa-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Send Inquiry via WhatsApp
           </button>
         </div>
@@ -599,73 +1393,116 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
     </div>
   </div>
 </section>
-
-<section id="contact" style="background:var(--text-dark); padding: 4rem 0 0;">
-  <div class="container footer-grid">
-    <div>
-      <a href="#" class="logo">
-        <svg class="brand-logo" viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="filter: brightness(0) invert(1);">
-          <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#0a1945" letter-spacing="1">VELTONICS</text>
-          <circle cx="495" cy="65" r="14" fill="#f97316"/>
-        </svg>
+ 
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="tag">Product Details</div>
+    <h2 class="modal-title" id="m-title">Product Name</h2>
+    <p class="modal-desc" id="m-desc">Description.</p>
+    <div class="modal-specs">
+      <div class="spec-item"><span class="spec-lbl">Protection Rating</span><span class="spec-val" id="m-s1">–</span></div>
+      <div class="spec-item"><span class="spec-lbl">Size / Type</span><span class="spec-val" id="m-s2">–</span></div>
+      <div class="spec-item"><span class="spec-lbl">Range / Capacity</span><span class="spec-val" id="m-s3">–</span></div>
+      <div class="spec-item"><span class="spec-lbl">Key Feature</span><span class="spec-val" id="m-s4">–</span></div>
+    </div>
+    <div class="modal-actions">
+      <button onclick="downloadCatalogue()" class="btn btn-outline" style="flex:1;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download PDF
+      </button>
+      <a id="m-wa" href="#" target="_blank" class="btn btn-wa" style="flex:1;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Inquire via WhatsApp
       </a>
-      <p style="color:#94a3b8; font-size:0.9rem; line-height:1.7; margin: 1.5rem 0; max-width:280px">Your single-source partner for premium industrial sensors, vision integration, and uncompromising safety.</p>
-    </div>
-    <div>
-      <h4 style="color:#fff; margin-bottom: 1.5rem; letter-spacing:0.1em; text-transform:uppercase">Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="#about">Company Profile</a></li>
-        <li><a href="#products">Products Catalogue</a></li>
-        <li><a href="#projects">Turnkey Projects</a></li>
-        <li><a href="#offers">AMC Contracts</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 style="color:#fff; margin-bottom: 1.5rem; letter-spacing:0.1em; text-transform:uppercase">Products</h4>
-      <ul class="footer-links">
-        <li><a href="#" onclick="switchTab('sensors'); document.getElementById('products').scrollIntoView()">Industrial Sensors</a></li>
-        <li><a href="#" onclick="switchTab('vision'); document.getElementById('products').scrollIntoView()">Vision & Cameras</a></li>
-        <li><a href="#" onclick="switchTab('safety'); document.getElementById('products').scrollIntoView()">Machine Safety</a></li>
-        <li><a href="#" onclick="switchTab('plant'); document.getElementById('products').scrollIntoView()">Plant PPE & Needs</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 style="color:#fff; margin-bottom: 1.5rem; letter-spacing:0.1em; text-transform:uppercase">Contact</h4>
-      <ul class="footer-links" style="color: #94a3b8; font-size:0.9rem">
-        <li style="display:flex; gap:10px; margin-bottom:0.5rem"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Ahmedabad, Gujarat, India</li>
-        <li style="display:flex; gap:10px; margin-bottom:0.5rem"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +91 97246 48038</li>
-        <li style="display:flex; gap:10px; margin-bottom:0.5rem"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@veltonics.com</li>
-      </ul>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; text-align:center; color:#64748b; font-size:0.8rem">
-    © 2026 Veltonics India Pvt. Ltd. · All rights reserved.
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand-logo-wrap" style="gap:0;">
+          <span class="brand-logo-text" style="color:#fff; font-size:2rem;">VELTONICS</span>
+          <span class="brand-logo-dot"></span>
+        </a>
+        <p>Your single-source partner for premium industrial sensors, vision integration, and uncompromising machine safety across all of India.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#about">Company Profile</a></li>
+          <li><a href="#products">Products Catalogue</a></li>
+          <li><a href="#projects">Turnkey Projects</a></li>
+          <li><a href="#offers">AMC Contracts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul class="footer-links">
+          <li><a href="#products" onclick="switchTab('sensors',null)">Industrial Sensors</a></li>
+          <li><a href="#products" onclick="switchTab('vision',null)">Vision & Cameras</a></li>
+          <li><a href="#products" onclick="switchTab('safety',null)">Machine Safety</a></li>
+          <li><a href="#products" onclick="switchTab('plant',null)">Plant PPE</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ahmedabad, Gujarat, India
+          </li>
+          <li><a href="tel:+919724648038">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +91 97246 48038
+          </a></li>
+          <li><a href="mailto:info@veltonics.com">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@veltonics.com
+          </a></li>
+        </ul>
+      </div>
+    </div>
+ 
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>© 2026 Veltonics India Pvt. Ltd. · All rights reserved.</p>
+      <div class="footer-badge">
+        <div class="brand-logo-dot" style="width:7px;height:7px;animation:pulseGlow 2s infinite;flex-shrink:0;"></div>
+        <span>ISO Certified · Premium Quality</span>
+      </div>
+    </div>
   </div>
-</section>
-
+</footer>
+ 
+<!-- FLOATING BUTTONS -->
 <div class="floating-btns">
-  <a href="https://wa.me/919724648038?text=Hello%20Veltonics,%20I%20have%20an%20inquiry%20regarding%20automation/safety%20products." target="_blank" class="btn btn-accent" style="background:#25D366; border-radius:50px; padding: 0.8rem 1.5rem; box-shadow:0 4px 15px rgba(37,211,102,0.3)">
+  <a href="https://wa.me/919724648038?text=Hello%20Veltonics,%20I%20have%20an%20inquiry%20regarding%20automation/safety%20products." target="_blank" class="float-wa">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span>Chat with Sales</span>
   </a>
-  <button class="chat-toggle" onclick="toggleChat()" aria-label="Open AI Chat">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  <button class="chat-toggle-btn" onclick="toggleChat()" aria-label="AI Chat">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   </button>
 </div>
-
+ 
+<!-- CHATBOT -->
 <div id="chatbot" class="hidden">
   <div class="chat-header">
-    <svg viewBox="0 0 520 90" xmlns="http://www.w3.org/2000/svg" aria-label="Veltonics Logo" style="height: 20px; width: auto; object-fit: contain;">
-      <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="76" fill="#ffffff" letter-spacing="1">VELTONICS</text>
-      <circle cx="495" cy="65" r="14" fill="#f97316"/>
-    </svg>
-    <div class="chat-head-info">
-      <div class="chat-name">Veltonics AI</div>
-      <div class="chat-status"><span class="chat-status-dot"></span>Online</div>
+    <div class="chat-avatar">V</div>
+    <div>
+      <div class="chat-name">VELTONICS AI</div>
+      <div class="chat-status"><span class="status-dot"></span>Online · Ready to help</div>
     </div>
-    <button class="chat-close" onclick="toggleChat()">✕</button>
+    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
   </div>
-  <div id="chat-messages">
+  <div id="chat-msgs">
     <div class="msg bot">👋 Hello! I'm the Veltonics AI assistant. Are you looking for specific product details or turnkey project integration?</div>
   </div>
   <div class="chat-input-row">
@@ -673,227 +1510,267 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
     <button id="chat-send" onclick="sendChat()">Send</button>
   </div>
 </div>
-
+ 
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
 <script>
-// PERFORMANCE FIX: Only enable custom cursor if it's a non-touch device (Desktop)
-if (window.matchMedia("(pointer: fine)").matches) {
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    
-    // Fast path to avoid layout thrashing
-    document.addEventListener('mousemove', e => {
-      cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
-      ring.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
-    }, {passive: true});
-    
-    // Updated cursor logic to intelligently change colors based on underlying sections
-    document.addEventListener('mouseover', (e) => {
-      const isDarkSection = e.target.closest('#contact, .proj-card, .offers-wrapper');
-      const baseColor = isDarkSection ? '#ffffff' : 'var(--primary)';
-      
-      if (e.target.closest('a, button, .prod-card, .ind-card')) {
-        ring.style.transform = ring.style.transform.replace(/scale\([^\)]*\)/, '') + ' scale(1.8)';
-        ring.style.borderColor = 'var(--accent)'; 
-        cursor.style.background = 'var(--accent)';
-      } else {
-        ring.style.transform = ring.style.transform.replace(/scale\([^\)]*\)/, '') + ' scale(1)';
-        ring.style.borderColor = baseColor; 
-        cursor.style.background = baseColor;
-      }
-    }, {passive: true});
-}
-
-// SCROLL ANIMATIONS (Reveal & Nav)
-window.addEventListener('scroll', () => {
-  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
-}, {passive: true});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); }});
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// TAB SWITCHING
-function switchTab(tabId) {
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('tab-' + tabId).classList.add('active');
-}
-
-// MODAL LOGIC
-let currentProductName = "";
-function openModal(title, desc, spec1, spec2, spec3, spec4) {
-  currentProductName = title; 
-  document.getElementById('m-title').innerText = title;
-  document.getElementById('m-desc').innerText = desc;
-  document.getElementById('m-s1').innerText = spec1;
-  document.getElementById('m-s2').innerText = spec2;
-  document.getElementById('m-s3').innerText = spec3;
-  document.getElementById('m-s4').innerText = spec4;
-  
-  const waLink = `https://wa.me/919724648038?text=Hello Veltonics! I am interested in knowing more about the ${encodeURIComponent(title)}. Please share pricing and catalogue.`;
-  document.getElementById('m-wa').href = waLink;
-
-  document.getElementById('productModal').classList.add('active');
-}
-function closeModal(e) {
-  if(e && e.target !== document.getElementById('productModal')) return;
-  document.getElementById('productModal').classList.remove('active');
-}
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
-
-// DYNAMIC CATALOGUE GENERATOR
-function downloadGeneratedCatalogue() {
-    const formattedName = currentProductName.replace(/\s+/g, '_');
-    const catalogueHTML = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Veltonics Catalogue - ${currentProductName}</title>
-        <style>
-            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #333; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-            .header { border-bottom: 2px solid #0a1945; padding-bottom: 20px; margin-bottom: 30px; }
-            h1 { color: #0a1945; margin: 0; }
-            h2 { color: #f97316; margin-top: 30px; }
-            .contact-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 40px; }
-            .footer { margin-top: 50px; font-size: 0.85em; color: #64748b; text-align: center; }
-        </style>
-    </head>
-    <body>
-        <div class="header">
-            <h1>VELTONICS INDIA</h1>
-            <p>Premium Industrial Automation & Safety Solutions</p>
-        </div>
-        <h2>Product Specification Data Sheet: ${currentProductName}</h2>
-        <p>This is the official dynamically generated catalogue for the <strong>${currentProductName}</strong>. It confirms the product meets stringent industrial standards and integration requirements.</p>
-        <h3>Key Benefits & Features</h3>
-        <ul>
-            <li>High-end industrial grade durability and compliance.</li>
-            <li>Engineered for precise performance in demanding environments.</li>
-            <li>Backed by extensive Veltonics Warranty and AMC availability.</li>
-            <li>Immediate deployment support available.</li>
-        </ul>
-        <div class="contact-box">
-            <h3 style="margin-top: 0;">Need immediate engineering assistance?</h3>
-            <p>Our experts are ready to assist you with dimensional drawings, CAD files, and bulk pricing:</p>
-            <p><strong>Phone / WhatsApp:</strong> +91 97246 48038<br>
-            <strong>Email:</strong> info@veltonics.com<br>
-            <strong>Website:</strong> www.veltonics.com</p>
-        </div>
-        <div class="footer">&copy; 2026 Veltonics India Pvt. Ltd. | Confidential & Proprietary</div>
-    </body>
-    </html>`;
-
-    const blob = new Blob([catalogueHTML], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Veltonics_${formattedName}_Catalogue.html`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
-
-// HERO BACKGROUND PARTICLES (Performance Optimized)
-const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-let animationFrameId;
-
-function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-window.addEventListener('resize', resize, {passive: true}); 
-resize();
-
-for (let i = 0; i < 60; i++) {
-  particles.push({ x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5, r: Math.random()*2+1 });
-}
-
-function draw() {
-  // PERFORMANCE FIX: Skip canvas computing entirely on small screens
-  if (window.innerWidth < 768) {
-     cancelAnimationFrame(animationFrameId);
-     return;
+/* ---- CUSTOM CURSOR ---- */
+if (window.matchMedia('(pointer: fine)').matches) {
+  const csr = document.getElementById('csr');
+  const csrR = document.getElementById('csr-r');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+ 
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    csr.style.transform = `translate(${mx-4}px, ${my-4}px)`;
+  }, {passive:true});
+ 
+  // Smooth ring follow
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    csrR.style.transform = `translate(${rx-18}px, ${ry-18}px)`;
+    requestAnimationFrame(animateRing);
   }
-  
-  animationFrameId = requestAnimationFrame(draw);
-  ctx.clearRect(0,0,W,H);
-  particles.forEach((p,i) => {
-    p.x += p.vx; p.y += p.vy;
-    if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle = i % 3 === 0 ? 'rgba(249, 115, 22, 0.4)' : 'rgba(10, 25, 69, 0.3)';
-    ctx.fill();
-    particles.forEach((p2,j) => {
-      if(i>=j) return;
-      const d = Math.hypot(p.x-p2.x,p.y-p2.y);
-      if(d<120) {
-        ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
-        ctx.strokeStyle = `rgba(10, 25, 69, ${0.1 * (1 - d/120)})`; ctx.stroke();
+  animateRing();
+ 
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button, .prod-card, .ind-card, .p-card, .offer-card')) {
+      document.body.classList.add('cursor-hover');
+    } else {
+      document.body.classList.remove('cursor-hover');
+    }
+  }, {passive:true});
+}
+ 
+/* ---- SCROLL PROGRESS BAR ---- */
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = (window.scrollY / (el.scrollHeight - el.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+}, {passive:true});
+ 
+/* ---- MOBILE MENU ---- */
+function closeMobile() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('ham-btn').classList.remove('open');
+}
+document.getElementById('ham-btn').addEventListener('click', () => {
+  document.getElementById('ham-btn').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
+});
+ 
+/* ---- INTERSECTION OBSERVER (reveal) ---- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+ 
+/* ---- COUNT-UP ANIMATION ---- */
+function countUp(el) {
+  const target = +el.getAttribute('data-target');
+  const duration = 1500;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current);
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      countUp(e.target);
+      countObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+ 
+/* ---- HERO CANVAS (particle mesh) ---- */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas || window.innerWidth < 768) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  const N = 55;
+ 
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize, {passive:true});
+  resize();
+ 
+  for (let i = 0; i < N; i++) {
+    pts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .45, vy: (Math.random() - .5) * .45,
+      r: Math.random() * 1.8 + .8
+    });
+  }
+ 
+  function draw() {
+    requestAnimationFrame(draw);
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach((p, i) => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = i % 4 === 0 ? 'rgba(249,115,22,.35)' : 'rgba(10,25,69,.18)';
+      ctx.fill();
+      for (let j = i+1; j < N; j++) {
+        const p2 = pts[j];
+        const d = Math.hypot(p.x-p2.x, p.y-p2.y);
+        if (d < 130) {
+          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
+          ctx.strokeStyle = `rgba(10,25,69,${.08 * (1-d/130)})`;
+          ctx.lineWidth = .8; ctx.stroke();
+        }
       }
     });
-  });
+  }
+  draw();
+})();
+ 
+/* ---- TAB SWITCHING ---- */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  else {
+    // called from footer without btn reference
+    const allBtns = document.querySelectorAll('.tab-btn');
+    const tabMap = {sensors:0, vision:1, safety:2, plc:3, plant:4};
+    if (tabMap[id] !== undefined) allBtns[tabMap[id]].classList.add('active');
+  }
+  const tab = document.getElementById('tab-' + id);
+  if (tab) tab.classList.add('active');
 }
-// Start animation only on wider screens initially
-if (window.innerWidth >= 768) draw();
-
-// AI CHATBOT LOGIC
+ 
+/* ---- MODAL ---- */
+let currentProduct = '';
+function openModal(title, desc, s1, s2, s3, s4) {
+  currentProduct = title;
+  document.getElementById('m-title').textContent = title;
+  document.getElementById('m-desc').textContent = desc;
+  document.getElementById('m-s1').textContent = s1;
+  document.getElementById('m-s2').textContent = s2;
+  document.getElementById('m-s3').textContent = s3;
+  document.getElementById('m-s4').textContent = s4;
+  document.getElementById('m-wa').href =
+    `https://wa.me/919724648038?text=Hello Veltonics! I am interested in knowing more about the ${encodeURIComponent(title)}. Please share pricing and catalogue.`;
+  document.getElementById('productModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('productModal')) return;
+  document.getElementById('productModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+ 
+/* ---- DOWNLOAD CATALOGUE ---- */
+function downloadCatalogue() {
+  const name = currentProduct.replace(/\s+/g, '_');
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Veltonics - ${currentProduct}</title><style>
+    body{font-family:'Segoe UI',sans-serif;padding:48px;color:#334155;max-width:820px;margin:0 auto}
+    .header{border-bottom:3px solid #0a1945;padding-bottom:24px;margin-bottom:32px;display:flex;justify-content:space-between;align-items:flex-end}
+    h1{color:#0a1945;margin:0;font-size:2.4rem;letter-spacing:.02em}
+    .dot{width:16px;height:16px;background:#f97316;border-radius:50%;display:inline-block;margin-left:4px;vertical-align:bottom}
+    h2{color:#f97316;margin-top:32px;font-size:1.4rem}
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#f8fafc;padding:24px;border-radius:10px;margin:24px 0}
+    .spec{border-left:3px solid #f97316;padding-left:12px}
+    .spec-l{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin-bottom:4px}
+    .spec-v{font-size:.95rem;font-weight:600;color:#0f172a}
+    .contact{background:#0a1945;color:#fff;padding:28px;border-radius:10px;margin-top:40px}
+    .contact h3{color:#f97316;margin:0 0 12px}
+    .contact p{margin:4px 0;font-size:.9rem;opacity:.85}
+    .footer{margin-top:48px;font-size:.8rem;color:#94a3b8;text-align:center;border-top:1px solid #e2e8f0;padding-top:20px}
+  </style></head><body>
+    <div class="header"><div><h1>VELTONICS<span class="dot"></span></h1><p style="margin:.5rem 0 0;color:#64748b;font-size:.85rem">Premium Industrial Automation & Safety Solutions</p></div><p style="font-size:.8rem;color:#94a3b8">Generated: ${new Date().toLocaleDateString('en-IN')}</p></div>
+    <h2>Product Data Sheet: ${currentProduct}</h2>
+    <p>This official specification sheet confirms that the <strong>${currentProduct}</strong> meets stringent industrial standards and integration requirements. Backed by Veltonics India's full warranty and AMC availability.</p>
+    <h2>Technical Specifications</h2>
+    <div class="specs">
+      <div class="spec"><div class="spec-l">Protection Rating</div><div class="spec-v">${document.getElementById('m-s1').textContent}</div></div>
+      <div class="spec"><div class="spec-l">Size / Type</div><div class="spec-v">${document.getElementById('m-s2').textContent}</div></div>
+      <div class="spec"><div class="spec-l">Range / Capacity</div><div class="spec-v">${document.getElementById('m-s3').textContent}</div></div>
+      <div class="spec"><div class="spec-l">Key Feature</div><div class="spec-v">${document.getElementById('m-s4').textContent}</div></div>
+    </div>
+    <h2>Key Benefits</h2>
+    <ul style="line-height:2"><li>Industrial-grade durability and full compliance</li><li>Engineered for demanding Indian manufacturing environments</li><li>Backed by Veltonics Warranty & optional AMC coverage</li><li>Immediate deployment support and expert consultation</li></ul>
+    <div class="contact"><h3>Need engineering support?</h3><p>Our specialists are ready to assist with dimensional drawings, CAD files, and bulk pricing.</p><p style="margin-top:12px"><strong>📞</strong> +91 97246 48038 &nbsp;|&nbsp; <strong>✉</strong> info@veltonics.com</p></div>
+    <div class="footer">© 2026 Veltonics India Pvt. Ltd. · Ahmedabad, Gujarat, India · Confidential</div>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `Veltonics_${name}_Datasheet.html`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+ 
+/* ---- WHATSAPP LEAD ---- */
+function submitLead() {
+  const name = document.getElementById('lead-name').value.trim();
+  const co = document.getElementById('lead-company').value.trim();
+  const city = document.getElementById('lead-city').value.trim();
+  const prod = document.getElementById('lead-product').value;
+  if (!name || !co || !city || !prod) {
+    alert('Please fill in all the details so we can assist you better.');
+    return;
+  }
+  const msg = `Hello Veltonics!\n\nNew inquiry from website:\n\n*Name:* ${name}\n*Company:* ${co}\n*City:* ${city}\n*Interested In:* ${prod}\n\nKindly share pricing and catalogue details.`;
+  window.open(`https://wa.me/919724648038?text=${encodeURIComponent(msg)}`, '_blank');
+}
+ 
+/* ---- CHATBOT ---- */
 let chatStep = 0;
 function toggleChat() {
   document.getElementById('chatbot').classList.toggle('hidden');
 }
-
 function sendChat() {
-  const input = document.getElementById('chat-input');
-  const msg = input.value.trim();
-  if(!msg) return;
-  input.value = '';
+  const inp = document.getElementById('chat-input');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  inp.value = '';
   addMsg(msg, 'user');
+  const typing = addMsg('', 'bot typing');
   setTimeout(() => {
-    let reply = "";
+    typing.remove();
+    let reply = '';
     if (chatStep === 0) {
-        reply = "Excellent. We have a wide range of industrial sensors, safety modules, and vision systems. Could you specify your industry (e.g., Automotive, Pharma, Packaging) so I can suggest the right fit?";
-        chatStep++;
+      reply = 'Great! We specialize in sensors, vision systems, machine safety, PLCs, and PPE. Which industry are you in? (e.g., Automotive, Pharma, Packaging)';
+      chatStep++;
     } else if (chatStep === 1) {
-        reply = "Noted! For specialized requirements and immediate assistance, I highly recommend speaking with our expert engineers. You can reach us directly at +91 97246 48038 or info@veltonics.com.";
-        chatStep++;
+      reply = 'Excellent. For tailored recommendations and pricing, I\'ll connect you with our engineers. Reach us at +91 97246 48038 or info@veltonics.com — or use the WhatsApp button below!';
+      chatStep++;
     } else {
-        reply = "Please contact our support team at +91 97246 48038 or via WhatsApp for immediate quotes and catalogue details!";
+      reply = 'For immediate assistance, contact us at +91 97246 48038 or use the WhatsApp Chat button for instant pricing and catalogues.';
     }
     addMsg(reply, 'bot');
-  }, 800);
+  }, 900);
 }
-
-function addMsg(text, type) {
-  const msgs = document.getElementById('chat-messages');
+function addMsg(text, cls) {
+  const box = document.getElementById('chat-msgs');
   const el = document.createElement('div');
-  el.className = `msg ${type}`;
+  el.className = `msg ${cls}`;
   el.textContent = text;
-  msgs.appendChild(el);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-// AD-OPTIMIZED WHATSAPP LEAD SUBMISSION SCRIPT
-function submitWhatsAppLead() {
-  const name = document.getElementById('lead-name').value.trim();
-  const company = document.getElementById('lead-company').value.trim();
-  const city = document.getElementById('lead-city').value.trim();
-  const product = document.getElementById('lead-product').value;
-
-  if (!name || !company || !city || !product) {
-      alert("Please fill in all the details so we can assist you better.");
-      return;
-  }
-
-  // Format the message for WhatsApp
-  const message = `Hello Veltonics!\n\nI am reaching out regarding a new requirement. Please find my details below:\n\n*Name:* ${name}\n*Company:* ${company}\n*City:* ${city}\n*Interested In:* ${product}\n\nKindly share the pricing and catalogue details for the same.`;
-  
-  // Encode and Redirect
-  const whatsappUrl = `https://wa.me/919724648038?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, '_blank');
+  box.appendChild(el);
+  box.scrollTop = box.scrollHeight;
+  return el;
 }
 </script>
 </body>
 </html>
+ 
