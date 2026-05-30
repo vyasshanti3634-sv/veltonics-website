@@ -355,6 +355,9 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .fb1 { top:5%; left:5%; animation-delay:-1s; }
 .fb2 { bottom:5%; right:5%; animation-delay:-3s; }
+.fb3 { top:10%; right:2%; animation-delay:-2s; }
+.fb4 { bottom:12%; left:2%; animation-delay:-4s; }
+.fb5 { top:45%; left:-5%; animation-delay:-1.5s; }
 
 /* data lines connecting nodes to center */
 .connector-line {
@@ -438,9 +441,10 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   position:absolute; background:var(--snow);
   border-radius:var(--radius-md); padding:1.2rem 1.5rem;
   box-shadow:var(--shadow-lg); border:1px solid var(--mist);
+  z-index: 10;
 }
-.ab1 { bottom:-30px; right:-20px; }
-.ab2 { top:-20px; right:-20px; }
+.ab1 { bottom:-35px; left:-25px; }
+.ab2 { top:-35px; right:-25px; }
 .ab-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--fire); }
 .ab-txt { font-size:.75rem; color:var(--slate); font-family:'DM Mono',monospace; letter-spacing:.06em; }
 
@@ -1001,12 +1005,12 @@ footer {
       <div class="ring ring-2"></div>
       <div class="ring ring-3"></div>
 
-      <!-- Orbit nodes -->
-      <div class="orbit-node n1">⚙️</div>
-      <div class="orbit-node n2">🔬</div>
-      <div class="orbit-node n3">🛡️</div>
-      <div class="orbit-node n4">📡</div>
-      <div class="orbit-node n5">🔧</div>
+      <!-- Orbit nodes (Updated based on request) -->
+      <div class="orbit-node n1">⛑️</div>
+      <div class="orbit-node n2">📋</div>
+      <div class="orbit-node n3">🧰</div>
+      <div class="orbit-node n4">⚙️</div>
+      <div class="orbit-node n5">🔎</div>
 
       <!-- Central orb -->
       <div class="orb-center">
@@ -1014,13 +1018,16 @@ footer {
           <circle cx="12" cy="12" r="3"/>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
         </svg>
-        <div class="orb-label">Automation</div>
-        <div class="orb-title">ONE STEP</div>
+        <div class="orb-label">One Stop For</div>
+        <div class="orb-title" style="font-size: 1.4rem;">AUTOMATION</div>
       </div>
 
       <!-- Float badges -->
-      <div class="float-badge fb1">SIL3 · PLe · IP69K</div>
-      <div class="float-badge fb2">ISO Certified · Ahmedabad</div>
+      <div class="float-badge fb1">IP69K</div>
+      <div class="float-badge fb2">ISO Certified</div>
+      <div class="float-badge fb3">Vision Integration</div>
+      <div class="float-badge fb4">Hassle-Free Installation</div>
+      <div class="float-badge fb5">AI Enabled</div>
     </div>
   </div>
 </section>
