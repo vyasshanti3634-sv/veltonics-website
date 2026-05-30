@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veltonics India · Premium Industrial Automation & Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   /* LIGHT THEME COLORS */
@@ -32,20 +32,22 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg-main); color: var(--text-body); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; cursor: none; }
+body { background: var(--bg-main); color: var(--text-body); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; cursor: auto; }
 
-/* CUSTOM CURSOR */
-#cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; }
-#cursor-ring { position: fixed; width: 34px; height: 34px; border: 1.5px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; opacity: 0.5; }
-body:hover #cursor { transform: translate(-50%, -50%) scale(1); }
+/* CUSTOM CURSOR - ONLY FOR DESKTOP */
+@media (min-width: 1024px) {
+    body { cursor: none; }
+    #cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; }
+    #cursor-ring { position: fixed; width: 34px; height: 34px; border: 1.5px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; opacity: 0.5; }
+    body:hover #cursor { transform: translate(-50%, -50%) scale(1); }
+    /* NOISE OVERLAY - ONLY DESKTOP TO PREVENT MOBILE LAG */
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-alt); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-
-/* NOISE OVERLAY */
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
 
 /* TYPOGRAPHY & UTILS */
 h1, h2, h3, h4, .font-display { font-family: 'Rajdhani', sans-serif; color: var(--text-dark); }
@@ -60,7 +62,7 @@ h1, h2, h3, h4, .font-display { font-family: 'Rajdhani', sans-serif; color: var(
 .subtitle { font-size: 1.1rem; line-height: 1.7; color: var(--text-body); max-width: 600px; margin-bottom: 2.5rem; }
 
 /* BUTTONS */
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
 .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 15px var(--primary-light); }
 .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .btn-accent { background: var(--accent); color: #fff; }
@@ -78,26 +80,16 @@ h1, h2, h3, h4, .font-display { font-family: 'Rajdhani', sans-serif; color: var(
 nav { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); transition: all 0.3s; }
 nav.scrolled { box-shadow: var(--shadow-sm); }
 .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-
-/* LOGO STYLING & FALLBACK CSS */
-.logo-link { text-decoration: none; display: flex; align-items: center; }
-.brand-logo { height: 38px; width: auto; object-fit: contain; }
-.css-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 2.2rem; color: var(--primary); letter-spacing: 0.02em; display: flex; align-items: baseline; }
-.css-logo span { color: var(--accent); font-size: 2.8rem; line-height: 0; margin-left: 2px; }
-.footer-css-logo { color: #ffffff; font-size: 1.8rem; }
-.footer-css-logo span { font-size: 2.2rem; }
-.chat-css-logo { color: #ffffff; font-size: 1.2rem; }
-.chat-css-logo span { font-size: 1.5rem; }
-
+.brand-logo { height: 45px; width: auto; object-fit: contain; }
 .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
 .nav-links a:hover { color: var(--accent); }
 
 /* HERO */
 #hero { position: relative; min-height: 90vh; display: flex; align-items: center; padding: 4rem 0; overflow: hidden; }
-#hero-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.6; }
+#hero-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.6; pointer-events: none; }
 .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
-.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
 .stat-box .num { font-size: 2.5rem; font-weight: 700; color: var(--primary); font-family: 'Rajdhani'; line-height: 1; }
 .stat-box .lbl { font-size: 0.75rem; color: var(--text-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
 
@@ -116,7 +108,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 .profile-icon { width: 50px; height: 50px; background: var(--primary-light); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
 
 /* PRODUCTS SECTION (TABBED) */
-.product-tabs { display: flex; gap: 1rem; overflow-x: auto; margin-bottom: 3rem; padding-bottom: 0.5rem; scrollbar-width: none; }
+.product-tabs { display: flex; gap: 1rem; overflow-x: auto; margin-bottom: 3rem; padding-bottom: 0.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .product-tabs::-webkit-scrollbar { display: none; }
 .tab-btn { background: var(--bg-card); border: 1px solid var(--border); padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; color: var(--text-body); cursor: pointer; white-space: nowrap; transition: all 0.3s; }
 .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px var(--primary-light); }
@@ -132,10 +124,22 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 .prod-name { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
 .prod-desc { font-size: 0.85rem; color: var(--text-body); line-height: 1.6; }
 
+/* INQUIRY FORM (WHATSAPP WEB LEAD) */
+.inquiry-wrapper { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-md); max-width: 800px; margin: 0 auto; position: relative; z-index: 5; }
+.inquiry-wrapper h2 { margin-bottom: 0.5rem; }
+.inquiry-wrapper p { color: var(--text-body); margin-bottom: 2rem; font-size: 0.95rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group.full-width { grid-column: 1 / -1; }
+.form-control { width: 100%; padding: 1rem 1.2rem; border: 1.5px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 0.95rem; outline: none; transition: all 0.3s; background: var(--bg-alt); color: var(--text-dark); }
+.form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); background: var(--bg-main); }
+.wa-submit-btn { background: #25D366; color: #fff; border: none; padding: 1.2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.8rem; transition: all 0.3s; width: 100%; margin-top: 1rem; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); }
+.wa-submit-btn:hover { background: #1ebc59; transform: translateY(-2px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); }
+
 /* MODAL / POPUP */
 .modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
 .modal-overlay.active { display: flex; opacity: 1; }
-.modal-box { background: var(--bg-main); width: 90%; max-width: 600px; border-radius: 20px; padding: 2.5rem; position: relative; transform: scale(0.95); transition: transform 0.3s; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+.modal-box { background: var(--bg-main); width: 90%; max-width: 600px; border-radius: 20px; padding: 2.5rem; position: relative; transform: scale(0.95); transition: transform 0.3s; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); max-height: 90vh; overflow-y: auto; }
 .modal-overlay.active .modal-box { transform: scale(1); }
 .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--bg-alt); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .modal-close:hover { background: #ffe4e6; color: #e11d48; }
@@ -179,6 +183,7 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 #chatbot { position: fixed; bottom: 6rem; right: 2rem; width: 350px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); z-index: 200; display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
 #chatbot.hidden { transform: scale(0); opacity: 0; pointer-events: none; }
 .chat-header { background: var(--primary); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid var(--border); }
+.chat-header img { filter: brightness(0) invert(1); height: 20px; } 
 .chat-head-info { margin-left: auto; margin-right: auto; }
 .chat-head-info .chat-name { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; text-align: center;}
 .chat-head-info .chat-status { font-size: 0.68rem; color: #4ade80; display: flex; align-items: center; justify-content: center; gap: 0.3rem; }
@@ -199,28 +204,35 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 .chat-toggle { width: 55px; height: 55px; background: var(--primary); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(10,25,69,0.3); transition: all 0.25s; }
 .chat-toggle:hover { background: var(--accent); transform: scale(1.08); }
 
-/* RESPONSIVE */
+/* MOBILE RESPONSIVE OPTIMIZATIONS */
 @media(max-width: 992px) {
   .hero-grid, .profile-grid, .proj-grid, .offers-grid { grid-template-columns: 1fr; }
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-visual { height: 300px; margin-top: 2rem; }
+  .hero-visual { height: 350px; margin-top: 1rem; transform: scale(0.9); }
+  .form-grid { grid-template-columns: 1fr; }
 }
+
 @media(max-width: 768px) {
   .nav-links { display: none; }
   .modal-specs { grid-template-columns: 1fr; }
   .modal-actions { flex-direction: column; }
   #chatbot { width: calc(100vw - 2rem); right: 1rem; bottom: 6rem; }
+  .topbar-right a:first-child { display:none; } /* Hide phone on very small screens to save space */
+  .title { font-size: 2.2rem; }
+  .section-pad { padding: 4rem 0; }
+  .floating-btns .btn-accent span { display: none; } /* Show only icon for floating button on mobile */
+  .floating-btns .btn-accent { padding: 1rem; border-radius: 50%; width: 55px; height: 55px; }
+  .pulse-ring, .pulse-ring-2, .gear-icon { animation: none; } /* Pause animations to save battery and stop lag */
+  #hero-canvas { display: none; } /* Remove heavy canvas rendering on mobile */
 }
 </style>
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- TOPBAR -->
 <div id="topbar">
   <div class="container topbar-inner">
     <span>ISO Certified · Premium Industrial Automation & Safety Provider</span>
@@ -231,24 +243,21 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </div>
 
-<!-- NAV -->
 <nav id="main-nav">
   <div class="container nav-inner">
-    <a href="#" class="logo-link">
-      <!-- Image with Smart Fallback built in -->
-      <img src="logo.png" alt="Veltonics Logo" class="brand-logo" onerror="this.onerror=null; this.outerHTML='<div class=\'css-logo\'>VELTONICS<span>.</span></div>';">
+    <a href="#" class="logo">
+      <img src="ChatGPT Image May 23, 2026 at 03_15_49 PM.png" alt="Veltonics Logo" class="brand-logo">
     </a>
     <ul class="nav-links">
       <li><a href="#about">About Us</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#projects">Turnkey Projects</a></li>
       <li><a href="#offers">AMC & Offers</a></li>
-      <li><a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1.2rem; color: #fff;">Get Quote</a></li>
+      <li><a href="#quote" class="btn btn-primary" style="padding: 0.5rem 1.2rem; color: #fff;">Get Quote</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="container hero-grid">
@@ -257,8 +266,8 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       <h1 class="title">Next-Gen Industrial<br><span class="text-primary">Automation & Safety</span></h1>
       <p class="subtitle">Elevating Indian manufacturing with ultra-premium sensors, vision systems, safety controllers, and end-to-end turnkey integration. Exact specs, uncompromising precision.</p>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="#products" class="btn btn-primary">View Catalogue</a>
-        <a href="#projects" class="btn btn-outline">Explore Projects</a>
+        <a href="#quote" class="btn btn-primary">Request Free Quote</a>
+        <a href="#products" class="btn btn-outline">View Catalogue</a>
       </div>
       <div class="hero-stats">
         <div class="stat-box"><div class="num">25+</div><div class="lbl">Turnkey Projects</div></div>
@@ -266,7 +275,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
         <div class="stat-box"><div class="num">100%</div><div class="lbl">Compliance</div></div>
       </div>
     </div>
-    <!-- NEW AUTOMATION VISUAL -->
     <div class="hero-visual reveal">
       <div class="pulse-ring"></div>
       <div class="pulse-ring-2"></div>
@@ -284,7 +292,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- VISION, MISSION & PROFILE -->
 <section id="about" class="section-pad bg-alt">
   <div class="container">
     <div class="tag reveal">Company Profile</div>
@@ -309,7 +316,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- PRODUCTS CATALOGUE -->
 <section id="products" class="section-pad">
   <div class="container">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 2rem;">
@@ -319,7 +325,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       </div>
     </div>
     
-    <!-- TABS -->
     <div class="product-tabs reveal">
       <button class="tab-btn active" onclick="switchTab('sensors')">Industrial Sensors</button>
       <button class="tab-btn" onclick="switchTab('vision')">Vision Systems</button>
@@ -328,7 +333,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       <button class="tab-btn" onclick="switchTab('plant')">Plant & PPE</button>
     </div>
 
-    <!-- SENSORS TAB -->
     <div id="tab-sensors" class="tab-content active">
       <div class="prod-card" onclick="openModal('Photoelectric Sensor', 'High-speed object detection for packaging and conveyor lines. Reliable sensing regardless of target color or material.', 'IP67', 'NPN/PNP Configurable', 'Up to 20m', '1ms Response')">
         <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
@@ -352,7 +356,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <!-- VISION TAB -->
     <div id="tab-vision" class="tab-content">
       <div class="prod-card" onclick="openModal('Vision Inspection System', 'Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading.', 'IP67 Camera', 'GigE Vision', 'Up to 21 Megapixels', 'AI Deep Learning')">
         <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg></div>
@@ -376,7 +379,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <!-- SAFETY TAB -->
     <div id="tab-safety" class="tab-content">
       <div class="prod-card" onclick="openModal('Safety Light Curtain', 'Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 compliance.', 'Type 4, PLe, SIL3', '14mm/30mm Res.', 'Up to 20m Range', 'Aluminum Extrusion')">
         <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="21" y1="3" x2="21" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
@@ -400,7 +402,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <!-- CONTROLLERS TAB -->
     <div id="tab-plc" class="tab-content">
       <div class="prod-card" onclick="openModal('Programmable Logic Controller (PLC)', 'Modular and compact PLCs for high-speed industrial process control and machine automation.', 'Standard IP20', 'Ladder, ST, FBD', 'Expandable I/O', 'Modbus, EtherCAT')">
         <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg></div>
@@ -424,7 +425,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <!-- PLANT & PPE TAB -->
     <div id="tab-plant" class="tab-content">
       <div class="prod-card" onclick="openModal('Industrial Safety Helmet', 'High-impact ABS construction helmets for floor operators. Features adjustable ratchet suspension and chin strap.', 'IS 2925 Certified', 'High Impact ABS', '4-Point Suspension', 'Multiple Colors')">
         <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12h20c0-5.52-4.48-10-10-10z"/></svg></div>
@@ -450,7 +450,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- PRODUCT MODAL -->
 <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
   <div class="modal-box" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
@@ -466,20 +465,18 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
     </div>
 
     <div class="modal-actions">
-      <!-- Fixed Download button calling dynamic JS generation -->
-      <button onclick="downloadGeneratedCatalogue()" class="btn btn-outline" style="flex:1; justify-content:center" id="m-pdf">
+      <button onclick="downloadGeneratedCatalogue()" class="btn btn-outline" style="flex:1;" id="m-pdf">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download Catalogue (PDF)
+        Download PDF
       </button>
-      <a href="#" target="_blank" class="btn btn-accent" style="flex:1; justify-content:center; background:#25D366" id="m-wa">
+      <a href="#" target="_blank" class="btn btn-accent" style="flex:1; background:#25D366" id="m-wa">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Inquire on WhatsApp
+        Inquire via WhatsApp
       </a>
     </div>
   </div>
 </div>
 
-<!-- PROJECTS & INTEGRATION -->
 <section id="projects" class="section-pad bg-alt">
   <div class="container">
     <div class="tag reveal">Our Expertise</div>
@@ -499,7 +496,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- OFFERS & AMC -->
 <section id="offers" class="section-pad">
   <div class="container">
     <div class="offers-wrapper reveal">
@@ -523,7 +519,6 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- INDUSTRIES -->
 <section id="industries" class="section-pad bg-alt">
   <div class="container">
     <div class="tag reveal">Cross-Domain Expertise</div>
@@ -549,13 +544,57 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- CONTACT & FOOTER -->
+<section id="quote" class="section-pad" style="background: linear-gradient(to bottom, var(--bg-alt), #e2e8f0);">
+  <div class="container">
+    <div class="inquiry-wrapper reveal">
+      <div style="text-align: center;">
+        <div class="tag">Instant Quote</div>
+        <h2 class="title" style="font-size: 2.2rem;">Ready to upgrade your plant?</h2>
+        <p>Fill out the details below to directly message our sales engineers via WhatsApp for pricing, catalogues, or custom project queries.</p>
+      </div>
+      
+      <div class="form-grid">
+        <div class="form-group">
+          <label style="font-size: 0.85rem; font-weight: 600;">Full Name *</label>
+          <input type="text" id="lead-name" class="form-control" placeholder="E.g., Rahul Desai" required>
+        </div>
+        <div class="form-group">
+          <label style="font-size: 0.85rem; font-weight: 600;">Company Name *</label>
+          <input type="text" id="lead-company" class="form-control" placeholder="E.g., Tata Motors" required>
+        </div>
+        <div class="form-group">
+          <label style="font-size: 0.85rem; font-weight: 600;">City / Location *</label>
+          <input type="text" id="lead-city" class="form-control" placeholder="E.g., Ahmedabad" required>
+        </div>
+        <div class="form-group">
+          <label style="font-size: 0.85rem; font-weight: 600;">Product of Interest *</label>
+          <select id="lead-product" class="form-control" required>
+            <option value="" disabled selected>-- Select an Option --</option>
+            <option value="Industrial Sensors">Industrial Sensors</option>
+            <option value="Vision & Cameras">Vision Systems & Cameras</option>
+            <option value="Machine Safety">Machine Safety & Light Curtains</option>
+            <option value="PLC & Controllers">PLC, Drives & HMI</option>
+            <option value="Plant PPE">Plant Consumables & PPE</option>
+            <option value="Turnkey Integration">Turnkey Automation Project</option>
+            <option value="AMC / Bulk Query">AMC Contract / Bulk Query</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <button onclick="submitWhatsAppLead()" class="wa-submit-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send Inquiry via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" style="background:var(--text-dark); padding: 4rem 0 0;">
   <div class="container footer-grid">
     <div>
-      <a href="#" class="logo-link">
-        <!-- Footer image with CSS fallback -->
-        <img src="logo.png" alt="Veltonics Logo" class="brand-logo" onerror="this.onerror=null; this.outerHTML='<div class=\'css-logo footer-css-logo\'>VELTONICS<span>.</span></div>';">
+      <a href="#" class="logo">
+        <img src="ChatGPT Image May 23, 2026 at 03_15_49 PM.png" alt="Veltonics Logo" class="brand-logo" style="filter: brightness(0) invert(1);">
       </a>
       <p style="color:#94a3b8; font-size:0.9rem; line-height:1.7; margin: 1.5rem 0; max-width:280px">Your single-source partner for premium industrial sensors, vision integration, and uncompromising safety.</p>
     </div>
@@ -591,22 +630,19 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
   </div>
 </section>
 
-<!-- FLOATING BOT AND WHATSAPP -->
 <div class="floating-btns">
   <a href="https://wa.me/919724648038?text=Hello%20Veltonics,%20I%20have%20an%20inquiry%20regarding%20automation/safety%20products." target="_blank" class="btn btn-accent" style="background:#25D366; border-radius:50px; padding: 0.8rem 1.5rem; box-shadow:0 4px 15px rgba(37,211,102,0.3)">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Chat with Sales
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Chat with Sales</span>
   </a>
   <button class="chat-toggle" onclick="toggleChat()" aria-label="Open AI Chat">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   </button>
 </div>
 
-<!-- AI CHATBOT INTERFACE -->
 <div id="chatbot" class="hidden">
   <div class="chat-header">
-    <!-- Chatbot image with CSS fallback -->
-    <img src="logo.png" alt="Veltonics Logo" style="height:20px" onerror="this.onerror=null; this.outerHTML='<div class=\'css-logo chat-css-logo\'>V<span>.</span></div>';">
+    <img src="ChatGPT Image May 23, 2026 at 03_15_49 PM.png" alt="Veltonics Logo">
     <div class="chat-head-info">
       <div class="chat-name">Veltonics AI</div>
       <div class="chat-status"><span class="chat-status-dot"></span>Online</div>
@@ -623,19 +659,21 @@ footer { background: var(--text-dark); padding: 5rem 0 2rem; border-top: 1px sol
 </div>
 
 <script>
-// CUSTOM CURSOR
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-  ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, .prod-card, .ind-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'var(--accent)'; cursor.style.background = 'var(--accent)'; });
-  el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'var(--primary)'; cursor.style.background = 'var(--primary)';});
-});
+// PERFORMANCE FIX: Only enable custom cursor if it's a non-touch device (Desktop)
+if (window.matchMedia("(pointer: fine)").matches) {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .prod-card, .ind-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'var(--accent)'; cursor.style.background = 'var(--accent)'; });
+      el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'var(--primary)'; cursor.style.background = 'var(--primary)';});
+    });
+}
 
-// SCROLL ANIMATIONS
+// SCROLL ANIMATIONS (Reveal & Nav)
 window.addEventListener('scroll', () => {
   document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
 });
@@ -665,6 +703,7 @@ function openModal(title, desc, spec1, spec2, spec3, spec4) {
   
   const waLink = `https://wa.me/919724648038?text=Hello Veltonics! I am interested in knowing more about the ${encodeURIComponent(title)}. Please share pricing and catalogue.`;
   document.getElementById('m-wa').href = waLink;
+
   document.getElementById('productModal').classList.add('active');
 }
 function closeModal(e) {
@@ -684,9 +723,8 @@ function downloadGeneratedCatalogue() {
         <title>Veltonics Catalogue - ${currentProductName}</title>
         <style>
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #333; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-            .header { border-bottom: 2px solid #0a1945; padding-bottom: 20px; margin-bottom: 30px; display: flex; align-items: baseline;}
-            h1 { color: #0a1945; margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; font-weight: 800;}
-            h1 span { color: #f97316; font-size: 3rem; line-height: 0; margin-left: 2px;}
+            .header { border-bottom: 2px solid #0a1945; padding-bottom: 20px; margin-bottom: 30px; }
+            h1 { color: #0a1945; margin: 0; }
             h2 { color: #f97316; margin-top: 30px; }
             .contact-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 40px; }
             .footer { margin-top: 50px; font-size: 0.85em; color: #64748b; text-align: center; }
@@ -694,15 +732,11 @@ function downloadGeneratedCatalogue() {
     </head>
     <body>
         <div class="header">
-            <div>
-              <h1>VELTONICS<span>.</span></h1>
-              <p style="margin: 5px 0 0 0; color: #64748b; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Premium Industrial Automation</p>
-            </div>
+            <h1>VELTONICS INDIA</h1>
+            <p>Premium Industrial Automation & Safety Solutions</p>
         </div>
-        
         <h2>Product Specification Data Sheet: ${currentProductName}</h2>
         <p>This is the official dynamically generated catalogue for the <strong>${currentProductName}</strong>. It confirms the product meets stringent industrial standards and integration requirements.</p>
-        
         <h3>Key Benefits & Features</h3>
         <ul>
             <li>High-end industrial grade durability and compliance.</li>
@@ -710,7 +744,6 @@ function downloadGeneratedCatalogue() {
             <li>Backed by extensive Veltonics Warranty and AMC availability.</li>
             <li>Immediate deployment support available.</li>
         </ul>
-        
         <div class="contact-box">
             <h3 style="margin-top: 0;">Need immediate engineering assistance?</h3>
             <p>Our experts are ready to assist you with dimensional drawings, CAD files, and bulk pricing:</p>
@@ -718,10 +751,7 @@ function downloadGeneratedCatalogue() {
             <strong>Email:</strong> info@veltonics.com<br>
             <strong>Website:</strong> www.veltonics.com</p>
         </div>
-        
-        <div class="footer">
-            &copy; 2026 Veltonics India Pvt. Ltd. | Confidential & Proprietary
-        </div>
+        <div class="footer">&copy; 2026 Veltonics India Pvt. Ltd. | Confidential & Proprietary</div>
     </body>
     </html>`;
 
@@ -736,7 +766,7 @@ function downloadGeneratedCatalogue() {
     URL.revokeObjectURL(url);
 }
 
-// HERO BACKGROUND PARTICLES
+// HERO BACKGROUND PARTICLES (Performance Optimized)
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [];
@@ -746,6 +776,10 @@ for (let i = 0; i < 60; i++) {
   particles.push({ x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5, r: Math.random()*2+1 });
 }
 function draw() {
+  requestAnimationFrame(draw);
+  // PERFORMANCE FIX: Skip canvas painting entirely on small screens to save heavy lag
+  if (window.innerWidth < 768) return; 
+
   ctx.clearRect(0,0,W,H);
   particles.forEach((p,i) => {
     p.x += p.vx; p.y += p.vy;
@@ -762,7 +796,6 @@ function draw() {
       }
     });
   });
-  requestAnimationFrame(draw);
 }
 draw();
 
@@ -777,9 +810,7 @@ function sendChat() {
   const msg = input.value.trim();
   if(!msg) return;
   input.value = '';
-  
   addMsg(msg, 'user');
-
   setTimeout(() => {
     let reply = "";
     if (chatStep === 0) {
@@ -802,6 +833,26 @@ function addMsg(text, type) {
   el.textContent = text;
   msgs.appendChild(el);
   msgs.scrollTop = msgs.scrollHeight;
+}
+
+// AD-OPTIMIZED WHATSAPP LEAD SUBMISSION SCRIPT
+function submitWhatsAppLead() {
+  const name = document.getElementById('lead-name').value.trim();
+  const company = document.getElementById('lead-company').value.trim();
+  const city = document.getElementById('lead-city').value.trim();
+  const product = document.getElementById('lead-product').value;
+
+  if (!name || !company || !city || !product) {
+      alert("Please fill in all the details so we can assist you better.");
+      return;
+  }
+
+  // Format the message for WhatsApp
+  const message = `Hello Veltonics!\n\nI am reaching out regarding a new requirement. Please find my details below:\n\n*Name:* ${name}\n*Company:* ${company}\n*City:* ${city}\n*Interested In:* ${product}\n\nKindly share the pricing and catalogue details for the same.`;
+  
+  // Encode and Redirect
+  const whatsappUrl = `https://wa.me/919724648038?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
 }
 </script>
 </body>
