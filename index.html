@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
- 
+
 <style>
 /* ============================================
    VELTONICS ULTRA-PREMIUM CSS
@@ -41,7 +40,7 @@
   --ease-out:  cubic-bezier(0.22,1,0.36,1);
   --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
 }
- 
+
 /* ---- RESET ---- */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -57,7 +56,7 @@ body {
 img, svg { display: block; max-width: 100%; }
 a { text-decoration: none; }
 button { font-family: inherit; }
- 
+
 /* ---- CUSTOM CURSOR (desktop only) ---- */
 @media (pointer: fine) {
   body { cursor: none; }
@@ -65,23 +64,23 @@ button { font-family: inherit; }
   #csr-r { position:fixed; width:36px; height:36px; border:1.5px solid var(--navy); border-radius:50%; pointer-events:none; z-index:9998; top:0; left:0; will-change:transform; transition:width .25s var(--ease-out), height .25s var(--ease-out), border-color .25s; }
   body.cursor-hover #csr-r { width:56px; height:56px; border-color:var(--fire); }
 }
- 
+
 /* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:var(--fog); }
 ::-webkit-scrollbar-thumb { background:var(--navy); border-radius:10px; }
- 
+
 /* ---- TYPOGRAPHY ---- */
 h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); letter-spacing:0.02em; line-height:1; }
 .mono { font-family:'DM Mono',monospace; }
- 
+
 /* ---- UTILITIES ---- */
 .container { max-width:1320px; margin:0 auto; padding:0 2rem; position:relative; z-index:2; }
 .section-pad { padding:7rem 0; }
 .bg-fog { background:var(--fog); }
 .text-fire { color:var(--fire); }
 .text-navy { color:var(--navy); }
- 
+
 /* ---- TAG / LABEL ---- */
 .tag {
   display:inline-flex; align-items:center; gap:.5rem;
@@ -90,11 +89,11 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   background:var(--fire-10); padding:.35rem 1rem; border-radius:50px;
   margin-bottom:1.2rem;
 }
- 
+
 /* ---- SECTION TITLES ---- */
 .stitle { font-size:clamp(3rem,6vw,6rem); line-height:1; margin-bottom:1.5rem; }
 .sdesc { font-size:1.05rem; line-height:1.75; color:var(--steel); max-width:560px; }
- 
+
 /* ============================================
    TOPBAR
    ============================================ */
@@ -121,7 +120,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(249,115,22,.5); }
   50% { opacity:.7; box-shadow:0 0 0 5px rgba(249,115,22,0); }
 }
- 
+
 /* ============================================
    NAV
    ============================================ */
@@ -138,28 +137,30 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   display:flex; justify-content:space-between; align-items:center;
   padding:1rem 0; gap:2rem;
 }
- 
-/* LOGO — fixed to one step (no extra space) */
+
+/* LOGO — dot sits at baseline (bottom) of last letter */
 .brand-logo-wrap {
-  display:flex; align-items:center; gap:0; flex-shrink:0;
+  display:inline-flex; align-items:flex-end; gap:0; flex-shrink:0;
+  line-height:1; text-decoration:none;
 }
 .brand-logo-text {
   font-family:'Bebas Neue',sans-serif; font-size:2.2rem;
   letter-spacing:.04em; color:var(--navy); line-height:1;
-  user-select:none;
+  user-select:none; display:block;
 }
 .brand-logo-dot {
-  width:12px; height:12px;
+  width:11px; height:11px;
   background:var(--fire); border-radius:50%;
-  margin-left:2px; flex-shrink:0;
-  margin-bottom:2px; /* optical alignment with text baseline */
+  margin-left:3px; flex-shrink:0;
+  /* Sit at the baseline — nudge up just 2px for optical perfection */
+  margin-bottom:3px;
   animation:dotPop 3s ease-in-out infinite;
 }
 @keyframes dotPop {
   0%,100% { transform:scale(1); }
-  50% { transform:scale(1.25); }
+  50% { transform:scale(1.3); box-shadow:0 0 8px var(--fire-80); }
 }
- 
+
 .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
 .nav-links a {
   color:var(--ink); font-size:.9rem; font-weight:500;
@@ -172,7 +173,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .nav-links a:hover { color:var(--fire); }
 .nav-links a:hover::after { width:100%; }
- 
+
 .nav-cta {
   background:var(--navy); color:#fff!important; border-radius:var(--radius-sm);
   padding:.55rem 1.3rem!important; font-weight:600!important;
@@ -180,14 +181,14 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .nav-cta::after { display:none!important; }
 .nav-cta:hover { background:var(--fire)!important; color:#fff!important; transform:translateY(-1px); }
- 
+
 /* hamburger */
 .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
 .hamburger span { display:block; width:24px; height:2px; background:var(--ink); border-radius:2px; transition:.3s; }
 .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
 .hamburger.open span:nth-child(2) { opacity:0; }
 .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
- 
+
 /* mobile drawer */
 .mobile-menu {
   position:fixed; top:0; left:0; width:100%; height:100vh;
@@ -201,7 +202,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   border-bottom:1px solid var(--mist); padding-bottom:1rem; line-height:1;
 }
 .mobile-menu a:hover { color:var(--fire); }
- 
+
 /* ============================================
    HERO
    ============================================ */
@@ -211,7 +212,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   overflow:hidden;
   padding:5rem 0 3rem;
 }
- 
+
 /* animated gradient mesh background */
 #hero::before {
   content:'';
@@ -221,7 +222,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
     radial-gradient(ellipse 50% 40% at 20% 80%, rgba(249,115,22,.06) 0%, transparent 60%);
   z-index:1;
 }
- 
+
 /* fine grid lines */
 #hero::after {
   content:'';
@@ -233,15 +234,15 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   z-index:1;
   mask-image:linear-gradient(180deg, transparent, rgba(0,0,0,.5) 30%, rgba(0,0,0,.5) 70%, transparent);
 }
- 
+
 #hero-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; }
- 
+
 .hero-grid {
   display:grid; grid-template-columns:1.1fr 1fr;
   gap:4rem; align-items:center;
   position:relative; z-index:5;
 }
- 
+
 /* eyebrow line */
 .hero-eyebrow {
   display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
@@ -252,25 +253,25 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   font-family:'DM Mono',monospace; font-size:.72rem;
   letter-spacing:.15em; text-transform:uppercase; color:var(--fire);
 }
- 
+
 .hero-title {
   font-size:clamp(3.8rem,7vw,8rem); line-height:.95;
   margin-bottom:2rem;
   opacity:0; animation:fadeUp .9s var(--ease-out) .2s forwards;
 }
 .hero-title em { font-style:normal; color:var(--fire); }
- 
+
 .hero-desc {
   font-size:1.05rem; line-height:1.75; color:var(--steel);
   max-width:480px; margin-bottom:2.5rem;
   opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
 }
- 
+
 .hero-btns {
   display:flex; gap:1rem; flex-wrap:wrap;
   opacity:0; animation:fadeUp .9s var(--ease-out) .4s forwards;
 }
- 
+
 /* STATS BAR */
 .hero-stats {
   display:flex; gap:3rem; margin-top:3.5rem;
@@ -287,14 +288,14 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   letter-spacing:.12em; text-transform:uppercase;
   color:var(--slate); margin-top:.4rem;
 }
- 
+
 /* ---- HERO VISUAL (right side) ---- */
 .hero-visual {
   position:relative; height:520px;
   display:flex; align-items:center; justify-content:center;
   opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
 }
- 
+
 /* central orb */
 .orb-center {
   position:relative; z-index:10;
@@ -311,7 +312,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .orb-label { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.12em; color:rgba(255,255,255,.6); text-transform:uppercase; }
 .orb-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:.05em; }
- 
+
 /* orbital rings */
 .ring {
   position:absolute; border-radius:50%; border:1px solid;
@@ -321,12 +322,12 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .ring-1 { width:300px; height:300px; border-color:rgba(10,25,69,.12); animation:ringRotate 20s linear infinite; }
 .ring-2 { width:380px; height:380px; border-color:rgba(249,115,22,.1); border-style:dashed; animation:ringRotate 30s linear infinite reverse; }
 .ring-3 { width:460px; height:460px; border-color:rgba(10,25,69,.06); animation:ringRotate 45s linear infinite; }
- 
+
 @keyframes ringRotate {
   0% { transform:translate(-50%,-50%) rotate(0deg); }
   100% { transform:translate(-50%,-50%) rotate(360deg); }
 }
- 
+
 /* orbital nodes */
 .orbit-node {
   position:absolute; width:44px; height:44px;
@@ -343,7 +344,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .orbit-node.n3 { bottom:15%; left:55%; animation-delay:-2.5s; }
 .orbit-node.n4 { bottom:30%; left:8%; animation-delay:-3.5s; }
 .orbit-node.n5 { top:20%; left:12%; animation-delay:-4.5s; }
- 
+
 /* floating tags */
 .float-badge {
   position:absolute; background:var(--snow); border:1px solid var(--mist);
@@ -354,14 +355,14 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .fb1 { top:5%; left:5%; animation-delay:-1s; }
 .fb2 { bottom:5%; right:5%; animation-delay:-3s; }
- 
+
 /* data lines connecting nodes to center */
 .connector-line {
   position:absolute; top:50%; left:50%;
   width:0; height:1px; background:linear-gradient(90deg, transparent, rgba(249,115,22,.3));
   transform-origin:0 0; pointer-events:none; z-index:5;
 }
- 
+
 /* ============================================
    BUTTONS
    ============================================ */
@@ -377,23 +378,23 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   transition:transform .3s var(--ease-out);
 }
 .btn:hover::before { transform:translateY(0); }
- 
+
 .btn-primary { background:var(--navy); color:#fff; box-shadow:0 4px 20px var(--navy-20); }
 .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--navy-20); background:var(--navy); color:#fff; }
- 
+
 .btn-fire { background:var(--fire); color:#fff; box-shadow:0 4px 20px var(--fire-20); }
 .btn-fire:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--fire-20); }
- 
+
 .btn-outline {
   background:transparent; color:var(--ink);
   border:1.5px solid var(--mist); box-shadow:none;
 }
 .btn-outline:hover { border-color:var(--navy); color:var(--navy); background:var(--navy-20); transform:translateY(-2px); }
 .btn-outline::before { display:none; }
- 
+
 .btn-wa { background:var(--green-wa); color:#fff; box-shadow:0 4px 20px rgba(37,211,102,.2); }
 .btn-wa:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,.3); }
- 
+
 /* ============================================
    MARQUEE / TICKER
    ============================================ */
@@ -410,7 +411,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .marquee-item .sep { color:var(--fire); }
 @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
- 
+
 /* ============================================
    ABOUT / PROFILE SECTION
    ============================================ */
@@ -442,7 +443,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .ab2 { top:-20px; right:-20px; }
 .ab-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--fire); }
 .ab-txt { font-size:.75rem; color:var(--slate); font-family:'DM Mono',monospace; letter-spacing:.06em; }
- 
+
 .profile-cards { display:flex; flex-direction:column; gap:1.5rem; }
 .p-card {
   background:var(--snow); border:1px solid var(--mist); border-radius:var(--radius-md);
@@ -465,7 +466,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .p-card h3 { font-size:1.8rem; margin-bottom:.6rem; }
 .p-card p { font-size:.9rem; line-height:1.7; }
- 
+
 /* ============================================
    PRODUCTS SECTION
    ============================================ */
@@ -475,7 +476,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   -webkit-overflow-scrolling:touch; position:relative; z-index:5;
 }
 .product-tabs::-webkit-scrollbar { display:none; }
- 
+
 .tab-btn {
   background:var(--snow); border:1px solid var(--mist);
   padding:.7rem 1.5rem; border-radius:50px;
@@ -493,11 +494,11 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .tab-btn.active { color:#fff; border-color:var(--navy); }
 .tab-btn.active::before { transform:translateY(0); }
 .tab-btn:not(.active):hover { border-color:var(--navy-20); color:var(--navy); }
- 
+
 .tab-content { display:none; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.5rem; }
 .tab-content.active { display:grid; animation:tabFadeIn .5s var(--ease-out) forwards; }
 @keyframes tabFadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
- 
+
 .prod-card {
   background:var(--snow); border:1px solid var(--mist);
   border-radius:var(--radius-md); padding:2rem; cursor:pointer;
@@ -513,7 +514,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .prod-card:hover::before { left:200%; }
 .prod-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(249,115,22,.2); }
- 
+
 /* corner accent */
 .prod-card::after {
   content:'→'; position:absolute; bottom:1.5rem; right:1.5rem;
@@ -521,7 +522,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   transform:translate(-8px, 8px); transition:all .35s var(--ease-out);
 }
 .prod-card:hover::after { opacity:1; transform:translate(0,0); }
- 
+
 .prod-icon {
   width:48px; height:48px; background:var(--fog);
   border-radius:10px; display:flex; align-items:center; justify-content:center;
@@ -531,7 +532,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .prod-card:hover .prod-icon { background:var(--fire-10); color:var(--fire); }
 .prod-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--ink); margin-bottom:.5rem; }
 .prod-desc { font-size:.85rem; line-height:1.65; }
- 
+
 /* ============================================
    PROJECTS
    ============================================ */
@@ -543,7 +544,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
   display:block;
 }
 .proj-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-xl); }
- 
+
 /* animated gradient blob */
 .proj-card .blob {
   position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none;
@@ -553,7 +554,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .proj-card:hover .blob { transform:scale(1.4); opacity:.7; }
 .blob-orange { width:280px; height:280px; background:rgba(249,115,22,.25); top:-60px; right:-60px; }
 .blob-blue { width:260px; height:260px; background:rgba(10,25,69,.5); bottom:-80px; left:-80px; }
- 
+
 .proj-card .proj-tag {
   font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.12em;
   text-transform:uppercase; color:var(--fire); margin-bottom:1.5rem; display:block;
@@ -570,7 +571,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .proj-cta:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.4); color:#fff; }
 .proj-cta svg { transition:transform .3s; }
 .proj-cta:hover svg { transform:translateX(4px); }
- 
+
 /* ============================================
    OFFERS / AMC
    ============================================ */
@@ -605,7 +606,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .offer-icon { color:var(--fire); margin-bottom:1.5rem; }
 .offer-card h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#fff; margin-bottom:.8rem; }
 .offer-card p { font-size:.9rem; color:rgba(255,255,255,.65); line-height:1.7; }
- 
+
 /* ============================================
    INDUSTRIES
    ============================================ */
@@ -625,7 +626,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .ind-emoji { font-size:2rem; margin-bottom:1rem; }
 .ind-card h4 { font-size:1.4rem; margin-bottom:.5rem; }
 .ind-card p { font-size:.8rem; color:var(--slate); line-height:1.6; }
- 
+
 /* ============================================
    QUOTE FORM
    ============================================ */
@@ -674,7 +675,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 }
 .wa-btn:hover::before { opacity:1; }
 .wa-btn:hover { transform:translateY(-2px); box-shadow:0 16px 40px rgba(37,211,102,.35); }
- 
+
 /* ============================================
    MODAL
    ============================================ */
@@ -712,7 +713,7 @@ h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); le
 .spec-lbl { font-family:'DM Mono',monospace; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:var(--slate); }
 .spec-val { font-size:.9rem; font-weight:600; color:var(--ink); }
 .modal-actions { display:flex; gap:1rem; }
- 
+
 /* ============================================
    FOOTER
    ============================================ */
@@ -735,7 +736,7 @@ footer {
 .footer-bottom p { color:#334155; font-size:.8rem; }
 .footer-badge { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:.4rem 1rem; border-radius:50px; }
 .footer-badge span { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; color:#475569; text-transform:uppercase; }
- 
+
 /* ============================================
    FLOATING BUTTONS
    ============================================ */
@@ -760,7 +761,7 @@ footer {
   transition:all .3s var(--ease-out);
 }
 .chat-toggle-btn:hover { background:var(--fire); transform:scale(1.08) rotate(-10deg); }
- 
+
 /* ============================================
    CHATBOT
    ============================================ */
@@ -810,7 +811,7 @@ footer {
   font-weight:600; cursor:pointer; transition:background .2s, transform .15s;
 }
 #chat-send:hover { background:var(--fire); transform:scale(1.05); }
- 
+
 /* ============================================
    REVEAL ANIMATIONS
    ============================================ */
@@ -820,14 +821,14 @@ footer {
 .reveal-left.in { opacity:1; transform:translateX(0); }
 .reveal-right { opacity:0; transform:translateX(30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
 .reveal-right.in { opacity:1; transform:translateX(0); }
- 
+
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
- 
+
 /* ============================================
    COUNT-UP
    ============================================ */
 .count { display:inline; }
- 
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -837,7 +838,7 @@ footer {
   .about-visual { order:-1; max-width:420px; margin:0 auto; }
   .ind-grid { grid-template-columns:repeat(2,1fr); }
 }
- 
+
 @media(max-width:768px) {
   .nav-links { display:none; }
   .hamburger { display:flex; }
@@ -871,13 +872,13 @@ footer {
   .ring-1, .ring-2, .ring-3 { animation:none; }
   #hero-canvas { display:none; }
 }
- 
+
 @media(max-width:480px) {
   .ind-grid { grid-template-columns:1fr; }
   .hero-stats { gap:1.5rem; }
   .proj-card { padding:2rem; }
 }
- 
+
 /* ============================================
    PROGRESS BAR (page loading feel)
    ============================================ */
@@ -890,14 +891,14 @@ footer {
 </style>
 </head>
 <body>
- 
+
 <!-- CURSOR -->
 <div id="csr"></div>
 <div id="csr-r"></div>
- 
+
 <!-- PROGRESS BAR -->
 <div id="progress-bar"></div>
- 
+
 <!-- TOPBAR -->
 <div id="topbar">
   <div class="container topbar-inner">
@@ -917,14 +918,14 @@ footer {
     </div>
   </div>
 </div>
- 
+
 <!-- NAV -->
 <nav id="main-nav">
   <div class="container nav-inner">
     <a href="#" class="brand-logo-wrap" aria-label="Veltonics India">
       <span class="brand-logo-text">VELTONICS</span><span class="brand-logo-dot"></span>
     </a>
- 
+
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
@@ -932,13 +933,13 @@ footer {
       <li><a href="#offers">AMC & Offers</a></li>
       <li><a href="#quote" class="nav-cta">Get Quote</a></li>
     </ul>
- 
+
     <button class="hamburger" id="ham-btn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
- 
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#about" onclick="closeMobile()">About</a>
@@ -947,11 +948,11 @@ footer {
   <a href="#offers" onclick="closeMobile()">AMC & Offers</a>
   <a href="#quote" onclick="closeMobile()">Get Quote →</a>
 </div>
- 
+
 <!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
- 
+
   <div class="container hero-grid">
     <!-- LEFT CONTENT -->
     <div>
@@ -959,17 +960,17 @@ footer {
         <div class="eyebrow-line"></div>
         <span class="eyebrow-text">One-Stop Industrial Solution Provider</span>
       </div>
- 
+
       <h1 class="hero-title display">
         Next‑Gen<br>
         <em>Industrial</em><br>
         Automation
       </h1>
- 
+
       <p class="hero-desc">
         Elevating Indian manufacturing with ultra‑premium sensors, vision systems, safety controllers, and end‑to‑end turnkey integration. Exact specs, uncompromising precision.
       </p>
- 
+
       <div class="hero-btns">
         <a href="#quote" class="btn btn-primary">
           Request Free Quote
@@ -977,7 +978,7 @@ footer {
         </a>
         <a href="#products" class="btn btn-outline">View Catalogue</a>
       </div>
- 
+
       <div class="hero-stats">
         <div>
           <div class="stat-num"><span class="count" data-target="25">0</span>+</div>
@@ -993,20 +994,20 @@ footer {
         </div>
       </div>
     </div>
- 
+
     <!-- RIGHT VISUAL -->
     <div class="hero-visual">
       <div class="ring ring-1"></div>
       <div class="ring ring-2"></div>
       <div class="ring ring-3"></div>
- 
+
       <!-- Orbit nodes -->
       <div class="orbit-node n1">⚙️</div>
       <div class="orbit-node n2">🔬</div>
       <div class="orbit-node n3">🛡️</div>
       <div class="orbit-node n4">📡</div>
       <div class="orbit-node n5">🔧</div>
- 
+
       <!-- Central orb -->
       <div class="orb-center">
         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(249,115,22,.8)" stroke-width="1.5">
@@ -1016,14 +1017,14 @@ footer {
         <div class="orb-label">Automation</div>
         <div class="orb-title">ONE STEP</div>
       </div>
- 
+
       <!-- Float badges -->
       <div class="float-badge fb1">SIL3 · PLe · IP69K</div>
       <div class="float-badge fb2">ISO Certified · Ahmedabad</div>
     </div>
   </div>
 </section>
- 
+
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
@@ -1046,7 +1047,7 @@ footer {
     <div class="marquee-item">ISO Certified <span class="sep">✦</span></div>
   </div>
 </div>
- 
+
 <!-- ABOUT -->
 <section id="about" class="section-pad bg-fog">
   <div class="container">
@@ -1080,12 +1081,12 @@ footer {
           <div class="ab-txt">Products Catalogue</div>
         </div>
       </div>
- 
+
       <!-- Cards -->
       <div class="profile-cards">
         <div class="tag reveal">Company Profile</div>
         <h2 class="stitle reveal" style="font-size:3.5rem; margin-bottom:2rem;">Serving all<br>industrial needs.</h2>
- 
+
         <div class="p-card reveal">
           <div class="p-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
@@ -1093,7 +1094,7 @@ footer {
           <h3>Our Vision</h3>
           <p>India's most trusted single-source partner for intelligent automation and uncompromising safety—empowering factories to achieve zero-accident, high-efficiency operations.</p>
         </div>
- 
+
         <div class="p-card reveal" style="transition-delay:.12s">
           <div class="p-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1101,7 +1102,7 @@ footer {
           <h3>Our Mission</h3>
           <p>Delivering premium components—from simple photo sensors to complex vision integration—backed by expert consultation, immediate support, and comprehensive AMC services.</p>
         </div>
- 
+
         <div class="p-card reveal" style="transition-delay:.24s">
           <div class="p-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
@@ -1113,7 +1114,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- PRODUCTS -->
 <section id="products" class="section-pad">
   <div class="container">
@@ -1123,7 +1124,7 @@ footer {
         <h2 class="stitle reveal">Comprehensive<br>Industrial Range</h2>
       </div>
     </div>
- 
+
     <div class="product-tabs reveal">
       <button class="tab-btn active" onclick="switchTab('sensors',this)"><span>Industrial Sensors</span></button>
       <button class="tab-btn" onclick="switchTab('vision',this)"><span>Vision Systems</span></button>
@@ -1131,7 +1132,7 @@ footer {
       <button class="tab-btn" onclick="switchTab('plc',this)"><span>PLC & Controllers</span></button>
       <button class="tab-btn" onclick="switchTab('plant',this)"><span>Plant & PPE</span></button>
     </div>
- 
+
     <!-- SENSORS -->
     <div id="tab-sensors" class="tab-content active">
       <div class="prod-card" onclick="openModal('Photo Sensor','High-speed object detection for packaging and conveyor lines. Reliable sensing regardless of target color or material. Through-beam, retro-reflective, and diffuse models available.','IP67','NPN/PNP Configurable','Up to 20m','1ms Response')">
@@ -1155,7 +1156,7 @@ footer {
         <p class="prod-desc">Linear displacement and ultrasonic sensors for precise continuous tracking.</p>
       </div>
     </div>
- 
+
     <!-- VISION -->
     <div id="tab-vision" class="tab-content">
       <div class="prod-card" onclick="openModal('Vision Inspection System','Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading. AI deep learning included.','IP67 Camera','GigE Vision','Up to 21 Megapixels','AI Deep Learning')">
@@ -1179,7 +1180,7 @@ footer {
         <p class="prod-desc">Optimized illumination to guarantee zero false rejects in vision tasks.</p>
       </div>
     </div>
- 
+
     <!-- SAFETY -->
     <div id="tab-safety" class="tab-content">
       <div class="prod-card" onclick="openModal('Safety Light Curtain','Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 PLe SIL3 compliance with aluminum extrusion housing.','Type 4, PLe, SIL3','14mm / 30mm Resolution','Up to 20m Range','Aluminum Extrusion')">
@@ -1203,7 +1204,7 @@ footer {
         <p class="prod-desc">The brain of your safety circuit, ensuring fail-safe logic evaluation.</p>
       </div>
     </div>
- 
+
     <!-- PLC -->
     <div id="tab-plc" class="tab-content">
       <div class="prod-card" onclick="openModal('Industrial PLC','Modular and compact PLCs for high-speed industrial process control and machine automation. Supports Ladder, ST, and FBD programming with expandable I/O.','Standard IP20','Ladder / ST / FBD','Expandable I/O','Modbus / EtherCAT')">
@@ -1227,7 +1228,7 @@ footer {
         <p class="prod-desc">Intelligent motor control modules featuring built-in safety (STO) functionality.</p>
       </div>
     </div>
- 
+
     <!-- PLANT & PPE -->
     <div id="tab-plant" class="tab-content">
       <div class="prod-card" onclick="openModal('Safety Helmet','High-impact ABS construction helmets for floor operators. Features adjustable ratchet suspension and chin strap. IS 2925 Certified.','IS 2925 Certified','High Impact ABS','4-Point Suspension','Multiple Colors')">
@@ -1253,7 +1254,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- PROJECTS -->
 <section id="projects" class="section-pad bg-fog">
   <div class="container">
@@ -1284,7 +1285,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- OFFERS / AMC -->
 <section id="offers" class="section-pad">
   <div class="container">
@@ -1296,7 +1297,7 @@ footer {
         </div>
         <p class="sdesc" style="color:rgba(255,255,255,.6); margin-bottom:0; max-width:380px; text-align:right;">Beyond products, we offer long-term peace of mind through structured contracts and scalable pricing.</p>
       </div>
- 
+
       <div class="offers-grid">
         <div class="offer-card">
           <div class="offer-icon">
@@ -1316,7 +1317,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- INDUSTRIES -->
 <section id="industries" class="section-pad bg-fog">
   <div class="container">
@@ -1346,7 +1347,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- QUOTE FORM -->
 <section id="quote" class="section-pad quote-section">
   <div class="container">
@@ -1356,7 +1357,7 @@ footer {
         <h2 class="stitle" style="font-size:3rem;">Ready to upgrade<br>your plant?</h2>
         <p style="color:var(--steel); line-height:1.7; max-width:500px; margin:0 auto;">Fill out the details below to directly message our sales engineers via WhatsApp for pricing, catalogues, or custom project queries.</p>
       </div>
- 
+
       <div class="form-grid">
         <div class="form-group">
           <label class="form-label">Full Name *</label>
@@ -1393,7 +1394,7 @@ footer {
     </div>
   </div>
 </section>
- 
+
 <!-- PRODUCT MODAL -->
 <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
   <div class="modal-box" onclick="event.stopPropagation()">
@@ -1421,7 +1422,7 @@ footer {
     </div>
   </div>
 </div>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1469,7 +1470,7 @@ footer {
         </ul>
       </div>
     </div>
- 
+
     <hr class="footer-divider">
     <div class="footer-bottom">
       <p>© 2026 Veltonics India Pvt. Ltd. · All rights reserved.</p>
@@ -1480,7 +1481,7 @@ footer {
     </div>
   </div>
 </footer>
- 
+
 <!-- FLOATING BUTTONS -->
 <div class="floating-btns">
   <a href="https://wa.me/919724648038?text=Hello%20Veltonics,%20I%20have%20an%20inquiry%20regarding%20automation/safety%20products." target="_blank" class="float-wa">
@@ -1491,7 +1492,7 @@ footer {
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   </button>
 </div>
- 
+
 <!-- CHATBOT -->
 <div id="chatbot" class="hidden">
   <div class="chat-header">
@@ -1510,7 +1511,7 @@ footer {
     <button id="chat-send" onclick="sendChat()">Send</button>
   </div>
 </div>
- 
+
 <!-- ============================================================
      JAVASCRIPT
      ============================================================ -->
@@ -1520,12 +1521,12 @@ if (window.matchMedia('(pointer: fine)').matches) {
   const csr = document.getElementById('csr');
   const csrR = document.getElementById('csr-r');
   let mx = 0, my = 0, rx = 0, ry = 0;
- 
+
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     csr.style.transform = `translate(${mx-4}px, ${my-4}px)`;
   }, {passive:true});
- 
+
   // Smooth ring follow
   function animateRing() {
     rx += (mx - rx) * 0.12;
@@ -1534,7 +1535,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     requestAnimationFrame(animateRing);
   }
   animateRing();
- 
+
   document.addEventListener('mouseover', e => {
     if (e.target.closest('a, button, .prod-card, .ind-card, .p-card, .offer-card')) {
       document.body.classList.add('cursor-hover');
@@ -1543,7 +1544,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     }
   }, {passive:true});
 }
- 
+
 /* ---- SCROLL PROGRESS BAR ---- */
 window.addEventListener('scroll', () => {
   const el = document.documentElement;
@@ -1551,7 +1552,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress-bar').style.width = pct + '%';
   document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
 }, {passive:true});
- 
+
 /* ---- MOBILE MENU ---- */
 function closeMobile() {
   document.getElementById('mobile-menu').classList.remove('open');
@@ -1561,7 +1562,7 @@ document.getElementById('ham-btn').addEventListener('click', () => {
   document.getElementById('ham-btn').classList.toggle('open');
   document.getElementById('mobile-menu').classList.toggle('open');
 });
- 
+
 /* ---- INTERSECTION OBSERVER (reveal) ---- */
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -1572,7 +1573,7 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
- 
+
 /* ---- COUNT-UP ANIMATION ---- */
 function countUp(el) {
   const target = +el.getAttribute('data-target');
@@ -1594,7 +1595,7 @@ const countObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
- 
+
 /* ---- HERO CANVAS (particle mesh) ---- */
 (function(){
   const canvas = document.getElementById('hero-canvas');
@@ -1602,14 +1603,14 @@ document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
   const N = 55;
- 
+
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
   window.addEventListener('resize', resize, {passive:true});
   resize();
- 
+
   for (let i = 0; i < N; i++) {
     pts.push({
       x: Math.random() * W, y: Math.random() * H,
@@ -1617,7 +1618,7 @@ document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
       r: Math.random() * 1.8 + .8
     });
   }
- 
+
   function draw() {
     requestAnimationFrame(draw);
     ctx.clearRect(0, 0, W, H);
@@ -1641,7 +1642,7 @@ document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
   }
   draw();
 })();
- 
+
 /* ---- TAB SWITCHING ---- */
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1656,7 +1657,7 @@ function switchTab(id, btn) {
   const tab = document.getElementById('tab-' + id);
   if (tab) tab.classList.add('active');
 }
- 
+
 /* ---- MODAL ---- */
 let currentProduct = '';
 function openModal(title, desc, s1, s2, s3, s4) {
@@ -1678,7 +1679,7 @@ function closeModal(e) {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
- 
+
 /* ---- DOWNLOAD CATALOGUE ---- */
 function downloadCatalogue() {
   const name = currentProduct.replace(/\s+/g, '_');
@@ -1719,7 +1720,7 @@ function downloadCatalogue() {
   document.body.appendChild(a); a.click();
   document.body.removeChild(a); URL.revokeObjectURL(url);
 }
- 
+
 /* ---- WHATSAPP LEAD ---- */
 function submitLead() {
   const name = document.getElementById('lead-name').value.trim();
@@ -1733,7 +1734,7 @@ function submitLead() {
   const msg = `Hello Veltonics!\n\nNew inquiry from website:\n\n*Name:* ${name}\n*Company:* ${co}\n*City:* ${city}\n*Interested In:* ${prod}\n\nKindly share pricing and catalogue details.`;
   window.open(`https://wa.me/919724648038?text=${encodeURIComponent(msg)}`, '_blank');
 }
- 
+
 /* ---- CHATBOT ---- */
 let chatStep = 0;
 function toggleChat() {
@@ -1773,4 +1774,3 @@ function addMsg(text, cls) {
 </script>
 </body>
 </html>
- 
