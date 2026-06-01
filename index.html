@@ -75,23 +75,28 @@ h1, h2, h3, h4 { font-family:'Syne', sans-serif; color: var(--t-900); }
   * { cursor:none !important; }
   #cursor { position:fixed; z-index:99999; pointer-events:none; }
   #cursor-outer {
-    width:40px; height:40px; border:1px solid var(--fire);
+    width:40px; height:40px; border:2px solid var(--fire);
     border-radius:50%; position:absolute; top:-20px; left:-20px;
-    transition:transform 0.1s var(--ease), border-color 0.2s, width 0.3s var(--ease-spring), height 0.3s var(--ease-spring);
-    opacity:0.5;
+    transition:transform 0.1s var(--ease), border-color 0.2s, width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), opacity 0.2s;
+    opacity:0.9;
+    background: rgba(255, 107, 26, 0.12);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   #cursor-inner {
-    width:6px; height:6px; background:var(--blue-deep);
-    border-radius:50%; position:absolute; top:-3px; left:-3px;
+    width:10px; height:10px; background:var(--blue-deep);
+    border: 2px solid #ffffff;
+    border-radius:50%; position:absolute; top:-5px; left:-5px;
     transition:transform 0.05s, background 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   }
   #cursor.hovered #cursor-outer {
     width:64px; height:64px; top:-32px; left:-32px;
-    border-color:var(--blue-deep); opacity:0.2;
+    border-color:var(--blue-deep); opacity:0.6;
+    background: rgba(15, 23, 42, 0.06);
   }
-  #cursor.clicking #cursor-inner { transform:scale(2.5); background:var(--fire); }
+  #cursor.clicking #cursor-inner { transform:scale(2); background:var(--fire); }
 }
-@media (pointer:coarse) { #cursor { display:none; } }
+@media (pointer:coarse) { #cursor { display:none !important; } }
 
 /* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width:6px; }
@@ -713,9 +718,9 @@ footer .logo-text { color:var(--surface); }
 
 /* MOBILE PORTRAIT */
 @media (max-width:640px) {
-  .hero-viz-container { min-height: 400px; padding-bottom: 2rem; }
-  .hero-viz-scaler { transform: scale(0.55); margin-top: -2rem; }
-  .sat.s5 { display:none; } /* Hide extra satellite on very small screens to avoid clutter */
+  .hero-viz-container { min-height: 400px; padding-bottom: 2rem; overflow: hidden; width: 100%; }
+  .hero-viz-scaler { transform: scale(0.48); margin-top: -2rem; }
+  .n5, .n8 { display:none; } /* Hide extra satellite on very small screens to avoid clutter and cut-offs */
   
   .form-grid { grid-template-columns:1fr; }
   .modal-specs { grid-template-columns:1fr; }
@@ -1350,6 +1355,34 @@ footer .logo-text { color:var(--surface); }
 </div>
 
 <script>
+/* ---- CUSTOM CURSOR LOGIC ---- */
+(function() {
+  const cursor = document.getElementById('cursor');
+  if (cursor && window.matchMedia("(pointer: fine)").matches) {
+    let mx = window.innerWidth / 2;
+    let my = window.innerHeight / 2;
+    
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; 
+      my = e.clientY;
+      // Using requestAnimationFrame for fluid, lag-free hardware acceleration
+      requestAnimationFrame(() => {
+        cursor.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+      });
+    }, {passive: true});
+
+    document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+    document.addEventListener('mouseup',   () => cursor.classList.remove('clicking'));
+
+    // Attach hover effect to all clickable elements
+    const interactables = document.querySelectorAll('a, button, .prod-card, .pillar, .offer-card, .ind-card, .nav-cta, select, input');
+    interactables.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+  }
+})();
+
 /* ---- SCROLL PROGRESS ---- */
 window.addEventListener('scroll', () => {
   const d = document.documentElement;
