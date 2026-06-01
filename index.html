@@ -3,1398 +3,1500 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veltonics India · Premium Industrial Automation & Solutions</title>
+<title>Veltonics India · Precision Industrial Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ============================================
-   VELTONICS ULTRA-PREMIUM CSS
-   ============================================ */
+/* ============================================================
+   VELTONICS — WORLD CLASS REDESIGN (LIGHT THEME)
+   Aesthetic: Clean Industrial · Precision Engineering
+   Fonts: Syne (Headings) + Inter (Body) + Instrument Serif + JetBrains Mono
+   Theme: Pure White / Slate / Molten Orange / Deep Royal Blue
+   ============================================================ */
+
 :root {
-  --ink:       #070c1a;
-  --ink-80:    rgba(7,12,26,0.8);
-  --ink-30:    rgba(7,12,26,0.3);
-  --navy:      #0a1945;
-  --navy-60:   rgba(10,25,69,0.6);
-  --navy-20:   rgba(10,25,69,0.12);
-  --fire:      #f97316;
-  --fire-80:   rgba(249,115,22,0.8);
-  --fire-20:   rgba(249,115,22,0.15);
-  --fire-10:   rgba(249,115,22,0.07);
-  --snow:      #ffffff;
-  --fog:       #f4f6fb;
-  --mist:      #e8ecf5;
-  --slate:     #94a3b8;
-  --steel:     #475569;
-  --green-wa:  #25D366;
-  --shadow-sm: 0 2px 12px rgba(7,12,26,0.06);
-  --shadow-md: 0 8px 32px rgba(7,12,26,0.10);
-  --shadow-lg: 0 20px 60px rgba(10,25,69,0.16);
-  --shadow-xl: 0 40px 80px rgba(10,25,69,0.22);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  /* Core palette */
+  --bg-main:      #F8FAFC;
+  --surface:      #FFFFFF;
+  --surface-alt:  #F1F5F9;
+  --border:       #E2E8F0;
+  --border-md:    #CBD5E1;
+  --border-hi:    #94A3B8;
+
+  /* Accents */
+  --fire:         #FF6B1A;
+  --fire-glow:    rgba(255, 107, 26, 0.15);
+  --fire-10:      rgba(255, 107, 26, 0.08);
+  --fire-30:      rgba(255, 107, 26, 0.2);
+  --blue-deep:    #0F172A; 
+  --blue-soft:    rgba(15, 23, 42, 0.04);
+
+  /* Text */
+  --t-900:        #020617; /* Pure dark */
+  --t-700:        #334155; /* Muted text */
+  --t-500:        #64748b; /* Subtitles */
+  --t-300:        #94a3b8; /* Placeholders */
+
+  /* Utility */
+  --live:         #10B981;
+  --wa-green:     #25D366;
+
+  /* Shadows - Top 1% diffused shadows */
+  --s-sm:  0 2px 8px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  --s-md:  0 10px 30px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --s-lg:  0 24px 60px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.04);
+  --s-fire: 0 10px 40px rgba(255, 107, 26, 0.2);
+
+  --radius:    12px;
+  --radius-lg: 20px;
   --radius-xl: 32px;
-  --ease-out:  cubic-bezier(0.22,1,0.36,1);
-  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+
+  /* Silky Smooth Easing */
+  --ease:        cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---- RESET ---- */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior:smooth; font-size:16px; }
 body {
-  background: var(--snow);
-  color: var(--steel);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background:var(--bg-main);
+  color:var(--t-700);
+  font-family:'Inter', sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
-img, svg { display: block; max-width: 100%; }
-a { text-decoration: none; }
-button { font-family: inherit; }
+img,svg { display:block; max-width:100%; }
+a { text-decoration:none; }
+button { font-family:inherit; cursor:pointer; }
+h1, h2, h3, h4 { font-family:'Syne', sans-serif; color: var(--t-900); }
 
-/* ---- NATIVE INDUSTRIAL CUSTOM CURSOR ---- */
-@media (pointer: fine) {
-  body {
-    cursor: url('data:image/svg+xml;utf8,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="9" stroke="%23f97316" stroke-width="1.5"/><circle cx="11" cy="11" r="2.5" fill="%23f97316"/></svg>') 11 11, auto;
-  }
-  a, button, .prod-card, .ind-card, .p-card, .offer-card, input, select, .tab-btn, .chat-close-btn, .hamburger {
-    cursor: url('data:image/svg+xml;utf8,<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="11" stroke="%230a1945" stroke-width="2" fill="rgba(249,115,22,0.15)"/><path d="M13 5v16M5 13h16" stroke="%23f97316" stroke-width="1.5"/></svg>') 13 13, pointer !important;
-  }
+/* ---- CUSTOM CURSOR ---- */
+@media (pointer:fine) {
+  * { cursor:none !important; }
 }
+#cursor {
+  position:fixed; z-index:99999; pointer-events:none;
+}
+#cursor-outer {
+  width:40px; height:40px; border:1px solid var(--fire);
+  border-radius:50%; position:absolute; top:-20px; left:-20px;
+  transition:transform 0.1s var(--ease), border-color 0.2s, width 0.3s var(--ease-spring), height 0.3s var(--ease-spring);
+  opacity:0.5;
+}
+#cursor-inner {
+  width:6px; height:6px; background:var(--blue-deep);
+  border-radius:50%; position:absolute; top:-3px; left:-3px;
+  transition:transform 0.05s, background 0.2s;
+}
+#cursor.hovered #cursor-outer {
+  width:64px; height:64px; top:-32px; left:-32px;
+  border-color:var(--blue-deep); opacity:0.2;
+}
+#cursor.clicking #cursor-inner { transform:scale(2.5); background:var(--fire); }
 
 /* ---- SCROLLBAR ---- */
-::-webkit-scrollbar { width:5px; }
-::-webkit-scrollbar-track { background:var(--fog); }
-::-webkit-scrollbar-thumb { background:var(--navy); border-radius:10px; }
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--bg-main); }
+::-webkit-scrollbar-thumb { background:var(--border-md); border-radius:10px; }
+::-webkit-scrollbar-thumb:hover { background:var(--fire); }
 
-/* ---- TYPOGRAPHY ---- */
-h1,h2,h3,h4,.display { font-family:'Bebas Neue',sans-serif; color:var(--ink); letter-spacing:0.02em; line-height:1; }
-.mono { font-family:'DM Mono',monospace; }
-
-/* ---- UTILITIES ---- */
-.container { max-width:1320px; margin:0 auto; padding:0 2rem; position:relative; z-index:2; }
-.section-pad { padding:7rem 0; }
-.bg-fog { background:var(--fog); }
-.text-fire { color:var(--fire); }
-.text-navy { color:var(--navy); }
-
-/* ---- TAG / LABEL ---- */
-.tag {
-  display:inline-flex; align-items:center; gap:.5rem;
-  font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.15em;
-  text-transform:uppercase; color:var(--fire); border:1px solid var(--fire-20);
-  background:var(--fire-10); padding:.35rem 1rem; border-radius:50px;
-  margin-bottom:1.2rem;
+/* ---- SUBTLE GRAIN OVERLAY ---- */
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:1; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity:1; mix-blend-mode:multiply;
 }
 
-/* ---- SECTION TITLES ---- */
-.stitle { font-size:clamp(3rem,6vw,6rem); line-height:1; margin-bottom:1.5rem; }
-.sdesc { font-size:1.05rem; line-height:1.75; color:var(--steel); max-width:560px; }
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
+#progress {
+  position:fixed; top:0; left:0; height:3px; z-index:9999;
+  background:linear-gradient(90deg, var(--fire), #FFAA44);
+  box-shadow:0 2px 10px var(--fire-glow);
+  transition:width 0.1s linear; width:0;
+}
 
-/* ============================================
+/* ============================================================
    TOPBAR
-   ============================================ */
+   ============================================================ */
 #topbar {
-  background:var(--navy);
-  color:#a0aec0;
-  font-size:.72rem;
-  font-family:'DM Mono',monospace;
-  letter-spacing:.04em;
-  padding:.55rem 0;
-  position:relative;
-  z-index:200;
+  background:var(--surface); border-bottom:1px solid var(--border);
+  padding:0.5rem 0; position:relative; z-index:200;
 }
-.topbar-inner { display:flex; justify-content:space-between; align-items:center; }
-.topbar-left { display:flex; align-items:center; gap:.6rem; }
-.topbar-left .dot { width:6px; height:6px; background:var(--fire); border-radius:50%; animation:pulseGlow 2s infinite; }
-.topbar-right { display:flex; gap:2rem; }
-.topbar-right a {
-  color:#94a3b8; display:flex; align-items:center; gap:.5rem;
-  transition:color .2s; font-size:.72rem;
-}
-.topbar-right a:hover { color:var(--fire); }
-@keyframes pulseGlow {
-  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(249,115,22,.5); }
-  50% { opacity:.7; box-shadow:0 0 0 5px rgba(249,115,22,0); }
-}
-
-/* ============================================
-   NAV
-   ============================================ */
-#main-nav {
-  position:sticky; top:0; z-index:150;
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid var(--mist);
-  transition:box-shadow .3s;
-}
-#main-nav.scrolled { box-shadow:0 4px 30px rgba(7,12,26,.08); }
-.nav-inner {
+.tb-inner {
+  max-width:1440px; margin:0 auto; padding:0 2.5rem;
   display:flex; justify-content:space-between; align-items:center;
-  padding:1rem 0; gap:2rem;
+}
+.tb-left {
+  display:flex; align-items:center; gap:0.75rem;
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+  letter-spacing:0.06em; color:var(--t-500); text-transform: uppercase;
+}
+.tb-pulse {
+  width:6px; height:6px; background:var(--live);
+  border-radius:50%;
+  box-shadow:0 0 0 0 rgba(16,185,129,0.5);
+  animation:livePulse 2s infinite;
+}
+@keyframes livePulse {
+  0%   { box-shadow:0 0 0 0 rgba(16,185,129,0.4); }
+  70%  { box-shadow:0 0 0 8px rgba(16,185,129,0); }
+  100% { box-shadow:0 0 0 0 rgba(16,185,129,0); }
+}
+.tb-right { display:flex; gap:2.5rem; }
+.tb-right a {
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+  letter-spacing:0.04em; color:var(--t-700);
+  display:flex; align-items:center; gap:0.5rem;
+  transition:color 0.2s var(--ease);
+}
+.tb-right a:hover { color:var(--fire); }
+
+/* ============================================================
+   NAV (Glassmorphism)
+   ============================================================ */
+#nav {
+  position:sticky; top:0; z-index:150;
+  background:rgba(255, 255, 255, 0.75);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid transparent;
+  transition:border-color 0.4s, box-shadow 0.4s, padding 0.4s;
+}
+#nav.scrolled {
+  border-color:var(--border);
+  box-shadow:var(--s-sm);
+  background:rgba(255, 255, 255, 0.9);
+}
+.nav-inner {
+  max-width:1440px; margin:0 auto; padding:0 2.5rem;
+  display:flex; justify-content:space-between; align-items:center;
+  height:76px; gap:2rem;
+  transition:height 0.4s var(--ease);
+}
+#nav.scrolled .nav-inner { height:64px; }
+
+/* LOGO */
+.logo {
+  display:flex; align-items:center; gap:0; flex-shrink:0;
+}
+.logo-text {
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:1.5rem; color:var(--t-900);
+  letter-spacing:0.05em; line-height:1;
+}
+.logo-dot {
+  width:8px; height:8px; background:var(--fire);
+  border-radius:50%; margin-left:4px; margin-bottom:2px;
+  flex-shrink:0; box-shadow:0 0 12px var(--fire-glow);
 }
 
-.brand-logo-wrap {
-  display:inline-flex; align-items:flex-end; gap:0; flex-shrink:0;
-  line-height:1; text-decoration:none;
-}
-.brand-logo-text {
-  font-family:'Bebas Neue',sans-serif; font-size:2.2rem;
-  letter-spacing:.04em; color:var(--navy); line-height:1;
-  user-select:none; display:block;
-}
-.brand-logo-dot {
-  width:11px; height:11px;
-  background:var(--fire); border-radius:50%;
-  margin-left:3px; flex-shrink:0;
-  margin-bottom:3px;
-  animation:dotPop 3s ease-in-out infinite;
-}
-@keyframes dotPop {
-  0%,100% { transform:scale(1); }
-  50% { transform:scale(1.3); box-shadow:0 0 8px var(--fire-80); }
-}
-
-.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links { display:flex; gap:0.5rem; list-style:none; align-items:center; }
 .nav-links a {
-  color:var(--ink); font-size:.9rem; font-weight:500;
-  position:relative; padding:.2rem 0;
-  transition:color .2s;
+  color:var(--t-700); font-size:0.875rem; font-weight:500;
+  padding:0.5rem 1.2rem; border-radius:50px;
+  transition:all 0.3s var(--ease); position:relative;
 }
-.nav-links a::after {
-  content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px;
-  background:var(--fire); border-radius:2px; transition:width .3s var(--ease-out);
-}
-.nav-links a:hover { color:var(--fire); }
-.nav-links a:hover::after { width:100%; }
+.nav-links a:hover { color:var(--t-900); background:var(--surface-alt); }
+.nav-links a.active { color:var(--fire); font-weight:600; background:var(--fire-10); }
 
 .nav-cta {
-  background:var(--navy); color:#fff!important; border-radius:var(--radius-sm);
-  padding:.55rem 1.3rem!important; font-weight:600!important;
-  transition:background .2s, transform .2s!important;
+  background:var(--blue-deep) !important; color:var(--surface) !important;
+  font-weight:500 !important; border-radius:50px; padding:0.6rem 1.5rem !important;
+  transition:transform 0.3s var(--ease-spring), box-shadow 0.3s !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
-.nav-cta::after { display:none!important; }
-.nav-cta:hover { background:var(--fire)!important; color:#fff!important; transform:translateY(-1px); }
-
-.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
-.hamburger span { display:block; width:24px; height:2px; background:var(--ink); border-radius:2px; transition:.3s; }
-.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
-.hamburger.open span:nth-child(2) { opacity:0; }
-.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
-
-.mobile-menu {
-  position:fixed; top:0; left:0; width:100%; height:100vh;
-  background:var(--snow); z-index:140; padding:6rem 2rem 2rem;
-  transform:translateX(100%); transition:transform .4s var(--ease-out);
-  display:flex; flex-direction:column; gap:2rem;
+.nav-cta:hover {
+  transform:translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2) !important;
 }
-.mobile-menu.open { transform:translateX(0); }
-.mobile-menu a {
-  font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--navy);
-  border-bottom:1px solid var(--mist); padding-bottom:1rem; line-height:1;
-}
-.mobile-menu a:hover { color:var(--fire); }
 
-/* ============================================
+.ham {
+  display:none; flex-direction:column; gap:5px;
+  background:none; border:none; padding:4px;
+}
+.ham span {
+  display:block; width:24px; height:2px;
+  background:var(--t-900); border-radius:2px;
+  transition:transform 0.4s var(--ease), opacity 0.4s;
+}
+.ham.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.ham.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.ham.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* mobile menu */
+.mob-menu {
+  position:fixed; inset:0; z-index:140;
+  background:rgba(255,255,255,0.98); backdrop-filter:blur(10px);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:3rem 2.5rem; gap:0;
+  transform:translateX(-100%); transition:transform 0.6s var(--ease-expo);
+}
+.mob-menu.open { transform:translateX(0); }
+.mob-menu a {
+  font-family:'Syne',sans-serif; font-weight:800; font-size:3rem;
+  color:var(--t-900); letter-spacing:-0.02em; line-height:1.2;
+  padding:0.8rem 0; border-bottom:1px solid var(--border);
+  transition:color 0.2s, padding-left 0.3s var(--ease);
+}
+.mob-menu a:hover { color:var(--fire); padding-left:1rem; }
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.wrap { max-width:1440px; margin:0 auto; padding:0 2.5rem; position:relative; z-index:2; }
+.section { padding:8rem 0; }
+.section-sm { padding:5rem 0; }
+
+/* ============================================================
    HERO
-   ============================================ */
+   ============================================================ */
 #hero {
-  position:relative; min-height:92vh;
+  position:relative; min-height:92svh;
   display:flex; align-items:center;
-  overflow:hidden;
-  padding:5rem 0 3rem;
+  overflow:hidden; padding:4rem 0;
+  background:var(--bg-main);
 }
 
+/* Elegant Light Background Gradient */
 #hero::before {
-  content:''; position:absolute; inset:0;
+  content:''; position:absolute; inset:0; z-index:0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(10,25,69,.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(249,115,22,.06) 0%, transparent 60%);
-  z-index:1;
+    radial-gradient(ellipse 80% 80% at 75% -10%, rgba(255,107,26,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 90%, rgba(37,99,235,0.06) 0%, transparent 60%);
 }
-#hero::after {
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(10,25,69,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10,25,69,.04) 1px, transparent 1px);
-  background-size:60px 60px;
-  z-index:1;
-  mask-image:linear-gradient(180deg, transparent, rgba(0,0,0,.5) 30%, rgba(0,0,0,.5) 70%, transparent);
-}
-#hero-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; }
 
-.hero-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:2rem; align-items:center;
+#hero-canvas {
+  position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0.7;
+}
+
+.hero-wrap {
   position:relative; z-index:5;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:center;
+  width:100%;
 }
 
-.hero-eyebrow {
-  display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
-  opacity:0; animation:fadeUp .8s var(--ease-out) .1s forwards;
+/* Left */
+.hero-label {
+  display:inline-flex; align-items:center; gap:0.75rem;
+  margin-bottom:1.5rem;
+  opacity:0; animation:fadeUp 0.8s var(--ease-expo) 0.1s forwards;
 }
-.eyebrow-line { width:40px; height:2px; background:var(--fire); border-radius:2px; }
-.eyebrow-text {
-  font-family:'DM Mono',monospace; font-size:.72rem;
-  letter-spacing:.15em; text-transform:uppercase; color:var(--fire);
+.hero-label-line { width:40px; height:1px; background:var(--fire); }
+.hero-label-text {
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.7rem; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--fire); font-weight:600;
 }
 
 .hero-title {
-  font-size:clamp(3.8rem,7vw,8rem); line-height:.95;
-  margin-bottom:2rem;
-  opacity:0; animation:fadeUp .9s var(--ease-out) .2s forwards;
+  font-size:clamp(3.5rem,6.5vw,6.8rem);
+  line-height:0.95; letter-spacing:-0.03em;
+  color:var(--t-900); margin-bottom:1.5rem;
+  opacity:0; animation:fadeUp 0.9s var(--ease-expo) 0.2s forwards;
 }
-.hero-title em { font-style:normal; color:var(--fire); }
+.hero-title .serif {
+  font-family:'Instrument Serif',serif; font-style:italic;
+  font-weight:400; color:var(--fire); letter-spacing:0;
+}
+.hero-title .dim { color:var(--t-500); }
 
 .hero-desc {
-  font-size:1.05rem; line-height:1.75; color:var(--steel);
-  max-width:480px; margin-bottom:2.5rem;
-  opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
+  font-size:1.1rem; line-height:1.7; color:var(--t-700);
+  max-width:480px; margin-bottom:3rem; font-weight:400;
+  opacity:0; animation:fadeUp 0.9s var(--ease-expo) 0.3s forwards;
 }
 
-.hero-btns {
+.hero-actions {
   display:flex; gap:1rem; flex-wrap:wrap;
-  opacity:0; animation:fadeUp .9s var(--ease-out) .4s forwards;
+  opacity:0; animation:fadeUp 0.9s var(--ease-expo) 0.4s forwards;
+  margin-bottom:4rem;
 }
 
-/* STATS BAR */
+.btn {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  padding:1rem 2rem; border-radius:50px;
+  font-weight:500; font-size:0.9rem;
+  border:none; transition:all 0.3s var(--ease-spring); position:relative; overflow:hidden;
+}
+.btn-fire {
+  background:var(--fire); color:var(--surface);
+  box-shadow:var(--s-fire);
+}
+.btn-fire:hover { transform:translateY(-3px); box-shadow:0 15px 40px rgba(255, 107, 26, 0.3); }
+.btn-ghost {
+  background:var(--surface); color:var(--t-900);
+  border:1px solid var(--border); box-shadow:var(--s-sm);
+}
+.btn-ghost:hover { background:var(--surface-alt); border-color:var(--border-md); transform:translateY(-3px); box-shadow:var(--s-md); }
+.btn-wa { background:var(--wa-green); color:#fff; box-shadow:0 8px 24px rgba(37,211,102,0.25); }
+.btn-wa:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(37,211,102,0.35); }
+
+/* Hero stats */
 .hero-stats {
-  display:flex; gap:3rem; margin-top:3.5rem;
-  padding-top:2.5rem; border-top:1px solid var(--mist);
+  display:flex; gap:3.5rem;
+  border-top:1px solid var(--border); padding-top:2rem;
+  opacity:0; animation:fadeUp 0.9s var(--ease-expo) 0.5s forwards;
   flex-wrap:wrap;
-  opacity:0; animation:fadeUp .9s var(--ease-out) .5s forwards;
 }
 .stat-num {
-  font-family:'Bebas Neue',sans-serif; font-size:3rem;
-  color:var(--navy); line-height:1;
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:2.6rem; line-height:1; color:var(--t-900);
 }
-.stat-lbl {
-  font-family:'DM Mono',monospace; font-size:.68rem;
-  letter-spacing:.12em; text-transform:uppercase;
-  color:var(--slate); margin-top:.4rem;
+.stat-fire { color:var(--fire); }
+.stat-label {
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--t-500);
+  margin-top:0.5rem;
 }
 
-/* ---- HERO VISUAL (right side) ---- */
-.hero-visual {
+/* ---- HERO RIGHT: 3D-ish Viz (Light Theme Adapted) ---- */
+.hero-viz {
   position:relative; height:600px;
   display:flex; align-items:center; justify-content:center;
-  opacity:0; animation:fadeUp .9s var(--ease-out) .3s forwards;
+  opacity:0; animation:fadeIn 1.2s var(--ease-expo) 0.3s forwards;
 }
 
-/* central orb */
-.orb-center {
-  position:relative; z-index:10;
-  width:220px; height:220px;
-  background:linear-gradient(135deg, var(--navy), #1e3a8a);
-  border-radius:50%;
-  box-shadow:0 0 0 1px rgba(249,115,22,.2), 0 20px 60px rgba(10,25,69,.4), inset 0 1px 0 rgba(255,255,255,.15);
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-  gap:.8rem; animation:orbFloat 6s ease-in-out infinite;
-}
-@keyframes orbFloat {
-  0%,100% { transform:translateY(0); }
-  50% { transform:translateY(-12px); }
-}
-.orb-label { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.12em; color:rgba(255,255,255,.6); text-transform:uppercase; }
-.orb-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:#fff; letter-spacing:.05em; margin: 0; }
-
-/* orbital rings - expanded to prevent overlap */
-.ring {
-  position:absolute; border-radius:50%; border:1px solid;
-  top:50%; left:50%; transform:translate(-50%,-50%);
-  will-change:transform; transform-origin:center;
-}
-.ring-1 { width:320px; height:320px; border-color:rgba(10,25,69,.12); animation:ringRotate 20s linear infinite; }
-.ring-2 { width:440px; height:440px; border-color:rgba(249,115,22,.1); border-style:dashed; animation:ringRotate 30s linear infinite reverse; }
-.ring-3 { width:560px; height:560px; border-color:rgba(10,25,69,.06); animation:ringRotate 45s linear infinite; }
-
-@keyframes ringRotate {
-  0% { transform:translate(-50%,-50%) rotate(0deg); }
-  100% { transform:translate(-50%,-50%) rotate(360deg); }
-}
-
-/* orbital nodes - spread along outer edges */
-.orbit-node {
-  position:absolute; width:44px; height:44px;
-  background:var(--snow); border:1px solid var(--mist);
-  border-radius:10px; box-shadow:var(--shadow-md);
+.core {
+  position:relative; z-index:10; width:180px; height:180px;
   display:flex; align-items:center; justify-content:center;
-  color:var(--navy); font-size:18px;
-  animation:orbFloat 6s ease-in-out infinite;
-  transition:box-shadow .3s;
 }
-.orbit-node:hover { box-shadow:var(--shadow-lg); }
-.orbit-node.n1 { top:3%; left:45%; animation-delay:-.5s; }
-.orbit-node.n2 { top:50%; right:0%; animation-delay:-1.5s; }
-.orbit-node.n3 { bottom:8%; left:40%; animation-delay:-2.5s; }
-.orbit-node.n4 { bottom:20%; left:5%; animation-delay:-3.5s; }
-.orbit-node.n5 { top:20%; left:5%; animation-delay:-4.5s; }
+.core-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:1px solid var(--fire); opacity:0.3;
+  animation:coreBreath 4s ease-in-out infinite;
+}
+.core-ring-2 { inset:-16px; opacity:0.15; animation-delay:0.5s; border-style:dashed; border-color:var(--t-900); }
+.core-ring-3 { inset:-36px; opacity:0.08; animation-delay:1s; border-color:var(--t-500); }
+@keyframes coreBreath {
+  0%,100% { transform:scale(1); opacity:var(--base-op,0.3); }
+  50%      { transform:scale(1.04); opacity:calc(var(--base-op,0.3)*1.5); }
+}
+.core-body {
+  width:180px; height:180px; border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--border);
+  box-shadow:var(--s-md), inset 0 0 20px rgba(0,0,0,0.02);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem;
+  animation:coreFloat 7s ease-in-out infinite;
+}
+@keyframes coreFloat {
+  0%,100% { transform:translateY(0) rotate(0deg); }
+  33%      { transform:translateY(-8px) rotate(1deg); }
+  66%      { transform:translateY(-4px) rotate(-1deg); }
+}
+.core-icon { color:var(--fire); }
+.core-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; font-weight:600; letter-spacing:0.1em; color:var(--t-500); }
+.core-name { font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; color:var(--t-900); letter-spacing:0.05em; }
 
-/* floating tags - pushed completely outward */
-.float-badge {
-  position:absolute; background:var(--snow); border:1px solid var(--mist);
-  padding:.5rem 1.2rem; border-radius:50px; box-shadow:var(--shadow-sm);
-  font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.08em;
-  color:var(--navy); white-space:nowrap; z-index:15;
-  animation:orbFloat 5s ease-in-out infinite;
+/* Orbiting rings */
+.orbit {
+  position:absolute; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;
 }
-.fb1 { top:-5%; left:10%; animation-delay:-1s; }
-.fb2 { bottom:-2%; right:5%; animation-delay:-3s; }
-.fb3 { top:5%; right:-5%; animation-delay:-2s; }
-.fb4 { bottom:5%; left:-5%; animation-delay:-4s; }
-.fb5 { top:45%; left:-12%; animation-delay:-1.5s; }
+.orbit-1 { width:280px; height:280px; border:1px solid rgba(255,107,26,0.15); animation:spin 25s linear infinite; }
+.orbit-2 { width:400px; height:400px; border:1px dashed rgba(15,23,42,0.08); animation:spin 40s linear infinite reverse; }
+.orbit-3 { width:520px; height:520px; border:1px solid rgba(15,23,42,0.04); animation:spin 55s linear infinite; }
+@keyframes spin { to { transform:translate(-50%,-50%) rotate(360deg); } }
 
-/* data lines connecting nodes to center */
-.connector-line {
-  position:absolute; top:50%; left:50%;
-  width:0; height:1px; background:linear-gradient(90deg, transparent, rgba(249,115,22,.3));
-  transform-origin:0 0; pointer-events:none; z-index:5;
+/* Satellite cards */
+.sat {
+  position:absolute; background:rgba(255,255,255,0.85);
+  border:1px solid var(--border); border-radius:12px;
+  padding:0.8rem 1rem; display:flex; align-items:center; gap:0.75rem;
+  box-shadow:var(--s-sm); backdrop-filter:blur(12px);
+  animation:satFloat 6s ease-in-out infinite;
+  white-space:nowrap; transition:all 0.3s var(--ease);
+  z-index:20;
 }
-
-/* ============================================
-   BUTTONS
-   ============================================ */
-.btn {
-  display:inline-flex; align-items:center; justify-content:center;
-  gap:.6rem; padding:.9rem 2rem; border-radius:var(--radius-sm);
-  font-weight:600; font-size:.9rem; cursor:pointer; border:none;
-  transition:all .3s var(--ease-out); position:relative; overflow:hidden;
-}
-.btn::before {
-  content:''; position:absolute; inset:0;
-  background:rgba(255,255,255,.15); transform:translateY(100%);
-  transition:transform .3s var(--ease-out);
-}
-.btn:hover::before { transform:translateY(0); }
-
-.btn-primary { background:var(--navy); color:#fff; box-shadow:0 4px 20px var(--navy-20); }
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--navy-20); background:var(--navy); color:#fff; }
-
-.btn-fire { background:var(--fire); color:#fff; box-shadow:0 4px 20px var(--fire-20); }
-.btn-fire:hover { transform:translateY(-2px); box-shadow:0 12px 30px var(--fire-20); }
-
-.btn-outline {
-  background:transparent; color:var(--ink);
-  border:1.5px solid var(--mist); box-shadow:none;
-}
-.btn-outline:hover { border-color:var(--navy); color:var(--navy); background:var(--navy-20); transform:translateY(-2px); }
-.btn-outline::before { display:none; }
-
-.btn-wa { background:var(--green-wa); color:#fff; box-shadow:0 4px 20px rgba(37,211,102,.2); }
-.btn-wa:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,.3); }
-
-/* ============================================
-   MARQUEE / TICKER
-   ============================================ */
-.marquee-wrap {
-  background:var(--navy); overflow:hidden;
-  padding:1rem 0; border-top:1px solid rgba(255,255,255,.05);
-}
-.marquee-track { display:flex; gap:3rem; width:max-content; animation:marquee 25s linear infinite; }
-.marquee-track:hover { animation-play-state:paused; }
-.marquee-item {
-  display:flex; align-items:center; gap:.8rem;
-  font-family:'Bebas Neue',sans-serif; font-size:1.1rem;
-  letter-spacing:.1em; color:rgba(255,255,255,.5); white-space:nowrap;
-}
-.marquee-item .sep { color:var(--fire); }
-@keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
-
-/* ============================================
-   ABOUT / PROFILE SECTION
-   ============================================ */
-.about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:5rem; align-items:center; }
-.about-visual { position:relative; padding: 2rem 0; }
-.about-card-main {
-  background:var(--navy); border-radius:var(--radius-lg);
-  padding:3.5rem 3rem; color:#fff; position:relative; overflow:hidden;
-  box-shadow:var(--shadow-xl);
-}
-.about-card-main::before {
-  content:''; position:absolute; top:-50%; right:-30%;
-  width:300px; height:300px;
-  background:radial-gradient(circle, rgba(249,115,22,.2), transparent 70%);
-  pointer-events:none;
-}
-.about-card-main h3 { color:#fff; font-size:3.5rem; margin-bottom:.5rem; }
-.about-card-main p { color:rgba(255,255,255,.7); font-size:1rem; line-height:1.75; }
-
-/* Resized and repositioned bubbles to prevent bad overlap */
-.about-bubble {
-  position:absolute; background:var(--snow);
-  border-radius:var(--radius-sm); padding:1rem 1.2rem;
-  box-shadow:var(--shadow-lg); border:1px solid var(--mist);
-  z-index: 10;
-}
-.ab1 { bottom:0px; left:20px; transform:translateY(50%); }
-.ab2 { top:0px; right:20px; transform:translateY(-50%); }
-.ab-num { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--fire); line-height:1; margin-bottom: 0.2rem; }
-.ab-txt { font-size:.65rem; color:var(--slate); font-family:'DM Mono',monospace; letter-spacing:.06em; text-transform:uppercase; }
-
-.profile-cards { display:flex; flex-direction:column; gap:1.5rem; }
-.p-card {
-  background:var(--snow); border:1px solid var(--mist); border-radius:var(--radius-md);
-  padding:2rem; box-shadow:var(--shadow-sm);
-  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
-  position:relative; overflow:hidden;
-}
-.p-card::before {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:3px; background:var(--fire); border-radius:2px 0 0 2px;
-  transform:scaleY(0); transition:transform .4s var(--ease-out);
-  transform-origin:bottom;
-}
-.p-card:hover { transform:translateX(6px); box-shadow:var(--shadow-md); border-color:var(--fire-20); }
-.p-card:hover::before { transform:scaleY(1); }
-.p-icon {
-  width:44px; height:44px; background:var(--fire-10); border-radius:10px;
+.sat:hover { border-color:var(--fire-30); box-shadow:var(--s-md); transform:scale(1.05); }
+.sat-icon {
+  width:32px; height:32px; border-radius:8px;
+  background:var(--surface-alt); border:1px solid var(--border);
   display:flex; align-items:center; justify-content:center;
-  color:var(--fire); margin-bottom:1.2rem;
+  color:var(--t-900); font-size:0.9rem; flex-shrink:0;
 }
-.p-card h3 { font-size:1.8rem; margin-bottom:.6rem; }
-.p-card p { font-size:.9rem; line-height:1.7; }
+.sat-txt { font-size:0.8rem; font-weight:600; color:var(--t-900); }
+.sat-sub { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--t-500); margin-top:2px; }
+.sat.s1 { top:5%; left:30%; animation-delay:0s; }
+.sat.s2 { top:25%; right:-5%; animation-delay:-1.5s; }
+.sat.s3 { bottom:20%; right:0%; animation-delay:-3s; }
+.sat.s4 { bottom:2%; left:25%; animation-delay:-4.5s; }
+.sat.s5 { top:25%; left:-5%; animation-delay:-2s; }
+.sat.s6 { bottom:20%; left:0%; animation-delay:-5s; }
+@keyframes satFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
 
-/* ============================================
-   PRODUCTS SECTION
-   ============================================ */
-.product-tabs {
-  display:flex; gap:.8rem; overflow-x:auto; margin-bottom:3rem;
-  padding-bottom:.5rem; scrollbar-width:none;
-  -webkit-overflow-scrolling:touch; position:relative; z-index:5;
+/* Floating status badge */
+.status-badge {
+  position:absolute; bottom:8%; left:5%; z-index:25;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:50px; padding:0.6rem 1.2rem;
+  display:flex; align-items:center; gap:0.6rem;
+  box-shadow:var(--s-md);
+  animation:satFloat 8s ease-in-out infinite;
 }
-.product-tabs::-webkit-scrollbar { display:none; }
+.status-badge .dot { width:8px; height:8px; background:var(--live); border-radius:50%; box-shadow:0 0 8px rgba(16,185,129,0.5); animation:livePulse 2s infinite; }
+.status-badge span { font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.05em; color:var(--t-700); }
 
-.tab-btn {
-  background:var(--snow); border:1px solid var(--mist);
-  padding:.7rem 1.5rem; border-radius:50px;
-  font-weight:600; font-size:.85rem; color:var(--steel);
-  white-space:nowrap;
-  transition:all .3s; font-family:'DM Sans',sans-serif;
-  position:relative; overflow:hidden;
+/* Metric card floating */
+.metric-card {
+  position:absolute; top:8%; right:2%; z-index:25;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:16px; padding:1.2rem 1.5rem;
+  box-shadow:var(--s-md); min-width:160px;
+  animation:satFloat 9s ease-in-out infinite; animation-delay:-3s;
 }
-.tab-btn::before {
-  content:''; position:absolute; inset:0;
-  background:var(--navy); transform:translateY(100%);
-  transition:transform .3s var(--ease-out); border-radius:50px;
-}
-.tab-btn span { position:relative; z-index:1; }
-.tab-btn.active { color:#fff; border-color:var(--navy); }
-.tab-btn.active::before { transform:translateY(0); }
-.tab-btn:not(.active):hover { border-color:var(--navy-20); color:var(--navy); }
+.metric-card .m-label { font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--t-500); margin-bottom:0.2rem; }
+.metric-card .m-val { font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:var(--fire); line-height:1; }
+.metric-card .m-sub { font-size:0.75rem; color:var(--t-700); margin-top:0.4rem; font-weight:500; }
 
-.tab-content { display:none; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.5rem; }
-.tab-content.active { display:grid; animation:tabFadeIn .5s var(--ease-out) forwards; }
-@keyframes tabFadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-
-.prod-card {
-  background:var(--snow); border:1px solid var(--mist);
-  border-radius:var(--radius-md); padding:2rem;
-  position:relative; overflow:hidden;
-  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s;
-}
-/* shimmer on hover */
-.prod-card::before {
-  content:''; position:absolute; top:-100%; left:-100%;
-  width:60%; height:200%; background:linear-gradient(105deg, transparent 20%, rgba(249,115,22,.06) 50%, transparent 80%);
-  transform:skewX(-20deg); transition:left .6s var(--ease-out);
-}
-.prod-card:hover::before { left:200%; }
-.prod-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(249,115,22,.2); }
-
-/* corner accent */
-.prod-card::after {
-  content:'→'; position:absolute; bottom:1.5rem; right:1.5rem;
-  font-size:1.1rem; color:var(--fire); opacity:0;
-  transform:translate(-8px, 8px); transition:all .35s var(--ease-out);
-}
-.prod-card:hover::after { opacity:1; transform:translate(0,0); }
-
-.prod-icon {
-  width:48px; height:48px; background:var(--fog);
-  border-radius:10px; display:flex; align-items:center; justify-content:center;
-  color:var(--navy); margin-bottom:1.5rem;
-  transition:background .3s, color .3s;
-}
-.prod-card:hover .prod-icon { background:var(--fire-10); color:var(--fire); }
-.prod-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--ink); margin-bottom:.5rem; }
-.prod-desc { font-size:.85rem; line-height:1.65; }
-
-/* ============================================
-   PROJECTS
-   ============================================ */
-.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
-.proj-card {
-  background:var(--ink); color:#fff; border-radius:var(--radius-lg);
-  padding:3.5rem; position:relative; overflow:hidden;
-  transition:transform .4s var(--ease-out), box-shadow .4s;
-  display:block;
-}
-.proj-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-xl); }
-
-/* animated gradient blob */
-.proj-card .blob {
-  position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none;
-  transition:transform .6s var(--ease-out), opacity .4s;
-  opacity:.5;
-}
-.proj-card:hover .blob { transform:scale(1.4); opacity:.7; }
-.blob-orange { width:280px; height:280px; background:rgba(249,115,22,.25); top:-60px; right:-60px; }
-.blob-blue { width:260px; height:260px; background:rgba(10,25,69,.5); bottom:-80px; left:-80px; }
-
-.proj-card .proj-tag {
-  font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--fire); margin-bottom:1.5rem; display:block;
-}
-.proj-card h3 { color:#fff; font-size:3rem; margin-bottom:1rem; line-height:1; position:relative; z-index:2; }
-.proj-card p { color:#94a3b8; font-size:.95rem; line-height:1.7; max-width:85%; position:relative; z-index:2; }
-.proj-cta {
-  display:inline-flex; align-items:center; gap:.6rem; margin-top:2.5rem;
-  color:#fff; font-weight:600; font-size:.9rem;
-  padding:.7rem 1.5rem; border:1px solid rgba(255,255,255,.2);
-  border-radius:var(--radius-sm); backdrop-filter:blur(10px);
-  position:relative; z-index:2; transition:all .3s;
-}
-.proj-cta:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.4); color:#fff; }
-.proj-cta svg { transition:transform .3s; }
-.proj-cta:hover svg { transform:translateX(4px); }
-
-/* ============================================
-   OFFERS / AMC
-   ============================================ */
-.offers-mega {
-  background:linear-gradient(135deg, var(--navy) 0%, #0d1f54 50%, #071030 100%);
-  border-radius:var(--radius-xl); padding:5rem; overflow:hidden; position:relative;
-}
-.offers-mega::before {
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size:40px 40px;
-}
-.offers-mega::after {
-  content:''; position:absolute;
-  width:600px; height:600px; border-radius:50%;
-  background:radial-gradient(circle, rgba(249,115,22,.12), transparent 70%);
-  top:-200px; right:-200px; pointer-events:none;
-}
-.offers-top { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4rem; position:relative; z-index:2; }
-.offers-top .stitle { color:#fff; }
-.offers-top .sdesc { color:rgba(255,255,255,.6); margin-bottom:0; }
-.offers-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; position:relative; z-index:2; }
-.offer-card {
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-  border-radius:var(--radius-md); padding:2.5rem;
-  backdrop-filter:blur(10px); position:relative; overflow:hidden;
-  transition:transform .4s var(--ease-out), background .3s, border-color .3s;
-}
-.offer-card:hover { transform:translateY(-4px); background:rgba(255,255,255,.08); border-color:rgba(249,115,22,.3); }
-.offer-icon { color:var(--fire); margin-bottom:1.5rem; }
-.offer-card h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#fff; margin-bottom:.8rem; }
-.offer-card p { font-size:.9rem; color:rgba(255,255,255,.65); line-height:1.7; }
-
-/* ============================================
-   INDUSTRIES
-   ============================================ */
-.ind-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
-.ind-card {
-  background:var(--snow); border:1px solid var(--mist); border-radius:var(--radius-md);
-  padding:1.8rem; transition:all .35s var(--ease-out);
-  position:relative; overflow:hidden;
-}
-.ind-card::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
-  background:linear-gradient(90deg, var(--fire), var(--navy));
-  transform:scaleX(0); transition:transform .35s var(--ease-out);
-}
-.ind-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--fire-20); }
-.ind-card:hover::after { transform:scaleX(1); }
-.ind-emoji { font-size:2rem; margin-bottom:1rem; }
-.ind-card h4 { font-size:1.4rem; margin-bottom:.5rem; }
-.ind-card p { font-size:.8rem; color:var(--slate); line-height:1.6; }
-
-/* ============================================
-   QUOTE FORM
-   ============================================ */
-.quote-section {
-  background:linear-gradient(180deg, var(--fog) 0%, #dde5f4 100%);
-  position:relative; overflow:hidden;
-}
-.quote-section::before {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse 60% 60% at 50% 0%, rgba(10,25,69,.07), transparent 70%);
-}
-.quote-card {
-  background:var(--snow); border:1px solid var(--mist);
-  border-radius:var(--radius-xl); padding:4rem;
-  box-shadow:var(--shadow-xl); max-width:820px; margin:0 auto;
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee-section {
+  overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  background:var(--surface); padding:1.5rem 0;
   position:relative; z-index:5;
 }
-.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-.form-group { display:flex; flex-direction:column; gap:.5rem; }
-.form-group.full { grid-column:1/-1; }
-.form-label { font-size:.8rem; font-weight:600; color:var(--ink); font-family:'DM Mono',monospace; letter-spacing:.06em; text-transform:uppercase; }
-.form-control {
-  padding:1rem 1.2rem; border:1.5px solid var(--mist); border-radius:var(--radius-sm);
-  font-family:'DM Sans',sans-serif; font-size:.95rem; outline:none;
-  background:var(--fog); color:var(--ink);
-  transition:border-color .3s, box-shadow .3s, background .3s;
-  -webkit-appearance:none;
+.marquee-track {
+  display:flex; gap:0; width:max-content;
+  animation:marquee 35s linear infinite;
 }
-.form-control:focus {
-  border-color:var(--fire); background:var(--snow);
-  box-shadow:0 0 0 4px var(--fire-10);
+.marquee-track:hover { animation-play-state:paused; }
+.marquee-item {
+  display:flex; align-items:center; gap:1.8rem; padding:0 2rem;
+  font-family:'Syne',sans-serif; font-weight:700; font-size:0.85rem;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--t-500);
+  white-space:nowrap; transition:color 0.2s;
 }
-.wa-btn {
-  background:var(--green-wa); color:#fff; border:none;
-  padding:1.2rem; border-radius:var(--radius-sm);
-  font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-  gap:.8rem; width:100%; margin-top:1rem;
-  box-shadow:0 8px 30px rgba(37,211,102,.25);
-  transition:all .3s var(--ease-out); position:relative; overflow:hidden;
-}
-.wa-btn::before {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(135deg, rgba(255,255,255,.15), transparent);
-  opacity:0; transition:opacity .3s;
-}
-.wa-btn:hover::before { opacity:1; }
-.wa-btn:hover { transform:translateY(-2px); box-shadow:0 16px 40px rgba(37,211,102,.35); }
+.marquee-item:hover { color:var(--fire); }
+.marquee-dot { width:5px; height:5px; background:var(--fire); border-radius:50%; opacity:0.8; }
+@keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
 
-/* ============================================
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.tag {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600;
+  letter-spacing:0.15em; text-transform:uppercase; color:var(--fire);
+  margin-bottom:1.5rem;
+}
+.tag::before { content:''; width:24px; height:2px; background:var(--fire); }
+
+h2.section-title {
+  font-size:clamp(3rem,5vw,4.5rem);
+  line-height:1; letter-spacing:-0.03em; color:var(--t-900);
+  margin-bottom:1.5rem;
+}
+h2.section-title .serif {
+  font-family:'Instrument Serif',serif; font-style:italic; font-weight:400;
+  color:var(--t-500); letter-spacing:0;
+}
+
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+
+.about-main-card {
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--border); border-radius:var(--radius-xl);
+  padding:4rem; overflow:hidden;
+  box-shadow:var(--s-lg);
+}
+.about-main-card::before {
+  content:''; position:absolute; top:-100px; right:-100px;
+  width:400px; height:400px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,107,26,0.06), transparent 60%);
+  pointer-events:none;
+}
+.about-main-title { font-family:'Syne',sans-serif; font-weight:800; font-size:3.5rem; color:var(--t-900); letter-spacing:-0.02em; line-height:1; margin-bottom:1rem; }
+.about-main-sub { font-size:1.05rem; color:var(--t-700); line-height:1.7; margin-bottom:2.5rem; }
+
+.about-chips { display:flex; flex-wrap:wrap; gap:0.6rem; }
+.chip {
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600;
+  letter-spacing:0.05em; text-transform:uppercase;
+  padding:0.5rem 1.2rem; border-radius:50px; border:1px solid;
+}
+.chip-fire { color:var(--fire); border-color:var(--fire-30); background:var(--fire-10); }
+.chip-ghost { color:var(--t-700); border-color:var(--border); background:var(--surface-alt); }
+
+.ab-card {
+  position:absolute; background:var(--surface);
+  border:1px solid var(--border); border-radius:16px;
+  padding:1.2rem 1.5rem; box-shadow:var(--s-md); z-index:10;
+}
+.ab-num { font-family:'Syne',sans-serif; font-weight:800; font-size:2.2rem; color:var(--fire); line-height:1; }
+.ab-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--t-500); margin-top:0.4rem; }
+.ab1 { bottom:-20px; left:30px; }
+.ab2 { top:-20px; right:30px; }
+.ab2 .ab-num { color:var(--blue-deep); }
+
+.pillars { display:flex; flex-direction:column; gap:1.2rem; }
+.pillar {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2rem;
+  position:relative; overflow:hidden;
+  transition:all 0.4s var(--ease-expo);
+  box-shadow:var(--s-sm);
+}
+.pillar::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--fire);
+  transform:scaleY(0); transition:transform 0.4s var(--ease-expo); transform-origin:top;
+}
+.pillar:hover { transform:translateX(8px); border-color:var(--border-md); box-shadow:var(--s-md); }
+.pillar:hover::before { transform:scaleY(1); }
+.pillar-icon {
+  width:48px; height:48px; border-radius:12px;
+  background:var(--surface-alt); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--t-900); margin-bottom:1.2rem; flex-shrink:0;
+  transition:all 0.3s var(--ease);
+}
+.pillar:hover .pillar-icon { background:var(--fire-10); color:var(--fire); border-color:var(--fire-30); }
+.pillar h3 { font-size:1.4rem; color:var(--t-900); margin-bottom:0.6rem; }
+.pillar p { font-size:0.95rem; line-height:1.7; color:var(--t-700); }
+
+/* ============================================================
+   PRODUCTS SECTION
+   ============================================================ */
+#products { background:var(--surface-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+.prod-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:2rem; }
+
+/* Tabs */
+.tabs {
+  display:flex; gap:0.5rem; overflow-x:auto; margin-bottom:3rem; padding-bottom:0.5rem;
+  scrollbar-width:none; border-bottom:2px solid var(--border);
+}
+.tabs::-webkit-scrollbar { display:none; }
+.tab {
+  flex-shrink:0; background:transparent; border:none;
+  font-family:'Syne',sans-serif; font-weight:600; font-size:0.9rem;
+  letter-spacing:0.02em; color:var(--t-500);
+  padding:1rem 1.8rem; border-radius:12px 12px 0 0;
+  transition:all 0.3s var(--ease); position:relative; margin-bottom:-2px;
+}
+.tab.active { color:var(--fire); border-bottom:2px solid var(--fire); }
+.tab:hover:not(.active) { color:var(--t-900); background:rgba(0,0,0,0.02); }
+
+.tab-panel { display:none; }
+.tab-panel.active { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:2rem; animation:panelIn 0.5s var(--ease-expo) forwards; }
+@keyframes panelIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+/* Product Card */
+.prod-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2.5rem 2rem;
+  position:relative; overflow:hidden;
+  transition:all 0.4s var(--ease-expo);
+}
+.prod-card-bg {
+  position:absolute; inset:0; opacity:0;
+  background:radial-gradient(circle at 100% 0%, var(--fire-glow), transparent 60%);
+  transition:opacity 0.4s var(--ease);
+}
+.prod-card:hover .prod-card-bg { opacity:1; }
+.prod-card:hover { transform:translateY(-8px); border-color:var(--fire-30); box-shadow:var(--s-lg); }
+.prod-card:hover .prod-arrow { transform:translate(0,0); opacity:1; }
+
+.prod-arrow {
+  position:absolute; top:1.5rem; right:1.5rem;
+  width:36px; height:36px; background:var(--fire-10); border:1px solid var(--fire-30);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--fire); opacity:0;
+  transform:translate(-10px, 10px); transition:all 0.4s var(--ease-spring);
+}
+
+.prod-icon {
+  width:56px; height:56px; background:var(--surface-alt); border:1px solid var(--border);
+  border-radius:16px; display:flex; align-items:center; justify-content:center;
+  color:var(--t-700); margin-bottom:1.8rem; position:relative; z-index:1;
+  transition:all 0.3s var(--ease);
+}
+.prod-card:hover .prod-icon { background:var(--blue-deep); color:var(--surface); border-color:var(--blue-deep); }
+.prod-name { font-family:'Syne',sans-serif; font-weight:700; font-size:1.4rem; color:var(--t-900); margin-bottom:0.8rem; position:relative; z-index:1; }
+.prod-desc { font-size:0.95rem; line-height:1.6; color:var(--t-700); position:relative; z-index:1; }
+
+/* Spec strip */
+.prod-specs { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; position:relative; z-index:1; }
+.prod-spec-tag {
+  font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:500;
+  letter-spacing:0.05em; text-transform:uppercase; color:var(--t-700);
+  background:var(--surface-alt); border:1px solid var(--border); border-radius:6px;
+  padding:0.35rem 0.6rem; transition:border-color 0.3s;
+}
+.prod-card:hover .prod-spec-tag { border-color:var(--border-md); background:var(--surface); }
+
+/* ============================================================
+   PROJECTS SECTION
+   ============================================================ */
+.proj-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:4rem; }
+.proj-card {
+  position:relative; overflow:hidden; border-radius:var(--radius-xl);
+  padding:4.5rem; background:var(--surface); border:1px solid var(--border);
+  display:block; transition:all 0.5s var(--ease-expo); min-height:420px;
+  box-shadow:var(--s-sm);
+}
+.proj-card:hover { transform:translateY(-8px); border-color:var(--border-md); box-shadow:var(--s-lg); }
+.proj-card:hover .proj-blob { transform:scale(1.8); opacity:1; }
+.proj-card:hover .proj-cta-btn { background:var(--blue-deep); color:var(--surface); border-color:var(--blue-deep); }
+
+.proj-blob {
+  position:absolute; width:400px; height:400px; border-radius:50%;
+  filter:blur(90px); top:-100px; right:-100px;
+  background:rgba(255,107,26,0.08); pointer-events:none;
+  transition:all 0.8s var(--ease-expo); opacity:0.6;
+}
+.proj-card-b .proj-blob { background:rgba(37,99,235,0.06); }
+
+.proj-tag {
+  font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--fire);
+  display:flex; align-items:center; gap:0.6rem; margin-bottom:2rem;
+  position:relative; z-index:2;
+}
+.proj-tag::before { content:''; width:20px; height:2px; background:var(--fire); }
+
+.proj-card h3 { font-size:2.8rem; color:var(--t-900); line-height:1.1; margin-bottom:1.5rem; position:relative; z-index:2; }
+.proj-card p { font-size:1.05rem; line-height:1.7; color:var(--t-700); max-width:85%; position:relative; z-index:2; }
+.proj-cta-btn {
+  display:inline-flex; align-items:center; gap:0.6rem; margin-top:3rem;
+  padding:1rem 2rem; border-radius:50px; border:1px solid var(--border-hi);
+  color:var(--t-900); font-size:0.9rem; font-weight:600; position:relative; z-index:2;
+  transition:all 0.4s var(--ease-spring); background:var(--surface);
+}
+.proj-cta-btn svg { transition:transform 0.3s; }
+.proj-cta-btn:hover svg { transform:translateX(6px); }
+
+/* ============================================================
+   AMC / OFFERS
+   ============================================================ */
+#offers { background:var(--surface-alt); border-top:1px solid var(--border); }
+.offers-wrap {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-xl); overflow:hidden; position:relative;
+  box-shadow:var(--s-md);
+}
+.offers-grid-inner { display:grid; grid-template-columns:1.2fr 2fr; }
+.offers-left {
+  background:var(--blue-deep); padding:5rem 4rem;
+  position:relative; display:flex; flex-direction:column; justify-content:space-between;
+}
+.offers-left .tag { color:var(--surface); }
+.offers-left .tag::before { background:var(--surface); }
+.offers-left h2 { color:var(--surface); font-size:3.5rem; }
+.offers-left .serif { color:var(--fire); }
+.offers-left p { font-size:1.05rem; color:var(--t-300); }
+
+.offers-right { padding:4rem; display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; position:relative; z-index:2; }
+.offer-card { transition:transform 0.4s var(--ease-expo); }
+.offer-card:hover { transform:translateY(-5px); }
+.offer-icon {
+  width:52px; height:52px; border-radius:14px; background:var(--surface-alt);
+  border:1px solid var(--border); display:flex; align-items:center;
+  justify-content:center; color:var(--t-900); margin-bottom:1.5rem;
+  transition:all 0.3s var(--ease);
+}
+.offer-card:hover .offer-icon { background:var(--fire-10); color:var(--fire); border-color:var(--fire-30); }
+.offer-card h3 { font-size:1.4rem; color:var(--t-900); margin-bottom:0.8rem; }
+.offer-card p { font-size:0.95rem; line-height:1.7; color:var(--t-700); }
+
+/* ============================================================
+   INDUSTRIES
+   ============================================================ */
+.ind-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:4rem; }
+.ind-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2.5rem 2rem;
+  transition:all 0.4s var(--ease-expo); position:relative; overflow:hidden;
+  box-shadow:var(--s-sm);
+}
+.ind-card::after {
+  content:''; position:absolute; inset-x:0; bottom:0; height:3px;
+  background:linear-gradient(90deg, var(--fire), #FFAA44);
+  transform:scaleX(0); transition:transform 0.5s var(--ease-expo); transform-origin:left;
+}
+.ind-card:hover { transform:translateY(-8px); border-color:var(--border-md); box-shadow:var(--s-md); }
+.ind-card:hover::after { transform:scaleX(1); }
+.ind-number {
+  font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:600;
+  letter-spacing:0.1em; color:var(--t-500); margin-bottom:1.5rem;
+}
+.ind-emoji { font-size:2.8rem; margin-bottom:1.5rem; display:block; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.05)); }
+.ind-card h4 { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; color:var(--t-900); margin-bottom:0.8rem; }
+.ind-card p { font-size:0.9rem; line-height:1.6; color:var(--t-700); }
+
+/* ============================================================
+   QUOTE / FORM
+   ============================================================ */
+.quote-section { background:var(--bg-main); }
+.quote-card {
+  max-width:860px; margin:4rem auto 0;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-xl); padding:5rem;
+  box-shadow:var(--s-lg); position:relative; overflow:hidden;
+}
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.form-group { display:flex; flex-direction:column; gap:0.6rem; }
+.form-full { grid-column:1/-1; }
+.form-label {
+  font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:600;
+  letter-spacing:0.05em; text-transform:uppercase; color:var(--t-500);
+}
+.form-control {
+  background:var(--surface-alt); border:1px solid var(--border);
+  border-radius:12px; padding:1.2rem 1.4rem;
+  font-family:'Inter',sans-serif; font-size:1rem; color:var(--t-900);
+  outline:none; transition:all 0.3s var(--ease);
+  -webkit-appearance:none; appearance:none;
+}
+.form-control::placeholder { color:var(--t-500); }
+.form-control:focus { border-color:var(--fire); box-shadow:0 0 0 4px var(--fire-10), inset 0 2px 4px rgba(0,0,0,0.02); background:var(--surface); }
+select.form-control { cursor:pointer; }
+.wa-submit {
+  width:100%; padding:1.4rem; border-radius:12px;
+  background:var(--wa-green); color:#fff; border:none;
+  font-weight:600; font-size:1.05rem;
+  display:flex; align-items:center; justify-content:center; gap:0.75rem;
+  box-shadow:0 10px 30px rgba(37,211,102,0.25);
+  transition:all 0.4s var(--ease-spring); margin-top:1rem;
+}
+.wa-submit:hover { transform:translateY(-3px); box-shadow:0 15px 40px rgba(37,211,102,0.35); }
+
+/* ============================================================
    MODAL
-   ============================================ */
+   ============================================================ */
 .modal-overlay {
-  position:fixed; inset:0; background:rgba(7,12,26,.65);
-  backdrop-filter:blur(8px); z-index:1000;
-  display:none; align-items:center; justify-content:center;
-  padding:1rem; opacity:0; transition:opacity .3s;
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(15, 23, 42, 0.4); backdrop-filter:blur(16px);
+  display:none; align-items:center; justify-content:center; padding:1.5rem;
 }
-.modal-overlay.active { display:flex; opacity:1; }
+.modal-overlay.open { display:flex; animation:fadeIn 0.4s var(--ease) forwards; }
 .modal-box {
-  background:var(--snow); width:90%; max-width:580px;
-  border-radius:var(--radius-xl); padding:3rem; position:relative;
-  transform:translateY(20px) scale(.97);
-  transition:transform .4s var(--ease-spring);
-  box-shadow:var(--shadow-xl); max-height:90vh; overflow-y:auto;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-xl); padding:4rem;
+  max-width:640px; width:100%; position:relative;
+  box-shadow:var(--s-lg); max-height:90vh; overflow-y:auto;
+  animation:modalIn 0.5s var(--ease-spring) forwards;
 }
-.modal-overlay.active .modal-box { transform:translateY(0) scale(1); }
+@keyframes modalIn { from { transform:scale(0.95) translateY(20px); opacity:0; } to { transform:scale(1) translateY(0); opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 .modal-close {
   position:absolute; top:1.5rem; right:1.5rem;
-  background:var(--fog); border:1px solid var(--mist); border-radius:50%;
-  width:34px; height:34px;
+  width:40px; height:40px; background:var(--surface-alt);
+  border:1px solid var(--border); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  transition:background .2s, color .2s; color:var(--steel);
+  color:var(--t-700); transition:all 0.3s var(--ease);
 }
-.modal-close:hover { background:#ffe4e6; color:#e11d48; }
-.modal-title { font-size:3rem; margin:1rem 0 .5rem; }
-.modal-desc { font-size:.95rem; line-height:1.7; margin-bottom:1.5rem; }
+.modal-close:hover { background:var(--surface); border-color:#e11d48; color:#e11d48; transform:rotate(90deg); }
+.modal-title { font-size:2.8rem; color:var(--t-900); margin:1rem 0 1rem; line-height:1.1; }
+.modal-desc { font-size:1.05rem; line-height:1.7; color:var(--t-700); margin-bottom:2.5rem; }
 .modal-specs {
-  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
-  background:var(--fog); border-radius:var(--radius-md);
-  padding:1.5rem; margin-bottom:2rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
+  background:var(--surface-alt); border:1px solid var(--border);
+  border-radius:16px; padding:2rem; margin-bottom:2.5rem;
 }
-.spec-item { display:flex; flex-direction:column; gap:.3rem; }
-.spec-lbl { font-family:'DM Mono',monospace; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:var(--slate); }
-.spec-val { font-size:.9rem; font-weight:600; color:var(--ink); }
-.modal-actions { display:flex; gap:1rem; }
+.spec-label { font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--t-500); margin-bottom:0.4rem; }
+.spec-val { font-size:1rem; font-weight:600; color:var(--t-900); }
+.modal-actions { display:flex; gap:1.5rem; }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* ============================================================
+   FOOTER (Dark to anchor the light page)
+   ============================================================ */
 footer {
-  background:var(--ink); padding:6rem 0 2rem;
+  background:var(--blue-deep); border-top:1px solid var(--border);
+  padding:8rem 0 3rem; color:var(--surface);
 }
-.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:4rem; margin-bottom:5rem; }
-.footer-brand p { color:#64748b; font-size:.9rem; line-height:1.75; margin:1.5rem 0; max-width:280px; }
+footer .logo-text { color:var(--surface); }
+.footer-grid { display:grid; grid-template-columns:2.5fr 1fr 1fr 1.5fr; gap:4rem; margin-bottom:6rem; }
+.footer-brand p { color:var(--t-300); font-size:0.95rem; line-height:1.7; margin:1.5rem 0; max-width:320px; }
 .footer-col h5 {
-  font-family:'DM Mono',monospace; font-size:.72rem; letter-spacing:.15em;
-  text-transform:uppercase; color:#94a3b8; margin-bottom:1.5rem;
+  font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--t-500);
+  margin-bottom:2rem;
 }
-.footer-links { list-style:none; display:flex; flex-direction:column; gap:.9rem; }
-.footer-links a { color:#64748b; font-size:.9rem; transition:color .2s; display:flex; align-items:center; gap:.5rem; }
-.footer-links a::before { content:''; width:0; height:1px; background:var(--fire); transition:width .3s; }
-.footer-links a:hover { color:var(--fire); }
-.footer-links a:hover::before { width:12px; }
-.footer-divider { border:none; border-top:1px solid rgba(255,255,255,.06); margin:0 0 2rem; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:1rem; }
+.footer-links a, .footer-links li.info {
+  color:var(--t-300); font-size:0.95rem; font-weight:400;
+  display:inline-flex; align-items:center; transition:all 0.3s var(--ease);
+}
+.footer-links a::before { content:'→'; opacity:0; font-size:0.8rem; transition:all 0.3s var(--ease); margin-right:0; transform:translateX(-10px); }
+.footer-links a:hover { color:var(--surface); padding-left:0.5rem; }
+.footer-links a:hover::before { opacity:1; margin-right:0.5rem; transform:translateX(0); }
+.footer-links li.info { gap:0.75rem; }
+.footer-divider { border:none; border-top:1px solid rgba(255,255,255,0.1); margin:0 0 2.5rem; }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
-.footer-bottom p { color:#334155; font-size:.8rem; }
-.footer-badge { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:.4rem 1rem; border-radius:50px; }
-.footer-badge span { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; color:#475569; text-transform:uppercase; }
+.footer-bottom p { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--t-500); }
+.footer-badge {
+  display:flex; align-items:center; gap:0.6rem;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px; padding:0.5rem 1.2rem;
+}
+.footer-badge span { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--surface); text-transform:uppercase; }
 
-/* ============================================
+/* ============================================================
    FLOATING BUTTONS
-   ============================================ */
-.floating-btns {
-  position:fixed; bottom:2rem; right:2rem;
-  display:flex; flex-direction:column; gap:.8rem;
-  align-items:flex-end; z-index:130;
+   ============================================================ */
+.float-wrap {
+  position:fixed; bottom:2rem; right:2.5rem; z-index:130;
+  display:flex; flex-direction:column; gap:1rem; align-items:flex-end;
 }
-.float-wa {
-  display:flex; align-items:center; gap:.7rem;
-  background:var(--green-wa); color:#fff;
-  padding:.9rem 1.5rem; border-radius:50px;
-  font-weight:600; font-size:.9rem;
-  box-shadow:0 4px 20px rgba(37,211,102,.35);
-  transition:all .3s var(--ease-out);
+.float-wa-btn {
+  display:flex; align-items:center; gap:0.75rem;
+  background:var(--wa-green); color:#fff; border-radius:50px;
+  padding:1rem 1.8rem; font-weight:600; font-size:0.9rem;
+  box-shadow:0 8px 24px rgba(37,211,102,0.3);
+  transition:all 0.4s var(--ease-spring);
 }
-.float-wa:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 12px 35px rgba(37,211,102,.45); color:#fff; }
-.chat-toggle-btn {
-  width:52px; height:52px; background:var(--navy); border-radius:50%;
-  border:none; display:flex; align-items:center; justify-content:center;
-  color:#fff; box-shadow:0 4px 20px rgba(10,25,69,.35);
-  transition:all .3s var(--ease-out);
+.float-wa-btn:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 15px 40px rgba(37,211,102,0.4); }
+.chat-btn {
+  width:60px; height:60px; background:var(--surface); border:1px solid var(--border);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--t-900); box-shadow:var(--s-md); transition:all 0.4s var(--ease-spring);
 }
-.chat-toggle-btn:hover { background:var(--fire); transform:scale(1.08) rotate(-10deg); }
+.chat-btn:hover { background:var(--blue-deep); border-color:var(--blue-deep); color:var(--surface); transform:scale(1.08) rotate(-10deg); box-shadow:var(--s-lg); }
 
-/* ============================================
+/* ============================================================
    CHATBOT
-   ============================================ */
-#chatbot {
-  position:fixed; bottom:7.5rem; right:2rem;
-  width:340px; background:var(--snow); border:1px solid var(--mist);
-  border-radius:var(--radius-lg); box-shadow:var(--shadow-xl); z-index:200;
-  display:flex; flex-direction:column; overflow:hidden;
+   ============================================================ */
+#chat {
+  position:fixed; bottom:8.5rem; right:2.5rem; z-index:200;
+  width:360px; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-xl); overflow:hidden;
+  box-shadow:var(--s-lg);
   transform-origin:bottom right;
-  transition:transform .4s var(--ease-spring), opacity .3s;
-  will-change:transform,opacity;
+  transition:all 0.5s var(--ease-spring);
 }
-#chatbot.hidden { transform:scale(0); opacity:0; pointer-events:none; }
-.chat-header {
-  background:var(--navy); padding:1.1rem 1.3rem;
-  display:flex; align-items:center; gap:.9rem;
+#chat.hidden { transform:scale(0) rotate(5deg); opacity:0; pointer-events:none; }
+.chat-head {
+  background:var(--blue-deep); padding:1.5rem;
+  display:flex; align-items:center; gap:1rem; color:var(--surface);
 }
 .chat-avatar {
-  width:34px; height:34px; background:var(--fire); border-radius:50%;
-  display:flex; align-items:center; justify-content:center; color:#fff; font-size:.9rem; font-weight:700; flex-shrink:0;
+  width:40px; height:40px; background:var(--fire);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:1rem; flex-shrink:0;
 }
-.chat-name { font-family:'DM Mono',monospace; font-size:.8rem; color:#fff; letter-spacing:.04em; }
-.chat-status { font-size:.65rem; color:#4ade80; display:flex; align-items:center; gap:.3rem; }
-.status-dot { width:5px; height:5px; background:#4ade80; border-radius:50%; animation:pulseGlow 2s infinite; }
-.chat-close-btn { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.5); font-size:1.1rem; transition:color .2s; }
-.chat-close-btn:hover { color:#fff; }
-#chat-msgs { height:260px; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.8rem; scrollbar-width:thin; }
-.msg { max-width:85%; padding:.7rem 1rem; border-radius:10px; font-size:.84rem; line-height:1.55; animation:msgIn .25s var(--ease-out) forwards; opacity:0; }
-@keyframes msgIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-.msg.bot { background:var(--fog); border:1px solid var(--mist); color:var(--ink); align-self:flex-start; border-radius:4px 10px 10px 10px; }
-.msg.user { background:var(--fire); color:#fff; align-self:flex-end; border-radius:10px 4px 10px 10px; }
-.msg.typing::after { content:'●●●'; animation:blink 1s infinite; font-size:.7rem; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-.chat-input-row {
-  display:flex; gap:.5rem; padding:.8rem 1rem;
-  border-top:1px solid var(--mist); background:var(--fog);
+.chat-name { font-weight:600; font-size:0.95rem; }
+.chat-status { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--live); display:flex; align-items:center; gap:0.5rem; margin-top:4px; }
+.chat-x { margin-left:auto; background:none; border:none; color:var(--t-500); font-size:1.2rem; transition:color 0.2s; }
+.chat-x:hover { color:var(--surface); }
+.chat-msgs { height:280px; overflow-y:auto; padding:1.5rem; display:flex; flex-direction:column; gap:1rem; scrollbar-width:thin; }
+.chat-msg {
+  max-width:85%; padding:0.8rem 1.2rem; border-radius:14px;
+  font-size:0.9rem; line-height:1.5; animation:msgIn 0.3s var(--ease) forwards; opacity:0;
 }
-#chat-input {
-  flex:1; background:var(--snow); border:1.5px solid var(--mist);
-  border-radius:var(--radius-sm); font-family:'DM Sans',sans-serif;
-  font-size:.84rem; padding:.55rem .8rem; outline:none; transition:border-color .2s;
+@keyframes msgIn { to { opacity:1; transform:translateY(0); } from { opacity:0; transform:translateY(10px); } }
+.chat-msg.bot { background:var(--surface-alt); border:1px solid var(--border); color:var(--t-900); align-self:flex-start; border-bottom-left-radius:4px; }
+.chat-msg.user { background:var(--blue-deep); color:var(--surface); align-self:flex-end; border-bottom-right-radius:4px; }
+.chat-input-row { display:flex; gap:0.8rem; padding:1rem 1.5rem; border-top:1px solid var(--border); background:var(--surface); }
+#chat-inp {
+  flex:1; background:var(--surface-alt); border:1px solid var(--border);
+  border-radius:10px; padding:0.8rem 1rem;
+  font-family:'Inter',sans-serif; font-size:0.9rem; color:var(--t-900); outline:none;
+  transition:all 0.3s var(--ease);
 }
-#chat-input:focus { border-color:var(--fire); }
+#chat-inp:focus { border-color:var(--fire); background:var(--surface); box-shadow:0 0 0 3px var(--fire-10); }
 #chat-send {
-  background:var(--navy); color:#fff; border:none;
-  border-radius:var(--radius-sm); padding:0 1rem;
-  font-weight:600; transition:background .2s, transform .15s;
+  background:var(--blue-deep); color:var(--surface); border:none;
+  border-radius:10px; padding:0 1.2rem; font-weight:600; font-size:0.9rem;
+  transition:all 0.3s var(--ease-spring);
 }
-#chat-send:hover { background:var(--fire); transform:scale(1.05); }
+#chat-send:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(15,23,42,0.2); }
 
-/* ============================================
+/* ============================================================
    REVEAL ANIMATIONS
-   ============================================ */
-.reveal { opacity:0; transform:translateY(30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
-.reveal.in { opacity:1; transform:translateY(0); }
-.reveal-left { opacity:0; transform:translateX(-30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
-.reveal-left.in { opacity:1; transform:translateX(0); }
-.reveal-right { opacity:0; transform:translateX(30px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
-.reveal-right.in { opacity:1; transform:translateX(0); }
+   ============================================================ */
+.reveal { opacity:0; transform:translateY(40px); transition:all 1s var(--ease-expo); }
+.reveal-l { opacity:0; transform:translateX(-40px); transition:all 1s var(--ease-expo); }
+.reveal-r { opacity:0; transform:translateX(40px); transition:all 1s var(--ease-expo); }
+.reveal.in, .reveal-l.in, .reveal-r.in { opacity:1; transform:none; }
+.delay-1 { transition-delay:0.1s; }
+.delay-2 { transition-delay:0.2s; }
+.delay-3 { transition-delay:0.3s; }
 
-@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-
-/* ============================================
-   COUNT-UP
-   ============================================ */
-.count { display:inline; }
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media(max-width:1024px) {
-  .footer-grid { grid-template-columns:1fr 1fr; }
-  .about-grid { grid-template-columns:1fr; }
-  .about-visual { order:-1; max-width:500px; margin:0 auto; padding: 2rem; }
-  .ind-grid { grid-template-columns:repeat(2,1fr); }
-  .hero-visual { height: 500px; }
-  .ring-1 { width:280px; height:280px; }
-  .ring-2 { width:380px; height:380px; }
-  .ring-3 { width:480px; height:480px; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0); }
 }
 
-@media(max-width:768px) {
-  .nav-links { display:none; }
-  .hamburger { display:flex; }
-  .hero-grid { grid-template-columns:1fr; gap:2rem; }
-  .hero-visual { height:360px; margin-top:2rem; }
-  .orb-center { width:160px; height:160px; }
-  .ring-1 { width:240px; height:240px; }
-  .ring-2 { width:320px; height:320px; }
-  .ring-3 { width:400px; height:400px; }
-  .orbit-node { width:34px; height:34px; font-size:14px; }
-  
-  .float-badge { font-size: 0.6rem; padding: 0.4rem 0.8rem; }
-  .fb1 { top: 0%; left: 0%; }
-  .fb3 { top: 5%; right: 0%; }
-  .fb2, .fb4, .fb5 { display: none; } /* simplified for mobile layout */
-
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1100px) {
+  .about-grid { grid-template-columns:1fr; gap:4rem; }
+  .about-main-card { max-width:600px; margin:0 auto; }
+  .offers-grid-inner { grid-template-columns:1fr; }
+  .ind-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:3rem; }
+}
+@media (max-width:900px) {
+  .hero-wrap { grid-template-columns:1fr; text-align:center; }
+  .hero-label, .hero-actions, .hero-stats { justify-content:center; }
+  .hero-desc { margin:0 auto 3rem; }
+  .hero-viz { height:450px; margin-top:2rem; }
+  .orbit-1 { width:240px; height:240px; }
+  .orbit-2 { width:340px; height:340px; }
+  .orbit-3 { width:440px; height:440px; }
   .proj-grid { grid-template-columns:1fr; }
-  .offers-mega { padding:2.5rem 1.5rem; }
-  .offers-top { flex-direction:column; gap:1.5rem; align-items:flex-start; }
-  .offers-grid { grid-template-columns:1fr; }
+  .nav-links, .nav-cta { display:none !important; }
+  .ham { display:flex; }
+  .offers-right { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+  .section { padding:5rem 0; }
+  .wrap { padding:0 1.5rem; }
+  .hero-title { font-size:3.5rem; }
+  .hero-viz { height:360px; }
+  .orbit-1 { width:200px; height:200px; }
+  .orbit-2 { width:280px; height:280px; }
+  .orbit-3 { display:none; }
+  .sat.s5,.sat.s6 { display:none; }
+  .ind-grid { grid-template-columns:1fr; }
   .form-grid { grid-template-columns:1fr; }
-  .quote-card { padding:2rem 1.5rem; }
-  .footer-grid { grid-template-columns:1fr; gap:2.5rem; }
-  .footer-bottom { flex-direction:column; gap:1rem; text-align:center; }
-  .float-wa span { display:none; }
-  .float-wa { padding:.9rem; border-radius:50%; width:52px; height:52px; justify-content:center; }
-  #chatbot { width:calc(100vw - 2rem); right:1rem; bottom:7rem; }
-  .section-pad { padding:4rem 0; }
-  .container { padding:0 1.25rem; }
+  .quote-card { padding:3rem 2rem; }
+  .modal-box { padding:2.5rem 1.5rem; }
   .modal-specs { grid-template-columns:1fr; }
   .modal-actions { flex-direction:column; }
-  .hero-title { font-size:3.5rem; }
-  .marquee-wrap { display:none; }
-  /* Pause heavy animations on mobile for performance */
-  .ring-1, .ring-2, .ring-3 { animation:none; }
-  #hero-canvas { display:none; }
-  
-  .about-card-main { padding: 2.5rem 2rem; }
-  .ab1 { left: 0; bottom: -10px; transform:translateY(0); }
-  .ab2 { right: 0; top: -10px; transform:translateY(0); }
-}
-
-@media(max-width:480px) {
-  .ind-grid { grid-template-columns:1fr; }
-  .hero-stats { gap:1.5rem; }
-  .proj-card { padding:2rem; }
-  .hero-visual { height: 320px; }
-  .ring-1 { width:200px; height:200px; }
-  .ring-2 { width:260px; height:260px; }
-  .ring-3 { width:320px; height:320px; }
-  .orb-center { width:130px; height:130px; }
-  .orbit-node { display: none; } /* Hide nodes on very small screens to maintain cleanliness */
-}
-
-/* ============================================
-   PROGRESS BAR (page loading feel)
-   ============================================ */
-#progress-bar {
-  position:fixed; top:0; left:0; height:2px;
-  background:linear-gradient(90deg, var(--fire), #fb923c);
-  z-index:9999; width:0; transition:width .2s linear;
-  box-shadow:0 0 8px var(--fire-80);
+  .footer-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .footer-bottom { flex-direction:column; gap:1rem; text-align:center; }
+  .float-wa-btn span { display:none; }
+  .float-wa-btn { width:60px; height:60px; border-radius:50%; padding:0; justify-content:center; }
+  #chat { width:calc(100vw - 3rem); right:1.5rem; }
+  .tb-right { display:none; }
+  .offers-left { padding:4rem 2rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
-<div id="progress-bar"></div>
+<div id="cursor"><div id="cursor-outer"></div><div id="cursor-inner"></div></div>
+<div id="progress"></div>
 
-<!-- TOPBAR -->
 <div id="topbar">
-  <div class="container topbar-inner">
-    <div class="topbar-left">
-      <div class="dot"></div>
-      <span>ISO Certified · Premium Industrial Automation & Safety Provider</span>
+  <div class="tb-inner">
+    <div class="tb-left">
+      <div class="tb-pulse"></div>
+      <span>ISO Certified &nbsp;·&nbsp; Premium Industrial Automation &nbsp;·&nbsp; Ahmedabad, India</span>
     </div>
-    <div class="topbar-right">
+    <div class="tb-right">
       <a href="tel:+919724648038">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         +91 97246 48038
       </a>
       <a href="mailto:info@veltonics.com">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         info@veltonics.com
       </a>
     </div>
   </div>
 </div>
 
-<!-- NAV -->
-<nav id="main-nav">
-  <div class="container nav-inner">
-    <a href="#" class="brand-logo-wrap" aria-label="Veltonics India">
-      <span class="brand-logo-text">VELTONICS</span><span class="brand-logo-dot"></span>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-text">VELTONICS</span>
+      <span class="logo-dot"></span>
     </a>
-
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#offers">AMC & Offers</a></li>
-      <li><a href="#quote" class="nav-cta">Get Quote</a></li>
+      <li><a href="#offers">AMC</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#quote" class="nav-cta">Get Quote →</a></li>
     </ul>
-
-    <button class="hamburger" id="ham-btn" aria-label="Menu">
+    <button class="ham" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#products" onclick="closeMobile()">Products</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#offers" onclick="closeMobile()">AMC & Offers</a>
-  <a href="#quote" onclick="closeMobile()">Get Quote →</a>
+<div class="mob-menu" id="mob-menu">
+  <a href="#about"      onclick="closeMob()">About</a>
+  <a href="#products"   onclick="closeMob()">Products</a>
+  <a href="#projects"   onclick="closeMob()">Projects</a>
+  <a href="#offers"     onclick="closeMob()">AMC</a>
+  <a href="#industries" onclick="closeMob()">Industries</a>
+  <a href="#quote"      onclick="closeMob()" style="color:var(--fire);">Get Quote →</a>
 </div>
 
-<!-- HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
-
-  <div class="container hero-grid">
-    <!-- LEFT CONTENT -->
+  <div class="wrap hero-wrap">
     <div>
-      <div class="hero-eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text">One-Stop Industrial Solution Provider</span>
+      <div class="hero-label">
+        <div class="hero-label-line"></div>
+        <span class="hero-label-text">One-Stop Industrial Solution Provider</span>
       </div>
 
-      <h1 class="hero-title display">
-        Next‑Gen<br>
-        <em>Industrial</em><br>
-        Automation
+      <h1 class="hero-title">
+        Next&#8209;Gen<br>
+        <span class="serif">Industrial</span><br>
+        <span class="dim">Automation</span>
       </h1>
 
-      <p class="hero-desc">
-        Elevating Indian manufacturing with ultra‑premium sensors, vision systems, safety controllers, and end‑to‑end turnkey integration. Exact specs, uncompromising precision.
-      </p>
+      <p class="hero-desc">Elevating Indian manufacturing with premium sensors, vision systems, machine safety, and end-to-end turnkey integration. Exact specs. Uncompromising precision.</p>
 
-      <div class="hero-btns">
-        <a href="#quote" class="btn btn-primary">
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-fire">
           Request Free Quote
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="#products" class="btn btn-outline">View Catalogue</a>
+        <a href="#products" class="btn btn-ghost">View Catalogue</a>
       </div>
 
       <div class="hero-stats">
-        <div>
-          <div class="stat-num"><span class="count" data-target="25">0</span>+</div>
-          <div class="stat-lbl">Turnkey Projects</div>
+        <div class="stat">
+          <div class="stat-num stat-fire"><span class="count-val" data-target="25">0</span>+</div>
+          <div class="stat-label">Turnkey Projects</div>
         </div>
-        <div>
-          <div class="stat-num"><span class="count" data-target="30">0</span>+</div>
-          <div class="stat-lbl">Products Catalog</div>
+        <div class="stat">
+          <div class="stat-num"><span class="count-val" data-target="30">0</span>+</div>
+          <div class="stat-label">Product Catalogue</div>
         </div>
-        <div>
-          <div class="stat-num"><span class="count" data-target="100">0</span>%</div>
-          <div class="stat-lbl">Compliance</div>
+        <div class="stat">
+          <div class="stat-num stat-fire"><span class="count-val" data-target="100">0</span>%</div>
+          <div class="stat-label">ISO Compliance</div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT VISUAL -->
-    <div class="hero-visual">
-      <div class="ring ring-1"></div>
-      <div class="ring ring-2"></div>
-      <div class="ring ring-3"></div>
+    <div class="hero-viz">
+      <div class="orbit orbit-1"></div>
+      <div class="orbit orbit-2"></div>
+      <div class="orbit orbit-3"></div>
 
-      <!-- Orbit nodes -->
-      <div class="orbit-node n1">⛑️</div>
-      <div class="orbit-node n2">📋</div>
-      <div class="orbit-node n3">🧰</div>
-      <div class="orbit-node n4">⚙️</div>
-      <div class="orbit-node n5">🔎</div>
+      <div class="sat s1"><div class="sat-icon">⚡</div><div><div class="sat-txt">Safety PLe</div><div class="sat-sub">SIL3 Certified</div></div></div>
+      <div class="sat s2"><div class="sat-icon">👁</div><div><div class="sat-txt">Vision AI</div><div class="sat-sub">21MP Camera</div></div></div>
+      <div class="sat s3"><div class="sat-icon">🔧</div><div><div class="sat-txt">PLC Control</div><div class="sat-sub">EtherCAT</div></div></div>
+      <div class="sat s4"><div class="sat-icon">🛡</div><div><div class="sat-txt">IP69K Rated</div><div class="sat-sub">Washdown Safe</div></div></div>
+      <div class="sat s5"><div class="sat-icon">📡</div><div><div class="sat-txt">Sensors</div><div class="sat-sub">Photo/Proxy/Laser</div></div></div>
+      <div class="sat s6"><div class="sat-icon">⚙️</div><div><div class="sat-txt">AMC 24/7</div><div class="sat-sub">Full Coverage</div></div></div>
 
-      <!-- Central orb -->
-      <div class="orb-center">
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(249,115,22,.8)" stroke-width="1.5">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-        </svg>
-        <div class="orb-label">One Stop For</div>
-        <div class="orb-title" style="font-size: 1.4rem;">AUTOMATION</div>
+      <div class="core">
+        <div class="core-ring core-ring-1" style="--base-op:0.35"></div>
+        <div class="core-ring core-ring-2" style="--base-op:0.18"></div>
+        <div class="core-ring core-ring-3" style="--base-op:0.1"></div>
+        <div class="core-body">
+          <div class="core-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="core-tag">One-Stop For</div>
+          <div class="core-name">AUTOMATION</div>
+        </div>
       </div>
 
-      <!-- Float badges -->
-      <div class="float-badge fb1">IP69K</div>
-      <div class="float-badge fb2">ISO Certified</div>
-      <div class="float-badge fb3">Vision Integration</div>
-      <div class="float-badge fb4">Hassle-Free Installation</div>
-      <div class="float-badge fb5">AI Enabled</div>
+      <div class="status-badge">
+        <div class="dot"></div>
+        <span>System Online · Ready to Deploy</span>
+      </div>
+
+      <div class="metric-card">
+        <div class="m-label">Projects Done</div>
+        <div class="m-val">25+</div>
+        <div class="m-sub">Turnkey integrations</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
+<div class="marquee-section">
   <div class="marquee-track">
-    <div class="marquee-item">Industrial Sensors <span class="sep">✦</span></div>
-    <div class="marquee-item">Vision Systems <span class="sep">✦</span></div>
-    <div class="marquee-item">Machine Safety <span class="sep">✦</span></div>
-    <div class="marquee-item">PLC Controllers <span class="sep">✦</span></div>
-    <div class="marquee-item">Turnkey Projects <span class="sep">✦</span></div>
-    <div class="marquee-item">AMC Contracts <span class="sep">✦</span></div>
-    <div class="marquee-item">PPE & Safety Gear <span class="sep">✦</span></div>
-    <div class="marquee-item">ISO Certified <span class="sep">✦</span></div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-item">Industrial Sensors <span class="sep">✦</span></div>
-    <div class="marquee-item">Vision Systems <span class="sep">✦</span></div>
-    <div class="marquee-item">Machine Safety <span class="sep">✦</span></div>
-    <div class="marquee-item">PLC Controllers <span class="sep">✦</span></div>
-    <div class="marquee-item">Turnkey Projects <span class="sep">✦</span></div>
-    <div class="marquee-item">AMC Contracts <span class="sep">✦</span></div>
-    <div class="marquee-item">PPE & Safety Gear <span class="sep">✦</span></div>
-    <div class="marquee-item">ISO Certified <span class="sep">✦</span></div>
+    <div class="marquee-item">Industrial Sensors <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Vision Systems <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Machine Safety <span class="marquee-dot"></span></div>
+    <div class="marquee-item">PLC Controllers <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Turnkey Projects <span class="marquee-dot"></span></div>
+    <div class="marquee-item">AMC Contracts <span class="marquee-dot"></span></div>
+    <div class="marquee-item">PPE &amp; Safety Gear <span class="marquee-dot"></span></div>
+    <div class="marquee-item">ISO Certified <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Industrial Sensors <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Vision Systems <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Machine Safety <span class="marquee-dot"></span></div>
+    <div class="marquee-item">PLC Controllers <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Turnkey Projects <span class="marquee-dot"></span></div>
+    <div class="marquee-item">AMC Contracts <span class="marquee-dot"></span></div>
+    <div class="marquee-item">PPE &amp; Safety Gear <span class="marquee-dot"></span></div>
+    <div class="marquee-item">ISO Certified <span class="marquee-dot"></span></div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about" class="section-pad bg-fog">
-  <div class="container">
+<section id="about" class="section">
+  <div class="wrap">
     <div class="about-grid">
-      <!-- Visual -->
-      <div class="about-visual reveal-left">
-        <div class="about-card-main">
-          <h3>One-Stop Solution</h3>
-          <p>Products, Projects, and AMC under one roof. We eliminate the hassle of multiple vendors with turnkey integration alongside a vast catalogue.</p>
-          <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <div style="background:rgba(249,115,22,.15); border:1px solid rgba(249,115,22,.3); border-radius:8px; padding:.6rem 1.2rem;">
-              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--fire);">Sensors</span>
-            </div>
-            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
-              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">Vision</span>
-            </div>
-            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
-              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">Safety</span>
-            </div>
-            <div style="background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.6rem 1.2rem;">
-              <span style="font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7);">PLC</span>
+      <div class="about-visual-wrap reveal-l">
+        <div style="position:relative; padding:2.5rem 0;">
+          <div class="about-main-card">
+            <div class="about-main-title">One-Stop<br>Solution</div>
+            <div class="about-main-sub">Products, Projects, and AMC under one roof. We eliminate the hassle of multiple vendors with turnkey integration alongside a vast catalogue.</div>
+            <div class="about-chips">
+              <span class="chip chip-fire">Sensors</span>
+              <span class="chip chip-ghost">Vision</span>
+              <span class="chip chip-ghost">Safety</span>
+              <span class="chip chip-ghost">PLC</span>
+              <span class="chip chip-ghost">AMC</span>
+              <span class="chip chip-ghost">PPE</span>
             </div>
           </div>
-        </div>
-        
-        <div class="about-bubble ab2">
-          <div class="ab-num">25+</div>
-          <div class="ab-txt">Turnkey Projects</div>
-        </div>
-        <div class="about-bubble ab1">
-          <div class="ab-num" style="color:var(--navy);">30+</div>
-          <div class="ab-txt">Products Catalogue</div>
+          <div class="ab-card ab2">
+            <div class="ab-num">25+</div>
+            <div class="ab-label">Turnkey Projects</div>
+          </div>
+          <div class="ab-card ab1">
+            <div class="ab-num" style="color:var(--t-900)">30+</div>
+            <div class="ab-label">Products Catalogue</div>
+          </div>
         </div>
       </div>
 
-      <!-- Cards -->
-      <div class="profile-cards">
+      <div>
         <div class="tag reveal">Company Profile</div>
-        <h2 class="stitle reveal" style="font-size:3.5rem; margin-bottom:2rem;">Serving all<br>industrial needs.</h2>
+        <h2 class="section-title reveal">Serving all<br><span class="serif">industrial</span> needs.</h2>
 
-        <div class="p-card reveal">
-          <div class="p-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        <div class="pillars" style="margin-top:2.5rem;">
+          <div class="pillar reveal delay-1">
+            <div style="display:flex; gap:1.5rem; align-items:flex-start;">
+              <div class="pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div>
+                <h3>Our Vision</h3>
+                <p>India's most trusted single-source partner for intelligent automation and uncompromising safety — empowering factories to achieve zero-accident, high-efficiency operations.</p>
+              </div>
+            </div>
           </div>
-          <h3>Our Vision</h3>
-          <p>India's most trusted single-source partner for intelligent automation and uncompromising safety—empowering factories to achieve zero-accident, high-efficiency operations.</p>
-        </div>
-
-        <div class="p-card reveal" style="transition-delay:.12s">
-          <div class="p-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line></svg>
+          <div class="pillar reveal delay-2">
+            <div style="display:flex; gap:1.5rem; align-items:flex-start;">
+              <div class="pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+              </div>
+              <div>
+                <h3>Our Mission</h3>
+                <p>Delivering premium components — from simple photo sensors to complex vision integration — backed by expert consultation, immediate support, and comprehensive AMC services.</p>
+              </div>
+            </div>
           </div>
-          <h3>Our Mission</h3>
-          <p>Delivering premium components—from simple photo sensors to complex vision integration—backed by expert consultation, immediate support, and comprehensive AMC services.</p>
-        </div>
-
-        <div class="p-card reveal" style="transition-delay:.24s">
-          <div class="p-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-          </div>
-          <h3>One-Stop Solution</h3>
-          <p>Projects, Products, and AMC under one roof. We eliminate the hassle of multiple vendors by providing turnkey integration alongside our vast product catalogue.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products" class="section-pad">
-  <div class="container">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.5rem; flex-wrap:wrap; gap:1.5rem;">
+<section id="products" class="section">
+  <div class="wrap">
+    <div class="prod-header">
       <div>
         <div class="tag reveal">Product Catalogue</div>
-        <h2 class="stitle reveal">Comprehensive<br>Industrial Range</h2>
+        <h2 class="section-title reveal">Comprehensive<br><span class="serif">Industrial</span> Range</h2>
       </div>
+      <p class="reveal delay-1" style="max-width:300px; color:var(--t-500); font-size:1rem; line-height:1.7; text-align:right;">Click any product to view full specs &amp; inquire directly.</p>
     </div>
 
-    <div class="product-tabs reveal">
-      <button class="tab-btn active" onclick="switchTab('sensors',this)"><span>Industrial Sensors</span></button>
-      <button class="tab-btn" onclick="switchTab('vision',this)"><span>Vision Systems</span></button>
-      <button class="tab-btn" onclick="switchTab('safety',this)"><span>Machine Safety</span></button>
-      <button class="tab-btn" onclick="switchTab('plc',this)"><span>PLC & Controllers</span></button>
-      <button class="tab-btn" onclick="switchTab('plant',this)"><span>Plant & PPE</span></button>
+    <div class="tabs reveal delay-2">
+      <button class="tab active" onclick="openTab('sensors',this)">Industrial Sensors</button>
+      <button class="tab" onclick="openTab('vision',this)">Vision Systems</button>
+      <button class="tab" onclick="openTab('safety',this)">Machine Safety</button>
+      <button class="tab" onclick="openTab('plc',this)">PLC &amp; Controllers</button>
+      <button class="tab" onclick="openTab('plant',this)">Plant &amp; PPE</button>
     </div>
 
-    <!-- SENSORS -->
-    <div id="tab-sensors" class="tab-content active">
+    <div id="panel-sensors" class="tab-panel active">
       <div class="prod-card" onclick="openModal('Photo Sensor','High-speed object detection for packaging and conveyor lines. Reliable sensing regardless of target color or material. Through-beam, retro-reflective, and diffuse models available.','IP67','NPN/PNP Configurable','Up to 20m','1ms Response')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
         <div class="prod-name">Photo Sensor</div>
         <p class="prod-desc">Through-beam, retro-reflective, and diffuse models for versatile industrial detection.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP67</span><span class="prod-spec-tag">NPN/PNP</span><span class="prod-spec-tag">20m Range</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Proximity Sensor','Inductive and capacitive sensors for non-contact detection of metallic and non-metallic objects. Rugged construction built for harsh machine tooling environments.','IP68','M8 / M12 / M18 / M30','1mm to 40mm Range','Flush / Non-Flush')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="6" rx="2"/><path d="M12 9V2M12 22v-7"/></svg></div>
-        <div class="prod-name">Proxy Sensor</div>
+      <div class="prod-card" onclick="openModal('Proximity Sensor','Inductive and capacitive sensors for non-contact detection of metallic and non-metallic objects. Rugged construction built for harsh machine tooling environments.','IP68','M8/M12/M18/M30','1mm–40mm Range','Flush/Non-Flush')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="6" rx="2"/><path d="M12 9V2M12 22v-7"/></svg></div>
+        <div class="prod-name">Proximity Sensor</div>
         <p class="prod-desc">Rugged inductive sensors built for harsh machine tooling environments.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP68</span><span class="prod-spec-tag">Inductive</span><span class="prod-spec-tag">M8–M30</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Laser Sensor','Ultra-precise laser measurement and detection for micron-level accuracy in automotive and electronics manufacturing. Analog and digital output options.','IP67','Class 1 / Class 2','Micron Accuracy','Analog / Digital Out')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="19" r="1"/></svg></div>
+      <div class="prod-card" onclick="openModal('Laser Sensor','Ultra-precise laser measurement and detection for micron-level accuracy in automotive and electronics manufacturing. Analog and digital output options.','IP67','Class 1/2 Laser','Micron Accuracy','Analog/Digital Out')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="19" r="1"/></svg></div>
         <div class="prod-name">Laser Sensor</div>
-        <p class="prod-desc">High-precision distance and positioning sensing using laser technology.</p>
+        <p class="prod-desc">High-precision distance and positioning sensing using laser triangulation.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP67</span><span class="prod-spec-tag">Micron Accuracy</span><span class="prod-spec-tag">Analog Out</span></div>
       </div>
       <div class="prod-card" onclick="openModal('Measurement Sensor','Advanced distance, thickness, and profile measurement sensors for continuous process monitoring. Ethernet/IP and PROFINET compatible.','IP65','Ethernet/IP, PROFINET','0.01mm Resolution','Aluminium Housing')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/></svg></div>
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/></svg></div>
         <div class="prod-name">Measurement Sensor</div>
         <p class="prod-desc">Linear displacement and ultrasonic sensors for precise continuous tracking.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP65</span><span class="prod-spec-tag">PROFINET</span><span class="prod-spec-tag">0.01mm Res.</span></div>
       </div>
     </div>
 
-    <!-- VISION -->
-    <div id="tab-vision" class="tab-content">
-      <div class="prod-card" onclick="openModal('Vision Inspection System','Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading. AI deep learning included.','IP67 Camera','GigE Vision','Up to 21 Megapixels','AI Deep Learning')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg></div>
+    <div id="panel-vision" class="tab-panel">
+      <div class="prod-card" onclick="openModal('Vision Inspection System','Comprehensive 2D and 3D vision inspection systems for quality control, defect detection, and OCR reading. AI deep learning included.','IP67 Camera','GigE Vision','Up to 21MP','AI Deep Learning')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg></div>
         <div class="prod-name">Vision Inspection</div>
-        <p class="prod-desc">Complete systems for high-speed automated quality assurance and defect detection.</p>
+        <p class="prod-desc">End-to-end systems for high-speed automated quality assurance and defect detection.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">21MP</span><span class="prod-spec-tag">GigE Vision</span><span class="prod-spec-tag">AI Ready</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Smart Camera Series','All-in-one smart cameras with integrated processing, lighting, and IOs. Ideal for barcode reading, alignment, and web-based GUI setup.','IP67','Integrated LED Ring','C-Mount / M12 Lenses','Web GUI Setup')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div class="prod-card" onclick="openModal('Smart Camera Series','All-in-one smart cameras with integrated processing, lighting, and IOs. Ideal for barcode reading, alignment, and web-based GUI setup.','IP67','Integrated LED Ring','C-Mount/M12 Lenses','Web GUI Setup')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
         <div class="prod-name">Smart Camera Series</div>
-        <p class="prod-desc">Compact, standalone vision processing units for tight installation spaces.</p>
+        <p class="prod-desc">Compact standalone vision processing units for tight installation spaces.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP67</span><span class="prod-spec-tag">LED Ring</span><span class="prod-spec-tag">Web GUI</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Code Reader','Industrial 1D/2D barcode and QR code readers for logistics, track & trace, and pharma serialization. Omnidirectional reading with autofocus.','IP65','RS-232 / USB / Ethernet','Omnidirectional Reading','Autofocus')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14M23 5v14"/></svg></div>
+      <div class="prod-card" onclick="openModal('Code Reader','Industrial 1D/2D barcode and QR code readers for logistics, track & trace, and pharma serialization. Omnidirectional reading with autofocus.','IP65','RS-232/USB/Ethernet','Omnidirectional','Autofocus')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14M23 5v14"/></svg></div>
         <div class="prod-name">Code Reader</div>
         <p class="prod-desc">High-speed industrial scanners for robust traceability and serialization.</p>
-      </div>
-      <div class="prod-card" onclick="openModal('DC Lights / Illumination','Precision DC lights including ring lights, dome lights, and bar lights to ensure perfect contrast for vision systems. Strobe controller sync available.','IP67 Rated Options','24V DC','Strobe Controller Sync','Red / White / Blue / IR')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
-        <div class="prod-name">DC Lights / Illumination</div>
-        <p class="prod-desc">Optimized illumination to guarantee zero false rejects in vision tasks.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP65</span><span class="prod-spec-tag">1D/2D/QR</span><span class="prod-spec-tag">Autofocus</span></div>
       </div>
     </div>
 
-    <!-- SAFETY -->
-    <div id="tab-safety" class="tab-content">
-      <div class="prod-card" onclick="openModal('Safety Light Curtain','Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 PLe SIL3 compliance with aluminum extrusion housing.','Type 4, PLe, SIL3','14mm / 30mm Resolution','Up to 20m Range','Aluminum Extrusion')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="21" y1="3" x2="21" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+    <div id="panel-safety" class="tab-panel">
+      <div class="prod-card" onclick="openModal('Safety Light Curtain','Infrared beam barriers for finger, hand, and body protection around hazardous machinery. Type 4 PLe SIL3 compliance with aluminum extrusion housing.','Type 4, PLe, SIL3','14mm/30mm Resolution','Up to 20m Range','Aluminium Housing')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="21" y1="3" x2="21" y2="21"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
         <div class="prod-name">Safety Light Curtain</div>
         <p class="prod-desc">Electro-sensitive protective devices for press and robotic cell guarding.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">Type 4</span><span class="prod-spec-tag">PLe SIL3</span><span class="prod-spec-tag">20m Range</span></div>
       </div>
       <div class="prod-card" onclick="openModal('Safety Area Scanner','Laser-based 2D area monitoring for machine guarding and perimeter protection with configurable warning and safety zones.','Type 3, PLd, SIL2','275° Scan Angle','9m Safety Zone','Multi-zone Setup')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
         <div class="prod-name">Safety Area Scanner</div>
         <p class="prod-desc">Dynamic floor scanning for AGVs and open robot cells with multi-zone setup.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">PLd SIL2</span><span class="prod-spec-tag">275° Scan</span><span class="prod-spec-tag">9m Zone</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Door Lock','Solenoid-controlled guard locking interlock switches for safe access to hazardous machinery. RFID coded tamper-proof options available.','Cat.4, PLe','1300N Holding Force','IP67 / IP69K','RFID Tamper-proof')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <div class="prod-card" onclick="openModal('Safety Door Lock','Solenoid-controlled guard locking interlock switches for safe access to hazardous machinery. RFID coded tamper-proof options available.','Cat.4, PLe','1300N Holding Force','IP67/IP69K','RFID Tamper-proof')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
         <div class="prod-name">Safety Door Lock</div>
         <p class="prod-desc">Prevents gate opening until machine hazards have completely ceased.</p>
-      </div>
-      <div class="prod-card" onclick="openModal('Safety Relay Module','Evaluates safety signals from E-stops, light curtains, and door switches to ensure safe machine state. Dual channel monitoring.','SIL3 / PLe','24V DC','DIN Rail Mount','Dual Channel Monitor')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-        <div class="prod-name">Safety Relay Module</div>
-        <p class="prod-desc">The brain of your safety circuit, ensuring fail-safe logic evaluation.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">Cat.4 PLe</span><span class="prod-spec-tag">1300N</span><span class="prod-spec-tag">IP69K</span></div>
       </div>
     </div>
 
-    <!-- PLC -->
-    <div id="tab-plc" class="tab-content">
-      <div class="prod-card" onclick="openModal('Industrial PLC','Modular and compact PLCs for high-speed industrial process control and machine automation. Supports Ladder, ST, and FBD programming with expandable I/O.','Standard IP20','Ladder / ST / FBD','Expandable I/O','Modbus / EtherCAT')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg></div>
+    <div id="panel-plc" class="tab-panel">
+      <div class="prod-card" onclick="openModal('Industrial PLC','Modular and compact PLCs for high-speed industrial process control and machine automation. Supports Ladder, ST, and FBD programming with expandable I/O.','Standard IP20','Ladder/ST/FBD','Expandable I/O','Modbus/EtherCAT')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg></div>
         <div class="prod-name">Industrial PLC</div>
         <p class="prod-desc">Robust logic controllers driving complete automation processes end-to-end.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP20</span><span class="prod-spec-tag">EtherCAT</span><span class="prod-spec-tag">Modbus</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Controller','Programmable safety controllers allowing complex software-driven safety logic for large installations. GUI configuration, replaces 4+ relay modules.','SIL3 / PLe','GUI Configuration','Networkable Safety','Replacing 4+ Relays')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
-        <div class="prod-name">Safety Controller</div>
-        <p class="prod-desc">Software-defined safety logic replacing complex hardwired relay boards.</p>
-      </div>
-      <div class="prod-card" onclick="openModal('HMI Touch Panels','High-resolution Human Machine Interfaces for local machine operation and parameter monitoring. Capacitive touch, IoT ready.','IP65 Front Panel','7 to 15 inch LCD','Capacitive Touch','IoT Ready')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 20v4M8 24h8"/></svg></div>
+      <div class="prod-card" onclick="openModal('HMI Touch Panels','High-resolution Human Machine Interfaces for local machine operation and parameter monitoring. Capacitive touch, IoT ready.','IP65 Front Panel','7–15 inch LCD','Capacitive Touch','IoT Ready')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 20v4M8 24h8"/></svg></div>
         <div class="prod-name">HMI Touch Panels</div>
         <p class="prod-desc">Intuitive touch displays for seamless operator-machine interaction.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IP65</span><span class="prod-spec-tag">7–15 inch</span><span class="prod-spec-tag">IoT Ready</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Servo & VFD','Servo drives and Variable Frequency Drives for precise motor speed and positioning control. Built-in Safe Torque Off (STO) function.','IP20','0.4kW to 110kW','Safe Torque Off (STO)','EtherCAT / Profinet')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <div class="prod-name">Servo & VFD</div>
-        <p class="prod-desc">Intelligent motor control modules featuring built-in safety (STO) functionality.</p>
+      <div class="prod-card" onclick="openModal('Servo & VFD','Servo drives and Variable Frequency Drives for precise motor speed and positioning control. Built-in Safe Torque Off (STO) function.','IP20','0.4kW–110kW','Safe Torque Off (STO)','EtherCAT/Profinet')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="prod-name">Servo &amp; VFD</div>
+        <p class="prod-desc">Intelligent motor control modules featuring built-in safety STO functionality.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">Up to 110kW</span><span class="prod-spec-tag">STO</span><span class="prod-spec-tag">EtherCAT</span></div>
       </div>
     </div>
 
-    <!-- PLANT & PPE -->
-    <div id="tab-plant" class="tab-content">
+    <div id="panel-plant" class="tab-panel">
       <div class="prod-card" onclick="openModal('Safety Helmet','High-impact ABS construction helmets for floor operators. Features adjustable ratchet suspension and chin strap. IS 2925 Certified.','IS 2925 Certified','High Impact ABS','4-Point Suspension','Multiple Colors')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12h20c0-5.52-4.48-10-10-10z"/></svg></div>
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12h20c0-5.52-4.48-10-10-10z"/></svg></div>
         <div class="prod-name">Safety Helmet</div>
         <p class="prod-desc">Essential head protection gear for rigorous plant and shop floor environments.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IS 2925</span><span class="prod-spec-tag">ABS Shell</span><span class="prod-spec-tag">4-Point Susp.</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Safety Shoes','Steel-toe and composite-toe safety footwear offering electrical hazard protection, anti-slip soles, and puncture resistance. IS 15298 Certified.','IS 15298 Certified','Steel / Composite Toe','Anti-Skid PU Sole','Acid / Oil Resistant')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16v-4c0-2.21-1.79-4-4-4h-2.58l-3.05-3.05c-.38-.38-.89-.59-1.42-.59H5c-1.1 0-2 .9-2 2v7.64z"/></svg></div>
+      <div class="prod-card" onclick="openModal('Safety Shoes','Steel-toe and composite-toe safety footwear offering electrical hazard protection, anti-slip soles, and puncture resistance. IS 15298 Certified.','IS 15298 Certified','Steel/Composite Toe','Anti-Skid PU Sole','Acid/Oil Resistant')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16v-4c0-2.21-1.79-4-4-4h-2.58l-3.05-3.05c-.38-.38-.89-.59-1.42-.59H5c-1.1 0-2 .9-2 2v7.64z"/></svg></div>
         <div class="prod-name">Safety Shoes</div>
         <p class="prod-desc">Ergonomic, heavy-duty foot protection for shop floor and maintenance staff.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">IS 15298</span><span class="prod-spec-tag">Steel Toe</span><span class="prod-spec-tag">Anti-Skid</span></div>
       </div>
-      <div class="prod-card" onclick="openModal('Plant Stationery','Heavy-duty markers, tagout labels, floor marking tapes, and cleanroom stationery for organized 5S-compliant factory operations.','Various Standards','Chemical Resistant','High Visibility','Custom Print Available')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <div class="prod-name">Plant Stationery</div>
-        <p class="prod-desc">Consumables and marking systems essential for 5S compliance and organization.</p>
-      </div>
-      <div class="prod-card" onclick="openModal('Lockout / Tagout (LOTO)','Lockout/Tagout kits including padlocks, hasps, and valve lockouts to ensure zero energy state during machine maintenance. OSHA compliant standardized kits.','OSHA Compliant','Nylon / Steel Hasps','Key Retaining','Standardized Kits')">
-        <div class="prod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
-        <div class="prod-name">Lockout / Tagout (LOTO)</div>
+      <div class="prod-card" onclick="openModal('Lockout / Tagout (LOTO)','Lockout/Tagout kits including padlocks, hasps, and valve lockouts to ensure zero energy state during machine maintenance. OSHA compliant.','OSHA Compliant','Nylon/Steel Hasps','Key Retaining','Standardized Kits')">
+        <div class="prod-card-bg"></div>
+        <div class="prod-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        <div class="prod-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <div class="prod-name">LOTO Kits</div>
         <p class="prod-desc">Critical isolation equipment for safe machine maintenance and energy control.</p>
+        <div class="prod-specs"><span class="prod-spec-tag">OSHA</span><span class="prod-spec-tag">Steel Hasps</span><span class="prod-spec-tag">Full Kits</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section-pad bg-fog">
-  <div class="container">
+<section id="projects" class="section">
+  <div class="wrap">
     <div class="tag reveal">Our Expertise</div>
-    <h2 class="stitle reveal">Turnkey Solutions &<br>System Integration</h2>
-    <div class="proj-grid reveal" style="margin-top:3rem;">
-      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Vision%20Integration%20Projects" target="_blank" class="proj-card">
-        <div class="blob blob-orange"></div>
-        <div class="blob blob-blue"></div>
-        <span class="proj-tag">Vision Integration</span>
+    <h2 class="section-title reveal">Turnkey Solutions &amp;<br><span class="serif">System Integration</span></h2>
+    <div class="proj-grid">
+      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Vision%20Integration%20Projects" target="_blank" class="proj-card reveal">
+        <div class="proj-blob"></div>
+        <div class="proj-tag">Vision Integration</div>
         <h3>Vision Integration Projects</h3>
         <p>End-to-end design, programming, and installation of complex smart camera networks for inline quality inspection. Zero-defect outcomes for automotive and pharma clients.</p>
-        <div class="proj-cta">
+        <div class="proj-cta-btn">
           View Case Studies
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
       </a>
-      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Machine%20Safety%20Turnkey%20Solutions" target="_blank" class="proj-card" style="background:var(--navy);">
-        <div class="blob blob-orange"></div>
-        <span class="proj-tag">Safety Retrofitting</span>
+      <a href="https://wa.me/919724648038?text=I%20need%20details%20on%20Machine%20Safety%20Turnkey%20Solutions" target="_blank" class="proj-card proj-card-b reveal delay-2">
+        <div class="proj-blob"></div>
+        <div class="proj-tag">Safety Retrofitting</div>
         <h3>Machine Safety Retrofitting</h3>
-        <p>Complete safety audits followed by turnkey implementation. We upgrade legacy machinery to current PLe / SIL3 standards with PLCs, light curtains, and physical guarding.</p>
-        <div class="proj-cta">
+        <p>Complete safety audits followed by turnkey implementation. We upgrade legacy machinery to current PLe/SIL3 standards with PLCs, light curtains, and physical guarding.</p>
+        <div class="proj-cta-btn">
           Get Safety Audit
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- OFFERS / AMC -->
-<section id="offers" class="section-pad">
-  <div class="container">
-    <div class="offers-mega reveal">
-      <div class="offers-top">
-        <div>
-          <div class="tag" style="background:rgba(249,115,22,.15); border-color:rgba(249,115,22,.3);">Exclusive Benefits</div>
-          <h2 class="stitle" style="color:#fff; margin-bottom:0;">Partnership<br>Value Additions</h2>
-        </div>
-        <p class="sdesc" style="color:rgba(255,255,255,.6); margin-bottom:0; max-width:380px; text-align:right;">Beyond products, we offer long-term peace of mind through structured contracts and scalable pricing.</p>
-      </div>
-
-      <div class="offers-grid">
-        <div class="offer-card">
-          <div class="offer-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+<section id="offers" class="section">
+  <div class="wrap">
+    <div class="offers-wrap reveal">
+      <div class="offers-grid-inner">
+        <div class="offers-left">
+          <div>
+            <div class="tag">Exclusive Benefits</div>
+            <h2>Partnership<br><span class="serif">Value</span><br>Additions</h2>
           </div>
-          <h3>Annual Maintenance (AMC)</h3>
-          <p>Comprehensive 24/7 technical support, quarterly preventative maintenance visits, and free software updates for all integrated vision and PLC systems.</p>
+          <p>Beyond products, we offer long-term peace of mind through structured contracts and scalable volume pricing.</p>
         </div>
-        <div class="offer-card">
-          <div class="offer-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div class="offers-right">
+          <div class="offer-card">
+            <div class="offer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Annual Maintenance (AMC)</h3>
+            <p>24/7 technical support, quarterly preventative maintenance visits, and free software updates.</p>
           </div>
-          <h3>Bulk Purchase Volume Pricing</h3>
-          <p>Setting up a new line? Avail immediate price reductions and dedicated inventory buffering when ordering sensors, safety gear, or PPE in bulk quantities.</p>
+          <div class="offer-card">
+            <div class="offer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3>Bulk Purchase Pricing</h3>
+            <p>Setting up a new line? Avail immediate price reductions and dedicated inventory buffering.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Rapid Response SLA</h3>
+            <p>Guaranteed 4-hour response time for critical machine breakdowns across Gujarat.</p>
+          </div>
+          <div class="offer-card">
+            <div class="offer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Free Project Consultation</h3>
+            <p>Our engineers audit your existing setup and design cost-effective automation solutions.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INDUSTRIES -->
-<section id="industries" class="section-pad bg-fog">
-  <div class="container">
+<section id="industries" class="section">
+  <div class="wrap">
     <div class="tag reveal">Cross-Domain Expertise</div>
-    <h2 class="stitle reveal">Industries We<br>Empower</h2>
-    <div class="ind-grid reveal" style="margin-top:3rem;">
-      <div class="ind-card">
-        <div class="ind-emoji">🏭</div>
+    <h2 class="section-title reveal">Industries We<br><span class="serif">Empower</span></h2>
+    <div class="ind-grid">
+      <div class="ind-card reveal">
+        <div class="ind-number">01</div>
+        <span class="ind-emoji">🏭</span>
         <h4>Automotive</h4>
-        <p>Vision sensors for part-alignment & gap inspection; Laser sensors for robotic welding paths.</p>
+        <p>Vision sensors for part-alignment & gap inspection. Laser sensors for robotic welding paths.</p>
       </div>
-      <div class="ind-card">
-        <div class="ind-emoji">💊</div>
+      <div class="ind-card reveal delay-1">
+        <div class="ind-number">02</div>
+        <span class="ind-emoji">💊</span>
         <h4>Pharmaceutical</h4>
-        <p>Code readers for track & trace serialization; Vision systems for blister pack defect detection.</p>
+        <p>Code readers for track & trace serialization. Vision systems for blister pack defect detection.</p>
       </div>
-      <div class="ind-card">
-        <div class="ind-emoji">🍽️</div>
+      <div class="ind-card reveal delay-2">
+        <div class="ind-number">03</div>
+        <span class="ind-emoji">🍽️</span>
         <h4>Food & Beverage</h4>
-        <p>Washdown (IP69K) safety door locks; Proximity sensors for high-speed bottling lines.</p>
+        <p>Washdown IP69K safety door locks. Proximity sensors for high-speed bottling lines.</p>
       </div>
-      <div class="ind-card">
-        <div class="ind-emoji">📦</div>
+      <div class="ind-card reveal delay-3">
+        <div class="ind-number">04</div>
+        <span class="ind-emoji">📦</span>
         <h4>Packaging</h4>
-        <p>High-speed photo sensors for counting; Safety light curtains for palletizer guarding.</p>
+        <p>High-speed photo sensors for counting and detection. Safety light curtains for wrapper guarding.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUOTE FORM -->
-<section id="quote" class="section-pad quote-section">
-  <div class="container">
+<section id="quote" class="section quote-section">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="tag reveal" style="justify-content:center;">Instant Quote</div>
+      <h2 class="section-title reveal" style="text-align:center;">Ready to upgrade<br><span class="serif">your plant?</span></h2>
+      <p class="reveal" style="color:var(--t-700); line-height:1.7; max-width:520px; margin:0 auto; font-size:1.05rem;">Fill out the details to message our sales engineers via WhatsApp — for pricing, catalogues, or custom project queries.</p>
+    </div>
     <div class="quote-card reveal">
-      <div style="text-align:center; margin-bottom:3rem;">
-        <div class="tag">Instant Quote</div>
-        <h2 class="stitle" style="font-size:3rem;">Ready to upgrade<br>your plant?</h2>
-        <p style="color:var(--steel); line-height:1.7; max-width:500px; margin:0 auto;">Fill out the details below to directly message our sales engineers via WhatsApp for pricing, catalogues, or custom project queries.</p>
-      </div>
-
       <div class="form-grid">
         <div class="form-group">
           <label class="form-label">Full Name *</label>
-          <input type="text" id="lead-name" class="form-control" placeholder="E.g., Rahul Desai">
+          <input type="text" id="f-name" class="form-control" placeholder="Rahul Desai">
         </div>
         <div class="form-group">
           <label class="form-label">Company Name *</label>
-          <input type="text" id="lead-company" class="form-control" placeholder="E.g., Tata Motors">
+          <input type="text" id="f-company" class="form-control" placeholder="Tata Motors Ltd.">
         </div>
         <div class="form-group">
           <label class="form-label">City / Location *</label>
-          <input type="text" id="lead-city" class="form-control" placeholder="E.g., Ahmedabad">
+          <input type="text" id="f-city" class="form-control" placeholder="Ahmedabad">
         </div>
         <div class="form-group">
           <label class="form-label">Product of Interest *</label>
-          <select id="lead-product" class="form-control">
-            <option value="" disabled selected>-- Select an Option --</option>
-            <option value="Industrial Sensors">Industrial Sensors</option>
-            <option value="Vision Systems & Cameras">Vision Systems & Cameras</option>
-            <option value="Machine Safety & Light Curtains">Machine Safety & Light Curtains</option>
-            <option value="PLC, Drives & HMI">PLC, Drives & HMI</option>
-            <option value="Plant Consumables & PPE">Plant Consumables & PPE</option>
-            <option value="Turnkey Automation Project">Turnkey Automation Project</option>
-            <option value="AMC Contract / Bulk Query">AMC Contract / Bulk Query</option>
+          <select id="f-product" class="form-control">
+            <option value="" disabled selected>— Select Category —</option>
+            <option>Industrial Sensors</option>
+            <option>Vision Systems & Cameras</option>
+            <option>Machine Safety & Light Curtains</option>
+            <option>PLC, Drives & HMI</option>
+            <option>Plant Consumables & PPE</option>
+            <option>Turnkey Automation Project</option>
+            <option>AMC Contract / Bulk Query</option>
           </select>
         </div>
-        <div class="form-group full">
-          <button onclick="submitLead()" class="wa-btn">
+        <div class="form-group form-full">
+          <button class="wa-submit" onclick="sendLead()">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Send Inquiry via WhatsApp
           </button>
@@ -1404,27 +1506,26 @@ footer {
   </div>
 </section>
 
-<!-- PRODUCT MODAL -->
-<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-box" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="tag">Product Details</div>
-    <h2 class="modal-title" id="m-title">Product Name</h2>
-    <p class="modal-desc" id="m-desc">Description.</p>
+    <h2 class="modal-title" id="m-title"></h2>
+    <p class="modal-desc" id="m-desc"></p>
     <div class="modal-specs">
-      <div class="spec-item"><span class="spec-lbl">Protection Rating</span><span class="spec-val" id="m-s1">–</span></div>
-      <div class="spec-item"><span class="spec-lbl">Size / Type</span><span class="spec-val" id="m-s2">–</span></div>
-      <div class="spec-item"><span class="spec-lbl">Range / Capacity</span><span class="spec-val" id="m-s3">–</span></div>
-      <div class="spec-item"><span class="spec-lbl">Key Feature</span><span class="spec-val" id="m-s4">–</span></div>
+      <div class="spec-row"><div class="spec-label">Protection Rating</div><div class="spec-val" id="m-s1"></div></div>
+      <div class="spec-row"><div class="spec-label">Size / Type</div><div class="spec-val" id="m-s2"></div></div>
+      <div class="spec-row"><div class="spec-label">Range / Capacity</div><div class="spec-val" id="m-s3"></div></div>
+      <div class="spec-row"><div class="spec-label">Key Feature</div><div class="spec-val" id="m-s4"></div></div>
     </div>
     <div class="modal-actions">
-      <button onclick="downloadCatalogue()" class="btn btn-outline" style="flex:1;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download PDF
+      <button onclick="downloadSheet()" class="btn btn-ghost" style="flex:1;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download Datasheet
       </button>
-      <a id="m-wa" href="#" target="_blank" class="btn btn-wa" style="flex:1;">
+      <a id="m-wa-link" href="#" target="_blank" class="btn btn-wa" style="flex:1; justify-content:center;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Inquire via WhatsApp
       </a>
@@ -1432,190 +1533,171 @@ footer {
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="container">
+  <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="brand-logo-wrap" style="gap:0;">
-          <span class="brand-logo-text" style="color:#fff; font-size:2rem;">VELTONICS</span>
-          <span class="brand-logo-dot"></span>
-        </a>
+        <a href="#" class="logo"><span class="logo-text">VELTONICS</span><span class="logo-dot"></span></a>
         <p>Your single-source partner for premium industrial sensors, vision integration, and uncompromising machine safety across all of India.</p>
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem; flex-wrap:wrap;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; color:var(--surface); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.4rem 1rem; border-radius:50px;">ISO Certified</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; color:var(--surface); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.4rem 1rem; border-radius:50px;">Since 2019</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; color:var(--fire); background:var(--fire-10); border:1px solid var(--fire-30); padding:0.4rem 1rem; border-radius:50px;">AMC Available</span>
+        </div>
       </div>
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h5>Navigation</h5>
         <ul class="footer-links">
           <li><a href="#about">Company Profile</a></li>
           <li><a href="#products">Products Catalogue</a></li>
           <li><a href="#projects">Turnkey Projects</a></li>
           <li><a href="#offers">AMC Contracts</a></li>
+          <li><a href="#industries">Industries</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Products</h5>
         <ul class="footer-links">
-          <li><a href="#products" onclick="switchTab('sensors',null)">Industrial Sensors</a></li>
-          <li><a href="#products" onclick="switchTab('vision',null)">Vision & Cameras</a></li>
-          <li><a href="#products" onclick="switchTab('safety',null)">Machine Safety</a></li>
-          <li><a href="#products" onclick="switchTab('plant',null)">Plant PPE</a></li>
+          <li><a href="#products" onclick="openTab('sensors',null)">Industrial Sensors</a></li>
+          <li><a href="#products" onclick="openTab('vision',null)">Vision &amp; Cameras</a></li>
+          <li><a href="#products" onclick="openTab('safety',null)">Machine Safety</a></li>
+          <li><a href="#products" onclick="openTab('plc',null)">PLC &amp; Drives</a></li>
+          <li><a href="#products" onclick="openTab('plant',null)">Plant PPE</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
         <ul class="footer-links">
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Ahmedabad, Gujarat, India
+          <li class="info">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fire)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Ahmedabad, Gujarat, India</span>
           </li>
           <li><a href="tel:+919724648038">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             +91 97246 48038
           </a></li>
           <li><a href="mailto:info@veltonics.com">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             info@veltonics.com
           </a></li>
         </ul>
       </div>
     </div>
-
     <hr class="footer-divider">
     <div class="footer-bottom">
       <p>© 2026 Veltonics India Pvt. Ltd. · All rights reserved.</p>
       <div class="footer-badge">
-        <div class="brand-logo-dot" style="width:7px;height:7px;animation:pulseGlow 2s infinite;flex-shrink:0;"></div>
+        <div class="logo-dot" style="width:8px;height:8px;flex-shrink:0;"></div>
         <span>ISO Certified · Premium Quality</span>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- FLOATING BUTTONS -->
-<div class="floating-btns">
-  <a href="https://wa.me/919724648038?text=Hello%20Veltonics,%20I%20have%20an%20inquiry%20regarding%20automation/safety%20products." target="_blank" class="float-wa">
+<div class="float-wrap">
+  <a href="https://wa.me/919724648038?text=Hello%20Veltonics!%20I%20have%20an%20inquiry%20regarding%20automation%2Fsafety%20products." target="_blank" class="float-wa-btn">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span>Chat with Sales</span>
   </a>
-  <button class="chat-toggle-btn" onclick="toggleChat()" aria-label="AI Chat">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  <button class="chat-btn" onclick="toggleChat()" aria-label="AI Chat">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   </button>
 </div>
 
-<!-- CHATBOT -->
-<div id="chatbot" class="hidden">
-  <div class="chat-header">
+<div id="chat" class="hidden">
+  <div class="chat-head">
     <div class="chat-avatar">V</div>
     <div>
-      <div class="chat-name">VELTONICS AI</div>
-      <div class="chat-status"><span class="status-dot"></span>Online · Ready to help</div>
+      <div class="chat-name">Veltonics AI</div>
+      <div class="chat-status"><div style="width:6px;height:6px;background:var(--live);border-radius:50%;animation:livePulse 2s infinite;"></div>Online · Ready to help</div>
     </div>
-    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+    <button class="chat-x" onclick="toggleChat()">✕</button>
   </div>
-  <div id="chat-msgs">
-    <div class="msg bot">👋 Hello! I'm the Veltonics AI assistant. Are you looking for specific product details or turnkey project integration?</div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="chat-msg bot">👋 Hello! I'm Veltonics AI. Are you looking for specific products or a turnkey automation project?</div>
   </div>
   <div class="chat-input-row">
-    <input id="chat-input" type="text" placeholder="Type your requirement..." onkeydown="if(event.key==='Enter')sendChat()">
-    <button id="chat-send" onclick="sendChat()">Send</button>
+    <input id="chat-inp" type="text" placeholder="Type your requirement…" onkeydown="if(event.key==='Enter')sendMsg()">
+    <button id="chat-send" onclick="sendMsg()">Send</button>
   </div>
 </div>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
 <script>
-/* ---- SCROLL PROGRESS BAR ---- */
-window.addEventListener('scroll', () => {
-  const el = document.documentElement;
-  const pct = (window.scrollY / (el.scrollHeight - el.clientHeight)) * 100;
-  document.getElementById('progress-bar').style.width = pct + '%';
-  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
-}, {passive:true});
-
-/* ---- MOBILE MENU ---- */
-function closeMobile() {
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('ham-btn').classList.remove('open');
-}
-document.getElementById('ham-btn').addEventListener('click', () => {
-  document.getElementById('ham-btn').classList.toggle('open');
-  document.getElementById('mobile-menu').classList.toggle('open');
+/* ---- CUSTOM CURSOR ---- */
+const cursor = document.getElementById('cursor');
+let mx = -100, my = -100;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.transform = `translate(${mx}px,${my}px)`;
+});
+document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+document.addEventListener('mouseup',   () => cursor.classList.remove('clicking'));
+document.querySelectorAll('a,button,.prod-card,.pillar,.offer-card,.ind-card,.nav-cta').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
 });
 
-/* ---- INTERSECTION OBSERVER (reveal) ---- */
-const io = new IntersectionObserver(entries => {
+/* ---- SCROLL PROGRESS ---- */
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  document.getElementById('progress').style.width = (window.scrollY / (d.scrollHeight - d.clientHeight) * 100) + '%';
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* ---- NAV ACTIVE ---- */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const ob = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
+      const id = e.target.id;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+}, {threshold:0.4});
+sections.forEach(s => ob.observe(s));
 
-/* ---- COUNT-UP ANIMATION ---- */
-function countUp(el) {
-  const target = +el.getAttribute('data-target');
-  const duration = 1500;
-  const step = target / (duration / 16);
-  let current = 0;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    el.textContent = Math.floor(current);
-    if (current >= target) clearInterval(timer);
-  }, 16);
+/* ---- MOBILE MENU ---- */
+function closeMob() {
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mob-menu').classList.remove('open');
 }
-const countObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      countUp(e.target);
-      countObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+document.getElementById('ham').addEventListener('click', () => {
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('mob-menu').classList.toggle('open');
+});
 
-/* ---- HERO CANVAS (particle mesh) ---- */
+/* ---- HERO CANVAS (Light Theme Particles) ---- */
 (function(){
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas || window.innerWidth < 768) return;
-  const ctx = canvas.getContext('2d');
+  const c = document.getElementById('hero-canvas');
+  if (!c || window.innerWidth < 768) return;
+  const ctx = c.getContext('2d');
   let W, H, pts = [];
-  const N = 55;
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
+  const N = 55; /* Slightly fewer for cleaner aesthetic */
+  function resize() { W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
   window.addEventListener('resize', resize, {passive:true});
   resize();
-
-  for (let i = 0; i < N; i++) {
-    pts.push({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - .5) * .45, vy: (Math.random() - .5) * .45,
-      r: Math.random() * 1.8 + .8
-    });
-  }
-
+  for (let i = 0; i < N; i++) pts.push({
+    x:Math.random()*W, y:Math.random()*H,
+    vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.5+0.8
+  });
   function draw() {
     requestAnimationFrame(draw);
-    ctx.clearRect(0, 0, W, H);
-    pts.forEach((p, i) => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = i % 4 === 0 ? 'rgba(249,115,22,.35)' : 'rgba(10,25,69,.18)';
+    ctx.clearRect(0,0,W,H);
+    pts.forEach((p,i) => {
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+      if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = i%4===0 ? 'rgba(255,107,26,0.3)' : 'rgba(15,23,42,0.1)';
       ctx.fill();
-      for (let j = i+1; j < N; j++) {
-        const p2 = pts[j];
-        const d = Math.hypot(p.x-p2.x, p.y-p2.y);
-        if (d < 130) {
+      for(let j=i+1;j<N;j++){
+        const p2=pts[j], d=Math.hypot(p.x-p2.x,p.y-p2.y);
+        if(d<140){
           ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
-          ctx.strokeStyle = `rgba(10,25,69,${.08 * (1-d/130)})`;
-          ctx.lineWidth = .8; ctx.stroke();
+          ctx.strokeStyle=`rgba(15,23,42,${0.03*(1-d/140)})`;
+          ctx.lineWidth=0.8; ctx.stroke();
         }
       }
     });
@@ -1623,132 +1705,159 @@ document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
   draw();
 })();
 
-/* ---- TAB SWITCHING ---- */
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+/* ---- COUNT UP ---- */
+function countUp(el) {
+  const target = +el.dataset.target, dur = 1600;
+  const step = target / (dur/16); let cur = 0;
+  const t = setInterval(() => {
+    cur = Math.min(cur+step, target);
+    el.textContent = Math.floor(cur);
+    if(cur>=target) clearInterval(t);
+  },16);
+}
+const cob = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ countUp(e.target); cob.unobserve(e.target); } });
+},{threshold:0.5});
+document.querySelectorAll('.count-val').forEach(el => cob.observe(el));
+
+/* ---- REVEAL ---- */
+const rvob = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); rvob.unobserve(e.target); } });
+},{threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => rvob.observe(el));
+
+/* ---- TABS ---- */
+function openTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   if (btn) btn.classList.add('active');
   else {
-    // called from footer without btn reference
-    const allBtns = document.querySelectorAll('.tab-btn');
-    const tabMap = {sensors:0, vision:1, safety:2, plc:3, plant:4};
-    if (tabMap[id] !== undefined) allBtns[tabMap[id]].classList.add('active');
+    const map = {sensors:0,vision:1,safety:2,plc:3,plant:4};
+    const tabs = document.querySelectorAll('.tab');
+    if(map[id]!=null) tabs[map[id]].classList.add('active');
   }
-  const tab = document.getElementById('tab-' + id);
-  if (tab) tab.classList.add('active');
+  const panel = document.getElementById('panel-'+id);
+  if(panel) panel.classList.add('active');
 }
 
 /* ---- MODAL ---- */
-let currentProduct = '';
+let currentProd = '';
 function openModal(title, desc, s1, s2, s3, s4) {
-  currentProduct = title;
+  currentProd = title;
   document.getElementById('m-title').textContent = title;
   document.getElementById('m-desc').textContent = desc;
   document.getElementById('m-s1').textContent = s1;
   document.getElementById('m-s2').textContent = s2;
   document.getElementById('m-s3').textContent = s3;
   document.getElementById('m-s4').textContent = s4;
-  document.getElementById('m-wa').href =
-    `https://wa.me/919724648038?text=Hello Veltonics! I am interested in knowing more about the ${encodeURIComponent(title)}. Please share pricing and catalogue.`;
-  document.getElementById('productModal').classList.add('active');
+  document.getElementById('m-wa-link').href =
+    `https://wa.me/919724648038?text=Hello%20Veltonics!%20I%20am%20interested%20in%20the%20${encodeURIComponent(title)}.%20Please%20share%20pricing%20and%20catalogue.`;
+  const m = document.getElementById('modal');
+  m.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeModal(e) {
-  if (e && e.target !== document.getElementById('productModal')) return;
-  document.getElementById('productModal').classList.remove('active');
+  if(e && e.target !== document.getElementById('modal')) return;
+  document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 
-/* ---- DOWNLOAD CATALOGUE ---- */
-function downloadCatalogue() {
-  const name = currentProduct.replace(/\s+/g, '_');
-  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Veltonics - ${currentProduct}</title><style>
-    body{font-family:'Segoe UI',sans-serif;padding:48px;color:#334155;max-width:820px;margin:0 auto}
-    .header{border-bottom:3px solid #0a1945;padding-bottom:24px;margin-bottom:32px;display:flex;justify-content:space-between;align-items:flex-end}
-    h1{color:#0a1945;margin:0;font-size:2.4rem;letter-spacing:.02em}
-    .dot{width:16px;height:16px;background:#f97316;border-radius:50%;display:inline-block;margin-left:4px;vertical-align:bottom}
-    h2{color:#f97316;margin-top:32px;font-size:1.4rem}
-    .specs{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#f8fafc;padding:24px;border-radius:10px;margin:24px 0}
-    .spec{border-left:3px solid #f97316;padding-left:12px}
-    .spec-l{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;margin-bottom:4px}
-    .spec-v{font-size:.95rem;font-weight:600;color:#0f172a}
-    .contact{background:#0a1945;color:#fff;padding:28px;border-radius:10px;margin-top:40px}
-    .contact h3{color:#f97316;margin:0 0 12px}
-    .contact p{margin:4px 0;font-size:.9rem;opacity:.85}
-    .footer{margin-top:48px;font-size:.8rem;color:#94a3b8;text-align:center;border-top:1px solid #e2e8f0;padding-top:20px}
-  </style></head><body>
-    <div class="header"><div><h1>VELTONICS<span class="dot"></span></h1><p style="margin:.5rem 0 0;color:#64748b;font-size:.85rem">Premium Industrial Automation & Safety Solutions</p></div><p style="font-size:.8rem;color:#94a3b8">Generated: ${new Date().toLocaleDateString('en-IN')}</p></div>
-    <h2>Product Data Sheet: ${currentProduct}</h2>
-    <p>This official specification sheet confirms that the <strong>${currentProduct}</strong> meets stringent industrial standards and integration requirements. Backed by Veltonics India's full warranty and AMC availability.</p>
-    <h2>Technical Specifications</h2>
-    <div class="specs">
-      <div class="spec"><div class="spec-l">Protection Rating</div><div class="spec-v">${document.getElementById('m-s1').textContent}</div></div>
-      <div class="spec"><div class="spec-l">Size / Type</div><div class="spec-v">${document.getElementById('m-s2').textContent}</div></div>
-      <div class="spec"><div class="spec-l">Range / Capacity</div><div class="spec-v">${document.getElementById('m-s3').textContent}</div></div>
-      <div class="spec"><div class="spec-l">Key Feature</div><div class="spec-v">${document.getElementById('m-s4').textContent}</div></div>
-    </div>
-    <h2>Key Benefits</h2>
-    <ul style="line-height:2"><li>Industrial-grade durability and full compliance</li><li>Engineered for demanding Indian manufacturing environments</li><li>Backed by Veltonics Warranty & optional AMC coverage</li><li>Immediate deployment support and expert consultation</li></ul>
-    <div class="contact"><h3>Need engineering support?</h3><p>Our specialists are ready to assist with dimensional drawings, CAD files, and bulk pricing.</p><p style="margin-top:12px"><strong>📞</strong> +91 97246 48038 &nbsp;|&nbsp; <strong>✉</strong> info@veltonics.com</p></div>
-    <div class="footer">© 2026 Veltonics India Pvt. Ltd. · Ahmedabad, Gujarat, India · Confidential</div>
-  </body></html>`;
-  const blob = new Blob([html], {type:'text/html'});
+/* ---- DATASHEET (Updated for Light Mode Gen) ---- */
+function downloadSheet() {
+  const slug = currentProd.replace(/\s+/g,'_');
+  const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Veltonics – ${currentProd}</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',sans-serif;background:#FFFFFF;color:#334155;padding:56px;max-width:900px;margin:0 auto}
+  .header{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:24px;border-bottom:2px solid #FF6B1A;margin-bottom:40px}
+  .brand{font-size:2rem;font-weight:800;letter-spacing:.05em;color:#0F172A}
+  .brand span{display:inline-block;width:8px;height:8px;background:#FF6B1A;border-radius:50%;margin-left:3px;vertical-align:middle}
+  .date{font-size:.75rem;color:#64748B;font-family:monospace;letter-spacing:.06em}
+  h1{font-size:2.2rem;font-weight:700;color:#0F172A;margin-bottom:.5rem}
+  h2{font-size:1rem;font-weight:600;color:#FF6B1A;letter-spacing:.12em;text-transform:uppercase;margin:2.5rem 0 1rem}
+  p{line-height:1.8;color:#475569;font-size:1.05rem}
+  .specs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:2rem;margin:1.5rem 0}
+  .spec{border-left:2px solid #FF6B1A;padding-left:1rem}
+  .sl{font-family:monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:#64748B;margin-bottom:.3rem}
+  .sv{font-size:.95rem;font-weight:600;color:#0F172A}
+  ul{color:#475569;padding-left:1.5rem;line-height:2.2;font-size:1rem}
+  .cta{background:#F1F5F9;border:1px solid #CBD5E1;border-radius:12px;padding:2rem;margin-top:3rem}
+  .cta h3{color:#FF6B1A;margin-bottom:.75rem;font-size:1.2rem}
+  .cta p{font-size:.95rem;color:#334155}
+  .foot{margin-top:4rem;font-size:.75rem;color:#94A3B8;text-align:center;border-top:1px solid #E2E8F0;padding-top:1.5rem}
+</style></head><body>
+<div class="header"><div><div class="brand">VELTONICS<span></span></div><p style="color:#64748B;font-size:.85rem;margin-top:.3rem">Premium Industrial Automation & Safety</p></div><div class="date">Datasheet · ${new Date().toLocaleDateString('en-IN')}</div></div>
+<h1>${currentProd}</h1>
+<p>${document.getElementById('m-desc').textContent}</p>
+<h2>Technical Specifications</h2>
+<div class="specs">
+<div class="spec"><div class="sl">Protection Rating</div><div class="sv">${document.getElementById('m-s1').textContent}</div></div>
+<div class="spec"><div class="sl">Size / Type</div><div class="sv">${document.getElementById('m-s2').textContent}</div></div>
+<div class="spec"><div class="sl">Range / Capacity</div><div class="sv">${document.getElementById('m-s3').textContent}</div></div>
+<div class="spec"><div class="sl">Key Feature</div><div class="sv">${document.getElementById('m-s4').textContent}</div></div>
+</div>
+<h2>Key Benefits</h2>
+<ul>
+<li>Industrial-grade durability and full regulatory compliance</li>
+<li>Engineered for demanding Indian manufacturing environments</li>
+<li>Backed by Veltonics Warranty &amp; optional AMC coverage</li>
+<li>Immediate deployment support and expert consultation available</li>
+</ul>
+<div class="cta"><h3>Need engineering support?</h3><p>Our specialists provide dimensional drawings, CAD files, and bulk pricing on request.<br><br><strong>📞</strong> +91 97246 48038 &nbsp;|&nbsp; <strong>✉</strong> info@veltonics.com &nbsp;|&nbsp; Ahmedabad, Gujarat, India</p></div>
+<div class="foot">© 2026 Veltonics India Pvt. Ltd. · Confidential</div>
+</body></html>`;
+  const blob = new Blob([html],{type:'text/html'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = `Veltonics_${name}_Datasheet.html`;
+  a.href=url; a.download=`Veltonics_${slug}_Datasheet.html`;
   document.body.appendChild(a); a.click();
   document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 
-/* ---- WHATSAPP LEAD ---- */
-function submitLead() {
-  const name = document.getElementById('lead-name').value.trim();
-  const co = document.getElementById('lead-company').value.trim();
-  const city = document.getElementById('lead-city').value.trim();
-  const prod = document.getElementById('lead-product').value;
-  if (!name || !co || !city || !prod) {
-    alert('Please fill in all the details so we can assist you better.');
+/* ---- QUOTE FORM ---- */
+function sendLead() {
+  const name = document.getElementById('f-name').value.trim();
+  const co   = document.getElementById('f-company').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  const prod = document.getElementById('f-product').value;
+  if(!name||!co||!city||!prod){
+    alert('Please fill in all required fields so our team can assist you properly.');
     return;
   }
-  const msg = `Hello Veltonics!\n\nNew inquiry from website:\n\n*Name:* ${name}\n*Company:* ${co}\n*City:* ${city}\n*Interested In:* ${prod}\n\nKindly share pricing and catalogue details.`;
-  window.open(`https://wa.me/919724648038?text=${encodeURIComponent(msg)}`, '_blank');
+  const msg = `Hello Veltonics!\n\n📋 *New Website Inquiry*\n\n*Name:* ${name}\n*Company:* ${co}\n*City:* ${city}\n*Interest:* ${prod}\n\nKindly share pricing, availability, and catalogue.`;
+  window.open(`https://wa.me/919724648038?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
 /* ---- CHATBOT ---- */
 let chatStep = 0;
+const replies = [
+  "Great! We specialize in sensors, vision systems, machine safety, PLCs/HMI, and industrial PPE. Which industry are you in? (e.g., Automotive, Pharma, Food & Beverage)",
+  "Excellent. For tailored recommendations and pricing, I'll connect you with our engineers. Reach us at +91 97246 48038 or via the WhatsApp button below for instant response!",
+  "For immediate assistance, please contact us at +91 97246 48038 or info@veltonics.com — or use the green WhatsApp button for pricing and catalogues."
+];
 function toggleChat() {
-  document.getElementById('chatbot').classList.toggle('hidden');
+  document.getElementById('chat').classList.toggle('hidden');
 }
-function sendChat() {
-  const inp = document.getElementById('chat-input');
+function sendMsg() {
+  const inp = document.getElementById('chat-inp');
   const msg = inp.value.trim();
-  if (!msg) return;
+  if(!msg) return;
   inp.value = '';
-  addMsg(msg, 'user');
-  const typing = addMsg('', 'bot typing');
+  addChatMsg(msg, 'user');
+  const typing = addChatMsg('…', 'bot');
   setTimeout(() => {
     typing.remove();
-    let reply = '';
-    if (chatStep === 0) {
-      reply = 'Great! We specialize in sensors, vision systems, machine safety, PLCs, and PPE. Which industry are you in? (e.g., Automotive, Pharma, Packaging)';
-      chatStep++;
-    } else if (chatStep === 1) {
-      reply = 'Excellent. For tailored recommendations and pricing, I\'ll connect you with our engineers. Reach us at +91 97246 48038 or info@veltonics.com — or use the WhatsApp button below!';
-      chatStep++;
-    } else {
-      reply = 'For immediate assistance, contact us at +91 97246 48038 or use the WhatsApp Chat button for instant pricing and catalogues.';
-    }
-    addMsg(reply, 'bot');
-  }, 900);
+    addChatMsg(replies[Math.min(chatStep, replies.length-1)], 'bot');
+    chatStep++;
+  }, 800);
 }
-function addMsg(text, cls) {
+function addChatMsg(text, cls) {
   const box = document.getElementById('chat-msgs');
   const el = document.createElement('div');
-  el.className = `msg ${cls}`;
-  el.textContent = text;
-  box.appendChild(el);
-  box.scrollTop = box.scrollHeight;
+  el.className = `chat-msg ${cls}`; el.textContent = text;
+  box.appendChild(el); box.scrollTop = box.scrollHeight;
   return el;
 }
 </script>
